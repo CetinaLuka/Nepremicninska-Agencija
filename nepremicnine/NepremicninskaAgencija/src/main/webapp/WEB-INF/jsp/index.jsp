@@ -21,7 +21,7 @@
 			<!--
 			CSS
 			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">=
+			<link rel="stylesheet" href="css/linearicons.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/nice-select.css">
 		    <link rel="stylesheet" href="css/ion.rangeSlider.css" />

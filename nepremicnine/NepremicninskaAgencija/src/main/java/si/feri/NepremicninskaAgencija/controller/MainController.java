@@ -19,4 +19,9 @@ public class MainController {
         model.addAttribute("message", this.message);
         return "index";
     }
+    @RequestMapping(value = {"/dodajanjeNepremicnin" }, method = RequestMethod.GET)
+    public String dodajanjeNepremicnin(Model model) {
+        model.addAttribute("message", this.message);
+        return "dodajanjeNepremicnin";
+    }
 }

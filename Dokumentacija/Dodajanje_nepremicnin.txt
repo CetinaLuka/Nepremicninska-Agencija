@@ -1,0 +1,12 @@
+﻿Dodajanje stanovanja:
+Kraj - name:kraj
+Kvadratura - name:kvadratura
+Število sob - name:stevilo_sob
+Letnik izgradnje - name:letnik_izgradnje
+Nadstropje - name:nadstropje
+Prenovljeno - name:prenovljeno (checkbox)
+Letnik prenove - name: letnik_prenove
+Garaža - name:garaza (checkbox)
+Balkon - name:balkon (checkbox)
+Dodaten opis - name:dodaten_opis_check (checkbox)
+Dodaten opis - name:dodaten_opis (textarea)
