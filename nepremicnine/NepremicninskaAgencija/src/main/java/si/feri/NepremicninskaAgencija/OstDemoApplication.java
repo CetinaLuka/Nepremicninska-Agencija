@@ -1,4 +1,4 @@
-package si.feri.ost.ost.demo;
+package si.feri.NepremicninskaAgencija;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

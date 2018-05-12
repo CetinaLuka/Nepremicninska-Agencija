@@ -1,4 +1,4 @@
-package si.feri.ost.ost.demo.controller;
+package si.feri.NepremicninskaAgencija.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

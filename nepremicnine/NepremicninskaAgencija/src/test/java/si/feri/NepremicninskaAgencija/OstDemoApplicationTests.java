@@ -1,4 +1,4 @@
-package si.feri.ost.ost.demo;
+package si.feri.NepremicninskaAgencija;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
