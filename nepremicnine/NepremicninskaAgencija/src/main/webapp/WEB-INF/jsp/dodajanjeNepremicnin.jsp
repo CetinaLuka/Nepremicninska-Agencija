@@ -80,35 +80,31 @@
 			</div>
 			</section>
 			<br />
-			<!-- End banner Area -->
-				<!-- Start city Area -->
-				<section class="city-area pb-100">
-					<div class="container">
-						<div class="row">
-							<div class="col-4 text-center">
-								<a href="#dodaj_stanovanje">
-								<button class="genric-btn primary circle">
-									Stanovanje
-								</button>
-								</a>
-							</div>
-							<div class="col-4 text-center">
-								<button class="genric-btn primary circle">
-									Hiša
-								</button>
-							</div>
-							<div class="col-4 text-center">
-								<button class="genric-btn primary circle">
-									Posest
-								</button>
-							</div>
-						</div>
+			<!--gumbi za dodajanje nepremicnin-->
+			<div class="container">
+				<div class="row scroll-gumbi">
+					<div class="col-4 text-center">
+						<a href="#dodaj_stanovanje">
+							<button class="genric-btn primary circle">
+								Stanovanje
+							</button>
+						</a>
 					</div>
-				</section>
-				<!-- End city Area -->
-
-
-				<!-- Start Generic Area -->
+					<div class="col-4 text-center">
+						<a href="#dodaj_hiso">
+							<button class="genric-btn primary circle">
+								Hiša
+							</button>
+						</a>
+					</div>
+					<div class="col-4 text-center">
+						<button class="genric-btn primary circle">
+							Posest
+						</button>
+					</div>
+				</div>
+			</div>
+			<section class="section-gap" id="dodaj_stanovanje">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
@@ -117,7 +113,7 @@
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<form name="dodaj_stanovanje" id="dodaj_stanovanje" method="POST">
+							<form name="dodaj_stanovanje" method="POST">
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
@@ -188,6 +184,22 @@
 						</div>
 					</div>
 				</div>
+			</section>
+
+			<section class="section-gap" id="dodaj_hiso">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h2>Dodaj hišo</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							throw NotImplementedYetException()
+						</div>
+					</div>
+				</div>
+			</section>
 				<!-- End Generic Start -->
 
 				<!-- start footer Area -->
@@ -277,5 +289,21 @@
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>
+			<script>
+				//scrolling za dodajanje nepremicnin
+                $(".scroll-gumbi div a[href^='#']").on('click', function(event) {
+                    var target = this.hash;
+
+                    event.preventDefault();
+
+                    var navOffset = $('#navbar').height();
+
+                    return $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top-70 - navOffset
+                    }, 600, function() {
+                        return window.history.pushState(null, null, target);
+                    });
+                });
+			</script>
 	</body>
 </html>
