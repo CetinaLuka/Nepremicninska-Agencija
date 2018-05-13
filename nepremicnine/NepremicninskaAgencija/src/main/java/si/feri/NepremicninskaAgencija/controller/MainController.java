@@ -43,8 +43,8 @@ public class MainController {
         @RequestParam(value="letnik_izgradnje",required=true)int letnik_izgradnje,@RequestParam(value="nadstropje",required=true)int nadstropje,
         @RequestParam(value="cena",required=true)double cena,@RequestParam(value="prenovljeno",required=true)boolean prenovljeno,
         @RequestParam(value="letnik_prenove",required=true)int letnik_prenove,@RequestParam(value="garaza",required=true)boolean garaza,
-        @RequestParam(value="balkon",required=true)boolean balkon,@RequestParam(value="dodaten_opis_check",required=true)boolean dodaten_opis_check,
-        @RequestParam(value="dodaten_opis",required=true)String dodaten_opis) {
+        @RequestParam(value="balkon",required=true)boolean balkon,@RequestParam(value="dodaten_opis_stanovanja_check",required=true)boolean dodaten_opis_check,
+        @RequestParam(value="dodaten_opis_stanovanja",required=true)String dodaten_opis) {
 
 
         model.addAttribute("dodanoStanovanje",nepremicninaDao.addStanovanje(kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, cena, prenovljeno, letnik_prenove, garaza, balkon ,dodaten_opis_check, dodaten_opis));

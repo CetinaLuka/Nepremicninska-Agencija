@@ -23,6 +23,9 @@ $(document).ready(function(){
     if(document.getElementById("vrsta_hise")){
         $('select').niceSelect();
     };
+    if(document.getElementById("vrsta_posesti")){
+        $('select').niceSelect();
+    };
     if(document.getElementById("property")){
           $('select').niceSelect();
     };
