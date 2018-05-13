@@ -20,7 +20,9 @@ $(document).ready(function(){
      if(document.getElementById("default-select")){
           $('select').niceSelect();
     };
-
+    if(document.getElementById("vrsta_hise")){
+        $('select').niceSelect();
+    };
     if(document.getElementById("property")){
           $('select').niceSelect();
     };

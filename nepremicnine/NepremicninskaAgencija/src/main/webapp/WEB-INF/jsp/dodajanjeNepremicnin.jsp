@@ -72,7 +72,8 @@
 			<div class="container pt-90">
 				<div class="row align-items-center justify-content-center">
 					<div class="col-lg-10">
-						<div class="generic-banner-content">
+						<div class="generic-banner-content text-center">
+							<h2 class="text-white">Dodajanje nepremičnin</h2>
 							<p class="text-white">Dodajte hišo, stanovanje ali posest v našo bazo nepremičnin.</p>
 						</div>
 					</div>
@@ -84,27 +85,29 @@
 			<div class="container">
 				<div class="row scroll-gumbi">
 					<div class="col-4 text-center">
-						<a href="#dodaj_stanovanje">
+						<a href="#dodaj_stanovanje_section">
 							<button class="genric-btn primary circle">
 								Stanovanje
 							</button>
 						</a>
 					</div>
 					<div class="col-4 text-center">
-						<a href="#dodaj_hiso">
+						<a href="#dodaj_hiso_section">
 							<button class="genric-btn primary circle">
 								Hiša
 							</button>
 						</a>
 					</div>
 					<div class="col-4 text-center">
-						<button class="genric-btn primary circle">
-							Posest
-						</button>
+						<a href="#dodaj_posest_section">
+							<button class="genric-btn primary circle">
+								Posest
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
-			<section class="section-gap" id="dodaj_stanovanje">
+			<section class="section-gap" id="dodaj_stanovanje_section">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
@@ -113,7 +116,7 @@
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<form name="dodaj_stanovanje" method="POST">
+							<form name="dodaj_stanovanje_form" method="POST">
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
@@ -134,7 +137,8 @@
 								<div class="mt-10">
 									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
 								</div>
-								<div class="mt-10">
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
 									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
 								</div>
 								<div class="switch-wrap d-flex mt-1">
@@ -186,7 +190,7 @@
 				</div>
 			</section>
 
-			<section class="section-gap" id="dodaj_hiso">
+			<section class="section-gap" id="dodaj_hiso_section">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
@@ -195,7 +199,108 @@
 					</div>
 					<div class="row">
 						<div class="col-12">
-							throw NotImplementedYetException()
+							<form name="dodaj_hiso_form">
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
+								</div>
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="kvadratura" placeholder="Kvadratura" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura'" required class="single-input" />
+								</div>
+								<div class="mt-10">
+									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča'" required class="single-input" />
+								</div>
+								<label class="mt-1">Vrsta hiše</label>
+								<div class="default-select" id="default-select">
+									<select>
+										<option value="1">Samostojna</option>
+										<option value="2">Dvojček</option>
+										<option value="3">Vrstna</option>
+									</select>
+								</div>
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
+								</div>
+								<div class="mt-10">
+									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
+								</div>
+								<div class="switch-wrap d-flex mt-1">
+									<div class="primary-checkbox mr-10 mt-1">
+										<input type="checkbox" name="garaza" id="garaza_hisa">
+										<label for="garaza_hisa"></label>
+									</div>
+									<p>Garaža</p>
+								</div>
+								<div class="switch-wrap d-flex">
+									<div class="primary-switch mr-10">
+										<input type="checkbox" id="opis_hise" data-toggle="collapse" data-target="#skrij_opis_hise">
+										<label for="opis_hise"></label>
+									</div>
+									<p>Dodaten opis</p>
+								</div>
+								<div class="mt-10 mb-10 collapse" id="skrij_opis_hise">
+									<textarea name="dodaten_opis_hise" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
+								</div>
+								<div class="text-center">
+									<button type="submit" class="genric-btn primary-border circle mb-50">
+										Dodaj hišo
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-gap" id="dodaj_posest_section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h2>Dodaj posest</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<form>
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča'" required class="single-input" />
+								</div>
+								<label class="mt-1">Vrsta posesti</label>
+								<div class="default-select">
+									<select>
+										<option value="1">Zazidljiva</option>
+										<option value="2">Nezazidljiva</option>
+										<option value="3">Kmetijsko zemljišče</option>
+									</select>
+								</div>
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
+								</div>
+								<div class="switch-wrap d-flex mt-10">
+									<div class="primary-switch mr-10">
+										<input type="checkbox" id="opis_posesti" data-toggle="collapse" data-target="#skrij_opis_posesti">
+										<label for="opis_posesti"></label>
+									</div>
+									<p>Dodaten opis</p>
+								</div>
+								<div class="collapse" id="skrij_opis_posesti">
+									<textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
+								</div>
+								<div class="text-center mt-10">
+									<button type="submit" class="genric-btn primary-border circle mb-50">
+										Dodaj hišo
+									</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>

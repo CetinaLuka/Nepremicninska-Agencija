@@ -1548,7 +1548,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   border-radius: 3px;
   cursor: pointer;
-  border: 1px solid #d6d6d6/*border: 1px solid #f1f1f1;*/
+  border: 1px solid #e2e2e2;
 }
 
 .primary-checkbox input:checked + label {
@@ -1818,7 +1818,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 0px;
   height: 40px;
-  background: #f9f9ff;
+  background: #e8e8ee;
   padding-left: 45px;
   padding-right: 40px;
   width: 100%;
