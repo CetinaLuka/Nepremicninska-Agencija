@@ -1242,7 +1242,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 40px;
   border: none;
   outline: none;
-  background: #f9f9ff;
+  background: #e8e8ee; /*background: #f9f9ff;*/
   padding: 0 20px;
 }
 
@@ -1276,7 +1276,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 40px;
   border: none;
   outline: none;
-  background: #f9f9ff;
+  background: #e8e8ee;/*background: #f9f9ff; prvotno*/
   padding: 0 20px;
   height: 100px;
   resize: none;
@@ -1376,7 +1376,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 35px;
   height: 17px;
   border-radius: 8.5px;
-  background: #f9f9ff;
+  background: #e8e8ee;/*background: #f9f9ff;* prvotno*/
   position: relative;
   cursor: pointer;
 }
@@ -1522,7 +1522,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 16px;
   height: 16px;
   border-radius: 3px;
-  background: #f9f9ff;
+  background: #e8e8ee;/*background: #f9f9ff;*/
   position: relative;
   cursor: pointer;
 }
@@ -1548,7 +1548,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   border-radius: 3px;
   cursor: pointer;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #d6d6d6/*border: 1px solid #f1f1f1;*/
 }
 
 .primary-checkbox input:checked + label {
