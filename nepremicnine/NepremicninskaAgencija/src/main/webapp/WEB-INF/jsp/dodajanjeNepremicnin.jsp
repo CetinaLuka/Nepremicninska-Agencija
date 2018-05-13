@@ -121,9 +121,15 @@
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
 								</div>
+								<div class="mt-10">
+									<input type="text" name="hisna_st" placeholder="Hišna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Hišna številka'" required class="single-input">
+								</div>
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
 									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
 								<div class="mt-10">
 									<input type="text" name="kvadratura" placeholder="Kvadratura" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura'" required class="single-input" />
@@ -179,10 +185,8 @@
 								<button class="genric-btn default mb-10">
 									Dodaj slike
 								</button>-->
-								<div class="text-center">
-									<button type="submit" class="genric-btn primary-border circle mb-50">
-										Dodaj stanovanje
-									</button>
+								<div class="text-center mt-10">
+									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
 								</div>
 							</form>
 						</div>
@@ -204,9 +208,15 @@
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
 								</div>
+								<div class="mt-10">
+									<input type="text" name="hisna_st" placeholder="Hišna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Hišna številka'" required class="single-input">
+								</div>
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
 									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
 								<div class="mt-10">
 									<input type="text" name="kvadratura" placeholder="Kvadratura" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura'" required class="single-input" />
@@ -246,10 +256,8 @@
 								<div class="mt-10 mb-10 collapse" id="skrij_opis_hise">
 									<textarea name="dodaten_opis_hise" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
 								</div>
-								<div class="text-center">
-									<button type="submit" class="genric-btn primary-border circle mb-50">
-										Dodaj hišo
-									</button>
+								<div class="text-center mt-10">
+									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
 								</div>
 							</form>
 						</div>
@@ -269,6 +277,16 @@
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="hisna_st" placeholder="Hišna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Hišna številka'" required class="single-input">
+								</div>
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
+								</div>
+								<div class="mt-10">
+									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
 								<div class="mt-10">
 									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča'" required class="single-input" />
@@ -296,10 +314,8 @@
 									<textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
 								</div>
 								<div class="text-center mt-10">
-									<button type="submit" class="genric-btn primary-border circle mb-50">
-										Dodaj hišo
-									</button>
-								</div>
+								<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+							</div>
 							</form>
 						</div>
 					</div>
