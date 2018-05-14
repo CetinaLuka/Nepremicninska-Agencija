@@ -137,7 +137,7 @@
 								</div>
 								<!--Polje za vnos kvadrature - name:kvadratura-->
 								<div class="mt-10">
-									<input type="text" name="kvadratura" placeholder="Kvadratura" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura'" required class="single-input" />
+									<input type="text" name="kvadratura" placeholder="Kvadratura (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura (m²)'" required class="single-input" />
 								</div>
 								<!--Polje za vnos števila sob - name:stevilo_sob-->
 								<div class="mt-10">
@@ -239,11 +239,11 @@
 								</div>
 								<!--Polje za vnos kvadrature - name:kvadratura-->
 								<div class="mt-10">
-									<input type="text" name="kvadratura" placeholder="Kvadratura" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura'" required class="single-input" />
+									<input type="text" name="kvadratura" placeholder="Kvadratura (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura (m²)'" required class="single-input" />
 								</div>
 								<!--Polje za vnos velikosti zemljišča - name:velikost_zemljisca-->
 								<div class="mt-10">
-									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča'" required class="single-input" />
+									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
 								<!--Select za vnos vrste hiše - name:vrsta_hise-->
 								<label class="mt-1">Vrsta hiše</label>
@@ -316,7 +316,7 @@
 									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
 								<div class="mt-10">
-									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča'" required class="single-input" />
+									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
 								<label class="mt-1">Vrsta posesti</label>
 								<div class="default-select" id="vrsta_posesti">
