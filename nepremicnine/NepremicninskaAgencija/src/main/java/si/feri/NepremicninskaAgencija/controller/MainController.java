@@ -15,20 +15,22 @@ import si.feri.NepremicninskaAgencija.models.NepremicninaDao;
 public class MainController {
 
     // inject via application.properties
-    @Value("${welcome.message}")
-    private String message = "Hello World";
+   // @Value("${welcome.message}")
+    //private String message = "Hello World";
 
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("message", this.message);
+        model.addAttribute("message");
         return "index";
     }
     @RequestMapping(value = {"/dodajanjeNepremicnin" }, method = RequestMethod.GET)
     public String dodajanjeNepremicnin(Model model) {
-        model.addAttribute("message", this.message);
+        model.addAttribute("message");
         return "dodajanjeNepremicnin";
     }
+
+
 
     @Autowired
     NepremicninaDao nepremicninaDao;
