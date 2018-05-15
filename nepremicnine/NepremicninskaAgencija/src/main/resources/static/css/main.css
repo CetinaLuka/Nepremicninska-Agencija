@@ -2979,3 +2979,13 @@ h6 {
 .switch-wrap p {
   margin: 0;
 }
+/*Žan stili zakaj fucking ne dela ?
+*/
+.odebeljenTextCrneBarve label{
+  color: black ;
+  font-weight: bold ;
+}
+.krnekaj {
+  position:absolute !important;
+  width: 100%;
+}

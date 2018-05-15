@@ -488,7 +488,7 @@
 			</section>
 			<!-- End Contact Area -->	
 
-			<!-- start footer Area -->		
+			<!-- start footer Area -->
 			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
@@ -517,16 +517,16 @@
 				                            	<div style="position: absolute; left: -5000px;">
 													<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
 												</div>
-				                          	
+
 											<!-- <div class="col-lg-4 col-md-4">
 												<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
 											</div>  -->
-										</div>		
+										</div>
 										<div class="info"></div>
 										</form>
 								</div>
 								</div>
-						</div>						
+						</div>
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget mail-chimp">
 								<h6 class="mb-20">Instragram Feed</h6>
@@ -553,7 +553,7 @@
 									<a href="#"><i class="fa fa-behance"></i></a>
 								</div>
 							</div>
-						</div>							
+						</div>
 					</div>
 					<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -561,7 +561,7 @@
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</div>
 				</div>
-			</footer>	
+			</footer>
 			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>

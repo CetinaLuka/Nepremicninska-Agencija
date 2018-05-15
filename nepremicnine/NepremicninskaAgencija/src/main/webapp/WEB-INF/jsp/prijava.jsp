@@ -102,83 +102,69 @@
 <main class="container">
     <br/>
     <br/>
-    <form>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-2"></div>
-            <div class="col-lg-4 col-md-4 col-xs-7">
-                <div class="row">
-                    <div class="input-group">
-                        <input type="text" name="EMail"
-                               placeholder="E-mail" onfocus="this.placeholder = ''"
-                               onblur="this.placeholder = ''"
-                               required class="single-input">
+
+    <form action="#" method="post">
+            <div class="container">
+                <div class="row  align-items-center justify-content-center">
+                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputEmailPriPrijavi">
+                       <strong>E-mail:</strong>
+                    </label>
+                </div>
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="geslo"
+                                   id="inputEmailPriPrijavi"
+                                   placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = ''"
+                                   required class="single-input">
+                        </div>
+                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row  align-items-center justify-content-center">
+                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriPrijavi">
+                       <strong>Geslo:</strong>
+                    </label>
+                </div>
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="input-group">
+                            <input type="password" name="geslo"
+                                   id="inputGesloPriPrijavi"
+                                   placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = ''"
+                                   required class="single-input">
+                        </div>
+                        <!--action listiner za napako pri objavi -->
+                    </div>
                 </div>
 
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="row">
+                           <div class="col-6 text-left">
+                             <a href="#">
+                                <p>Pozabil sem geslo!</p>
+                           </div>
+                                <div class="col-6 text-right">
+                                 <a href="#" >
+                                     <p>Želim se registrirat!</p>
+                                 </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <button type="submit" class="genric-btn primary circle pull-right">
+                            Prijava
+                         </button>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-2"></div>
-            <br/>
-        </div>
-
-
-
-
-        <br/>
-
-
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-2"></div>
-            <div class="col-lg-4 col-md-4 col-xs-7">
-                <div class="row">
-                    <div class="input-group">
-                        <input type="text" name="geslo"
-                               placeholder="Geslo" onfocus="this.placeholder = ''"
-                               onblur="this.placeholder = ''"
-                               required class="single-input">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <a>
-                            <p>Želim se registrirat!</p>
-                        </a>
-                    </div>
-                    <div class="col-6 text-right">
-                        <a>
-                            <p>Pozabil sem geslo!</p>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-2"></div>
-            <br/>
-        </div>
-
-
-
-
-
-
-        <div class="row">
-            <div class="col-lg-6 col-md-4 col-xs-2"></div>
-            <div class="col-lg-4 col-md-4 col-xs-7">
-
-                <button class="genric-btn primary circle">
-                    Prijava
-                </button>
-
-            </div>
-            <div class="col-lg-2 col-md-4 col-xs-2"></div>
-            <br/>
-        </div>
-
-
-
-
-
     </form>
 
 </main>
@@ -200,32 +186,17 @@
 
 
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
 
 
 <!-- End Generic Start -->
 
-<!-- start footer Area -->
-<footer class="footer-area footer navbar-fixed-bottom">
+
+<jsp:include page="includes/footer.jsp" />
+
+<!-- start footer Area
+<footer class="footer-area fixed-bottom text-center">
     <p class="footer-block">Place sticky footer content here.</p>
-</footer>
+</footer>-->
 <!-- End footer Area -->
 </div>
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
