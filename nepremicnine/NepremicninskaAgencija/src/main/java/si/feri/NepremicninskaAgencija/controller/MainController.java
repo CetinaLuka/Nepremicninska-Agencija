@@ -9,6 +9,7 @@ import si.feri.NepremicninskaAgencija.repositories.Agent_test;
 
 @Controller
 public class MainController {
+    Agent_test at = new Agent_test();
 
     // inject via application.properties
     @Value("${welcome.message}")
@@ -18,8 +19,7 @@ public class MainController {
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("message", this.message);
-        Agent_test at = new Agent_test();
-        try {
+                try {
             at.readDataBase();
         } catch (Exception e) {
             e.printStackTrace();

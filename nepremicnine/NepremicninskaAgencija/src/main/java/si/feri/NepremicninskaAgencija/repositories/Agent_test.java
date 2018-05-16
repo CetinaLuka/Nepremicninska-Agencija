@@ -1,5 +1,6 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,55 +19,42 @@ public class Agent_test{
      try {
         // This will load the MySQL driver, each DB has its own driver
         Class.forName("com.mysql.cj.jdbc.Driver");
+
         // Setup the connection with the DB
-        connect = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC", "root", "root");
+         //ZA VSAK DAO SVOJA POVEZAVA IN ZAPIRANJE BAZE
+        connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC", "root", "root");
+
+        System.out.println("začetek: ");
 
         // Statements allow to issue SQL queries to the database
         statement = connect.createStatement();
        // Result set get the result of the SQL query
-        resultSet = statement
-                .executeQuery("select * from agent_test");
-         ResultSet rs = statement.executeQuery("select * from agent_test");
-         while (rs.next())
-         {
-             int foo = rs.getInt(1);
-             System.out.println(foo);
-         }
-/*
-        // PreparedStatements can use variables and are more efficient
-        preparedStatement = connect
-                .prepareStatement("insert into  test.agent_test values (default, ?, ?)");
-        // "myuser, webpage, datum, summary, COMMENTS from feedback.comments");
-        // Parameters start with 1
-        preparedStatement.setString(1, "luka");
-        preparedStatement.setString(2, "pečnik");
-       // preparedStatement.setString(3, "TestWebpage");
-       // preparedStatement.setDate(4, new java.sql.Date(2009, 12, 11));
-       // preparedStatement.setString(5, "TestSummary");
-       // preparedStatement.setString(6, "TestComment");
-        //preparedStatement.executeUpdate();
-*/
-        preparedStatement = connect
-                .prepareStatement("SELECT ime, priimek from agent_test");
-        resultSet = preparedStatement.executeQuery();
+        resultSet = statement.executeQuery("select * from agent");
+        writeResultSet(resultSet);
 
-         ResultSet rs2 = statement.executeQuery("select ime, priimek from agent_test");
-         while (rs2.next())
-         {
-             int foo = rs2.getInt(1);
-             System.out.println(foo);
-         }
-/*
-        // Remove again the insert comment
-        preparedStatement = connect
-                .prepareStatement("delete from feedback.comments where myuser= ? ; ");
-        preparedStatement.setString(1, "Test");
+        preparedStatement = connect.prepareStatement("insert into  agent values (default, ?, ?,?,?,?)");
+        // Parameters start with 1
+         preparedStatement.setString(1, "Eva");
+        preparedStatement.setString(2, "Smolak");
+        preparedStatement.setString(3, "mail");
+         preparedStatement.setString(4, "031");
+         preparedStatement.setString(5, "geslo");
+        // preparedStatement.setString(6, "xyz");
         preparedStatement.executeUpdate();
 
-        resultSet = statement
-                .executeQuery("select * from feedback.comments");
-   */
+        System.out.println("po vnosu: ");
+         resultSet = statement.executeQuery("select * from agent");
+         writeResultSet(resultSet);
+
+
+         System.out.println("po zbrisu: ");
+        // Remove again the insert comment
+        preparedStatement = connect.prepareStatement("delete from agent where Ime= ? ; ");
+        preparedStatement.setString(1, "Luka");
+        preparedStatement.executeUpdate();
+
+         resultSet = statement.executeQuery("select * from agent");
+         writeResultSet(resultSet);
 
     } catch (Exception e) {
         throw e;
@@ -92,6 +80,20 @@ public class Agent_test{
             }
         } catch (Exception e) {
 
+        }
+    }
+
+    private void writeResultSet(ResultSet resultSet) throws SQLException {
+        // ResultSet is initially before the first data set
+        while (resultSet.next()) {
+            // It is possible to get the columns via name
+            // also possible to get the columns via the column number
+            // which starts at 1
+            // e.g. resultSet.getSTring(2);
+            String name = resultSet.getString("Ime");
+            String surname = resultSet.getString("Priimek");
+            System.out.println("IME: " + name);
+            System.out.println("PRIIMEK: " + surname);
         }
     }
 
