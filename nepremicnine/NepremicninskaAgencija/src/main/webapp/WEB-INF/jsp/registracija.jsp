@@ -266,9 +266,7 @@
 
 
 <!-- start footer Area
-<footer class="footer-area fixed-bottom text-center">
-    <p class="footer-block">Place sticky footer content here.</p>
-</footer>-->
+<jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 </div>
 <script src="js/vendor/jquery-2.2.4.min.js"></script>

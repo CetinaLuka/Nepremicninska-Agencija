@@ -136,7 +136,6 @@
 <main class="container">
     <br/>
     <br/>
-
     <form action="#" method="post" class="">
             <div class="container ">
 
@@ -235,7 +234,7 @@
 
 
 <!-- start footer Area
-
+<jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 </div>
 <script src="js/vendor/jquery-2.2.4.min.js"></script>

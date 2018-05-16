@@ -58,7 +58,7 @@
 				height: 150px;
 				width: 100%;
 				padding: 1rem;
-				background-color: #efefef;
+				background-color: #9ca5b6;
 				text-align: center;
 			}
 		</style>
