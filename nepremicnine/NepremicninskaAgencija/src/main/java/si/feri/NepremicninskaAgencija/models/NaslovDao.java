@@ -9,10 +9,10 @@ public class NaslovDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int addNaslov(String ulica, String hisnaSt){
+    public int addNaslov(String ulica, String hisnaSt, int tk_kraj){
 
-        String sql ="INSERT into NASLOV(ulica,hisnaSt) values(?,?)";
+        String sql ="INSERT into NASLOV(ulica,hisnaSt, tk_kraj) values(?,?,?)";
 
-        return jdbcTemplate.update(sql, new Object[]{ulica,hisnaSt});
+        return jdbcTemplate.update(sql, new Object[]{ulica,hisnaSt,tk_kraj});
     }
 }
