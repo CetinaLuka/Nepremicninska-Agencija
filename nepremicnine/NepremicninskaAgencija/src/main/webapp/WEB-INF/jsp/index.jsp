@@ -33,37 +33,30 @@
 
 			<!-- Start Header Area -->
 			<header class="default-header">
-				<div class="menutop-wrap">
-					<div class="menu-top container">
-						<div class="d-flex justify-content-end align-items-center">
-							<ul class="list">
-								<li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-								<li><a href="#">Sell / Rent Property</a></li>
-								<li><a href="#">login / register</a></li>
-							</ul>
-						</div>
-					</div>					
-				</div>
-
+				<br/>
 				<nav class="navbar navbar-expand-lg  navbar-light bg-light">
 					<div class="container">
 						  <a class="navbar-brand" href="index">
-						  	<img src="img/logo.png" alt="">
+						  	<img src="img/elements/logoSlika.png" alt="iknonična slika">
 						  </a>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						  <button class="navbar-toggler" type="button"
+								  data-toggle="collapse"
+								  data-target="#navbarSupportedContent"
+								  aria-controls="navbarSupportedContent"
+								  aria-expanded="false"
+								  aria-label="Toggle navigation">
+
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
 
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+						  <div class="collapse navbar-collapse  align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="#home">Domov</a></li>
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>
-								<!--Zakomentirano ker so demo strani
-								<li><a href="generic.jsp">Generic</a></li>
-								<li><a href="elements.jsp">Elements</a></li>
-								-->
+								<li class="align-content-end"><a href="#">Prijava</a></li>
+								<li class="align-self-lg-end"><a href="#">Registracija</a></li>
 						    </ul>
 						  </div>						
 					</div>
