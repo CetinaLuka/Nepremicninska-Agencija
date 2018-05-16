@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="krnekaj">
 
 <section class="generic-banner relative">
     <!-- Start Header Area -->
@@ -74,7 +74,7 @@
             <div class="col-lg-10">
                 <div class="generic-banner-content text-center">
 
-                    <h2>Prijava</h2>
+                    <h2 class="text-white">Prijava</h2>
 
                 </div>
             </div>
@@ -103,70 +103,77 @@
     <br/>
     <br/>
 
-    <form action="#" method="post">
-            <div class="container">
-                <div class="row  align-items-center justify-content-center">
-                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputEmailPriPrijavi">
-                       <strong>E-mail:</strong>
-                    </label>
-                </div>
-                <div class="row  align-items-center justify-content-center" >
-                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <div class="input-group">
-                            <input type="text" name="geslo"
-                                   id="inputEmailPriPrijavi"
-                                   placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
-                                   required class="single-input">
-                        </div>
-                        <!--action listiner za napako pri objavi -->
-                    </div>
-                </div>
+    <form action="#" method="post" class="">
+            <div class="container ">
 
-                <div class="row  align-items-center justify-content-center">
-                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriPrijavi">
-                       <strong>Geslo:</strong>
-                    </label>
-                </div>
-                <div class="row  align-items-center justify-content-center" >
-                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <div class="input-group">
-                            <input type="password" name="geslo"
-                                   id="inputGesloPriPrijavi"
-                                   placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
-                                   required class="single-input">
-                        </div>
-                        <!--action listiner za napako pri objavi -->
+                    <div class="row  align-items-center justify-content-center ">
+                        <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputEmailPriPrijavi">
+                           <strong>E-mail:</strong>
+                        </label>
                     </div>
-                </div>
+                    <div class="row  align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" name="geslo"
+                                       id="inputEmailPriPrijavi"
+                                       placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = ''"
+                                       required class="single-input">
+                            </div>
+                            <!--action listiner za napako pri objavi -->
+                        </div>
+                    </div>
 
-                <div class="row  align-items-center justify-content-center" >
-                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <div class="row">
-                           <div class="col-6 text-left">
-                             <a href="#">
-                                <p>Pozabil sem geslo!</p>
-                           </div>
-                                <div class="col-6 text-right">
-                                 <a href="#" >
-                                     <p>Želim se registrirat!</p>
+                    <div class="row  align-items-center justify-content-center">
+                        <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriPrijavi">
+                           <strong>Geslo:</strong>
+                        </label>
+                    </div>
+                    <div class="row  align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                            <div class="input-group">
+                                <input type="password" name="geslo"
+                                       id="inputGesloPriPrijavi"
+                                       placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = ''"
+                                       required class="single-input">
+                            </div>
+                            <!--action listiner za napako pri objavi -->
+                        </div>
+                    </div>
+
+                    <div class="row  align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                            <div class="row">
+                               <div class="col-6 text-left">
+                                 <a href="#">
+                                    <p>Pozabil sem geslo!</p>
                                  </a>
-                                </div>
+                               </div>
+                                    <div class="col-6 text-right">
+                                     <a href="#" >
+                                         <p>Želim se registrirat!</p>
+                                     </a>
+                                    </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row  align-items-center justify-content-center" >
-                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <button type="submit" class="genric-btn primary circle pull-right">
-                            Prijava
-                         </button>
+                    <div class="row  align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                            <button type="submit" class="genric-btn primary circle pull-right">
+                                Prijava
+                             </button>
+                        </div>
                     </div>
-                </div>
             </div>
-    </form>
 
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </main>
 
 
@@ -191,12 +198,10 @@
 <!-- End Generic Start -->
 
 
-<jsp:include page="includes/footer.jsp" />
+
 
 <!-- start footer Area
-<footer class="footer-area fixed-bottom text-center">
-    <p class="footer-block">Place sticky footer content here.</p>
-</footer>-->
+
 <!-- End footer Area -->
 </div>
 <script src="js/vendor/jquery-2.2.4.min.js"></script>

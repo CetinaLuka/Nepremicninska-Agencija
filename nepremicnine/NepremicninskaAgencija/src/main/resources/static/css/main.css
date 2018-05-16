@@ -2927,7 +2927,8 @@ h6 {
 
 .generic-banner .generic-banner-content h2 {
   line-height: 1.2em;
-  margin-bottom: 20px;
+   margin-bottom: 20px;
+
 }
 
 @media (max-width: 991px) {
@@ -2986,6 +2987,10 @@ h6 {
   font-weight: bold ;
 }
 .krnekaj {
-  position:absolute !important;
-  width: 100%;
+background-color: #fff0f4;
+font-weight: bolder;
+}
+.search-fieldV2 {
+  background-color: #fff;
+  padding: 1em;
 }

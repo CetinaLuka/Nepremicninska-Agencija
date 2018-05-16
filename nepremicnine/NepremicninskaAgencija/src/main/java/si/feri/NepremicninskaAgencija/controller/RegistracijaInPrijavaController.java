@@ -13,10 +13,15 @@ public class RegistracijaInPrijavaController {
 
 
     @RequestMapping(value = {"/prijava" }, method = RequestMethod.GET)
-    public String dodajanjeNepremicnin(Model model) {
-        model.addAttribute("message");
+    public String prijva(Model model) {
         return "prijava";
     }
+
+    @RequestMapping(value = {"/registracija" }, method = RequestMethod.GET)
+    public String registracija (Model model) {
+        return "registracija";
+    }
+
 
 
 
