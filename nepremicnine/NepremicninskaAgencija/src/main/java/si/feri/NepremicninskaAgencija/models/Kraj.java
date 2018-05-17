@@ -1,3 +1,5 @@
+package si.feri.NepremicninskaAgencija.models;
+
 public class Kraj{
 
     int id;

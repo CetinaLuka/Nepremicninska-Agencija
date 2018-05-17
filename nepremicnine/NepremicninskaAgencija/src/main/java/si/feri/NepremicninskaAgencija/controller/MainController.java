@@ -30,7 +30,12 @@ public class MainController {
         return "dodajanjeNepremicnin";
     }
 
-
+    //testen prikaz vseh vnosov
+    @RequestMapping(value = {"/seznamVseh" }, method = RequestMethod.GET)
+    public String seznamVseh(Model model) {
+        model.addAttribute("kraji",krajDao.getAllKraji());
+        return "seznamVseh";
+    }
 
     @Autowired
     NepremicninaDao nepremicninaDao;
@@ -41,15 +46,16 @@ public class MainController {
 
     @RequestMapping(value = {"/dodajanjeNepremicnin" }, method = RequestMethod.POST)
     public String dodajStanovanje(Model model, @RequestParam(value="naslov",required=true)String naslov,@RequestParam(value="kraj",required=true)String kraj,
-        @RequestParam(value="postna_st",required=true)int postna_st,@RequestParam(value="hisnaSt",required=true)String hisnaSt,
-        @RequestParam(value="kvadratura",required=true)double kvadratura,@RequestParam(value="stevilo_sob",required=true)int stevilo_sob,
-        @RequestParam(value="letnik_izgradnje",required=true)int letnik_izgradnje,@RequestParam(value="nadstropje",required=true)int nadstropje,
-        @RequestParam(value="cena",required=true)double cena,@RequestParam(value="prenovljeno",required=true)boolean prenovljeno,
-        @RequestParam(value="letnik_prenove",required=true)int letnik_prenove,@RequestParam(value="garaza",required=true)boolean garaza,
-        @RequestParam(value="balkon",required=true)boolean balkon,@RequestParam(value="dodaten_opis_stanovanja_check",required=true)boolean dodaten_opis_check,
-        @RequestParam(value="dodaten_opis_stanovanja",required=true)String dodaten_opis) {
+        @RequestParam(value="postna_st",required=true)String postna_st,@RequestParam(value="hisna_st",required=true)String hisnaSt,
+        @RequestParam(value="kvadratura",required=true)double kvadratura,@RequestParam(value="stevilo_sob",required=true)String stevilo_sob,
+        @RequestParam(value="letnik_izgradnje",required=true)String letnik_izgradnje,@RequestParam(value="nadstropje",required=true)String nadstropje,
+        @RequestParam(value="cena",required=true)String cena,@RequestParam(value="prenovljeno",required=false)boolean prenovljeno,
+        @RequestParam(value="letnik_prenove",required=false)String letnik_prenove,@RequestParam(value="garaza",required=false)boolean garaza,
+        @RequestParam(value="balkon",required=false)boolean balkon,@RequestParam(value="dodaten_opis_stanovanja_check",required=false)boolean dodaten_opis_check,
+        @RequestParam(value="dodaten_opis_stanovanja",required=false)String dodaten_opis) {
 
-        model.addAttribute("dodanoStanovanje",krajDao.addKraj(kraj,postna_st));
+        int postna_st2=Integer.parseInt(postna_st);
+        model.addAttribute("dodanoStanovanje",krajDao.addKraj(kraj,postna_st2));
         //int tk_kraj=krajDao.vrniID();
         //model.addAttribute("dodanoStanovanje",naslovDao.addNaslov(naslov,hisnaSt,tk_kraj));
         //int tk_naslov=naslovDao.vrniID();
