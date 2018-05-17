@@ -63,7 +63,7 @@
         }
     </style>
 </head>
-<body class="krnekaj">
+<body>
 
 <section class="generic-banner relative">
     <!-- Start Header Area -->

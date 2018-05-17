@@ -887,13 +887,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.default {
   color: #222222;
-  background: #f9f9ff;
+  background: #e8e8ee;
   border: 1px solid transparent;
 }
 
 .genric-btn.default:hover {
-  border: 1px solid #f9f9ff;
-  background: #fff;
+  border: 1px solid #ececf2;
+  background: #f9f9f9;
 }
 
 .genric-btn.default-border {
@@ -1920,10 +1920,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: #000;
   padding: 20px;
+  /*proba za transition*/
+  display: inline-block;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .navbar-nav a:hover {
-  color: #f41068;
+  color: #ffffff;/*#f41068;*/
+  /*proba za transition*/
+  background-color: #f41068;
 }
 
 @media (max-width: 992px) {
@@ -2982,15 +2990,16 @@ h6 {
 }
 /*Žan stili zakaj fucking ne dela ?
 */
-.odebeljenTextCrneBarve label{
-  color: black ;
-  font-weight: bold ;
-}
-.krnekaj {
-background-color: #fff0f4;
-font-weight: bolder;
+.odebeljenTextCrneBarve label {
+  color: black;
+  font-weight: bold;
 }
 .search-fieldV2 {
   background-color: #fff;
   padding: 1em;
+}
+
+pokrivanje::selection{
+  background-color: #f41068;
+  color: #fff;
 }
