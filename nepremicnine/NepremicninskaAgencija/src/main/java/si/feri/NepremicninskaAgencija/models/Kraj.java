@@ -6,7 +6,7 @@ public class Kraj{
     String imeKraja;
     int postnaSt;
 
-    Kraj(String imeKraja, int postnaSt){
+    public Kraj(String imeKraja, int postnaSt){
         this.imeKraja=imeKraja;
         this.postnaSt=postnaSt;
     }
