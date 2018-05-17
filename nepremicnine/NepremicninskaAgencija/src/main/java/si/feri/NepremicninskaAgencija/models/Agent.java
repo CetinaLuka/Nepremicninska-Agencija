@@ -1,3 +1,4 @@
+package si.feri.NepremicninskaAgencija.models;
 public class Agent{
 
     int id;
@@ -9,6 +10,12 @@ public class Agent{
     int tk_id_slika;
 
     Agent(String email, String geslo){
+        this.email=email;
+        this.geslo=geslo;
+    }
+    public Agent(String ime, String priimek, String email, String geslo){
+        this.ime=ime;
+        this.priimek=priimek;
         this.email=email;
         this.geslo=geslo;
     }
