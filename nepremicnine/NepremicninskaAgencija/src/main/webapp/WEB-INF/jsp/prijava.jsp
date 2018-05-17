@@ -150,7 +150,7 @@
                                 <input type="text" name="geslo"
                                        id="inputEmailPriPrijavi"
                                        placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = ''"
+                                       onblur="this.placeholder = 'npr: borisNovak@email.com'"
                                        required class="single-input">
                             </div>
                             <!--action listiner za napako pri objavi -->
@@ -168,7 +168,7 @@
                                 <input type="password" name="geslo"
                                        id="inputGesloPriPrijavi"
                                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = ''"
+                                       onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
                                        required class="single-input">
                             </div>
                             <!--action listiner za napako pri objavi -->
