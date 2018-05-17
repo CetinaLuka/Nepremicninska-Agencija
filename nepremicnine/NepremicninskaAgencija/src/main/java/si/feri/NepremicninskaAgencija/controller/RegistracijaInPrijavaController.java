@@ -37,7 +37,7 @@ public class RegistracijaInPrijavaController {
     @RequestParam(value="priimek",required=true)String priimek,  @RequestParam(value="geslo",required=true)String geslo) {
 
         agentDao.addAgent(ime,priimek,email,geslo);
-        return "registracija";
+        return "redirect:/kontrolnaPlosca";
     }
 
 

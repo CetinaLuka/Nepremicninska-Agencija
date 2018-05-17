@@ -35,6 +35,11 @@ public class MainController {
         model.addAttribute("kraji",krajDao.getAllKraji());
         return "seznamVseh";
     }
+    @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
+    public String kontrolnaPlosca(Model model) {
+        model.addAttribute("message");
+        return "kontrolnaPlosca";
+    }
 
     @Autowired
     NepremicninaDao nepremicninaDao;
