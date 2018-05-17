@@ -36,7 +36,7 @@
 				<nav class="navbar navbar-expand-lg  navbar-light bg-light">
 					<div class="container">
 						  <a class="navbar-brand" href="index">
-						  	<img src="img/elements/logoSlika.png" alt="iknonična slika">
+						  	<img src="img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
 						  </a>
 						  <button class="navbar-toggler" type="button"
 								  data-toggle="collapse"
@@ -50,7 +50,7 @@
 
 						  <div class="collapse navbar-collapse  align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="#home">Domov</a></li>
+								<li><a href="index#home">Domov</a></li>
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>

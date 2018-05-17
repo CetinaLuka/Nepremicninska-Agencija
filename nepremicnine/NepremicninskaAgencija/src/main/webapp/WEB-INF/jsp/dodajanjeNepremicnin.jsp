@@ -91,12 +91,10 @@
 
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="index.html#home">Home</a></li>
-								<li><a href="index.html#service">Service</a></li>
-								<li><a href="index.html#property">Property</a></li>
-								<li><a href="index.html#contact">Contact</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
+								<li><a href="index#home">Home</a></li>
+								<li><a href="index#service">Service</a></li>
+								<li><a href="index#property">Property</a></li>
+								<li><a href="index#contact">Contact</a></li>
 						    </ul>
 						  </div>
 					</div>
