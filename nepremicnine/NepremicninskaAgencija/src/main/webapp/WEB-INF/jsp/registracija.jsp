@@ -103,7 +103,7 @@
         <br/>
         <br/>
 
-        <form action="#" method="post" class="">
+        <form action="/Registracija" method="POST" class="">
             <div class="container ">
 
                 <div class="row  align-items-center justify-content-center ">
@@ -114,7 +114,7 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="text" name="geslo"
+                            <input type="text" name="email"
                                    id="inputEmailPriRegistraciji"
                                    placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: borisNovak@email.com'"
@@ -132,7 +132,7 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="text" name="geslo"
+                            <input type="text" name="ime"
                                    id="inputImePriRegistraciji"
                                    placeholder="npr: Boris" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: Boris'"
@@ -150,7 +150,7 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="text" name="geslo"
+                            <input type="text" name="priimek"
                                    id="inputPriimekPriRegistraciji"
                                    placeholder="npr: Novak" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: Novak'"
@@ -186,7 +186,7 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="password" name="geslo"
+                            <input type="password" name="ponovljenoGeslo"
                                    id="inputGesloPriRegistracijiPonovitev"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"

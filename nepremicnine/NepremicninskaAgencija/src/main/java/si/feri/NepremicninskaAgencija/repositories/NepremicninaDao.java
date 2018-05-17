@@ -1,4 +1,4 @@
-package si.feri.NepremicninskaAgencija.models;
+package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
