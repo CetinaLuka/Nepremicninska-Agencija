@@ -182,7 +182,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-12 col-sm-6">
+							<div class="col-12 col-sm-3">
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
@@ -254,35 +254,68 @@
 							<h2>Dodaj hišo</h2>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-12">
-							<form name="dodaj_hiso_form">
+					<form name="dodaj_hiso_form">
+						<div class="row">
+							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
 								</div>
+							</div>
+							<div class="col-12 col-md-4">
 								<!--Polje za vnos hišne številke - name:hisna_st-->
 								<div class="mt-10">
 									<input type="text" name="hisna_st" placeholder="Hišna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Hišna številka'" required class="single-input">
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-8">
 								<!--Polje za vnos kraja - name:kraj-->
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
 									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
 								</div>
+							</div>
+							<div class="col-12 col-md-4">
 								<!--Polje za vnos poštne številke - name:postna_st-->
 								<div class="mt-10">
 									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
 								<!--Polje za vnos kvadrature - name:kvadratura-->
 								<div class="mt-10">
 									<input type="text" name="kvadratura" placeholder="Kvadratura (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kvadratura (m²)'" required class="single-input" />
 								</div>
+							</div>
+							<div class="col-xs-12 col-md-4">
 								<!--Polje za vnos velikosti zemljišča - name:velikost_zemljisca-->
 								<div class="mt-10">
 									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
+							</div>
+							<div class="col-xs-12 col-md-4">
+								<!--Polje za vnos nadstropja - name:nadstropje-->
+								<div class="mt-10">
+									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
+								<!--Polje za vnos cene - name:cena-->
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<!--Select za vnos vrste hiše - name:vrsta_hise-->
 								<label class="mt-1">Vrsta hiše</label>
 								<div class="default-select" id="vrsta_hise">
@@ -292,15 +325,10 @@
 										<option value="3">Vrstna</option>
 									</select>
 								</div>
-								<!--Polje za vnos cene - name:cena-->
-								<div class="input-group-icon mt-10">
-									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
-								</div>
-								<!--Polje za vnos nadstropja - name:nadstropje-->
-								<div class="mt-10">
-									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
-								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
@@ -321,15 +349,23 @@
 								<div class="mt-10 mb-10 collapse" id="dodaten_opis_hise_skrij">
 									<textarea name="dodaten_opis_hise" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<button type=button class="genric-btn default mb-10">
 									Dodaj slike
 								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<div class="text-center mt-10">
 									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
 								</div>
-							</form>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</section>
 			<section class="section-gap" id="dodaj_posest_section">
@@ -339,26 +375,52 @@
 							<h2>Dodaj posest</h2>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-12">
-							<form>
+					<form>
+						<div class="row">
+							<div class="col-12 col-md-8">
+								<!--Polje za vnos naslova(ulice) - name:naslov-->
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 									<input type="text" name="naslov" placeholder="Naslov" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Naslov'" required class="single-input">
 								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<!--Polje za vnos hišne številke - name:hisna_st-->
 								<div class="mt-10">
 									<input type="text" name="hisna_st" placeholder="Hišna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Hišna številka'" required class="single-input">
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-8">
+								<!--Polje za vnos kraja - name:kraj-->
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
 									<input type="text" name="kraj" placeholder="Kraj" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kraj'" required class="single-input">
 								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<!--Polje za vnos poštne številke - name:postna_st-->
 								<div class="mt-10">
 									<input type="text" name="postna_st" placeholder="Poštna številka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Poštna številka'" required class="single-input">
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
+								<div class="input-group-icon mt-10">
+									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-4">
 								<div class="mt-10">
 									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<label class="mt-1">Vrsta posesti</label>
 								<div class="default-select" id="vrsta_posesti">
 									<select name="vrsta_posesti">
@@ -367,10 +429,10 @@
 										<option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
 									</select>
 								</div>
-								<div class="input-group-icon mt-10">
-									<div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-									<input type="text" name="cena" placeholder="Cena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena'" required class="single-input" />
-								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<div class="switch-wrap d-flex mt-10">
 									<div class="primary-switch mr-10">
 										<input type="checkbox" name="dodaten_opis_posesti_check" id="dodaten_opis_posesti_check" data-toggle="collapse" data-target="#dodaten_opis_posesti_skrij">
@@ -381,15 +443,23 @@
 								<div class="collapse mt-10 mb-10" id="dodaten_opis_posesti_skrij">
 									<textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<button type=button class="genric-btn default mb-10">
 									Dodaj slike
 								</button>
-								<div class="text-center mt-10">
-								<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
 							</div>
-							</form>
 						</div>
-					</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="text-center mt-10">
+									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</section>
 				<!-- End Generic Start -->
