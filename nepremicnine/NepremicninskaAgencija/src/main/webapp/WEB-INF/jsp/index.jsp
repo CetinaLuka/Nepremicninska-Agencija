@@ -55,8 +55,8 @@
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>
-								<li class="align-content-end"><a href="#">Prijava</a></li>
-								<li class="align-self-lg-end"><a href="#">Registracija</a></li>
+								<li class=""><a href="#">Prijava</a></li>
+								<li class=""><a href="#">Registracija</a></li>
 						    </ul>
 						  </div>						
 					</div>
