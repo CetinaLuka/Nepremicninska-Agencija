@@ -117,7 +117,7 @@
                             <input type="text" name="geslo"
                                    id="inputEmailPriRegistraciji"
                                    placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
+                                   onblur="this.placeholder = 'npr: borisNovak@email.com'"
                                    required class="single-input">
                         </div>
                         <!--action listiner za napako pri objavi -->
@@ -135,7 +135,7 @@
                             <input type="text" name="geslo"
                                    id="inputImePriRegistraciji"
                                    placeholder="npr: Boris" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
+                                   onblur="this.placeholder = 'npr: Boris'"
                                    required class="single-input">
                         </div>
                         <!--action listiner za napako pri objavi -->
@@ -153,7 +153,7 @@
                             <input type="text" name="geslo"
                                    id="inputPriimekPriRegistraciji"
                                    placeholder="npr: Novak" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
+                                   onblur="this.placeholder = 'npr: Novak'"
                                    required class="single-input">
                         </div>
                         <!--action listiner za napako pri objavi -->
@@ -171,7 +171,7 @@
                             <input type="password" name="geslo"
                                    id="inputGesloPriRegistraciji"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
                                    required class="single-input">
                         </div>
                         <!--action listiner za napako pri objavi -->
@@ -189,7 +189,7 @@
                             <input type="password" name="geslo"
                                    id="inputGesloPriRegistracijiPonovitev"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = ''"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
                                    required class="single-input">
                         </div>
                         <!--action listiner za napako pri objavi -->
