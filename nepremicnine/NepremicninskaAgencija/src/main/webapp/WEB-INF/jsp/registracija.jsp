@@ -56,8 +56,8 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li><a href="index.html#home">Home</a></li>
+                    <ul class="navbar-nav ">
+                        <li class=""><a href="index.html#home">Home</a></li>
                         <li><a href="index.html#service">Service</a></li>
                         <li><a href="index.html#property">Property</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
@@ -144,7 +144,7 @@
 
                 <div class="row  align-items-center justify-content-center ">
                     <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputPriimekPriRegistraciji">
-                        <strong>Vpišite vaš E-mail naslov:</strong>
+                        <strong>Vpišite vaš priimek:</strong>
                     </label>
                 </div>
                 <div class="row  align-items-center justify-content-center" >

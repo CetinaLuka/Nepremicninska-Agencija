@@ -2998,3 +2998,8 @@ h6 {
   background-color: #fff;
   padding: 1em;
 }
+
+pokrivanje::selection{
+  background-color: #f41068;
+  color: #fff;
+}
