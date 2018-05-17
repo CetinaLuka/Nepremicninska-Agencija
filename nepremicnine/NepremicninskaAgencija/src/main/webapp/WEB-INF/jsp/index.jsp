@@ -47,17 +47,9 @@
 								  aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
-
-<<<<<<< HEAD
-						  <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
-
-						    <ul class="navbar-nav ">
-								<li><a href="#home">Domov</a></li>
-=======
 						  <div class="collapse navbar-collapse  align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="index#home">Domov</a></li>
->>>>>>> e20a8855dacb8b44bbc79a2adef49562ef4e0afb
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>
