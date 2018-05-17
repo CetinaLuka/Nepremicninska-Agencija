@@ -1,3 +1,5 @@
+package si.feri.NepremicninskaAgencija.models;
+
 public class Naslov{
 
     int id;
