@@ -38,18 +38,19 @@
 						  <a class="navbar-brand" href="index">
 						  	<img src="img/elements/logoSlika.png" alt="iknonična slika">
 						  </a>
+						<!-- Gumb pri pomanjšanju-->
 						  <button class="navbar-toggler" type="button"
 								  data-toggle="collapse"
 								  data-target="#navbarSupportedContent"
 								  aria-controls="navbarSupportedContent"
 								  aria-expanded="false"
 								  aria-label="Toggle navigation">
-
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
 
-						  <div class="collapse navbar-collapse  align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
+						  <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+
+						    <ul class="navbar-nav ">
 								<li><a href="#home">Domov</a></li>
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
@@ -57,7 +58,8 @@
 								<li class=""><a href="#">Prijava</a></li>
 								<li class=""><a href="#">Registracija</a></li>
 						    </ul>
-						  </div>						
+
+						  </div>
 					</div>
 				</nav>
 
