@@ -29,7 +29,7 @@ public class RegistracijaInPrijavaController {
 
 
     @RequestMapping(value = {"/prijava" }, method = RequestMethod.GET)
-    public String prijva(Model model) {
+    public String prijava(Model model) {
         return "prijava";
     }
 

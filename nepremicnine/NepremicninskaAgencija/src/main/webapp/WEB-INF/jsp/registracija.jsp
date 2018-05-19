@@ -82,13 +82,12 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="email" name="email"
+                            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]+"
                                    id="inputEmailPriRegistraciji"
                                    placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: borisNovak@email.com'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -106,7 +105,6 @@
                                    onblur="this.placeholder = 'npr: Boris'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -124,7 +122,6 @@
                                    onblur="this.placeholder = 'npr: Novak'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -136,7 +133,8 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="password" name="geslo"
+                            <input type="password" name="geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   title="Geslo mora vsebovati vsaj eno veliko črko, vsaj eno malo črko in vsaj eno število ter mora biti dolgo vsaj 8 znakov."
                                    id="inputGesloPriRegistraciji"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
@@ -157,7 +155,13 @@
                             <input type="password" name="ponovljenoGeslo"
                                    id="inputGesloPriRegistracijiPonovitev"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
+                                   if (this.value!==document.getElementsByName('geslo')[0].value){
+                                       this.style.backgroundColor='#f41068'
+                                              }
+                                    else{
+                                       this.style.backgroundColor='#e8e8ee'
+                                    }"
                                    required class="single-input">
                         </div>
                     </div>
@@ -172,11 +176,9 @@
                         <div class="input-group">
                             <input type="text" name="varnostnaKoda"
                                    id="varnostnaKoda"
-                                   placeholder="123" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   placeholder="123"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
                 <br>
@@ -194,7 +196,7 @@
 
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe"/>
+                        <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe" required/>
                         <label class=" pull-left odebeljenTextCrneBarve "for="registracijaPogojiUporabe">
                             <strong> &nbsp;Strinjam se s <a href="#">pogoji uporabe!</a></strong>
                         </label>
@@ -214,12 +216,12 @@
 
         </form>
 
-        <c:if test="${agentObstaja==true}">
+        <c:if test="${agentObstaja=='true'}">
             <div class="alert alert-warning">
                 RAČUN S TEM ELEKTRONSKIM NASLOVOM ŽE OBSTAJA!
             </div>
         </c:if>
-        <c:if test="${pravilnaKoda==false}">
+        <c:if test="${pravilnaKoda=='false'}">
             <div class="alert alert-warning">
                ŽAL SE NE MORETE REGISTRIRATI!
             </div>
