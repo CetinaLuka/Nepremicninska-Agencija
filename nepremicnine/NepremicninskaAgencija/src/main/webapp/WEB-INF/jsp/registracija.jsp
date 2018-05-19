@@ -82,7 +82,7 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="text" name="email"
+                            <input type="email" name="email"
                                    id="inputEmailPriRegistraciji"
                                    placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: borisNovak@email.com'"
