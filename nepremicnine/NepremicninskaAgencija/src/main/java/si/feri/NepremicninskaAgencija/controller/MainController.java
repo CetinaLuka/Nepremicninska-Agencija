@@ -41,6 +41,8 @@ public class MainController {
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
         return "kontrolnaPlosca";
+
+        //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
 
     @Autowired

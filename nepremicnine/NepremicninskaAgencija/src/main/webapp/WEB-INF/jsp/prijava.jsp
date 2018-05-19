@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -102,7 +103,7 @@
 <main class="container">
     <br/>
     <br/>
-    <form action="#" method="post" class="">
+    <form action="/kontrolnaPloscaPr" method="POST" class="">
             <div class="container ">
 
                     <div class="row  align-items-center justify-content-center ">
@@ -113,13 +114,12 @@
                     <div class="row  align-items-center justify-content-center" >
                         <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                             <div class="input-group">
-                                <input type="text" name="geslo"
+                                <input type="text" name="email"
                                        id="inputEmailPriPrijavi"
                                        placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
                                        onblur="this.placeholder = 'npr: borisNovak@email.com'"
                                        required class="single-input">
                             </div>
-                            <!--action listiner za napako pri objavi -->
                         </div>
                     </div>
 
@@ -137,7 +137,6 @@
                                        onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
                                        required class="single-input">
                             </div>
-                            <!--action listiner za napako pri objavi -->
                         </div>
                     </div>
 
@@ -145,12 +144,12 @@
                         <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                             <div class="row">
                                <div class="col-6 text-left">
-                                 <a href="#">
+                                 <a href="">
                                     <p>Pozabil sem geslo!</p>
                                  </a>
                                </div>
                                     <div class="col-6 text-right">
-                                     <a href="#" >
+                                     <a href="/registracija" >
                                          <p>Želim se registrirat!</p>
                                      </a>
                                     </div>
@@ -166,8 +165,13 @@
                         </div>
                     </div>
             </div>
-
     </form>
+
+    <c:if test="${gesloPravilno==false}">
+        <div class="alert alert-warning">
+            NEPRAVILNO GESLO ALI EMAIL NASLOV!
+        </div>
+    </c:if>
     <br/>
     <br/>
     <br/>

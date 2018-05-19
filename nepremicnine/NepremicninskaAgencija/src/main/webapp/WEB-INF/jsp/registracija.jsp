@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -16,6 +17,7 @@
     <meta charset="UTF-8">
     <!-- Site Title -->
     <title>Real Estate</title>
+
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -69,7 +71,7 @@
         <br/>
         <br/>
 
-        <form action="/Registracija" method="POST" class="">
+        <form action="/kontrolnaPloscaReg" method="POST" class="">
             <div class="container ">
 
                 <div class="row  align-items-center justify-content-center ">
@@ -158,11 +160,27 @@
                                    onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
                                    required class="single-input">
                         </div>
+                    </div>
+                </div>
+                <div class="row  align-items-center justify-content-center">
+                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="varnostnaKoda">
+                        <strong>Vnesite varnostno kodo: </strong>
+                    </label>
+                </div>
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="varnostnaKoda"
+                                   id="varnostnaKoda"
+                                   placeholder="123" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   required class="single-input">
+                        </div>
                         <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
-
-                <div class="row  align-items-center justify-content-center" >
+                <br>
+                <!--<div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="row">
                             <div class="col-12 text-left">
@@ -172,13 +190,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe"/>
                         <label class=" pull-left odebeljenTextCrneBarve "for="registracijaPogojiUporabe">
-                            <strong> &nbsp;Strinjam se z <a href="#">pogoji uporabe!</a></strong>
+                            <strong> &nbsp;Strinjam se s <a href="#">pogoji uporabe!</a></strong>
                         </label>
                     </div>
                 </div>
@@ -195,6 +213,18 @@
             </div>
 
         </form>
+
+        <c:if test="${agentObstaja==true}">
+            <div class="alert alert-warning">
+                RAČUN S TEM ELEKTRONSKIM NASLOVOM ŽE OBSTAJA!
+            </div>
+        </c:if>
+        <c:if test="${pravilnaKoda==false}">
+            <div class="alert alert-warning">
+               ŽAL SE NE MORETE REGISTRIRATI!
+            </div>
+        </c:if>
+
         <br/>
         <br/>
         <br/>
