@@ -71,7 +71,7 @@
         <br/>
         <br/>
 
-        <form action="/kontrolnaPloscaReg" method="POST" class="">
+        <form id="registracija" action="/kontrolnaPloscaReg" method="POST">
             <div class="container ">
 
                 <div class="row  align-items-center justify-content-center ">
@@ -137,10 +137,19 @@
                                    title="Geslo mora vsebovati vsaj eno veliko črko, vsaj eno malo črko in vsaj eno število ter mora biti dolgo vsaj 8 znakov."
                                    id="inputGesloPriRegistraciji"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                                   oninput="
+                                   if (this.value!==document.getElementsByName('ponovljenoGeslo')[0].value && document.getElementsByName('ponovljenoGeslo')[0].value !== ''){
+                                       document.getElementsByName('ponovljenoGeslo')[0].style.backgroundColor='#f41068';
+                                       document.getElementsByName('ponovljenoGeslo')[0].setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
+                                              }
+                                   else{
+                                       document.getElementsByName('ponovljenoGeslo')[0].style.backgroundColor='#e8e8ee';
+                                       document.getElementsByName('ponovljenoGeslo')[0].setCustomValidity('');
+                                   }
+                                   "
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -155,13 +164,16 @@
                             <input type="password" name="ponovljenoGeslo"
                                    id="inputGesloPriRegistracijiPonovitev"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                                   oninput="
                                    if (this.value!==document.getElementsByName('geslo')[0].value){
-                                       this.style.backgroundColor='#f41068'
+                                       this.style.backgroundColor='#f41068';
+                                       this.setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
                                               }
                                     else{
-                                       this.style.backgroundColor='#e8e8ee'
-                                    }"
+                                       this.style.backgroundColor='#e8e8ee';
+                                       this.setCustomValidity('');
+                                   }"
                                    required class="single-input">
                         </div>
                     </div>
@@ -292,6 +304,18 @@
         }, 600, function() {
             return window.history.pushState(null, null, target);
         });
+    });
+
+    $('form#registracija').submit(function(event){
+        var geslo1Input = $('input#inputGesloPriRegistraciji');
+        var geslo2Input = $('input#inputGesloPriRegistracijiPonovitev');
+
+        if(geslo1Input.val() !== geslo2Input.val()){
+            return false;
+        }
+        else{
+            return true;
+        }
     });
 </script>
 </body>
