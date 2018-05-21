@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="krnekaj">
+<body>
 
 <section class="generic-banner relative">
     <!-- Start Header Area -->
@@ -240,15 +240,7 @@
         </c:if>
 
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
     </main>
 
 

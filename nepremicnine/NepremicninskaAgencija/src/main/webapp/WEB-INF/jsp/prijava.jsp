@@ -166,11 +166,7 @@
                     </div>
             </div>
     </form>
-    <c:if test="${gesloPravilno==false}">
-        <div class="alert alert-warning">
-            NEPRAVILNO GESLO ALI EMAIL NASLOV!
-        </div>
-    </c:if>
+
     <br/>
     <br/>
     <br/>
@@ -183,7 +179,11 @@
 
 
 
-
+<c:if test="${gesloPravilno==false}">
+    <div class="alert alert-warning">
+        NEPRAVILNO GESLO ALI EMAIL NASLOV!
+    </div>
+</c:if>
 
 
 

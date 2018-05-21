@@ -8,7 +8,7 @@
     <p class="footer-block">&copy;Žan Kovač, Luka Četina, David Žele, Eua Smolak </p>
 </footer>-->
     <div class="container">
-        <div class="footer">
+        <div class="footer text-center">
             <p>&copy;Žan Kovač, Luka Četina, David Žele, Eua Smolak </p>
             <p>FERI ITK UN - Praktikum1</p>
             <!--Privzeto od templatea -->
