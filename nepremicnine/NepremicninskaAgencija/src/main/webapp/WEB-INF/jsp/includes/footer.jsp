@@ -13,7 +13,9 @@
             <p>FERI ITK UN - Praktikum1</p>
             <!--Privzeto od templatea -->
             <p>Copyright &copy;
-                <script>document.getElementsByClassName(footer).write(new Date().getFullYear());</script>
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
                 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true">
                 </i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
             <!--============================================ -->

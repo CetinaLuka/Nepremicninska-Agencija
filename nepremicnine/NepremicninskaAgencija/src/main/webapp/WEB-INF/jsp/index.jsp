@@ -47,14 +47,14 @@
 								  aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						  </button>
-						  <div class="collapse navbar-collapse  align-items-center" id="navbarSupportedContent">
+						  <div class="collapse navbar-collapse  align-items-end justify-content-end" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
-								<li><a href="index#home">Domov</a></li>
+								<li><a href="#home">Domov</a></li>
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>
-								<li class=""><a href="#">Prijava</a></li>
-								<li class=""><a href="#">Registracija</a></li>
+								<li class=""><a href="prijava">Prijava</a></li>
+								<li class=""><a href="registracija">Registracija</a></li>
 						    </ul>
 
 						  </div>
