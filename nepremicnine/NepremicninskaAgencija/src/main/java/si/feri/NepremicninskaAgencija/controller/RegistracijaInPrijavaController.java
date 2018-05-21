@@ -38,10 +38,11 @@ public class RegistracijaInPrijavaController {
         return "registracija";
     }
 
+
     @RequestMapping(value = {"/kontrolnaPloscaReg" }, method = RequestMethod.POST)
     public String registracija (Model model,  @RequestParam(value="email",required=true)String email, @RequestParam(value="ime",required=true)String ime,
     @RequestParam(value="priimek",required=true)String priimek,  @RequestParam(value="geslo",required=true)String geslo,
-    @RequestParam(value="varnostnaKoda",required=true)String varnostnaKoda) {
+    @RequestParam(value="varnostnaKoda",required=true)String varnostnaKoda){
         if(agentDao.obstaja(email)){
             model.addAttribute("agentObstaja",true);
             return "redirect:/registracija";
@@ -53,7 +54,7 @@ public class RegistracijaInPrijavaController {
         agentDao.addAgent(ime,priimek,email,geslo);
         return "redirect:/kontrolnaPlosca";
     }
-
+    //prijava
     @RequestMapping(value = {"/kontrolnaPloscaPr" }, method = RequestMethod.POST)
     public String prijava (Model model,  @RequestParam(value="email",required=true)String email, @RequestParam(value="geslo",required=true)String geslo) {
         if(!agentDao.obstaja(email)){

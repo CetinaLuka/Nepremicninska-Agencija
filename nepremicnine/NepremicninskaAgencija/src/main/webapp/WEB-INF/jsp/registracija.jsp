@@ -127,7 +127,7 @@
 
                 <div class="row  align-items-center justify-content-center">
                     <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriRegistraciji">
-                        <strong>Vpišite želeno geslo:</strong>
+                        <strong>Vpišite željeno geslo:</strong>
                     </label>
                 </div>
                 <div class="row  align-items-center justify-content-center" >
@@ -242,31 +242,7 @@
         <br/>
 
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- End Generic Start -->
-
-
-
-
 <!-- start footer Area
 <jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->

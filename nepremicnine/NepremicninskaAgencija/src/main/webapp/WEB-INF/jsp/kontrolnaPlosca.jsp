@@ -28,40 +28,6 @@
         <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/main.css">
-        <style>
-            html {
-                height: 100%;
-                box-sizing: border-box;
-            }
-
-            *,
-            *:before,
-            *:after {
-                box-sizing: inherit;
-            }
-
-            body {
-                position: relative;
-                margin: 0;
-                padding-bottom: 150px;
-                min-height: 100%;
-            }
-            /**
-             * Footer Styles
-             */
-
-            .footer {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: 150px;
-                width: 100%;
-                padding: 1rem;
-                background-color: #efefef;
-                text-align: center;
-            }
-        </style>
     </head>
     <body>
 
