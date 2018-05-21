@@ -9,7 +9,9 @@ public class Agent{
     int telefonskaSt;
     int tk_id_slika;
 
-    Agent(String email, String geslo){
+    public Agent(){}
+
+    public Agent(String email, String geslo){
         this.email=email;
         this.geslo=geslo;
     }

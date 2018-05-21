@@ -10,6 +10,8 @@ import si.feri.NepremicninskaAgencija.repositories.KrajDao;
 import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
 import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
 
+import java.util.List;
+
 @Controller
 public class MainController {
 
@@ -39,6 +41,8 @@ public class MainController {
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
         return "kontrolnaPlosca";
+
+        //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
 
     @Autowired
@@ -58,12 +62,21 @@ public class MainController {
         @RequestParam(value="balkon",required=false)boolean balkon,@RequestParam(value="dodaten_opis_stanovanja_check",required=false)boolean dodaten_opis_check,
         @RequestParam(value="dodaten_opis_stanovanja",required=false)String dodaten_opis) {
 
-        int postna_st2=Integer.parseInt(postna_st);
-        model.addAttribute("dodanoStanovanje",krajDao.addKraj(kraj,postna_st2));
-        //int tk_kraj=krajDao.vrniID();
-        //model.addAttribute("dodanoStanovanje",naslovDao.addNaslov(naslov,hisnaSt,tk_kraj));
-        //int tk_naslov=naslovDao.vrniID();
-        //model.addAttribute("dodanoStanovanje",nepremicninaDao.addStanovanje(kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, cena, prenovljeno, letnik_prenove, garaza, balkon ,dodaten_opis_check, dodaten_opis, tk_naslov));
+        krajDao.addKraj(kraj,postna_st);
+        List<Integer> vsiKraji=krajDao.vrniID(kraj,postna_st);
+        int tk_kraj=0;
+        if(vsiKraji.size()>0) {
+            tk_kraj = vsiKraji.get(0);
+        }
+        naslovDao.addNaslov(naslov,hisnaSt,tk_kraj);
+        List<Integer> vsiNaslovi=naslovDao.vrniID(naslov,hisnaSt,tk_kraj);
+        int tk_naslov=0;
+        if(vsiNaslovi.size()>0) {
+            tk_naslov = vsiNaslovi.get(0);
+        }
+        //int tk_agent= IZ SEJE VRNI ID VPISANEGA AGENTA
+        // ČE NISO PRISOTNI NEKATERI PARAMETRI BO MOGOČE TREBA NAREDITI VEČ METOD ZA DODAJANJE
+        //nepremicninaDao.addStanovanje(kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, cena, prenovljeno, letnik_prenove, garaza, balkon ,dodaten_opis_check, dodaten_opis, tk_naslov);
 
         //povezava naslova s krajom ter z nepremicnino
         return "dodajanjeNepremicnin";

@@ -5,15 +5,17 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class NepremicninaDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int addStanovanje(double kvadratura, int stevilo_sob, int letnik_izgradnje, int nadstropje, double cena, boolean prenovljeno, int letnik_prenove, boolean garaza, boolean balkon, boolean dodaten_opis_check, String dodaten_opis, int tk_naslov){
+    public int addStanovanje(String Cena, String KvadraturaBivalnegaProstora, String SkupnaKvadratura, String ŠtSob, String LetnikIzgradnje, String Nadstropje, String LetoPrenove, String Garaža, String Balkon, String Opis, String VrstaHiše, String TipPosesti, String Prodano, int Naslov_idNaslov, int VrstaNepremičnine_idVrstaNepremičnine, int Agent_idAgent){
+        String DatumObjave=(new Date()).toString();
+        String sql ="INSERT into NEPREMICNINA(Cena, KvadraturaBivalnegaProstora, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove, Garaža, Balkon, Opis, VrstaHiše, TipPosesti, Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        String sql ="INSERT into NEPREMICNINA(kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, cena, prenovljeno, letnik_prenove, garaza, balkon ,dodaten_opis_check, dodaten_opis, tk_naslov) values(?,?,?,?,?,?,?,?,?,?,?,?)";
-
-        return jdbcTemplate.update(sql, new Object[]{kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, cena, prenovljeno, letnik_prenove, garaza, balkon, dodaten_opis_check, dodaten_opis, tk_naslov});
+        return jdbcTemplate.update(sql, new Object[]{Cena, KvadraturaBivalnegaProstora, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove, Garaža, Balkon, Opis, VrstaHiše, TipPosesti, Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent});
     }
 }

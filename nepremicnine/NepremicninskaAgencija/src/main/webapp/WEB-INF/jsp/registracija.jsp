@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -16,6 +17,7 @@
     <meta charset="UTF-8">
     <!-- Site Title -->
     <title>Real Estate</title>
+
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -69,7 +71,7 @@
         <br/>
         <br/>
 
-        <form action="/Registracija" method="POST" class="">
+        <form id="registracija" action="/kontrolnaPloscaReg" method="POST">
             <div class="container ">
 
                 <div class="row  align-items-center justify-content-center ">
@@ -80,13 +82,12 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="text" name="email"
+                            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]+"
                                    id="inputEmailPriRegistraciji"
                                    placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'npr: borisNovak@email.com'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -104,7 +105,6 @@
                                    onblur="this.placeholder = 'npr: Boris'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -122,7 +122,6 @@
                                    onblur="this.placeholder = 'npr: Novak'"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -134,13 +133,23 @@
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="input-group">
-                            <input type="password" name="geslo"
+                            <input type="password" name="geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   title="Geslo mora vsebovati vsaj eno veliko črko, vsaj eno malo črko in vsaj eno število ter mora biti dolgo vsaj 8 znakov."
                                    id="inputGesloPriRegistraciji"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                                   oninput="
+                                   if (this.value!==document.getElementsByName('ponovljenoGeslo')[0].value && document.getElementsByName('ponovljenoGeslo')[0].value !== ''){
+                                       document.getElementsByName('ponovljenoGeslo')[0].style.backgroundColor='#f41068';
+                                       document.getElementsByName('ponovljenoGeslo')[0].setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
+                                              }
+                                   else{
+                                       document.getElementsByName('ponovljenoGeslo')[0].style.backgroundColor='#e8e8ee';
+                                       document.getElementsByName('ponovljenoGeslo')[0].setCustomValidity('');
+                                   }
+                                   "
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
 
@@ -155,14 +164,37 @@
                             <input type="password" name="ponovljenoGeslo"
                                    id="inputGesloPriRegistracijiPonovitev"
                                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                   onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                                   oninput="
+                                   if (this.value!==document.getElementsByName('geslo')[0].value){
+                                       this.style.backgroundColor='#f41068';
+                                       this.setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
+                                              }
+                                    else{
+                                       this.style.backgroundColor='#e8e8ee';
+                                       this.setCustomValidity('');
+                                   }"
                                    required class="single-input">
                         </div>
-                        <!--action listiner za napako pri objavi -->
                     </div>
                 </div>
-
+                <div class="row  align-items-center justify-content-center">
+                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="varnostnaKoda">
+                        <strong>Vnesite varnostno kodo: </strong>
+                    </label>
+                </div>
                 <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="varnostnaKoda"
+                                   id="varnostnaKoda"
+                                   placeholder="123"
+                                   required class="single-input">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--<div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <div class="row">
                             <div class="col-12 text-left">
@@ -172,13 +204,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe"/>
+                        <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe" required/>
                         <label class=" pull-left odebeljenTextCrneBarve "for="registracijaPogojiUporabe">
-                            <strong> &nbsp;Strinjam se z <a href="#">pogoji uporabe!</a></strong>
+                            <strong> &nbsp;Strinjam se s <a href="#">pogoji uporabe!</a></strong>
                         </label>
                     </div>
                 </div>
@@ -195,6 +227,18 @@
             </div>
 
         </form>
+
+        <c:if test="${agentObstaja=='true'}">
+            <div class="alert alert-warning">
+                RAČUN S TEM ELEKTRONSKIM NASLOVOM ŽE OBSTAJA!
+            </div>
+        </c:if>
+        <c:if test="${pravilnaKoda=='false'}">
+            <div class="alert alert-warning">
+               ŽAL SE NE MORETE REGISTRIRATI!
+            </div>
+        </c:if>
+
         <br/>
         <br/>
         <br/>
@@ -260,6 +304,18 @@
         }, 600, function() {
             return window.history.pushState(null, null, target);
         });
+    });
+
+    $('form#registracija').submit(function(event){
+        var geslo1Input = $('input#inputGesloPriRegistraciji');
+        var geslo2Input = $('input#inputGesloPriRegistracijiPonovitev');
+
+        if(geslo1Input.val() !== geslo2Input.val()){
+            return false;
+        }
+        else{
+            return true;
+        }
     });
 </script>
 </body>
