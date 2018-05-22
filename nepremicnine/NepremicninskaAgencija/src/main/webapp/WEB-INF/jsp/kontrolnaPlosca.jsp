@@ -49,19 +49,210 @@
     </section>
     <section class="mt-30">
         <div class="container">
-            <div class="float-left">
-                <div class="col-xs-12 col-md-3">
-                    <img src="img/i8.jpg" />
+            <!--user info card-->
+            <div class="row">
+                <div class="col-xs-12 col-lg-3 profil-kartica">
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-12 col-md-3 col-lg-12">
+                                    <img src="img/i8.jpg" class="profil-slika"/><br />
+                                    <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
+                                    <button class="genric-btn default border">Uredi profil</button>
+                                </div>
+                                <div class="col-12 col-md-5 col-lg-12">
+                                    <div class="bold-black">Ime Priimek</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                    <div class="">Podatek: xxxxxxxxxxxx</div>
+                                </div>
+                                <div class="col-12 col-md-4 col-lg-12">
+                                    <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-md-3">
-                    <div>
-                        <h3>Podatki o uporabniku</h3>
-                        <div class="">Ime: </div><br />
-                        <div class="">Priimek: </div><br />
-                        <div class="">Ime: </div><br />
-                        <div class="">Priimek: </div><br />
-                        <div class="">Ime: </div><br />
-                        <div class="">Priimek: </div><br />
+                <div class="col-xs-12 col-lg-8">
+                    <div class="row statistika">
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="bold-black">Podatki o nepremičninah:</div>
+                            <div class="">Število prodanih nepremičnin: 5</div>
+                            <div class="">Število nepremičnin na prodaj: 15</div>
+                            <div class="">Zaslužek od prodanih nepremičnin: 500000€</div>
+                            <div class="">Skupna cena prodanih nepremičnin: 1.500.000€</div>
+                        </div>
+                    </div>
+                    <div class="filter-vrstica">
+                        Sortiraj po:
+                        <button class="genric-btn default">Prodano</button>
+                        <button class="genric-btn default">Na prodaj</button>
+                        <button class="genric-btn default">Abecedi</button>
+                        <button class="genric-btn default">Ceni</button>
+                        <button class="genric-btn default">Kvadraturi</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="single-property mb-3">
+                                <div class="images">
+                                    <a href="img/s1.jpg">
+                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                        <span>For Sale</span>
+                                    </a>
+                                </div>
+
+                                <div class="desc">
+                                    <div class="top d-flex justify-content-between">
+                                        <h4><a href="#">04 Bed Duplex</a></h4>
+                                        <h4>$3.5M</h4>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="d-flex justify-content-start">
+                                            <p>Bed: 04</p>
+                                            <p>Bath: 03</p>
+                                            <p>Area: 750sqm</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <p>Pool: <span class="gr">Yes</span></p>
+                                            <p>Internet: <span class="rd">No</span></p>
+                                            <p>Cleaning: <span class="rd">No</span></p>
+                                        </div>
+                                        <div class="bottom d-flex justify-content-start">
+                                            <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                                            <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="single-property mb-3">
+                                <div class="images">
+                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                    <span>For Sale</span>
+                                </div>
+
+                                <div class="desc">
+                                    <div class="top d-flex justify-content-between">
+                                        <h4><a href="#">04 Bed Duplex</a></h4>
+                                        <h4>$3.5M</h4>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="d-flex justify-content-start">
+                                            <p>Bed: 04</p>
+                                            <p>Bath: 03</p>
+                                            <p>Area: 750sqm</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <p>Pool: <span class="gr">Yes</span></p>
+                                            <p>Internet: <span class="rd">No</span></p>
+                                            <p>Cleaning: <span class="rd">No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom d-flex justify-content-start">
+                                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="single-property mb-3">
+                                <div class="images">
+                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                    <span>For Sale</span>
+                                </div>
+
+                                <div class="desc">
+                                    <div class="top d-flex justify-content-between">
+                                        <h4><a href="#">04 Bed Duplex</a></h4>
+                                        <h4>$3.5M</h4>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="d-flex justify-content-start">
+                                            <p>Bed: 04</p>
+                                            <p>Bath: 03</p>
+                                            <p>Area: 750sqm</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <p>Pool: <span class="gr">Yes</span></p>
+                                            <p>Internet: <span class="rd">No</span></p>
+                                            <p>Cleaning: <span class="rd">No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom d-flex justify-content-start">
+                                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="single-property  mb-3">
+                                <div class="images">
+                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                    <span>For Sale</span>
+                                </div>
+
+                                <div class="desc">
+                                    <div class="top d-flex justify-content-between">
+                                        <h4><a href="#">04 Bed Duplex</a></h4>
+                                        <h4>$3.5M</h4>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="d-flex justify-content-start">
+                                            <p>Bed: 04</p>
+                                            <p>Bath: 03</p>
+                                            <p>Area: 750sqm</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <p>Pool: <span class="gr">Yes</span></p>
+                                            <p>Internet: <span class="rd">No</span></p>
+                                            <p>Cleaning: <span class="rd">No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom d-flex justify-content-start">
+                                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="single-property mb-3">
+                                <div class="images">
+                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                    <span>For Sale</span>
+                                </div>
+
+                                <div class="desc">
+                                    <div class="top d-flex justify-content-between">
+                                        <h4><a href="#">04 Bed Duplex</a></h4>
+                                        <h4>$3.5M</h4>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="d-flex justify-content-start">
+                                            <p>Bed: 04</p>
+                                            <p>Bath: 03</p>
+                                            <p>Area: 750sqm</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <p>Pool: <span class="gr">Yes</span></p>
+                                            <p>Internet: <span class="rd">No</span></p>
+                                            <p>Cleaning: <span class="rd">No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom d-flex justify-content-start">
+                                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1902,6 +1902,8 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     max-height: 400px;
     overflow-x: hidden;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
@@ -2459,7 +2461,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .single-property {
-  background-color: #fff;
+  background-color: #f4f4fa;
   padding: 20px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -3044,4 +3046,44 @@ pokrivanje::selection{
   bottom: 20px;
   right: 30px;
   z-index: 99;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: display 0.3s ease 0s;
+}
+.profil-kartica img{
+  width: 100%;
+  height: auto;
+  max-width: 285px;
+}
+.profil-kartica button{
+  width:100%;
+  height: auto;
+  max-width: 285px;
+}
+.bold-black{
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+.filter-vrstica{
+  width: 100%;
+  height: auto;
+  background-color: #f4f4fa;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+}
+.filter-vrstica button{
+  margin-left: none;
+  margin-right: none;
+}
+.statistika{
+  background-color: #f4f4fa;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  width: 100%;
+  height: auto;
+  padding:10px;
 }
