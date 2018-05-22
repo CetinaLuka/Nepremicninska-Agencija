@@ -6,10 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import si.feri.NepremicninskaAgencija.repositories.AgentDao;
 import si.feri.NepremicninskaAgencija.repositories.KrajDao;
 import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
 import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -30,6 +35,8 @@ public class MainController {
         model.addAttribute("message");
         return "dodajanjeNepremicnin";
     }
+    AgentDao agentDao=new AgentDao();
+
 
     //testen prikaz vseh vnosov
     @RequestMapping(value = {"/seznamVseh" }, method = RequestMethod.GET)
