@@ -52,6 +52,14 @@ public class RegistracijaInPrijavaController {
             return "redirect:/registracija";
         }
         agentDao.addAgent(ime,priimek,email,geslo);
+
+        int id=agentDao.getId(email);
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);//true will create if necessary
+
+        session.setAttribute("trenutniUporabnik", id);
+
         return "redirect:/kontrolnaPlosca";
     }
     //prijava
@@ -65,6 +73,20 @@ public class RegistracijaInPrijavaController {
             model.addAttribute("gesloPravilno",false);
             return "redirect:/prijava";
         }
+
+        int id=agentDao.getId(email);
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);//true will create if necessary
+
+        session.setAttribute("trenutniUporabnik", id);
+       /* model.addAttribute("idUporabnika",id);
+        model.addAttribute("imeUporabnika",agentDao.getIme(id));
+        model.addAttribute("priimekUporabnika",agentDao.getPriimek(id));
+        model.addAttribute("mailUporabnika",agentDao.getEmail(id));
+        model.addAttribute("telUporabnika",agentDao.getTelefon(id));
+        model.addAttribute("gesloUporabnika",agentDao.getGeslo(id));
+*/
         return "redirect:/kontrolnaPlosca";
     }
 
