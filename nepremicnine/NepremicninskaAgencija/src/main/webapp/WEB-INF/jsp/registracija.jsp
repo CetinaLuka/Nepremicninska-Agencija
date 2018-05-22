@@ -238,15 +238,7 @@
         </c:if>
 
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
     </main>
 <!-- End Generic Start -->
 <!-- start footer Area

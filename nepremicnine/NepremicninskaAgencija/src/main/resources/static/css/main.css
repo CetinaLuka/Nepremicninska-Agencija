@@ -2692,7 +2692,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .contact-area h2 {
   color: #fff;
   font-size: 36px;
-  font-weight: 600px;
+  font-weight: 600;
   letter-spacing: 4px;
 }
 
@@ -3039,3 +3039,4 @@ pokrivanje::selection{
   background-color: #f41068;
   color: #fff;
 }
+

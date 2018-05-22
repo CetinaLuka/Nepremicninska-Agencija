@@ -28,6 +28,14 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+		<style>
+
+			.slikaZaFotografije img {
+				width: 60px !important ;
+				height: 60px !important ;
+				order: 1;
+			}
+		</style>
 		</head>
 		<body>
 
@@ -197,13 +205,66 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-12">
-								<button type=button class="genric-btn default mb-10">
-									Dodaj slike
-								</button>
+						<!--Dodajanje fotografije !!!-->
+						<div class="row slikaZaFotografije ">
+							<div class="col-12 slikaZaFotografije">
+								<label class="genric-btn default mb-10" for="image_uploads">Izberite fotografijo</label>
+								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+								<div id="predogled" class="col-12 slikaZaFotografije ">
+								</div>
 							</div>
 						</div>
+
+						<!--Skripta za dodajanje fotografij, kasneje bom prestavil v main.js-->
+						<script>
+                            var fileTypes = [
+                                'image/jpeg',
+                                'image/pjpeg',
+                                'image/png'
+                            ]
+                            var input = document.querySelector('#image_uploads');
+                            var preview = document.querySelector('#predogled');
+                            input.style.visibility = 'hidden';
+                            input.addEventListener('change', posodobiPregledSlik);
+
+                            function  posodobiPregledSlik() {
+                                var curFiles = input.files;
+                                if(curFiles.length !== 0) {
+                                    var list = document.createElement('ol');
+                                    preview.appendChild(list);
+                                    for(var i = 0; i < curFiles.length; i++) {
+                                        var listItem = document.createElement('li');
+                                        var para = document.createElement('p');
+                                        if(validFileType(curFiles[i])) {
+                                            para.textContent = 'File name ' + curFiles[i].name;
+                                            var image = document.createElement('img');
+                                            image.src = window.URL.createObjectURL(curFiles[i]);
+                                            listItem.appendChild(image);
+                                            listItem.appendChild(para);
+                                        }
+                                        list.appendChild(listItem);
+                                    }
+                                }
+                            }
+
+
+                            function validFileType(file) {
+                                for(var i = 0; i < fileTypes.length; i++) {
+                                    if(file.type === fileTypes[i]) {
+                                        return true;
+                                    }
+                                }
+                                return false;
+                            }
+
+						</script>
+
+
+
+
+
+
+
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
