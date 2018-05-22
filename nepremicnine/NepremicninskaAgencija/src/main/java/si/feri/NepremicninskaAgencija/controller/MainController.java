@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
+
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import si.feri.NepremicninskaAgencija.repositories.AgentDao;
-=======
+
 import org.springframework.web.context.request.*;
->>>>>>> 171a2a790f3f1bd33e8f160e624c33b6294e0fed
+
 import si.feri.NepremicninskaAgencija.repositories.KrajDao;
 import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
 import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
