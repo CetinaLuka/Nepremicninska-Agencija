@@ -53,9 +53,22 @@
 <main class="container">
 
     <section class="section-gap text-center">
+
+        <div class=" col-12 col-md-3 col-lg-12 text-center">
+        <img src="img/i8.jpg" class="profil-slika" height="300px" width="300px"/><br />
+            <br>
+            <button type="submit" class="genric-btn primary circle text-center">
+                Posodobi profilno sliko
+            </button><br />
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-gap text-center">
         <h1>Posodobi osebne podatke</h1>
 
-    <form action="/posodobiProfil" method="POST" class="">
+    <form id="posodobi" action="/posodobiProfil" method="POST" class="">
         <div class="container ">
 
             <div class="row  align-items-center justify-content-center ">
@@ -165,10 +178,21 @@
         <div class="row  align-items-center justify-content-center" >
             <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                 <div class="input-group">
-                    <input type="password" name="novoGesloSpremeni"
-                           id="novoGesloSpremeni"
+                    <input type="password" name="novoGesloSpremeni" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           title="Geslo mora vsebovati vsaj eno veliko črko, vsaj eno malo črko in vsaj eno število ter mora biti dolgo vsaj 8 znakov."
+                           id="inputGesloPriRegistraciji"
                            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                           onblur="this.placeholder = 'staro ime'"
+                           onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                           oninput="
+                                   if (this.value!==document.getElementsByName('novoGesloSpremeni2')[0].value && document.getElementsByName('novoGesloSpremeni2')[0].value !== ''){
+                                       document.getElementsByName('novoGesloSpremeni2')[0].style.backgroundColor='#f41068';
+                                       document.getElementsByName('novoGesloSpremeni2')[0].setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
+                                              }
+                                   else{
+                                       document.getElementsByName('novoGesloSpremeni2')[0].style.backgroundColor='#e8e8ee';
+                                       document.getElementsByName('novoGesloSpremeni2')[0].setCustomValidity('');
+                                   }
+                                   "
                            required class="single-input">
                 </div>
             </div>
@@ -185,7 +209,16 @@
                     <input type="password" name="novoGesloSpremeni2"
                            id="novoGesloSpremeni2"
                            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                           onblur="this.placeholder = 'staro ime'"
+                           onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;';"
+                           oninput="
+                                   if (this.value!==document.getElementsByName('novoGesloSpremeni')[0].value){
+                                       this.style.backgroundColor='#f41068';
+                                       this.setCustomValidity('Ponovljeno geslo se mora ujemati s prvim geslom.');
+                                              }
+                                    else{
+                                       this.style.backgroundColor='#e8e8ee';
+                                       this.setCustomValidity('');
+                                   }"
                            required class="single-input">
                 </div>
             </div>
@@ -223,7 +256,20 @@
         </form>
     </section>
 </main>
+<script>
+    document.getElementById("posodobi").addEventListener("submit", function (event) {
+        var geslo1Input = document.getElementById("novoGesloSpremeni");
+        var geslo2Input = document.getElementById("novoGesloSpremeni2");
 
+        if(geslo1Input.value !== geslo2Input.value){
+            return false;
+        }
+        else{
+            return true;
+        }
+    });
+
+</script>
 
 <jsp:include page="includes/footer.jsp" />
 </div>

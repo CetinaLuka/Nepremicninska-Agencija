@@ -87,8 +87,16 @@ public class AgentDao {
         String sql="UPDATE agent SET Geslo=? WHERE idAgent=?";
         return  jdbcTemplate.update(sql, new Object[]{geslo, id});
     }
+
     public int zbrisiRacun(int id){
-        String sql="DELETE FROM agent WHERE idAgent=?";
-        return  jdbcTemplate.update(sql, new Object[]{id});
+        System.out.println(id);
+        String sql = "DELETE FROM agent WHERE idAgent=?";
+        try {
+            return jdbcTemplate.update(sql, new Object[]{id});
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return 1;
     }
 }

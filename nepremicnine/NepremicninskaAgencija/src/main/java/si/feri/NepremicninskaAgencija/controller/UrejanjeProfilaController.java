@@ -1,5 +1,6 @@
 package si.feri.NepremicninskaAgencija.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import si.feri.NepremicninskaAgencija.models.Agent;
 import si.feri.NepremicninskaAgencija.repositories.AgentDao;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class UrejanjeProfilaController {
 
-    AgentDao agentDao=new AgentDao();
+    @Autowired
+    AgentDao agentDao;
+
     @RequestMapping(value = {"/urejanjeProfila" }, method = RequestMethod.GET)
     public String urejanjeProfila(Model model) {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -62,6 +66,7 @@ public class UrejanjeProfilaController {
         int id=Integer.parseInt(i.toString());
 
         agentDao.zbrisiRacun(id);
+        session.removeAttribute("trenutniUporabnik");
         return "redirect:/registracija";
     }
 }

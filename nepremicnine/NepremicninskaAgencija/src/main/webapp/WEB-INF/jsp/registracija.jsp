@@ -257,26 +257,11 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    //scrolling za dodajanje nepremicnin
-    $(".scroll-gumbi div a[href^='#']").on('click', function(event) {
-        var target = this.hash;
+    document.getElementById("registracija").addEventListener("submit", function (event) {
+        var geslo1Input = document.getElementById("inputGesloPriRegistraciji");
+        var geslo2Input = document.getElementById("inputGesloPriRegistracijiPonovitev");
 
-        event.preventDefault();
-
-        var navOffset = $('#navbar').height();
-
-        return $('html, body').animate({
-            scrollTop: $(this.hash).offset().top-70 - navOffset
-        }, 600, function() {
-            return window.history.pushState(null, null, target);
-        });
-    });
-
-    $('form#registracija').submit(function(event){
-        var geslo1Input = $('input#inputGesloPriRegistraciji');
-        var geslo2Input = $('input#inputGesloPriRegistracijiPonovitev');
-
-        if(geslo1Input.val() !== geslo2Input.val()){
+        if(geslo1Input.value !== geslo2Input.value){
             return false;
         }
         else{

@@ -35,6 +35,8 @@ public class MainController {
     KrajDao krajDao;
     @Autowired
     NaslovDao naslovDao;
+    @Autowired
+    AgentDao agentDao;
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
@@ -47,7 +49,6 @@ public class MainController {
         model.addAttribute("message");
         return "dodajanjeNepremicnin";
     }
-    AgentDao agentDao=new AgentDao();
 
 
     //testen prikaz vseh vnosov
