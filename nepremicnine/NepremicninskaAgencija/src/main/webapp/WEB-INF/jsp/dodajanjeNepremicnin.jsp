@@ -31,9 +31,9 @@
 		<style>
 
 			.slikaZaFotografije img {
-				width: 60px !important ;
-				height: 60px !important ;
-				order: 1;
+				width: 3em !important ;
+				height: 2.5em !important ;
+
 			}
 
 		</style>
@@ -177,7 +177,7 @@
 						<div class="row">
 							<div class="col-12">
 								<!--Checkbox za garažo - name:garaza-->
-								<div class="switch-wrap d-flex mt-1">
+								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
 										<input type="checkbox" name="garaza" id="garaza">
 										<label for="garaza"></label>
@@ -193,7 +193,7 @@
 									<p>Balkon</p>
 								</div>
 								<!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
-								<div class="switch-wrap d-flex">
+								<div class="switch-wrap d-flex ">
 									<div class="primary-switch mr-10">
 										<input type="checkbox" name="dodaten_opis_stanovanja_check" id="dodaten_opis_stanovanja_check" data-toggle="collapse" data-target="#dodaten_opis_stanovanja_skrij">
 										<label for="dodaten_opis_stanovanja_check"></label>
@@ -201,18 +201,23 @@
 									<p>Dodaten opis</p>
 								</div>
 								<!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
-								<div class="mt-10 mb-10 collapse" id="dodaten_opis_stanovanja_skrij">
+								<div class="mt-10 mb-10 collapse " id="dodaten_opis_stanovanja_skrij">
 									<textarea name="dodaten_opis_stanovanja" class="single-textarea" placeholder="Dodaten opis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dodaten opis'"></textarea>
 								</div>
 							</div>
 						</div>
 						<!--Dodajanje fotografije !!!-->
-						<div class="row slikaZaFotografije ">
-							<div class="col-12 slikaZaFotografije">
-								<label class="genric-btn default mb-10" for="image_uploads">Izberite fotografijo</label>
-								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-								<div id="predogled" class="col-12 slikaZaFotografije ">
-								</div>
+						<div class="row  ">
+							<div class="col-12 ">
+								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
+								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png"
+									   
+									   multiple>
+
+							</div>
+						</div>
+						<div class="row text-dark">
+							<div id="predogled" class="col-5 " >
 							</div>
 						</div>
 
@@ -234,18 +239,34 @@
                                     var list = document.createElement('ol');
                                     preview.appendChild(list);
                                     for(var i = 0; i < curFiles.length; i++) {
-                                        var listItem = document.createElement('li');
-                                        var para = document.createElement('p');
-                                        if(validFileType(curFiles[i])) {
-                                            para.textContent = 'File name ' + curFiles[i].name;
+                                        if(validFileType(curFiles[i]) && fotografijaEnaka(curFiles,input)) {
+                                            var listItem = document.createElement('li');
+                                            listItem.setAttribute("class","list-group-item");
+                                            var para = document.createElement('span');
+                                            var gumb = document.createElement('span');
+                                            gumb.setAttribute("class","fa fa-remove");
+											gumb.style.marginLeft='10px';
+
+
+                                            para.textContent = '' + curFiles[i].name+' ';
                                             var image = document.createElement('img');
+                                            list.setAttribute("class","slikaZaFotografije");
                                             image.src = window.URL.createObjectURL(curFiles[i]);
-                                            listItem.appendChild(image);
+                                            console.log(curFiles.length+"\n"+"aaaaaa");
                                             listItem.appendChild(para);
+                                            listItem.appendChild(image);
+                                            listItem.appendChild(gumb);
+
+                                            gumb.addEventListener("click",function () {
+
+											});
+
+                                            list.appendChild(document.createElement('BR'));
                                         }
                                         list.appendChild(listItem);
                                     }
                                 }
+
                             }
 
 
@@ -257,6 +278,18 @@
                                 }
                                 return false;
                             }
+
+                            function fotografijaEnaka(trenutneSlike,slika) {
+								for (var a =0; a<trenutneSlike.length;a++){
+								    if(slika.name==trenutneSlike[a].name){
+								        return false;
+								        break;
+									}
+								}
+								return true;
+                            }
+
+
 
 						</script>
 

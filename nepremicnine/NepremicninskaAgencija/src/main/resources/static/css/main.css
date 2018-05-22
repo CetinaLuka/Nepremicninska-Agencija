@@ -869,6 +869,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
+  border: 1px solid black;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -920,7 +921,7 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn.default {
   color: #222222;
   background: #e8e8ee;
-  border: 1px solid transparent;
+  border: 1px solid black;/*border: 1px solid transparent;*/
 }
 
 .genric-btn.default:hover {
