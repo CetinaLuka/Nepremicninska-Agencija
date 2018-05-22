@@ -2200,7 +2200,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .sticky-wrapper {
-  height: 34px !important;
+  height: 62px !important;
 }
 
 .banner-area {
@@ -2958,6 +2958,9 @@ h6 {
 
 .generic-banner .height {
   height: 600px;
+}
+.generic-banner .sm-height {
+  height: 300px !important;
 }
 
 @media (max-width: 767px) {

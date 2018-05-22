@@ -31,21 +31,22 @@
 		</head>
 		<body>
 
-			<section class="generic-banner relative">
 			<!-- Start Header Area -->
 				<jsp:include page="includes/navigacijskiMeni.jsp" />
-		<!-- End Header Area -->
-			<div class="container pt-90">
-				<div class="row align-items-center justify-content-center">
-					<div class="col-lg-10">
-						<div class="generic-banner-content text-center">
-							<h2 class="text-white">Dodajanje nepremičnin</h2>
-							<p class="text-white">Dodajte hišo, stanovanje ali posest v našo bazo nepremičnin.</p>
+			<!-- End Header Area -->
+			<section class="generic-banner relative">
+				<div class="container pt-30 pb-20">
+					<div class="row align-items-center justify-content-center">
+						<div class="col-lg-10">
+							<div class="generic-banner-content text-center">
+								<h2 class="text-white">Dodajanje nepremičnin</h2>
+								<p class="text-white">Dodajte hišo, stanovanje ali posest v našo bazo nepremičnin.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			</section>
+			<!--</section>-->
 			<br />
 			<!--gumbi za dodajanje nepremicnin-->
 			<div class="container">
@@ -73,6 +74,7 @@
 					</div>
 				</div>
 			</div>
+			<br />
 			<section class="section-gap" id="dodaj_stanovanje_section">
 				<div class="container">
 					<div class="row">
@@ -205,7 +207,7 @@
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
-									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+									<input type="submit" value="Dodaj stanovanje" class="genric-btn primary-border circle mb-50">
 								</div>
 							</div>
 						</div>
@@ -421,7 +423,7 @@
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
-									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+									<input type="submit" value="Dodaj posest" class="genric-btn primary-border circle mb-50">
 								</div>
 							</div>
 						</div>
