@@ -33,23 +33,21 @@
 </head>
 <body>
 
-<section class="generic-banner relative">
     <!-- Start Header Area -->
     <jsp:include page="includes/navigacijskiMeni.jsp" />
     <!-- End Header Area -->
-    <div class="container pt-90">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-lg-10">
-                <div class="generic-banner-content text-center">
-
-                    <h2 class="text-white">Registracija</h2>
-
+    <section class="generic-banner relative">
+        <div class="container pt-30 pb-20">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10">
+                    <div class="generic-banner-content text-center">
+                        <h2 class="text-white">Registracija</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<br />
+    </section>
+    <br />
 
 
 
@@ -208,7 +206,7 @@
 
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <input type="checkbox"class="primary-checkbox pull-left" id="registracijaPogojiUporabe" required/>
+                        <input type="checkbox" class="primary-checkbox pull-left" id="registracijaPogojiUporabe" required/>
                         <label class=" pull-left odebeljenTextCrneBarve "for="registracijaPogojiUporabe">
                             <strong> &nbsp;Strinjam se s <a href="#">pogoji uporabe!</a></strong>
                         </label>

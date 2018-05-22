@@ -36,10 +36,37 @@
         <jsp:include page="includes/navigacijskiMeni.jsp" />
         <!-- End Header Area -->
     </section>
-    <section class="section-gap">
-        <h1>Kontrolna plošča agenta</h1>
+    <section class="generic-banner relative">
+        <div class="container pt-30 pb-20">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10">
+                    <div class="generic-banner-content text-center">
+                        <h2 class="text-white">Kontrolna plošča agenta</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
+    <section class="mt-30">
+        <div class="container">
+            <div class="float-left">
+                <div class="col-xs-12 col-md-3">
+                    <img src="img/i8.jpg" />
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div>
+                        <h3>Podatki o uporabniku</h3>
+                        <div class="">Ime: </div><br />
+                        <div class="">Priimek: </div><br />
+                        <div class="">Ime: </div><br />
+                        <div class="">Priimek: </div><br />
+                        <div class="">Ime: </div><br />
+                        <div class="">Priimek: </div><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 

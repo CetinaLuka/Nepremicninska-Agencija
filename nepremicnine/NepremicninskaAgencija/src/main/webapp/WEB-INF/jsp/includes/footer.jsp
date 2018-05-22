@@ -7,9 +7,10 @@
 <!--<footer class="footer-area fixed-bottom align-text-bottom text-right ">
     <p class="footer-block">&copy;Žan Kovač, Luka Četina, David Žele, Eua Smolak </p>
 </footer>-->
+<footer>
     <div class="container">
-        <div class="footer text-center">
-            <p>&copy;Žan Kovač, Luka Četina, David Žele, Eua Smolak </p>
+        <div class="footer">
+            <p>&copy;Žan Kovač, Luka Četina, David Žele, Eva Smolak </p>
             <p>FERI ITK UN - Praktikum1</p>
             <!--Privzeto od templatea -->
             <p>Copyright &copy;
@@ -21,4 +22,5 @@
             <!--============================================ -->
         </div>
     </div>
+</footer>
 

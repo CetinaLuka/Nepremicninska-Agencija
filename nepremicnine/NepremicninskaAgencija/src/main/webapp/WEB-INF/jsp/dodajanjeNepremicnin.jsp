@@ -35,25 +35,27 @@
 				height: 60px !important ;
 				order: 1;
 			}
+
 		</style>
 		</head>
 		<body>
-
-			<section class="generic-banner relative">
+			<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
 			<!-- Start Header Area -->
 				<jsp:include page="includes/navigacijskiMeni.jsp" />
-		<!-- End Header Area -->
-			<div class="container pt-90">
-				<div class="row align-items-center justify-content-center">
-					<div class="col-lg-10">
-						<div class="generic-banner-content text-center">
-							<h2 class="text-white">Dodajanje nepremičnin</h2>
-							<p class="text-white">Dodajte hišo, stanovanje ali posest v našo bazo nepremičnin.</p>
+			<!-- End Header Area -->
+			<section class="generic-banner relative">
+				<div class="container pt-30 pb-20">
+					<div class="row align-items-center justify-content-center">
+						<div class="col-lg-10">
+							<div class="generic-banner-content text-center">
+								<h2 class="text-white">Dodajanje nepremičnin</h2>
+								<p class="text-white">Dodajte hišo, stanovanje ali posest v našo bazo nepremičnin.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			</section>
+			<!--</section>-->
 			<br />
 			<!--gumbi za dodajanje nepremicnin-->
 			<div class="container">
@@ -81,6 +83,7 @@
 					</div>
 				</div>
 			</div>
+			<br />
 			<section class="section-gap" id="dodaj_stanovanje_section">
 				<div class="container">
 					<div class="row">
@@ -88,7 +91,7 @@
 							<h2>Dodaj stanovanje</h2>
 						</div>
 					</div>
-					<form name="dodaj_stanovanje_form" method="POST">
+					<form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja">
 						<div class="row">
 							<div class="col-12 col-md-9">
 
@@ -176,7 +179,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10">
-										<input type="checkbox" name="garaza" id="garaza">
+										<input type="checkbox" name="garaza" id="garaza" value="1">
 										<label for="garaza"></label>
 									</div>
 									<p>Garaža</p>
@@ -184,7 +187,7 @@
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="balkon" id="balkon">
+										<input type="checkbox" name="balkon" id="balkon" value="1">
 										<label for="balkon"></label>
 									</div>
 									<p>Balkon</p>
@@ -266,7 +269,7 @@
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
-									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+									<input type="submit" value="Dodaj stanovanje" class="genric-btn primary-border circle mb-50">
 								</div>
 							</div>
 						</div>
@@ -281,7 +284,7 @@
 							<h2>Dodaj hišo</h2>
 						</div>
 					</div>
-					<form name="dodaj_hiso_form">
+					<form name="dodaj_hiso_form" method="POST" action="dodajanjeHise">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -325,10 +328,11 @@
 									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
 							</div>
+
 							<div class="col-xs-12 col-md-4">
-								<!--Polje za vnos nadstropja - name:nadstropje-->
+								<!--Polje za vnos letnika izgradnje - name:letnik_izgradnje-->
 								<div class="mt-10">
-									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
+									<input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Letnik izgradnje'" required class="single-input" />
 								</div>
 							</div>
 						</div>
@@ -355,11 +359,27 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-12 col-sm-3">
+								<!--Checkbox za prenovljenost - name:prenovljeno-->
+								<div class="switch-wrap d-flex mt-1">
+									<div class="primary-checkbox mr-10 mt-1">
+										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
+										<label for="prenovljeno_hisa"></label>
+									</div>
+									<p>Prenovljeno</p>
+								</div>
+								<!--Polje za vnos letnika prenove - name:letnik_prenove-->
+								<div class="collapse" id="letnik_prenove_hisa_skrij" >
+									<input type="text" name="letnik_prenove" placeholder="Letnik prenove" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Letnik prenove'" class="single-input" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-12">
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="garaza" id="garaza_hisa">
+										<input type="checkbox" name="garaza" id="garaza_hisa" value="1">
 										<label for="garaza_hisa"></label>
 									</div>
 									<p>Garaža</p>
@@ -402,7 +422,7 @@
 							<h2>Dodaj posest</h2>
 						</div>
 					</div>
-					<form>
+					<form method="POST" action="dodajanjePosesti">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -482,7 +502,7 @@
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
-									<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+									<input type="submit" value="Dodaj posest" class="genric-btn primary-border circle mb-50">
 								</div>
 							</div>
 						</div>
@@ -519,6 +539,21 @@
                         return window.history.pushState(null, null, target);
                     });
                 });
+                //pokazi gumb za scroll to top
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("top-gumb").style.display = "block";
+                    } else {
+                        document.getElementById("top-gumb").style.display = "none";
+                    }
+                }
+                //scroll to top
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
 			</script>
 	</body>
 </html>

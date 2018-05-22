@@ -31,26 +31,21 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-<section class="generic-banner relative">
-    <!-- Start Header Area -->
+    <!-- Start Navbar Area -->
     <jsp:include page="includes/navigacijskiMeni.jsp" />
-    <!-- End Header Area -->
-    <div class="container pt-90">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-lg-10">
-                <div class="generic-banner-content text-center">
-
-                    <h2 class="text-white">Prijava</h2>
-
+    <!-- End Navbar Area -->
+    <section class="generic-banner relative">
+        <div class="container pt-30 pb-20">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10">
+                    <div class="generic-banner-content text-center">
+                        <h2 class="text-white">Prijava</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<br />
-
-
+    </section>
+    <br />
 
 <!-- Prijavni obrazec
 
