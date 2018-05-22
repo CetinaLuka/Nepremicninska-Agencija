@@ -3024,8 +3024,6 @@ h6 {
 .switch-wrap p {
   margin: 0;
 }
-/*Žan stili zakaj fucking ne dela ?
-*/
 .odebeljenTextCrneBarve label {
   color: black;
   font-weight: bold;
@@ -3039,4 +3037,11 @@ pokrivanje::selection{
   background-color: #f41068;
   color: #fff;
 }
-
+/*kontrolna plosca*/
+#top-gumb{
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+}

@@ -35,10 +35,11 @@
 				height: 60px !important ;
 				order: 1;
 			}
+
 		</style>
 		</head>
 		<body>
-
+			<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
 			<!-- Start Header Area -->
 				<jsp:include page="includes/navigacijskiMeni.jsp" />
 			<!-- End Header Area -->
@@ -327,10 +328,11 @@
 									<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Velikost zemljišča (m²)'" required class="single-input" />
 								</div>
 							</div>
+
 							<div class="col-xs-12 col-md-4">
-								<!--Polje za vnos nadstropja - name:nadstropje-->
+								<!--Polje za vnos letnika izgradnje - name:letnik_izgradnje-->
 								<div class="mt-10">
-									<input type="text" name="nadstropje" placeholder="Nadstropje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadstropje'" required class="single-input" />
+									<input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Letnik izgradnje'" required class="single-input" />
 								</div>
 							</div>
 						</div>
@@ -353,6 +355,22 @@
 										<option value="2">Dvojček</option>
 										<option value="3">Vrstna</option>
 									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-sm-3">
+								<!--Checkbox za prenovljenost - name:prenovljeno-->
+								<div class="switch-wrap d-flex mt-1">
+									<div class="primary-checkbox mr-10 mt-1">
+										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
+										<label for="prenovljeno_hisa"></label>
+									</div>
+									<p>Prenovljeno</p>
+								</div>
+								<!--Polje za vnos letnika prenove - name:letnik_prenove-->
+								<div class="collapse" id="letnik_prenove_hisa_skrij" >
+									<input type="text" name="letnik_prenove" placeholder="Letnik prenove" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Letnik prenove'" class="single-input" />
 								</div>
 							</div>
 						</div>
@@ -521,6 +539,21 @@
                         return window.history.pushState(null, null, target);
                     });
                 });
+                //pokazi gumb za scroll to top
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("top-gumb").style.display = "block";
+                    } else {
+                        document.getElementById("top-gumb").style.display = "none";
+                    }
+                }
+                //scroll to top
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
 			</script>
 	</body>
 </html>
