@@ -6,7 +6,7 @@ public class Agent{
     String priimek;
     String email;
     String geslo;
-    int telefonskaSt;
+    String telefonskaSt;
     int tk_id_slika;
 
     public Agent(){}
@@ -62,11 +62,11 @@ public class Agent{
         this.geslo = geslo;
     }
 
-    public int getTelefonskaSt() {
+    public String getTelefonskaSt() {
         return telefonskaSt;
     }
 
-    public void setTelefonskaSt(int telefonskaSt) {
+    public void setTelefonskaSt(String telefonskaSt) {
         this.telefonskaSt = telefonskaSt;
     }
 

@@ -91,7 +91,7 @@
 							<h2>Dodaj stanovanje</h2>
 						</div>
 					</div>
-					<form name="dodaj_stanovanje_form" method="POST">
+					<form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja">
 						<div class="row">
 							<div class="col-12 col-md-9">
 
@@ -179,7 +179,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10">
-										<input type="checkbox" name="garaza" id="garaza">
+										<input type="checkbox" name="garaza" id="garaza" value="1">
 										<label for="garaza"></label>
 									</div>
 									<p>Garaža</p>
@@ -187,7 +187,7 @@
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="balkon" id="balkon">
+										<input type="checkbox" name="balkon" id="balkon" value="1">
 										<label for="balkon"></label>
 									</div>
 									<p>Balkon</p>
@@ -284,7 +284,7 @@
 							<h2>Dodaj hišo</h2>
 						</div>
 					</div>
-					<form name="dodaj_hiso_form">
+					<form name="dodaj_hiso_form" method="POST" action="dodajanjeHise">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -379,7 +379,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="garaza" id="garaza_hisa">
+										<input type="checkbox" name="garaza" id="garaza_hisa" value="1">
 										<label for="garaza_hisa"></label>
 									</div>
 									<p>Garaža</p>
@@ -422,7 +422,7 @@
 							<h2>Dodaj posest</h2>
 						</div>
 					</div>
-					<form>
+					<form method="POST" action="dodajanjePosesti">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
