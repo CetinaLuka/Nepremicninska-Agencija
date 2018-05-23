@@ -117,7 +117,20 @@
                             </div>
                         </div>
                     </div>
-
+                <div class="row  align-items-center justify-content-center">
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 text-right">
+                                <c:if test="${prijavaNeuspesna==true}">
+                                    <div style="color: darkred;">
+                                        NEPRAVILNO GESLO ALI EMAIL NASLOV!
+                                    </div>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="row  align-items-center justify-content-center" >
                         <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                             <button type="submit" class="genric-btn primary circle pull-right">
@@ -133,13 +146,6 @@
     <br/>
     <br/>
     <br/>
-
-    <c:if test="${nepravilnaPrijava==true}">
-        <div class="alert alert-warning">
-            NEPRAVILNO GESLO ALI EMAIL NASLOV!
-        </div>
-        NEPRAVILNO GESLO ALI EMAIL NASLOV!!
-    </c:if>
 </main>
 
 

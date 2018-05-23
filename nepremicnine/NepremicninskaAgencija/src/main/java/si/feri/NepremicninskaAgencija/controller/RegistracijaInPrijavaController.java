@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import si.feri.NepremicninskaAgencija.repositories.AgentDao;
 import si.feri.NepremicninskaAgencija.repositories.KrajDao;
 import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
@@ -40,15 +41,15 @@ public class RegistracijaInPrijavaController {
 
     //REGISTRACIJA
     @RequestMapping(value = {"/kontrolnaPloscaReg" }, method = RequestMethod.POST)
-    public String registracija (Model model,  @RequestParam(value="email",required=true)String email, @RequestParam(value="ime",required=true)String ime,
+    public String registracija (RedirectAttributes red, Model model,  @RequestParam(value="email",required=true)String email, @RequestParam(value="ime",required=true)String ime,
     @RequestParam(value="priimek",required=true)String priimek,  @RequestParam(value="geslo",required=true)String geslo,
     @RequestParam(value="varnostnaKoda",required=true)String varnostnaKoda){
         if(agentDao.obstaja(email)){
-            model.addAttribute("neuspesnaRegistracija",true);
+            red.addFlashAttribute("neuspesnaRegistracija",true);
             return "redirect:/registracija";
         }
         if(!varnostnaKoda.equals("123")){
-            model.addAttribute("nepravilnaKoda",true);
+            red.addFlashAttribute("nepravilnaKoda",true);
             return "redirect:/registracija";
         }
         agentDao.addAgent(ime,priimek,email,geslo);
@@ -64,9 +65,9 @@ public class RegistracijaInPrijavaController {
     }
     //prijava
     @RequestMapping(value = {"/kontrolnaPloscaPr" }, method = RequestMethod.POST)
-    public String prijava (Model model,  @RequestParam(value="email",required=true)String email, @RequestParam(value="geslo",required=true)String geslo) {
+    public String prijava (RedirectAttributes red, Model model, @RequestParam(value="email",required=true)String email, @RequestParam(value="geslo",required=true)String geslo) {
         if(!agentDao.obstaja(email) || !agentDao.pravilnoGeslo(email,geslo)){
-            model.addAttribute("nepravilnaPrijava",true);
+            red.addFlashAttribute("prijavaNeuspesna",true);
             return "redirect:/prijava";
         }
         int id=agentDao.getId(email);
