@@ -62,12 +62,10 @@ public class MainController {
 
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
-<<<<<<< HEAD
+
         model.addAttribute("message");
-       // model.addAttribute();
-=======
-        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVse());
->>>>>>> 6dab5f9dac20ea76b7d53bbe19326181751683fd
+model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVse());
+
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
