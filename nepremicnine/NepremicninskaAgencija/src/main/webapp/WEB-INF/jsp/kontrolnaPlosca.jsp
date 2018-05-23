@@ -58,10 +58,11 @@
                         <div class="col-12 col-lg-12">
                             <div class="row">
                                 <div class="col-12 col-md-3 col-lg-12">
-                                    <img src="img/i8.jpg" class="profil-slika"/><br />
+                                    <img src="img/i8.jpg" class="profil-slika img-thumbnail mb-1"/><br />
                                     <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
                                     <button class="genric-btn default border">Uredi profil</button>
                                 </div>
+                                <br />
                                 <div class="col-12 col-md-5 col-lg-12">
                                     <div class="bold-black">Ime Priimek</div>
                                     <div class="">Podatek: xxxxxxxxxxxx</div>
@@ -71,6 +72,7 @@
                                     <div class="">Podatek: xxxxxxxxxxxx</div>
                                     <div class="">Podatek: xxxxxxxxxxxx</div>
                                 </div>
+                                <br />
                                 <div class="col-12 col-md-4 col-lg-12">
                                     <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
                                 </div>
@@ -79,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-lg-8">
+                <div class="col-xs-12 col-lg-9">
                     <div class="row statistika">
                         <div class="col-xs-12 col-md-6 col-lg-6">
                             <div class="bold-black">Podatki o nepremičninah:</div>
@@ -98,20 +100,20 @@
                         <button class="genric-btn default">Kvadraturi</button>
                     </div>
                     <div class="row">
-                        <c:forEach var="i" begin="1" end="10">
+                        <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
 
                             <div class="col-xs-12 col-md-6 col-lg-6">
                                 <div class="single-property mb-3">
                                     <div class="images">
                                         <a href="img/s1.jpg">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                            <span>Hiša</span>
+                                            <span>${nepremicnina.tk_id_vrstaNepremicnine}</span>
                                         </a>
                                     </div>
                                     <div class="desc">
                                         <div class="top d-flex justify-content-between">
                                             <h4><a href="#">04 Bed Duplex</a></h4>
-                                            <h4>$3.5M</h4>
+                                            <h4>${nepremicnina.cena}</h4>
                                         </div>
                                         <div class="middle">
                                             <div class="d-flex justify-content-start">

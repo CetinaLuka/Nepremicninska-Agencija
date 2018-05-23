@@ -61,8 +61,43 @@ public class NepremicninaDao {
             String vrstaPosesti=(String)row.get("vrstaPosesti");
             boolean prodano=(boolean)row.get("prodano");
             Date datumObjave=(Date)row.get("datumObjave");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano, datumObjave));
+            int tk_id_vrstaNepremicnine = (int)row.get("VrstaNepremičnine_idVrstaNepremičnine");
+            int tk_id_agent = (int)row.get("Agent_idAgent");
+            int tk_id_naslov = (int)row.get("Naslov_idNaslov");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
         }
         return ret;
     }
+
+    public List<Integer> vrniIDStanovanja(String cena, String kvadratura, String stevilo_sob, String letnik_izgradnje, String nadstropje, String letnik_prenove, String garaza, String balkon , String dodaten_opis, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
+        String sql = "SELECT nepremičnina.idNepremičnina FROM nepremičnina WHERE Cena=? AND SkupnaKvadratura=? AND štSob=? AND letnikIzgradnje=? AND Nadstropje=? AND letoPrenove=? AND Garaža=? AND Balkon=? AND Opis=? AND Prodano=? AND Naslov_idNaslov=? AND vrstaNepremičnine_idVrstaNepremičnine=? AND Agent_idAgent=?";
+        List<Integer> ret = new ArrayList<Integer>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{cena,kvadratura,stevilo_sob,letnik_izgradnje,nadstropje,letnik_prenove,garaza,balkon,dodaten_opis,prodano,tk_naslov,tk_vrstaNepr,tk_agent});
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremičnina");
+            ret.add(id);
+        }
+        return ret;
+    }
+    public List<Integer> vrniIDHise(String cena, String kvadratura, String letnik_izgradnje, String letnik_prenove, String garaza, String dodaten_opis, String velikost_zemljisca, String vrsta_hise, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
+        String sql = "SELECT nepremičnina.idNepremičnina FROM nepremičnina WHERE Cena=? AND KvadraturaBivalnegaProstora=? AND letnikIzgradnje=? AND letoPrenove=? AND Garaža=? AND Opis=? AND SkupnaKvadratura=? AND VrstaHiše=? AND Prodano=? AND Naslov_idNaslov=? AND vrstaNepremičnine_idVrstaNepremičnine=? AND Agent_idAgent=?";
+        List<Integer> ret = new ArrayList<Integer>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{cena,kvadratura,letnik_izgradnje,letnik_prenove,garaza,dodaten_opis,velikost_zemljisca,vrsta_hise,prodano,tk_naslov,tk_vrstaNepr,tk_agent});
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremičnina");
+            ret.add(id);
+        }
+        return ret;
+    }
+    public List<Integer> vrniIDPosesti(String cena, String velikost_zemljisca, String vrsta_posesti, String dodaten_opis, int prodano,  int tk_naslov, int tk_vrstaNepr, int tk_agent){
+        String sql = "SELECT nepremičnina.idNepremičnina FROM nepremičnina WHERE Cena=? AND SkupnaKvadratura=? AND TipPosesti=? AND Opis=? AND Prodano=?  AND Naslov_idNaslov=? AND vrstaNepremičnine_idVrstaNepremičnine=? AND Agent_idAgent=?";
+        List<Integer> ret = new ArrayList<Integer>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{cena, velikost_zemljisca, vrsta_posesti,dodaten_opis,prodano,tk_naslov,tk_vrstaNepr,tk_agent});
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremičnina");
+            ret.add(id);
+        }
+        return ret;
+    }
+
 }

@@ -12,10 +12,7 @@ import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -24,18 +21,21 @@ public class SlikaDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public void save(MultipartFile f){
+    public void save(MultipartFile f,int tk_nepremicnina, int tk_agent){
         try {
             LobHandler lobhandler = new DefaultLobHandler();
-            final File blobIn = new File("spring2004.jpg");
+            final File blobIn = convert(f);
             final InputStream blobIs = new FileInputStream(blobIn);
             jdbcTemplate.execute(
-                    "INSERT INTO slika (UrlSlike) VALUES (?)",
+                    "INSERT INTO slika (UrlSlike,OpisSlike,Nepremičnina_idNepremičnina,Agent_idAgent) VALUES (?,?,?,?)",
                     new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
                         protected void setValues(PreparedStatement ps, LobCreator lobCreator)
                                 throws SQLException {
-                            ps.setLong(1, 1L);
-                            lobCreator.setBlobAsBinaryStream(ps, 2, blobIs, (int) blobIn.length());
+                            //ps.setLong(1, 1L);
+                            lobCreator.setBlobAsBinaryStream(ps, 1, blobIs, (int) blobIn.length());
+                            ps.setString(2, "nekaj");
+                            ps.setString(3, ""+tk_nepremicnina);
+                            ps.setString(4, ""+tk_agent);
                         }
                     }
             );
@@ -44,5 +44,20 @@ public class SlikaDao {
         catch(IOException e){
             System.out.println(e);
         }
+    }
+    public File convert(MultipartFile file)
+    {
+        try {
+            File convFile = new File(file.getOriginalFilename());
+            convFile.createNewFile();
+            FileOutputStream fos = new FileOutputStream(convFile);
+            fos.write(file.getBytes());
+            fos.close();
+            return convFile;
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+        return null;
     }
 }
