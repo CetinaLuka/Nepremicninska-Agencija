@@ -22,10 +22,10 @@
                     <li><a href="index#service">Storitve</a></li>
                     <li><a href="index#property">Ponudba</a></li>
                     <li><a href="index#contact">Kontakt</a></li>
+                    <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
                     <li><a href="prijava">Prijava</a></li>
                     <li><a href="registracija">Registracija</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>

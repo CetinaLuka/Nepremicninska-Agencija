@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -52,9 +53,9 @@
 
 <main class="container">
 
-    <section class="section-gap text-center">
+    <div class="text-center" style="margin-top:50px">
 
-        <div class=" col-12 col-md-3 col-lg-12 text-center">
+        <div class="text-center">
         <img src="img/i8.jpg" class="profil-slika" height="300px" width="300px"/><br />
             <br>
             <button type="submit" class="genric-btn primary circle text-center">
@@ -63,9 +64,9 @@
             </div>
 
         </div>
-    </section>
+    </div>
 
-    <section class="section-gap text-center">
+    <div class="text-center" style="margin-top: 50px">
         <h1>Posodobi osebne podatke</h1>
 
     <form id="posodobi" action="/posodobiProfil" method="POST" class="">
@@ -95,7 +96,7 @@
             <div class="row  align-items-center justify-content-center" >
                 <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                     <div class="input-group">
-                        <input type="text" name="novPriimek" value="Primek"
+                        <input type="text" name="novPriimek" value="${priimekUporabnika}"
                                id="novPriimek"
 
                                required class="single-input">
@@ -111,7 +112,7 @@
             <div class="row  align-items-center justify-content-center" >
                 <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                     <div class="input-group">
-                        <input type="email" name="novMail" value="mail@gmail.com"
+                        <input type="email" name="novMail" value="${mailUporabnika}"
                                id="novMail"
 
                                required class="single-input">
@@ -128,10 +129,10 @@
             <div class="row  align-items-center justify-content-center" >
                 <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                     <div class="input-group">
-                        <input type="text" name="telefonskaStevilka" value="123"
+                        <input type="text" name="telefonskaStevilka" value="${telUporabnika}"
                                id="telefonskaStevilka"
 
-                               required class="single-input">
+                               class="single-input">
                     </div>
                 </div>
             </div>
@@ -147,9 +148,21 @@
             </div>
         </div>
     </form>
-    </section>
 
-    <section class="section-gap text-center">
+
+    <c:choose>
+        <c:when test = "${uspesnoProfil}">
+           USPEŠNO.
+        </c:when>
+        <c:when test = "${uspesnoProfil==false}">
+            NEUSPEŠNO.
+        </c:when>
+        <c:otherwise>
+            NIČ NE DELA
+        </c:otherwise>
+    </c:choose>
+    </div>
+    <div class="text-center" style="margin-top:50px">
         <h1>Posodobi geslo</h1>
     <form action="/posodobiGeslo" method="post">
 
@@ -233,7 +246,19 @@
         </div>
 
     </form>
-    </section>
+
+        <c:choose>
+            <c:when test = "${uspesnoGeslo==true}">
+                USPEŠNO.
+            </c:when>
+            <c:when test = "${uspesnoGeslo==false}">
+                NEUSPEŠNO.
+            </c:when>
+            <c:otherwise>
+                NIČ NE DELA
+            </c:otherwise>
+        </c:choose>
+    </div>
 
 
     <section class="section-gap text-center">

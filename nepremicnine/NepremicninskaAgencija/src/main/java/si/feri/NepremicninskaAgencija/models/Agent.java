@@ -7,7 +7,6 @@ public class Agent{
     String email;
     String geslo;
     String telefonskaSt;
-    int tk_id_slika;
 
     public Agent(){}
 
@@ -70,11 +69,4 @@ public class Agent{
         this.telefonskaSt = telefonskaSt;
     }
 
-    public int getTk_id_slika() {
-        return tk_id_slika;
-    }
-
-    public void setTk_id_slika(int tk_id_slika) {
-        this.tk_id_slika = tk_id_slika;
-    }
 }

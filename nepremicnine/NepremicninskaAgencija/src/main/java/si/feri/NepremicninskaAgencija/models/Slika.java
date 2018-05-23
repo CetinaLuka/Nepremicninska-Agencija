@@ -5,6 +5,16 @@ public class Slika{
     String opisSlike;
     int tk_id_nepremicnina;
 
+    public int getTk_id_agent() {
+        return tk_id_agent;
+    }
+
+    public void setTk_id_agent(int tk_id_agent) {
+        this.tk_id_agent = tk_id_agent;
+    }
+
+    int tk_id_agent;
+
     Slika(String URLSlike, String opisSlike){
         this.URLSlike=URLSlike;
         this.opisSlike=opisSlike;

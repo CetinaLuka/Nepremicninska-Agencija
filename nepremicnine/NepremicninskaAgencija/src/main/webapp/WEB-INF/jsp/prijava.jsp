@@ -133,15 +133,18 @@
     <br/>
     <br/>
     <br/>
+
+    <c:if test="${nepravilnaPrijava==true}">
+        <div class="alert alert-warning">
+            NEPRAVILNO GESLO ALI EMAIL NASLOV!
+        </div>
+        NEPRAVILNO GESLO ALI EMAIL NASLOV!!
+    </c:if>
 </main>
 
 
 
-<c:if test="${gesloPravilno==false}">
-    <div class="alert alert-warning">
-        NEPRAVILNO GESLO ALI EMAIL NASLOV!
-    </div>
-</c:if>
+
 
 
 
