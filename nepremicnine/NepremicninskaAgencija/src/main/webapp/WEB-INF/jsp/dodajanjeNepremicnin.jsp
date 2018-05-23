@@ -209,7 +209,7 @@
 						<!--Dodajanje fotografije !!!-->
 						<div class="row  ">
 							<div class="col-12 ">
-								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
+								<label class="genric-btn default  border mb-10 " for="image_uploads">Izberite fotografijo</label>
 								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png"
 									   
 									   multiple>
@@ -268,8 +268,6 @@
                                 }
 
                             }
-
-
                             function validFileType(file) {
                                 for(var i = 0; i < fileTypes.length; i++) {
                                     if(file.type === fileTypes[i]) {
@@ -278,7 +276,6 @@
                                 }
                                 return false;
                             }
-
                             function fotografijaEnaka(trenutneSlike,slika) {
 								for (var a =0; a<trenutneSlike.length;a++){
 								    if(slika.name==trenutneSlike[a].name){
@@ -433,7 +430,7 @@
 						</div>
 						<div class="row">
 							<div class="col-12">
-								<button type=button class="genric-btn default mb-10">
+								<button type=button class="genric-btn default border mb-10">
 									Dodaj slike
 								</button>
 							</div>
@@ -527,7 +524,7 @@
 						</div>
 						<div class="row">
 							<div class="col-12">
-								<button type=button class="genric-btn default mb-10">
+								<button type=button class="genric-btn default border mb-10">
 									Dodaj slike
 								</button>
 							</div>
