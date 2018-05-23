@@ -61,7 +61,10 @@ public class NepremicninaDao {
             String vrstaPosesti=(String)row.get("vrstaPosesti");
             boolean prodano=(boolean)row.get("prodano");
             Date datumObjave=(Date)row.get("datumObjave");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano, datumObjave));
+            int tk_id_vrstaNepremicnine = (int)row.get("VrstaNepremičnine_idVrstaNepremičnine");
+            int tk_id_agent = (int)row.get("Agent_idAgent");
+            int tk_id_naslov = (int)row.get("Naslov_idNaslov");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
         }
         return ret;
     }

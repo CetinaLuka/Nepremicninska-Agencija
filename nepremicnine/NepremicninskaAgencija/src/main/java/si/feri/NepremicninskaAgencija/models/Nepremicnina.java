@@ -28,7 +28,7 @@ public class Nepremicnina{
     public Nepremicnina() {
     }
 
-    public Nepremicnina(int id, double cena, double kvadraturaBivalnegaProstora, double skupnaKvadratura, int steviloSob, int nadstropje, int letoIzgradnje, int letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave) {
+    public Nepremicnina(int id, double cena, double kvadraturaBivalnegaProstora, double skupnaKvadratura, int steviloSob, int nadstropje, int letoIzgradnje, int letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, int tk_id_vrstaNepremicnine, int tk_id_agent, int tk_id_naslov) {
         this.id = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
@@ -44,6 +44,9 @@ public class Nepremicnina{
         this.vrstaPosesti = vrstaPosesti;
         this.prodano = prodano;
         this.datumObjave = datumObjave;
+        this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
+        this.tk_id_agent = tk_id_agent;
+        this.tk_id_naslov = tk_id_naslov;
     }
 
     //KONSTRUKTORJI

@@ -48,7 +48,7 @@ public class RegistracijaInPrijavaController {
             return "redirect:/registracija";
         }
         if(!varnostnaKoda.equals("123")){
-            model.addAttribute("nerpavilnaKoda",true);
+            model.addAttribute("nepravilnaKoda",true);
             return "redirect:/registracija";
         }
         agentDao.addAgent(ime,priimek,email,geslo);
