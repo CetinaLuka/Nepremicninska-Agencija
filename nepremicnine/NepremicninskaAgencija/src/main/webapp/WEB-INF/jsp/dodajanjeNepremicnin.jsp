@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="c"%>
 <html lang="zxx" class="no-js">
 	<head>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -91,7 +92,7 @@
 							<h2>Dodaj stanovanje</h2>
 						</div>
 					</div>
-					<form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja">
+					<c:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja" modelAttribute="uploadForm" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-9">
 
@@ -210,7 +211,7 @@
 						<div class="row  ">
 							<div class="col-12 ">
 								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
-								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png"
+								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png"
 									   
 									   multiple>
 
@@ -306,7 +307,7 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</c:form>
 				</div>
 			</section>
 

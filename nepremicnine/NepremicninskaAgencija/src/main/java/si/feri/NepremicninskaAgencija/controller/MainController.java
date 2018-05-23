@@ -99,28 +99,20 @@ public class MainController {
         }
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
-        int tk_agent=Integer.parseInt((String)session.getAttribute("trenutniUporabnik"));
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addStanovanje(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDStanovanja(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent);
 
-
-
-            List<MultipartFile> files = uploadForm.getFiles();
-
-            List<String> fileNames = new ArrayList<String>();
-
-            if(null != files && files.size() > 0) {
-                for (MultipartFile multipartFile : files) {
-
-                    String fileName = multipartFile.getOriginalFilename();
-                    fileNames.add(fileName);
-                    //Handle file content - multipartFile.getInputStream()
-                    slikaDao.save(multipartFile);
-                }
+        List<MultipartFile> files = uploadForm.getFiles();
+        List<String> fileNames = new ArrayList<String>();
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
             }
-
-            map.addAttribute("files", fileNames);
-
-
+        }
+        map.addAttribute("files", fileNames);
         return "redirect:/dodajanjeNepremicnin";
     }
 
@@ -130,7 +122,8 @@ public class MainController {
         @RequestParam(value="kvadratura",required=true)String kvadratura, @RequestParam(value="letnik_izgradnje",required=true)String letnik_izgradnje,
         @RequestParam(value="cena",required=true)String cena, @RequestParam(value="dodaten_opis_hise",required=true)String dodaten_opis,
         @RequestParam(value="letnik_prenove",required=true)String letnik_prenove,@RequestParam(value="garaza",required=true)String garaza,
-        @RequestParam(value="velikost_zemljisca",required=true)String velikost_zemljisca, @RequestParam(value="vrsta_hise",required=true)String vrsta_hise) {
+        @RequestParam(value="velikost_zemljisca",required=true)String velikost_zemljisca, @RequestParam(value="vrsta_hise",required=true)String vrsta_hise,
+        @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
 
         List<Integer> ceObstaja=krajDao.vrniID(kraj,postna_st);
         if(ceObstaja.size()==0){
@@ -152,9 +145,20 @@ public class MainController {
         }
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
-        int tk_agent=Integer.parseInt((String)session.getAttribute("trenutniUporabnik"));
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addHisa(cena, kvadratura, letnik_izgradnje, letnik_prenove, garaza, dodaten_opis, velikost_zemljisca, vrsta_hise, 0,  tk_naslov, 2, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDHise(cena, kvadratura, letnik_izgradnje, letnik_prenove, garaza, dodaten_opis, velikost_zemljisca, vrsta_hise, 0,  tk_naslov, 2, tk_agent);
 
+        List<MultipartFile> files = uploadForm.getFiles();
+        List<String> fileNames = new ArrayList<String>();
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
+            }
+        }
+        map.addAttribute("files", fileNames);
         return "redirect:/dodajanjeNepremicnin";
     }
 
@@ -162,7 +166,8 @@ public class MainController {
     public String dodajPosest(Model model, @RequestParam(value="naslov",required=true)String naslov,@RequestParam(value="kraj",required=true)String kraj,
                                   @RequestParam(value="postna_st",required=true)String postna_st,@RequestParam(value="hisna_st",required=true)String hisnaSt,
                                   @RequestParam(value="cena",required=true)String cena,@RequestParam(value="velikost_zemljisca",required=true)String velikost_zemljisca,
-                                  @RequestParam(value="vrsta_posesti",required=true)String vrsta_posesti, @RequestParam(value="dodaten_opis_posesti",required=true)String dodaten_opis) {
+                                  @RequestParam(value="vrsta_posesti",required=true)String vrsta_posesti, @RequestParam(value="dodaten_opis_posesti",required=true)String dodaten_opis,
+                                  @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
         List<Integer> ceObstaja=krajDao.vrniID(kraj,postna_st);
         if(ceObstaja.size()==0){
             krajDao.addKraj(kraj,postna_st);
@@ -186,7 +191,18 @@ public class MainController {
         HttpSession session = request.getSession(true);
         int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addPosest(cena, velikost_zemljisca, vrsta_posesti, dodaten_opis, 0,  tk_naslov, 3, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDPosesti(cena, velikost_zemljisca, vrsta_posesti, dodaten_opis, 0,  tk_naslov, 3, tk_agent);
 
+        List<MultipartFile> files = uploadForm.getFiles();
+        List<String> fileNames = new ArrayList<String>();
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
+            }
+        }
+        map.addAttribute("files", fileNames);
         return "redirect:/dodajanjeNepremicnin";
     }
 }

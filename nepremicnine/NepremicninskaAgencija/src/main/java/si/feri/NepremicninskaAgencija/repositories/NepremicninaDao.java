@@ -65,4 +65,15 @@ public class NepremicninaDao {
         }
         return ret;
     }
+
+    public int vrniIDStanovanja(){
+        return 1;
+    }
+    public int vrniIDHise(){
+        return 1;
+    }
+    public int vrniIDPosesti(){
+        return 1;
+    }
+
 }

@@ -13,6 +13,7 @@ public abstract class AbstractLobPreparedStatementCreator implements PreparedSta
 private final LobHandler lobHandler;
 private final String sql;
 private final String keyColumn;
+
         public AbstractLobPreparedStatementCreator(LobHandler lobHandler, String sql, String keyColumn) {
             this.lobHandler = lobHandler;
             this.sql = sql;
