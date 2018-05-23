@@ -163,8 +163,14 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="prenovljeno" id="prenovljeno" data-toggle="collapse" data-target="#letnik_prenove_skrij">
-										<label for="prenovljeno"></label>
+										<input type="hidden" name="prenovljeno" id="prenovljenoSkritoID" value="false">
+										<input type="checkbox" name="prenovljeno" id="prenovljenoID" data-toggle="collapse" data-target="#letnik_prenove_skrij" value="true" >
+										<label for="prenovljenoID"></label>
+										<script>
+                                            if(document.getElementById("prenovljenoID").checked) {
+                                                document.getElementById('prenovljenoSkritoID').disabled = true;
+                                            }
+										</script>
 									</div>
 									<p>Prenovljeno</p>
 								</div>
@@ -179,7 +185,8 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
-										<input type="checkbox" name="garaza" id="garaza" value="1">
+										<input type="hidden" name="garaza" id="garazaSkrito" value="false">
+										<input type="checkbox" name="garaza" id="garaza" value="true">
 										<label for="garaza"></label>
 									</div>
 									<p>Garaža</p>
@@ -187,7 +194,8 @@
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="balkon" id="balkon" value="1">
+										<input type="hidden" name="balkon" id="balkonSkrito" value="false">
+										<input type="checkbox" name="balkon" id="balkon" value="true">
 										<label for="balkon"></label>
 									</div>
 									<p>Balkon</p>
@@ -206,14 +214,11 @@
 								</div>
 							</div>
 						</div>
-						<!--Dodajanje fotografije !!!-->
+						<!--Dodajanje fotografije - name: slika-->
 						<div class="row  ">
 							<div class="col-12 ">
-								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
-								<input class="text-hide" type="file" id="image_uploads"  name="image_uploads" accept=".jpg, .jpeg, .png"
-									   
-									   multiple>
-
+								<label class="genric-btn default mb-10 " for="image_uploads">Dodaj fotografije</label>
+								<input class="text-hide" type="file" id="image_uploads"  name="slika" accept=".jpg, .jpeg, .png" multiple>
 							</div>
 						</div>
 						<div class="row text-dark">
@@ -221,55 +226,8 @@
 							</div>
 						</div>
 
-						<!--Skripta za dodajanje fotografij, kasneje bom prestavil v main.js-->
+						<!--Skripta za dodajanje fotografij-->
 						<script>
-                            var fileTypes = [
-                                'image/jpeg',
-                                'image/pjpeg',
-                                'image/png'
-                            ]
-                            var input = document.querySelector('#image_uploads');
-                            var preview = document.querySelector('#predogled');
-                            input.style.visibility = 'hidden';
-                            input.addEventListener('change', posodobiPregledSlik);
-
-                            function  posodobiPregledSlik() {
-                                var curFiles = input.files;
-                                if(curFiles.length !== 0) {
-                                    var list = document.createElement('ol');
-                                    preview.appendChild(list);
-                                    for(var i = 0; i < curFiles.length; i++) {
-                                        if(validFileType(curFiles[i]) && fotografijaEnaka(curFiles,input)) {
-                                            var listItem = document.createElement('li');
-                                            listItem.setAttribute("class","list-group-item");
-                                            var para = document.createElement('span');
-                                            var gumb = document.createElement('span');
-                                            gumb.setAttribute("class","fa fa-remove");
-											gumb.style.marginLeft='10px';
-
-
-                                            para.textContent = '' + curFiles[i].name+' ';
-                                            var image = document.createElement('img');
-                                            list.setAttribute("class","slikaZaFotografije");
-                                            image.src = window.URL.createObjectURL(curFiles[i]);
-                                            console.log(curFiles.length+"\n"+"aaaaaa");
-                                            listItem.appendChild(para);
-                                            listItem.appendChild(image);
-                                            listItem.appendChild(gumb);
-
-                                            gumb.addEventListener("click",function () {
-
-											});
-
-                                            list.appendChild(document.createElement('BR'));
-                                        }
-                                        list.appendChild(listItem);
-                                    }
-                                }
-
-                            }
-
-
                             function validFileType(file) {
                                 for(var i = 0; i < fileTypes.length; i++) {
                                     if(file.type === fileTypes[i]) {
@@ -278,27 +236,42 @@
                                 }
                                 return false;
                             }
-
-                            function fotografijaEnaka(trenutneSlike,slika) {
-								for (var a =0; a<trenutneSlike.length;a++){
-								    if(slika.name==trenutneSlike[a].name){
-								        return false;
-								        break;
-									}
-								}
-								return true;
+                            var fileTypes = [
+                                'image/jpeg',
+                                'image/pjpeg',
+                                'image/png'
+                            ]
+							var input = document.getElementById('image_uploads');
+                            var preview = document.getElementById('predogled');
+                            input.style.visibility = 'hidden';
+                            input.addEventListener('change', posodobiPregledSlik);
+                            function  posodobiPregledSlik() {
+                                var curFiles = input.files;
+                                while(preview.firstChild) {
+                                    preview.removeChild(preview.firstChild);
+                                }
+                                if(curFiles.length !== 0) {
+                                    var list = document.createElement('ol');
+                                    preview.appendChild(list);
+                                    for(var i = 0; i < curFiles.length; i++) {
+                                        if(validFileType(curFiles[i])) {
+                                            var listItem = document.createElement('li');
+                                            listItem.setAttribute("class","list-group-item");
+                                            var para = document.createElement('span');
+                                            para.textContent = '' + curFiles[i].name+' ';
+                                            var image = document.createElement('img');
+                                            list.setAttribute("class","slikaZaFotografije");
+                                            image.src = window.URL.createObjectURL(curFiles[i]);
+                                            console.log(curFiles.length+"\n"+"aaaaaa");
+                                            listItem.appendChild(para);
+                                            listItem.appendChild(image);
+                                            list.appendChild(document.createElement('BR'));
+                                        }
+                                        list.appendChild(listItem);
+                                    }
+                                }
                             }
-
-
-
 						</script>
-
-
-
-
-
-
-
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
@@ -309,6 +282,7 @@
 					</form>
 				</div>
 			</section>
+
 
 			<section class="section-gap" id="dodaj_hiso_section">
 				<div class="container">
@@ -438,6 +412,38 @@
 								</button>
 							</div>
 						</div>
+						<script>
+                            var input = document.getElementById('image_uploads');
+                            var preview = document.getElementById('predogled');
+                            input.style.visibility = 'hidden';
+                            input.addEventListener('change', posodobiPregledSlik);
+                            function  posodobiPregledSlik() {
+                                var curFiles = input.files;
+                                while(preview.firstChild) {
+                                    preview.removeChild(preview.firstChild);
+                                }
+                                if(curFiles.length !== 0) {
+                                    var list = document.createElement('ol');
+                                    preview.appendChild(list);
+                                    for(var i = 0; i < curFiles.length; i++) {
+                                        if(validFileType(curFiles[i])) {
+                                            var listItem = document.createElement('li');
+                                            listItem.setAttribute("class","list-group-item");
+                                            var para = document.createElement('span');
+                                            para.textContent = '' + curFiles[i].name+' ';
+                                            var image = document.createElement('img');
+                                            list.setAttribute("class","slikaZaFotografije");
+                                            image.src = window.URL.createObjectURL(curFiles[i]);
+                                            console.log(curFiles.length);
+                                            listItem.appendChild(para);
+                                            listItem.appendChild(image);
+                                            list.appendChild(document.createElement('BR'));
+                                        }
+                                        list.appendChild(listItem);
+                                    }
+                                }
+                            }
+						</script>
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
