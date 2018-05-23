@@ -53,6 +53,32 @@
 
 <main class="container">
 
+    <br><br>
+    <c:choose>
+        <c:when test = "${uspesnoProfil==true}">
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                USPEŠNO POSODOBLJEN PROFIL.</div>
+        </c:when>
+        <c:when test = "${uspesnoProfil==false}">
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                NEUSPEŠNO POSODABLANJE PROFILA.</div>
+        </c:when>
+        <c:when test = "${uspesnoGeslo==true}">
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               USPEŠNO POSODOBLJENO GESLO.</div>
+        </c:when>
+        <c:when test = "${uspesnoGeslo==false}">
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                NEUSPEŠNO POSODABLANJE GESLA.</div>
+        </c:when>
+        <c:otherwise>
+        </c:otherwise>
+    </c:choose>
+
     <div class="text-center" style="margin-top:50px">
 
         <div class="text-center">
@@ -149,19 +175,7 @@
         </div>
     </form>
 
-
-    <c:choose>
-        <c:when test = "${uspesnoProfil}">
-           USPEŠNO.
-        </c:when>
-        <c:when test = "${uspesnoProfil==false}">
-            NEUSPEŠNO.
-        </c:when>
-        <c:otherwise>
-            NIČ NE DELA
-        </c:otherwise>
-    </c:choose>
-    </div>
+         </div>
     <div class="text-center" style="margin-top:50px">
         <h1>Posodobi geslo</h1>
     <form action="/posodobiGeslo" method="post">
@@ -246,18 +260,6 @@
         </div>
 
     </form>
-
-        <c:choose>
-            <c:when test = "${uspesnoGeslo==true}">
-                USPEŠNO.
-            </c:when>
-            <c:when test = "${uspesnoGeslo==false}">
-                NEUSPEŠNO.
-            </c:when>
-            <c:otherwise>
-                NIČ NE DELA
-            </c:otherwise>
-        </c:choose>
     </div>
 
 

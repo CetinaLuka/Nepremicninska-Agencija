@@ -158,7 +158,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
-							<h1>Why we are the best</h1>
+							<h1>Kdo so naši agenti</h1>
 							<p>
 								Who are in extremely love with eco friendly system.
 							</p>
@@ -417,7 +417,7 @@
 			<!-- End About Area -->
 		
 			<!-- Start contact-info Area -->
-			<section class="contact-info-area section-gap">
+			<section class="contact-info-area section-gap"  id="contact">
 				<div class="container">
 					<div class="row">
 						<div class="single-info col-lg-3 col-md-6">
@@ -456,13 +456,13 @@
 			<!-- End contact-info Area -->
 
 			<!-- Start Contact Area -->
-			<section class="contact-area" id="contact">
+			<section class="contact-area">
 				<div class="container-fluid">
 					<div class="row align-items-center d-flex justify-content-start">
-						<div class="col-lg-6 col-md-12 contact-left no-padding">
+						<div class="col-lg-6 col-md-12 text-center no-padding">
 
 							<!-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 -->
-								<iframe width="650" height="545" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
+								<iframe width="540" height="545" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
 						</div>
 						<div class="col-lg-4 col-md-12 pt-100 pb-100">
 							<form class="form-area" id="myForm" action="mailto:agencija.praktikum@gmail.com" method="GET" class="contact-form text-right">
