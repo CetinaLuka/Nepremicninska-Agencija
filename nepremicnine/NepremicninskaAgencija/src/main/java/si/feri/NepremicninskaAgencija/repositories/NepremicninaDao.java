@@ -4,9 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class NepremicninaDao {
@@ -35,5 +39,30 @@ public class NepremicninaDao {
         String sql ="INSERT into NEPREMIČNINA(Cena, SkupnaKvadratura, TipPosesti, Opis, Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent) values(?,?,?,?,?,?,?,?,?)";
 
         return jdbcTemplate.update(sql, new Object[]{Cena, SkupnaKvadratura, TipPosesti, Opis,Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent});
+    }
+
+    public List<Nepremicnina> vrniVse(){
+        String sql = "SELECT * FROM NEPREMIČNINA";
+        List<Nepremicnina> ret = new ArrayList<Nepremicnina>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int id = (int)row.get("ID");
+            double cena=(double)row.get("Cena");
+            double kvadraturaBivalnegaProstora=(double)row.get("kvadraturaBivalnegaProstora");
+            double skupnaKvadratura=(double)row.get("skupnaKvadratura");
+            int steviloSob=(int)row.get("steviloSob");
+            int nadstropje=(int)row.get("nadstropje");
+            int letoIzgradnje=(int)row.get("letoIzgradnje");
+            int letoPrenove=(int)row.get("letoPrenove");
+            boolean garaza=(boolean)row.get("garaza");
+            boolean balkon=(boolean)row.get("balkon");
+            String opis=(String)row.get("opis");
+            String vrstaHise=(String)row.get("vrstaHise");
+            String vrstaPosesti=(String)row.get("vrstaPosesti");
+            boolean prodano=(boolean)row.get("prodano");
+            Date datumObjave=(Date)row.get("datumObjave");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano, datumObjave));
+        }
+        return ret;
     }
 }

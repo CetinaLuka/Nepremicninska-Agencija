@@ -1,5 +1,7 @@
-import java.sql.Date;
+package si.feri.NepremicninskaAgencija.models;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Nepremicnina{
 
@@ -23,6 +25,26 @@ public class Nepremicnina{
     int tk_id_naslov;
     int tk_id_vrstaNepremicnine;
 
+    public Nepremicnina() {
+    }
+
+    public Nepremicnina(int id, double cena, double kvadraturaBivalnegaProstora, double skupnaKvadratura, int steviloSob, int nadstropje, int letoIzgradnje, int letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave) {
+        this.id = id;
+        this.cena = cena;
+        this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
+        this.skupnaKvadratura = skupnaKvadratura;
+        this.steviloSob = steviloSob;
+        this.nadstropje = nadstropje;
+        this.letoIzgradnje = letoIzgradnje;
+        this.letoPrenove = letoPrenove;
+        this.garaza = garaza;
+        this.balkon = balkon;
+        this.opis = opis;
+        this.vrstaHise = vrstaHise;
+        this.vrstaPosesti = vrstaPosesti;
+        this.prodano = prodano;
+        this.datumObjave = datumObjave;
+    }
 
     //KONSTRUKTORJI
 
