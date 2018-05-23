@@ -62,7 +62,7 @@ public class MainController {
 
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
-        model.addAttribute("message");
+        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVse());
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
@@ -101,7 +101,7 @@ public class MainController {
         HttpSession session = request.getSession(true);
         int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addStanovanje(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent);
-        int tk_nepremicnina=nepremicninaDao.vrniIDStanovanja(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDStanovanja(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent).get(0);
 
         List<MultipartFile> files = uploadForm.getFiles();
         List<String> fileNames = new ArrayList<String>();
@@ -147,7 +147,7 @@ public class MainController {
         HttpSession session = request.getSession(true);
         int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addHisa(cena, kvadratura, letnik_izgradnje, letnik_prenove, garaza, dodaten_opis, velikost_zemljisca, vrsta_hise, 0,  tk_naslov, 2, tk_agent);
-        int tk_nepremicnina=nepremicninaDao.vrniIDHise(cena, kvadratura, letnik_izgradnje, letnik_prenove, garaza, dodaten_opis, velikost_zemljisca, vrsta_hise, 0,  tk_naslov, 2, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDHise(cena, kvadratura, letnik_izgradnje, letnik_prenove, garaza, dodaten_opis, velikost_zemljisca, vrsta_hise, 0,  tk_naslov, 2, tk_agent).get(0);
 
         List<MultipartFile> files = uploadForm.getFiles();
         List<String> fileNames = new ArrayList<String>();
@@ -191,7 +191,7 @@ public class MainController {
         HttpSession session = request.getSession(true);
         int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         nepremicninaDao.addPosest(cena, velikost_zemljisca, vrsta_posesti, dodaten_opis, 0,  tk_naslov, 3, tk_agent);
-        int tk_nepremicnina=nepremicninaDao.vrniIDPosesti(cena, velikost_zemljisca, vrsta_posesti, dodaten_opis, 0,  tk_naslov, 3, tk_agent);
+        int tk_nepremicnina=nepremicninaDao.vrniIDPosesti(cena, velikost_zemljisca, vrsta_posesti, dodaten_opis, 0,  tk_naslov, 3, tk_agent).get(0);
 
         List<MultipartFile> files = uploadForm.getFiles();
         List<String> fileNames = new ArrayList<String>();

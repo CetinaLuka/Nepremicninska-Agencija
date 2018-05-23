@@ -210,11 +210,8 @@
 						<!--Dodajanje fotografije !!!-->
 						<div class="row  ">
 							<div class="col-12 ">
-<<<<<<< HEAD
 								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
 								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png"
-=======
->>>>>>> e92bccac81026c3c848e6c350716fbbab1d6950e
 									   
 									   multiple>
 

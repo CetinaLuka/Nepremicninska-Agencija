@@ -27,15 +27,15 @@ public class SlikaDao {
             final File blobIn = convert(f);
             final InputStream blobIs = new FileInputStream(blobIn);
             jdbcTemplate.execute(
-                    "INSERT INTO slika (idSlika,UrlSlike,OpisSlike,Nepremičnina_idNepremičnina,Agent_idAgent) VALUES (?,?,?,?,?)",
+                    "INSERT INTO slika (UrlSlike,OpisSlike,Nepremičnina_idNepremičnina,Agent_idAgent) VALUES (?,?,?,?)",
                     new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
                         protected void setValues(PreparedStatement ps, LobCreator lobCreator)
                                 throws SQLException {
-                            ps.setLong(1, 1L);
-                            lobCreator.setBlobAsBinaryStream(ps, 2, blobIs, (int) blobIn.length());
-                            ps.setString(3, "nekaj");
-                            ps.setString(4, ""+tk_nepremicnina);
-                            ps.setString(5, ""+tk_agent);
+                            //ps.setLong(1, 1L);
+                            lobCreator.setBlobAsBinaryStream(ps, 1, blobIs, (int) blobIn.length());
+                            ps.setString(2, "nekaj");
+                            ps.setString(3, ""+tk_nepremicnina);
+                            ps.setString(4, ""+tk_agent);
                         }
                     }
             );
