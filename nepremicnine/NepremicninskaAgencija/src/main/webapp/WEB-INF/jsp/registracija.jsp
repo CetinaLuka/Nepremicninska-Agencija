@@ -226,12 +226,12 @@
 
         </form>
 
-        <c:if test="${agentObstaja=='true'}">
+        <c:if test="${neuspesnaRegistracija==true}">
             <div class="alert alert-warning">
                 RAČUN S TEM ELEKTRONSKIM NASLOVOM ŽE OBSTAJA!
             </div>
         </c:if>
-        <c:if test="${pravilnaKoda=='false'}">
+        <c:if test="${nepravilnaKoda==true}">
             <div class="alert alert-warning">
                ŽAL SE NE MORETE REGISTRIRATI!
             </div>

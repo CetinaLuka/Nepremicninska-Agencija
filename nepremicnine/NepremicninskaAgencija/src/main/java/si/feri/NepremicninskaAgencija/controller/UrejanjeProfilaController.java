@@ -28,19 +28,28 @@ public class UrejanjeProfilaController {
         Object i= (session.getAttribute("trenutniUporabnik"));
         int id=Integer.parseInt(i.toString());
 
-        //model.addAttribute("idUporabnika",id);
-        // model.addAttribute("imeUporabnika",agentDao.getIme(id));
-        // model.addAttribute("priimekUporabnika",agentDao.getPriimek(id));
-        // model.addAttribute("mailUporabnika",agentDao.getEmail(id));
-        // model.addAttribute("telUporabnika",agentDao.getTelefon(id));
-        // model.addAttribute("gesloUporabnika",agentDao.getGeslo(id));
+        model.addAttribute("idUporabnika",id);
+         model.addAttribute("imeUporabnika",agentDao.getIme(id));
+         model.addAttribute("priimekUporabnika",agentDao.getPriimek(id));
+         model.addAttribute("mailUporabnika",agentDao.getEmail(id));
+         model.addAttribute("telUporabnika",agentDao.getTelefon(id));
         return "urejanjeProfila";
     }
 
     @RequestMapping(value = {"/posodobiProfil" }, method = RequestMethod.POST)
     public String posodobiProfil(Model model, @RequestParam(value="novoIme",required=true)String ime, @RequestParam(value="novPriimek",required=true)String priimek,
      @RequestParam(value="novMail",required=true)String mail, @RequestParam(value="telefonskaStevilka",required=true)String tel) {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);//true will create if necessary
+        Object i= (session.getAttribute("trenutniUporabnik"));
+        int id=Integer.parseInt(i.toString());
+
+        if(agentDao.obstaja(mail)&& !agentDao.getEmail(id).equals(mail)){
+            model.addAttribute("uspesnoProfil", false);
+           return "redirect:/urejanjeProfila";    //ne spremeni maila, saj ta mail ze obstaja
+       }
         agentDao.posodobiProfil(ime,priimek,mail,tel);
+        model.addAttribute("uspesnoProfil", true);
         return "redirect:/urejanjeProfila";
     }
 
@@ -52,10 +61,12 @@ public class UrejanjeProfilaController {
         int id=Integer.parseInt(i.toString());
 
         if(!staroG.equals(agentDao.getGeslo(id))){
+            model.addAttribute("uspesnoGeslo", false);
             return "redirect:/urejanjeProfila";
         }
 
         agentDao.posodobiGeslo(novoG,id);
+        model.addAttribute("uspesnoGeslo", true);
         return "redirect:/urejanjeProfila";
     }
     @RequestMapping(value = {"/zbrisiRacun" }, method = RequestMethod.POST)
