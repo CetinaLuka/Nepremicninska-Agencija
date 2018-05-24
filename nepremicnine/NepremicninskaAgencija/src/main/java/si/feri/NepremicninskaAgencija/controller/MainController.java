@@ -63,7 +63,10 @@ public class MainController {
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
-        //model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVse());
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
+        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVseOdAgenta(tk_agent));
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
