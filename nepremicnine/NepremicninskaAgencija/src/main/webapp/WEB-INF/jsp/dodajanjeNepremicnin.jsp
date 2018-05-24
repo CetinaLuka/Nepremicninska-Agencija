@@ -164,8 +164,8 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="1" />
-										<input type="checkbox" name="prenovljeno" id="prenovljeno" data-toggle="collapse" data-target="#letnik_prenove_skrij">
+										<input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" />
+										<input type="checkbox" name="prenovljeno" id="prenovljeno" value="1" data-toggle="collapse" data-target="#letnik_prenove_skrij">
 										<label for="prenovljeno"></label>
 										<script>
                                             if(document.getElementById("prenovljeno").checked) {
@@ -186,8 +186,8 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
-										<input type="hidden" name="garaza" id="garazaSkrit" value="false">
-										<input type="checkbox" name="garaza" id="garaza" value="true">
+										<input type="hidden" name="garaza" id="garazaSkrit" value="0">
+										<input type="checkbox" name="garaza" id="garaza" value="1">
 										<label for="garaza"></label>
 										<script>
                                             if(document.getElementById("garaza").checked) {
@@ -200,12 +200,12 @@
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="balkon" id="balkonSkrit" value="">
-										<input type="checkbox" name="balkon" id="balkon" value="">
+										<input type="hidden" name="balkon" id="balkonSkrit" value="0">
+										<input type="checkbox" name="balkon" id="balkon" value="1">
 										<label for="balkon"></label>
 										<script>
-                                            if(document.getElementById("garaza").checked) {
-                                                document.getElementById('garazaSkrit').disabled = true;
+                                            if(document.getElementById("balkon").checked) {
+                                                document.getElementById('balkonSkrit').disabled = true;
                                             }
 										</script>
 									</div>
@@ -377,8 +377,8 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value=""/>
-										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
+										<input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/>
+										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" value="1" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
 										<label for="prenovljeno_hisa"></label>
 									</div>
 									<script>
@@ -399,7 +399,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="garaza" id="garaza_hisaSkrito" value=""/>
+										<input type="hidden" name="garaza" id="garaza_hisaSkrito" value="0"/>
 										<input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
 										<label for="garaza_hisa"></label>
 										<script>
