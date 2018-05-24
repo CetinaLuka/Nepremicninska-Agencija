@@ -53,6 +53,7 @@
 								<li><a href="#service">Storitve</a></li>
 								<li><a href="#property">Ponudba</a></li>
 								<li><a href="#contact">Kontakt</a></li>
+								<li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
 								<li class=""><a href="prijava">Prijava</a></li>
 								<li class=""><a href="registracija">Registracija</a></li>
 						    </ul>

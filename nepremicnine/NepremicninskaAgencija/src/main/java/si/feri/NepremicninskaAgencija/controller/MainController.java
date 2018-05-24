@@ -66,7 +66,10 @@ public class MainController {
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
-        //model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVse());
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
+        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVseOdAgenta(tk_agent));
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
@@ -119,7 +122,6 @@ public class MainController {
         map.addAttribute("files", fileNames);
         return "redirect:/dodajanjeNepremicnin";
     }
-
 
     @RequestMapping(value = {"/dodajanjeHise" }, method = RequestMethod.POST)
     public String dodajHiso(Model model, @RequestParam(value="naslov",required=true)String naslov, @RequestParam(value="kraj",required=true)String kraj,
