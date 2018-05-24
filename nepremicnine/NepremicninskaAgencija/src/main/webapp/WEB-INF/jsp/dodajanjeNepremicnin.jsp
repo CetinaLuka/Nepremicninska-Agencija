@@ -298,7 +298,7 @@
 							<h2>Dodaj hišo</h2>
 						</div>
 					</div>
-					<form name="dodaj_hiso_form" method="POST" action="dodajanjeHise">
+					<c:form name="dodaj_hiso_form" method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -469,7 +469,7 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</c:form>
 				</div>
 			</section>
 
@@ -481,7 +481,7 @@
 							<h2>Dodaj posest</h2>
 						</div>
 					</div>
-					<form method="POST" action="dodajanjePosesti">
+					<c:form name="dodaj_posest_form" method="POST" action="dodajanjePosesti" modelAttribute="uploadForm" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -597,7 +597,7 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</c:form>
 				</div>
 			</section>
 				<!-- End Generic Start -->
