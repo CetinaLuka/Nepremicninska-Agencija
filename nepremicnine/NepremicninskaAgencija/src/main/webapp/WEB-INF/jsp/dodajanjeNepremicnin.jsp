@@ -164,8 +164,14 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
+										<input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="1" />
 										<input type="checkbox" name="prenovljeno" id="prenovljeno" data-toggle="collapse" data-target="#letnik_prenove_skrij">
 										<label for="prenovljeno"></label>
+										<script>
+                                            if(document.getElementById("prenovljeno").checked) {
+                                                document.getElementById('prenovljenoSkrit').disabled = true;
+                                            }
+										</script>
 									</div>
 									<p>Prenovljeno</p>
 								</div>
@@ -180,16 +186,28 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
-										<input type="checkbox" name="garaza" id="garaza" value="1">
+										<input type="hidden" name="garaza" id="garazaSkrit" value="false">
+										<input type="checkbox" name="garaza" id="garaza" value="true">
 										<label for="garaza"></label>
+										<script>
+                                            if(document.getElementById("garaza").checked) {
+                                                document.getElementById('garazaSkrit').disabled = true;
+                                            }
+										</script>
 									</div>
 									<p>Garaža</p>
 								</div>
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="balkon" id="balkon" value="1">
+										<input type="hidden" name="balkon" id="balkonSkrit" value="">
+										<input type="checkbox" name="balkon" id="balkon" value="">
 										<label for="balkon"></label>
+										<script>
+                                            if(document.getElementById("garaza").checked) {
+                                                document.getElementById('garazaSkrit').disabled = true;
+                                            }
+										</script>
 									</div>
 									<p>Balkon</p>
 								</div>
@@ -211,9 +229,7 @@
 						<div class="row  ">
 							<div class="col-12 ">
 								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
-								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png"
-									   
-									   multiple>
+								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
 
 							</div>
 						</div>
@@ -233,41 +249,27 @@
                             var preview = document.querySelector('#predogled');
                             input.style.visibility = 'hidden';
                             input.addEventListener('change', posodobiPregledSlik);
-
                             function  posodobiPregledSlik() {
                                 var curFiles = input.files;
                                 if(curFiles.length !== 0) {
                                     var list = document.createElement('ol');
                                     preview.appendChild(list);
                                     for(var i = 0; i < curFiles.length; i++) {
-                                        if(validFileType(curFiles[i]) && fotografijaEnaka(curFiles,input)) {
+                                        if(validFileType(curFiles[i])) {
                                             var listItem = document.createElement('li');
                                             listItem.setAttribute("class","list-group-item");
                                             var para = document.createElement('span');
-                                            var gumb = document.createElement('span');
-                                            gumb.setAttribute("class","fa fa-remove");
-											gumb.style.marginLeft='10px';
-
-
                                             para.textContent = '' + curFiles[i].name+' ';
                                             var image = document.createElement('img');
                                             list.setAttribute("class","slikaZaFotografije");
                                             image.src = window.URL.createObjectURL(curFiles[i]);
-                                            console.log(curFiles.length+"\n"+"aaaaaa");
                                             listItem.appendChild(para);
                                             listItem.appendChild(image);
-                                            listItem.appendChild(gumb);
-
-                                            gumb.addEventListener("click",function () {
-
-											});
-
                                             list.appendChild(document.createElement('BR'));
                                         }
                                         list.appendChild(listItem);
                                     }
                                 }
-
                             }
                             function validFileType(file) {
                                 for(var i = 0; i < fileTypes.length; i++) {
@@ -277,26 +279,7 @@
                                 }
                                 return false;
                             }
-                            function fotografijaEnaka(trenutneSlike,slika) {
-								for (var a =0; a<trenutneSlike.length;a++){
-								    if(slika.name==trenutneSlike[a].name){
-								        return false;
-								        break;
-									}
-								}
-								return true;
-                            }
-
-
-
 						</script>
-
-
-
-
-
-
-
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
@@ -394,9 +377,15 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
+										<input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value=""/>
 										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
 										<label for="prenovljeno_hisa"></label>
 									</div>
+									<script>
+                                        if(document.getElementById("prenovljeno_hisa").checked) {
+                                            document.getElementById('prenovljeno_hisaSkrito').disabled = true;
+                                        }
+									</script>
 									<p>Prenovljeno</p>
 								</div>
 								<!--Polje za vnos letnika prenove - name:letnik_prenove-->
@@ -410,8 +399,14 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="checkbox" name="garaza" id="garaza_hisa" value="1">
+										<input type="hidden" name="garaza" id="garaza_hisaSkrito" value=""/>
+										<input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
 										<label for="garaza_hisa"></label>
+										<script>
+                                            if(document.getElementById("garaza_hisa").checked) {
+                                                document.getElementById('garaza_hisaSkrito').disabled = true;
+                                            }
+										</script>
 									</div>
 									<p>Garaža</p>
 								</div>
@@ -430,12 +425,43 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-12">
-								<button type=button class="genric-btn default border mb-10">
-									Dodaj slike
-								</button>
+								<div class="col-12">
+									<label class="genric-btn default mb-10 " for="image_uploadsDva">Izberite fotografijo</label>
+									<input class="text-hide" type="file" id="image_uploadsDva"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
 							</div>
 						</div>
+						<div class="row text-dark">
+							<div id="predogledDva" class="col-5" >
+							</div>
+						</div>
+						<script>
+                            var inputDva = document.querySelector('#image_uploadsDva');
+                            var previewDva = document.querySelector('#predogledDva');
+                            inputDva.style.visibility = 'hidden';
+                            inputDva.addEventListener('change', posodobiPregledSlik);
+                            function  posodobiPregledSlik() {
+                                var curFiles = inputDva.files;
+                                if(curFiles.length !== 0) {
+                                    var list = document.createElement('ol');
+                                    previewDva.appendChild(list);
+                                    for(var i = 0; i < curFiles.length; i++) {
+                                        if(validFileType(curFiles[i])) {
+                                            var listItem = document.createElement('li');
+                                            listItem.setAttribute("class","list-group-item");
+                                            var para = document.createElement('span');
+                                            para.textContent = '' + curFiles[i].name+' ';
+                                            var image = document.createElement('img');
+                                            list.setAttribute("class","slikaZaFotografije");
+                                            image.src = window.URL.createObjectURL(curFiles[i]);
+                                            listItem.appendChild(para);
+                                            listItem.appendChild(image);
+                                            list.appendChild(document.createElement('BR'));
+                                        }
+                                        list.appendChild(listItem);
+                                    }
+                                }
+                            }
+						</script>
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
@@ -446,6 +472,8 @@
 					</form>
 				</div>
 			</section>
+
+
 			<section class="section-gap" id="dodaj_posest_section">
 				<div class="container">
 					<div class="row">
@@ -525,11 +553,43 @@
 						</div>
 						<div class="row">
 							<div class="col-12">
-								<button type=button class="genric-btn default border mb-10">
-									Dodaj slike
-								</button>
+								<label class="genric-btn default mb-10 " for="image_uploadstri">Izberite fotografijo</label>
+								<input class="text-hide" type="file" id="image_uploadstri"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
 							</div>
 						</div>
+						<div class="row text-dark">
+							<div id="predogledtri" class="col-5" >
+							</div>
+						</div>
+						<script>
+                            var inputtri = document.querySelector('#image_uploadstri');
+                            var previewtri = document.querySelector('#predogledtri');
+                            inputtri.style.visibility = 'hidden';
+                            inputtri.addEventListener('change', posodobiPregledSlik);
+                            function  posodobiPregledSlik() {
+                                var curFiles = inputtri.files;
+                                if(curFiles.length !== 0) {
+                                    var list = document.createElement('ol');
+                                    previewtri.appendChild(list);
+                                    for(var i = 0; i < curFiles.length; i++) {
+                                        if(validFileType(curFiles[i])) {
+                                            var listItem = document.createElement('li');
+                                            listItem.setAttribute("class","list-group-item");
+                                            var para = document.createElement('span');
+                                            para.textContent = '' + curFiles[i].name+' ';
+                                            var image = document.createElement('img');
+                                            list.setAttribute("class","slikaZaFotografije");
+                                            image.src = window.URL.createObjectURL(curFiles[i]);
+                                            listItem.appendChild(para);
+                                            listItem.appendChild(image);
+                                            list.appendChild(document.createElement('BR'));
+                                        }
+                                        list.appendChild(listItem);
+                                    }
+                                }
+                            }
+
+						</script>
 						<div class="row">
 							<div class="col-12">
 								<div class="text-center mt-10">
