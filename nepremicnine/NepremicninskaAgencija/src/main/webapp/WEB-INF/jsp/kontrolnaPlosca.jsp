@@ -53,10 +53,10 @@
         <div class="container">
             <!--user info card-->
             <div class="row">
-                <div class="col-xs-12 col-lg-3 profil-kartica">
+                <div class="col-xs-12 col-lg-3">
                     <div class="row">
                         <div class="col-12 col-lg-12">
-                            <div class="row">
+                            <div class="row profil-kartica">
                                 <div class="col-12 col-md-3 col-lg-12">
                                     <img src="img/i8.jpg" class="profil-slika img-thumbnail mb-1"/><br />
                                     <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
@@ -100,31 +100,31 @@
                         <button class="genric-btn default">Kvadraturi</button>
                     </div>
                     <div class="row">
-                        <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
+                        <c:forEach  var="i" begin="1" end="5">
 
                             <div class="col-xs-12 col-md-6 col-lg-6">
                                 <div class="single-property mb-3">
                                     <div class="images">
                                         <a href="img/s1.jpg">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                            <span>${nepremicnina.tk_id_vrstaNepremicnine}</span>
+                                            <span></span>
                                         </a>
                                     </div>
                                     <div class="desc">
                                         <div class="top d-flex justify-content-between">
                                             <h4><a href="#">04 Bed Duplex</a></h4>
-                                            <h4>${nepremicnina.cena}</h4>
+                                            <h4></h4>
                                         </div>
                                         <div class="middle">
                                             <div class="d-flex justify-content-start">
-                                                <p>Bed: 04</p>
-                                                <p>Bath: 03</p>
-                                                <p>Area: 750sqm</p>
+                                                <p>Kvadrati: 40</p>
+                                                <p>Št. sob: 03</p>
+                                                <p>Zgrajeno: 1990</p>
                                             </div>
                                             <div class="d-flex justify-content-start">
-                                                <p>Pool: <span class="gr">Yes</span></p>
-                                                <p>Internet: <span class="rd">No</span></p>
-                                                <p>Cleaning: <span class="rd">No</span></p>
+                                                <p>Garaža: <span class="gr">Da</span></p>
+                                                <p>Balkon: <span class="rd">Da</span></p>
+                                                <p>Letnik prenove: <span class="rd">No</span></p>
                                             </div>
                                             <div class="bottom d-flex">
                                                 <p class="text-left"><button class="genric-btn primary">Uredi</button></p>

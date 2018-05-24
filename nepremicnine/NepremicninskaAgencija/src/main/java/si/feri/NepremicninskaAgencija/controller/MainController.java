@@ -120,7 +120,6 @@ public class MainController {
         return "redirect:/dodajanjeNepremicnin";
     }
 
-
     @RequestMapping(value = {"/dodajanjeHise" }, method = RequestMethod.POST)
     public String dodajHiso(Model model, @RequestParam(value="naslov",required=true)String naslov, @RequestParam(value="kraj",required=true)String kraj,
         @RequestParam(value="postna_st",required=true)String postna_st, @RequestParam(value="hisna_st",required=true)String hisnaSt,
