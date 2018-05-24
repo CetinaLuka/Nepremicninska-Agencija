@@ -3,10 +3,7 @@ package si.feri.NepremicninskaAgencija.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -18,6 +15,7 @@ import org.springframework.web.context.request.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +42,11 @@ public class MainController {
     public String index(Model model) {
         model.addAttribute("message");
         return "index";
+    }
+    @RequestMapping(value = {"/prikazNepremicnine" }, method = RequestMethod.GET)
+    public String prikazNepremicnine(Model model) {
+        model.addAttribute("message");
+        return "prikazNepremicnine";
     }
 
     @RequestMapping(value = {"/dodajanjeNepremicnin" }, method = RequestMethod.GET)
