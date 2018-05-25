@@ -1,3 +1,5 @@
+<%@ page import="si.feri.NepremicninskaAgencija.models.Nepremicnina" %>
+<%@ page import="java.util.List" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -99,12 +101,13 @@
                         <button class="genric-btn default">Ceni</button>
                         <button class="genric-btn default">Kvadraturi</button>
                     </div>
+                    <% List<Nepremicnina> seznam = request.%>
                     <div class="row">
                         <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
                             <!--stanovanje-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
                                 <div class="col-xs-12 col-md-6 col-lg-6">
-                                    <div class="single-property mb-3">
+                                    <div class="single-property mb-3 stanovanje">
                                         <div class="images">
                                             <a href="img/s1.jpg">
                                                 <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -113,18 +116,40 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="#">${nepremicnina.tk_id_vrstaNepremicnine}</a></h4>
-                                                <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
+                                                <h4><a href="#">Stanovanje</a></h4>
+                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
                                             </div>
                                             <div class="middle">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Kraj: <span>Celje</span></p>
+                                                    <p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+                                                </div>
                                                 <div class="d-flex justify-content-start">
                                                     <p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
                                                     <p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
                                                     <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Garaža: <span class="rd">${nepremicnina.garaza}</span></p>
-                                                    <p>Balkon: <span class="gr">${nepremicnina.balkon}</span></p>
+                                                    <p>Garaža:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.garaza}==true">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                    <p>Balkon:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.balkon}==true">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
                                                     <p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
                                                 </div>
                                                 <div class="bottom d-flex">
@@ -139,66 +164,81 @@
                             <!--hisa-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
                                 <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="single-property mb-3">
-                                    <div class="images">
-                                        <a href="img/s1.jpg">
-                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                            <span>120.000€</span>
-                                        </a>
-                                    </div>
-                                    <div class="desc">
-                                        <div class="top d-flex justify-content-between">
-                                            <h4><a href="#">Hiša - vrstna</a></h4>
-                                            <h4>130m²</h4>
+                                    <div class="single-property mb-3 hisa">
+                                        <div class="images">
+                                            <a href="img/s1.jpg">
+                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                                <span>${nepremicnina.cena}€</span>
+                                            </a>
                                         </div>
-                                        <div class="middle">
-                                            <div class="d-flex justify-content-start">
-                                                <p>Zemljišče: <span>150m²</span></p>
-                                                <p></p>
-                                                <p>Zgrajeno: <span>1990</span></p>
+                                        <div class="desc">
+                                            <div class="top d-flex justify-content-between">
+                                                <h4><a href="#">Hiša - ${nepremicnina.vrstaHise}</a></h4>
+                                                <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
                                             </div>
-                                            <div class="d-flex justify-content-start">
-                                                <p>Garaža: <span class="rd">Ne</span></p>
-                                                <p></p>
-                                                <p>Prenova: <span class="rd">Ne</span></p>
-                                            </div>
-                                            <div class="bottom d-flex">
-                                                <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
-                                                <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                            <div class="middle">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Kraj: <span>Maribor</span></p>
+                                                    <p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
+                                                    <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Garaža:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.garaza}==true">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                    <p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+                                                </div>
+                                                <div class="bottom d-flex">
+                                                    <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
+                                                    <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </c:if>
                             <!--posest-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
                                 <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="single-property mb-3">
-                                    <div class="images">
-                                        <a href="img/s1.jpg">
-                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                            <span>500.000€</span>
-                                        </a>
-                                    </div>
-                                    <div class="desc">
-                                        <div class="top d-flex justify-content-between">
-                                            <h4><a href="#">Posest - Zazidljiva</a></h4>
-                                            <h4>1000m²</h4>
+                                    <div class="single-property mb-3 posest">
+                                        <div class="images">
+                                            <a href="img/s1.jpg">
+                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                                <span>${nepremicnina.cena}€</span>
+                                            </a>
                                         </div>
-                                        <div class="middle">
-                                            <div class="d-flex justify-content">
-                                                Opis:<br />
-                                                Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+                                        <div class="desc">
+                                            <div class="top d-flex justify-content-between">
+                                                <h4><a href="#">Posest - ${nepremicnina.vrstaPosesti}</a></h4>
+                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
                                             </div>
-                                            <div class="bottom d-flex">
-                                                <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
-                                                <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                            <div class="middle">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Kraj: <span></span></p>
+                                                    <p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content mb-2">
+                                                    Opis:<br />
+                                                    Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+                                                </div>
+                                                <div class="bottom d-flex">
+                                                    <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
+                                                    <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </c:if>
                         </c:forEach>
                     </div>

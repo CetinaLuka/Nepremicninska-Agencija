@@ -164,8 +164,8 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="1" /-->
-										<input type="checkbox" name="prenovljeno" id="prenovljeno" data-toggle="collapse" data-target="#letnik_prenove_skrij">
+										<!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
+										<input type="checkbox" name="prenovljeno" id="prenovljeno" value="1" data-toggle="collapse" data-target="#letnik_prenove_skrij">
 										<label for="prenovljeno"></label>
 										<!--script>
                                             if(document.getElementById("prenovljeno").checked) {
@@ -186,7 +186,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
-										<!--input type="hidden" name="garaza" id="garazaSkrit" value="false"-->
+										<!--input type="hidden" name="garaza" id="garazaSkrit" value="0"-->
 										<input type="checkbox" name="garaza" id="garaza" value="1">
 										<label for="garaza"></label>
 										<!--script>
@@ -199,13 +199,13 @@
 								</div>
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
-									<div class="primary-checkbox mr-10 mt-1">
-										<!--input type="hidden" name="balkon" id="balkonSkrit" value=""-->
-										<input type="checkbox" name="balkon" id="balkon" value="">
+									<div class="primary-checkbox mr-10">
+										<!--input type="hidden" name="balkon" id="balkonSkrit" value="0"-->
+										<input type="checkbox" name="balkon" id="balkon" value="1">
 										<label for="balkon"></label>
 										<!--script>
-                                            if(document.getElementById("garaza").checked) {
-                                                document.getElementById('garazaSkrit').disabled = true;
+                                            if(document.getElementById("balkon").checked) {
+                                                document.getElementById('balkonSkrit').disabled = true;
                                             }
 										</script-->
 									</div>
@@ -226,7 +226,7 @@
 							</div>
 						</div>
 						<!--Dodajanje fotografije !!!-->
-						<div class="row  ">
+						<div class="row">
 							<div class="col-12 ">
 								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
 								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
@@ -234,7 +234,7 @@
 							</div>
 						</div>
 						<div class="row text-dark">
-							<div id="predogled" class="col-5 " >
+							<div id="predogled" class="col-5">
 							</div>
 						</div>
 
@@ -298,7 +298,7 @@
 							<h2>Dodaj hišo</h2>
 						</div>
 					</div>
-					<form name="dodaj_hiso_form" method="POST" action="dodajanjeHise">
+					<c:form name="dodaj_hiso_form" method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -377,8 +377,8 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<!--input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value=""/-->
-										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
+										<!--input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/-->
+										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" value="1" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
 										<label for="prenovljeno_hisa"></label>
 									</div>
 									<!--script>
@@ -399,7 +399,7 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<!--input type="hidden" name="garaza" id="garaza_hisaSkrito" value=""/-->
+										<!--input type="hidden" name="garaza" id="garaza_hisaSkrito" value="0"/-->
 										<input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
 										<label for="garaza_hisa"></label>
 										<!--script>
@@ -469,7 +469,7 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</c:form>
 				</div>
 			</section>
 
@@ -481,7 +481,7 @@
 							<h2>Dodaj posest</h2>
 						</div>
 					</div>
-					<form method="POST" action="dodajanjePosesti">
+					<c:form name="dodaj_posest_form" method="POST" action="dodajanjePosesti" modelAttribute="uploadForm" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-8">
 								<!--Polje za vnos naslova(ulice) - name:naslov-->
@@ -597,7 +597,7 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</c:form>
 				</div>
 			</section>
 				<!-- End Generic Start -->
