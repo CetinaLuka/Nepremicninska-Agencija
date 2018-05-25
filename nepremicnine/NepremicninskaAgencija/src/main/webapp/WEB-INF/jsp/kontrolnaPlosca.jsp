@@ -1,5 +1,3 @@
-<%@ page import="si.feri.NepremicninskaAgencija.models.Nepremicnina" %>
-<%@ page import="java.util.List" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -40,7 +38,14 @@
         <jsp:include page="includes/navigacijskiMeni.jsp" />
         <!-- End Header Area -->
     </section>
-    <section class="generic-banner relative">
+    <div class="scroll-gumbi">
+        <div>
+            <a href="#top">
+                <button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
+            </a>
+        </div>
+    </div>
+    <section class="generic-banner relative" id="top">
         <div class="container pt-30 pb-20">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-10">
@@ -101,7 +106,6 @@
                         <button class="genric-btn default">Ceni</button>
                         <button class="genric-btn default">Kvadraturi</button>
                     </div>
-                    <% List<Nepremicnina> seznam = request.%>
                     <div class="row">
                         <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
                             <!--stanovanje-->
@@ -262,6 +266,30 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(".scroll-gumbi div a[href^='#']").on('click', function(event) {
+            var target = this.hash;
 
+            event.preventDefault();
+
+            var navOffset = $('#navbar').height();
+
+            return $('html, body').animate({
+                scrollTop: $(this.hash).offset().top-70 - navOffset
+            }, 600, function() {
+                return window.history.pushState(null, null, target);
+            });
+        });
+        //pokazi gumb za scroll to top
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("top-gumb").style.display = "block";
+            } else {
+                document.getElementById("top-gumb").style.display = "none";
+            }
+        }
+    </script>
     </body>
 </html>

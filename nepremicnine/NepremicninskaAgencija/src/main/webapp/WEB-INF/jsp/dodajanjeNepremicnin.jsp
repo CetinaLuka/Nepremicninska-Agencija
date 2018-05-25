@@ -40,11 +40,17 @@
 		</style>
 		</head>
 		<body>
-			<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
+			<div class="scroll-gumbi">
+				<div>
+					<a href="#top">
+						<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
+					</a>
+				</div>
+			</div>
 			<!-- Start Header Area -->
 				<jsp:include page="includes/navigacijskiMeni.jsp" />
 			<!-- End Header Area -->
-			<section class="generic-banner relative">
+			<section class="generic-banner relative" id="top">
 				<div class="container pt-30 pb-20">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-10">
@@ -639,11 +645,6 @@
                     } else {
                         document.getElementById("top-gumb").style.display = "none";
                     }
-                }
-                //scroll to top
-                function topFunction() {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
                 }
 			</script>
 	</body>
