@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="col-xs-12 col-md-12 col-lg-6">
                                         <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
-                                        <div> ${nepremicnina.letnikIzgradnje}</div>
+                                        <div> ${nepremicnina.letoIzgradnje}</div>
                                     </div>
                                 </div>
                        <%--    </c:when>
@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="col-xs-12 col-md-12 col-lg-6">
                                             <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
-                                            <div> ${nepremicnina.letnikIzgradnje}</div>
+                                            <div> ${nepremicnina.letoIzgradnje}</div>
                                         </div>
                                     </div>
                           </c:when>

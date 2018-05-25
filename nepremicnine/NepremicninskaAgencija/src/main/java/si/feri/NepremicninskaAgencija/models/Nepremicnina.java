@@ -10,7 +10,7 @@ public class Nepremicnina{
     Double skupnaKvadratura;
     Integer steviloSob;
     Integer nadstropje;
-    Integer LetnikIzgradnje;
+    Integer letoIzgradnje;
     Integer letoPrenove;
     boolean garaza;
     boolean balkon;
@@ -27,14 +27,14 @@ public class Nepremicnina{
     public Nepremicnina() {
     }
 
-    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer LetnikIzgradnje, Integer letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
+    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
         this.id = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
         this.skupnaKvadratura = skupnaKvadratura;
         this.steviloSob = steviloSob;
         this.nadstropje = nadstropje;
-        this.LetnikIzgradnje = LetnikIzgradnje;
+        this.letoIzgradnje = letoIzgradnje;
         this.letoPrenove = letoPrenove;
         this.garaza = garaza;
         this.balkon = balkon;
@@ -98,12 +98,12 @@ public class Nepremicnina{
         this.nadstropje = nadstropje;
     }
 
-    public Integer getLetnikIzgradnje() {
-        return LetnikIzgradnje;
+    public Integer getLetoIzgradnje() {
+        return letoIzgradnje;
     }
 
-    public void setLetnikIzgradnje(Integer letnikIzgradnje) {
-        this.LetnikIzgradnje = letnikIzgradnje;
+    public void setLetoIzgradnje(Integer letoIzgradnje) {
+        this.letoIzgradnje = letoIzgradnje;
     }
 
     public Integer getLetoPrenove() {
