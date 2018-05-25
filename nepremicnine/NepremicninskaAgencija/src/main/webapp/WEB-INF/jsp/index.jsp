@@ -328,19 +328,23 @@
 					</div>
 				</div>	
 			</section>
-			<!-- End property Area -->	
-				
+			<!-- End property Area -->
 			<!-- Start city Area -->
 			<section class="city-area section-gap">
 				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-lg-12 col-md-8 pb-40 header-text text-center">
+							<h1>Iskanje nepremičnin po regijah</h1>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-lg-4 col-md-4 mb-10">
 						  <div class="content">
 						    <a href="#" target="_blank">
 						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/p1.jpg" alt="">
+						  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija1.jpg" alt="">
 						      <div class="content-details fadeIn-bottom">
-						        <h3 class="content-title">San Fransisco Properties</h3>
+						        <h3 class="content-title">Ljubljana z okolico</h3>
 						      </div>
 						    </a>
 						  </div>
@@ -349,9 +353,9 @@
 							<div class="content">
 							    <a href="#" target="_blank">
 							      <div class="content-overlay"></div>
-							  		 <img class="content-image img-fluid d-block mx-auto" src="img/p2.jpg" alt="">
+							  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija2.jpg" alt="">
 							      <div class="content-details fadeIn-bottom">
-							        <h3 class="content-title">New York Properties</h3>
+							        <h3 class="content-title">Slovenska obala</h3>
 							      </div>
 							    </a>
 						  	</div>
@@ -360,9 +364,9 @@
 									<div class="content">
 									    <a href="#" target="_blank">
 									      <div class="content-overlay"></div>
-									  		 <img class="content-image img-fluid d-block mx-auto" src="img/p3.jpg" alt="">
+									  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija3.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
-									        <h3 class="content-title">Boston Properties</h3>
+									        <h3 class="content-title">Štajerska regija</h3>
 									      </div>
 									    </a>
 									</div>
@@ -371,13 +375,48 @@
 									<div class="content">
 									    <a href="#" target="_blank">
 									      <div class="content-overlay"></div>
-									  		 <img class="content-image img-fluid d-block mx-auto" src="img/p4.jpg" alt="">
+									  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija4.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
-									        <h3 class="content-title">Elay Properties</h3>
+									        <h3 class="content-title">Gorenjska regija</h3>
 									      </div>
 									    </a>
 									</div>
 								</div>								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 mt-30">
+							<div class="content">
+								<a href="#" target="_blank">
+									<div class="content-overlay"></div>
+									<img class="content-image img-fluid d-block mx-auto" src="img/Regija5.jpg" alt="">
+									<div class="content-details fadeIn-bottom">
+										<h3 class="content-title">Dolenjska regija</h3>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 mt-30">
+							<div class="content">
+								<a href="#" target="_blank">
+									<div class="content-overlay"></div>
+									<img class="content-image img-fluid d-block mx-auto" src="img/Regija6.jpg" alt="">
+									<div class="content-details fadeIn-bottom">
+										<h3 class="content-title">Koroška regija</h3>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 mt-30">
+							<div class="content">
+								<a href="#" target="_blank">
+									<div class="content-overlay"></div>
+									<img class="content-image img-fluid d-block mx-auto" src="img/Regija7.jpg" alt="">
+									<div class="content-details fadeIn-bottom">
+										<h3 class="content-title">Prekmurska regija</h3>
+									</div>
+								</a>
 							</div>
 						</div>
 					</div>
