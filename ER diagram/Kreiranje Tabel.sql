@@ -86,20 +86,20 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Nepremicnina` (
   `tipPosesti` VARCHAR(45) NULL,
   `prodano` TINYINT(1) NOT NULL,
   `datumObjave` DATE NOT NULL,
-  `Naslov_idNaslov` INT NOT NULL,
-  `VrstaNepremicnine_idVrstaNepremicnine` INT NOT NULL,
+  `tk_id_naslov` INT NOT NULL,
+  `tk_id_vrstaNepremicnine` INT NOT NULL,
   `Agent_idAgent` INT NOT NULL,
   PRIMARY KEY (`idNepremicnina`),
-  INDEX `fk_Nepremicnina_Naslov1_idx` (`Naslov_idNaslov` ASC),
-  INDEX `fk_Nepremicnina_VrstaNepremicnine1_idx` (`VrstaNepremicnine_idVrstaNepremicnine` ASC),
+  INDEX `fk_Nepremicnina_Naslov1_idx` (`tk_id_naslov` ASC),
+  INDEX `fk_Nepremicnina_VrstaNepremicnine1_idx` (`tk_id_vrstaNepremicnine` ASC),
   INDEX `fk_Nepremicnina_Agent1_idx` (`Agent_idAgent` ASC),
   CONSTRAINT `fk_Nepremicnina_Naslov1`
-    FOREIGN KEY (`Naslov_idNaslov`)
+    FOREIGN KEY (`tk_id_naslov`)
     REFERENCES `mydb`.`Naslov` (`idNaslov`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Nepremicnina_VrstaNepremicnine1`
-    FOREIGN KEY (`VrstaNepremicnine_idVrstaNepremicnine`)
+  CONSTRAINT `fk_tk_id_vrstaNepremicnine1`
+    FOREIGN KEY (`tk_id_vrstaNepremicnine`)
     REFERENCES `mydb`.`VrstaNepremicnine` (`idVrstaNepremicnine`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
