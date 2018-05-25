@@ -40,11 +40,17 @@
 		</style>
 		</head>
 		<body>
-			<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
+			<div class="scroll-gumbi">
+				<div>
+					<a href="#top">
+						<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
+					</a>
+				</div>
+			</div>
 			<!-- Start Header Area -->
 				<jsp:include page="includes/navigacijskiMeni.jsp" />
 			<!-- End Header Area -->
-			<section class="generic-banner relative">
+			<section class="generic-banner relative" id="top">
 				<div class="container pt-30 pb-20">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-lg-10">
@@ -164,14 +170,14 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" />
+										<!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
 										<input type="checkbox" name="prenovljeno" id="prenovljeno" value="1" data-toggle="collapse" data-target="#letnik_prenove_skrij">
 										<label for="prenovljeno"></label>
-										<script>
+										<!--script>
                                             if(document.getElementById("prenovljeno").checked) {
                                                 document.getElementById('prenovljenoSkrit').disabled = true;
                                             }
-										</script>
+										</script-->
 									</div>
 									<p>Prenovljeno</p>
 								</div>
@@ -186,28 +192,28 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1 ">
 									<div class="primary-checkbox mr-10">
-										<input type="hidden" name="garaza" id="garazaSkrit" value="0">
+										<!--input type="hidden" name="garaza" id="garazaSkrit" value="0"-->
 										<input type="checkbox" name="garaza" id="garaza" value="1">
 										<label for="garaza"></label>
-										<script>
+										<!--script>
                                             if(document.getElementById("garaza").checked) {
                                                 document.getElementById('garazaSkrit').disabled = true;
                                             }
-										</script>
+										</script-->
 									</div>
 									<p>Garaža</p>
 								</div>
 								<!--Checkbox za balkon - name:balkon-->
 								<div class="switch-wrap d-flex mt-1">
-									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="balkon" id="balkonSkrit" value="0">
+									<div class="primary-checkbox mr-10">
+										<!--input type="hidden" name="balkon" id="balkonSkrit" value="0"-->
 										<input type="checkbox" name="balkon" id="balkon" value="1">
 										<label for="balkon"></label>
-										<script>
+										<!--script>
                                             if(document.getElementById("balkon").checked) {
                                                 document.getElementById('balkonSkrit').disabled = true;
                                             }
-										</script>
+										</script-->
 									</div>
 									<p>Balkon</p>
 								</div>
@@ -226,7 +232,7 @@
 							</div>
 						</div>
 						<!--Dodajanje fotografije !!!-->
-						<div class="row  ">
+						<div class="row">
 							<div class="col-12 ">
 								<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
 								<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
@@ -234,7 +240,7 @@
 							</div>
 						</div>
 						<div class="row text-dark">
-							<div id="predogled" class="col-5 " >
+							<div id="predogled" class="col-5">
 							</div>
 						</div>
 
@@ -377,15 +383,15 @@
 								<!--Checkbox za prenovljenost - name:prenovljeno-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/>
+										<!--input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/-->
 										<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" value="1" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
 										<label for="prenovljeno_hisa"></label>
 									</div>
-									<script>
+									<!--script>
                                         if(document.getElementById("prenovljeno_hisa").checked) {
                                             document.getElementById('prenovljeno_hisaSkrito').disabled = true;
                                         }
-									</script>
+									</script-->
 									<p>Prenovljeno</p>
 								</div>
 								<!--Polje za vnos letnika prenove - name:letnik_prenove-->
@@ -399,14 +405,14 @@
 								<!--Checkbox za garažo - name:garaza-->
 								<div class="switch-wrap d-flex mt-1">
 									<div class="primary-checkbox mr-10 mt-1">
-										<input type="hidden" name="garaza" id="garaza_hisaSkrito" value="0"/>
+										<!--input type="hidden" name="garaza" id="garaza_hisaSkrito" value="0"/-->
 										<input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
 										<label for="garaza_hisa"></label>
-										<script>
+										<!--script>
                                             if(document.getElementById("garaza_hisa").checked) {
                                                 document.getElementById('garaza_hisaSkrito').disabled = true;
                                             }
-										</script>
+										</script-->
 									</div>
 									<p>Garaža</p>
 								</div>
@@ -639,11 +645,6 @@
                     } else {
                         document.getElementById("top-gumb").style.display = "none";
                     }
-                }
-                //scroll to top
-                function topFunction() {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
                 }
 			</script>
 	</body>
