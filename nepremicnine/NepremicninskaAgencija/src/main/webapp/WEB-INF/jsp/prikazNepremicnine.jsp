@@ -41,9 +41,6 @@
     <div class="container pt-30 pb-20">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-10">
-                <div class="generic-banner-content text-center">
-                    <h2 class="text-white">stanovanje</h2>
-                </div>
             </div>
         </div>
     </div>
@@ -51,46 +48,50 @@
 <br />
 
 <main class="container">
+    <section>
+        <div class=" col-xs-12 col-lg-12 bold-black">
+            <p style="font-size:x-large; float: left">tip nepremičnine: &nbsp </p>
+            <p style="color: #f41068; font-size:x-large"> stanovanje</p>
+        </div>
+    </section>
 
-
-    <div class="slider-pro" id="my-slider">
+    <div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
             <!-- Slide 1 -->
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija6.jpg"/>
             </div>
 
             <!-- Slide 2 -->
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija5.jpg"/>
             </div>
 
             <!-- Slide 3 -->
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija4.jpg"/>
             </div>
 
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija3.jpg"/>
             </div>
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija2.jpg"/>
             </div>
             <div class="sp-slide">
-                <img class="sp-image" src="img/i8.jpg"/>
+                <img class="sp-image" src="img/regija1.jpg"/>
             </div>
         </div>
 
         <div class="sp-thumbnails">
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
-            <img class="sp-thumbnail" src="img/i8.jpg"/>
+            <img class="sp-thumbnail" src="img/regija6.jpg"/>
+            <img class="sp-thumbnail" src="img/regija5.jpg"/>
+            <img class="sp-thumbnail" src="img/regija4.jpg"/>
+            <img class="sp-thumbnail" src="img/regija3.jpg"/>
+            <img class="sp-thumbnail" src="img/regija2.jpg"/>
+            <img class="sp-thumbnail" src="img/regija1.jpg"/>
         </div>
     </div>
-
 
 
         <section class="col-xs-12 col-lg-12 section-gap">
@@ -101,31 +102,68 @@
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-lg-8 ">
                     <div class="statistika">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="bold-black"><i class="fa fa-bed"></i>    Število sob</div>
-                                <div>4</div>
-                            </div>
-                            <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="bold-black"><i class="fa fa-building"></i>   Nadstropje</div>
-                                <div>6</div>
-                            </div>
-                        </div>
-                        </br>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="bold-black"><i class="fa fa-expand"></i>    Kvadratura (m2)</div>
-                                <div>60m2</div>
-                            </div>
-                            <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
-                                <div>2001</div>
-                            </div>
-                        </div>
-                        <hr>
+                     <%--   <c:choose>
+                                <c:when test = "${stanovanje==true}"> --%>
+                       <%--         <div class="row">
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-bed"></i>    Število sob</div>
+                                        <div>4</div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-building"></i>   Nadstropje</div>
+                                        <div>6</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-expand"></i>    Kvadratura (m2)</div>
+                                        <div>60m2</div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
+                                        <div>2001</div>
+                                    </div>
+                                </div>--%>
+                         <%--  </c:when>
+                                <c:when test = "${hisa==true}"> --%>
+                               <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-6">
+                                            <div class="bold-black"><i class="fa fa-home"></i>    Vrsta hiše</div>
+                                            <div>samostojna</div>
+                                        </div>
+                                        <div class="col-xs-12 col-md-12 col-lg-6">
+                                            <div class="bold-black"><i class="fa fa-expand"></i>   Kvadratura hiše (m2)</div>
+                                            <div>70m2</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-6">
+                                            <div class="bold-black"><i class="fa fa-tree"></i>    Kvadratura zemljišča(m2)</div>
+                                            <div>110m2</div>
+                                        </div>
+                                        <div class="col-xs-12 col-md-12 col-lg-6">
+                                            <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
+                                            <div>2001</div>
+                                        </div>
+                                    </div>
+                         <%--  </c:when>
+                            <c:when test = "${posest==true}">--%>
+                          <%--    <div class="row">
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-expand"></i>    Velikost zemljišča</div>
+                                        <div>300m2</div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12 col-lg-6">
+                                        <div class="bold-black"><i class="fa fa-tree"></i>   Vrsta posesti</div>
+                                        <div>kmetijsko zemljišče</div>
+                                    </div>
+                                </div> --%>
+                        <%--    </c:when>
+                        </c:choose>--%>
+                            <hr>
                         <div class="row">
                             <div class="col-xs-12 col-md-12 col-lg-12">
-                                <p class="bold-black">Opis stanovanja</p>
+                                <p class="bold-black">Opis nepremičnine</p>
                               <p>  Opis objekta Lokrovec 51
 
                                 V naselju Lokrovec prodamo starejšo hišo z enim večjim in enim manjšim gospodarskim poslopjem. Hiša je delno obnovljena, velikost parcel je 1359 m2 in se nahajajo ob asfaltni cesti, ob kateri poteka tudi na novo zgrajena infrastruktura. (vodovod, kanalizacija,…).
@@ -134,26 +172,27 @@
                               </p>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <h4>Značilnosti/posebnosti nepremičnine:</h4>
-                                </br>
-                                <div class="col-xs-12 col-md-4 col-lg-4">
-                                    <i class="fa fa-check"></i>  BALKON
+
+                 <%--   <c:if test="${posest!=true}" >
+                         <hr>--%>
+                       <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h4>Značilnosti/posebnosti nepremičnine:</h4>
+                                    </br>
+                                    <div class="col-xs-12 col-md-4 col-lg-4">
+                                        <i class="fa fa-check"></i>  BALKON
+                                    </div>
+                                    <div class="col-xs-12 col-md-4 col-lg-4">
+                                        <i class="fa fa-check"></i> GARAŽA
+                                    </div>
+                                    <div class="col-xs-12 col-md-4 col-lg-4">
+                                        <i class="fa fa-times"></i> PRENOVLJENO
+                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-md-4 col-lg-4">
-                                    <i class="fa fa-check"></i> GARAŽA
-                                </div>
-                                <div class="col-xs-12 col-md-4 col-lg-4">
-                                    <i class="fa fa-times"></i> PRENOVLJENO
-                                </div>
-                            </div>
                         </div>
+                         <%-- </c:if> --%>
                     </div>
                 </div>
-
-
                     <div  class="col-xs-12 col-md-4 col-lg-4 ">
                         <div  class="statistika">
                             <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
@@ -162,12 +201,13 @@
                             <div class="text-center bold-black">IME PRIIMEK</div></br>
                             <div ><i class="fa fa-envelope"></i>  Email: </div>
                             <div ><i class="fa fa-phone"></i>  Tel: </div>
-                    </div>
+                        </div>
                         <div  class="statistika" style="height: 50%; max-height: 400px">
                             <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
-
                         </div>
                     </div>
+
+                 </div>
                 </div>
         </section>
 
@@ -203,7 +243,7 @@
 <script>
 $(document).ready(function (){
     $("#my-slider").sliderPro({
-        width: 600,
+        width: 800,
         height:400,
         orientation: 'vertical',
         thumbnailsPosition: 'right',
