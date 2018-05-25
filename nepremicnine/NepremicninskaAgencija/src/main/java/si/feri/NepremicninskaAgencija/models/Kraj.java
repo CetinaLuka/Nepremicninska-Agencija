@@ -2,7 +2,7 @@ package si.feri.NepremicninskaAgencija.models;
 
 public class Kraj{
 
-    int id;
+    int idKraj;
     String imeKraja;
     int postnaSt;
 
@@ -11,12 +11,12 @@ public class Kraj{
         this.postnaSt=postnaSt;
     }
 
-    public int getId() {
-        return id;
+    public int getIdKraj() {
+        return idKraj;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdKraj(int idKraj) {
+        this.idKraj = idKraj;
     }
 
     public String getImeKraja() {

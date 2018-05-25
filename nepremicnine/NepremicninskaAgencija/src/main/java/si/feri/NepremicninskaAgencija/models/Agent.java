@@ -1,7 +1,7 @@
 package si.feri.NepremicninskaAgencija.models;
 public class Agent{
 
-    int id;
+    int idAgent;
     String ime;
     String priimek;
     String email;
@@ -21,12 +21,12 @@ public class Agent{
         this.geslo=geslo;
     }
 
-    public int getId() {
-        return id;
+    public int getIdAgent() {
+        return idAgent;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAgent(int idAgent) {
+        this.idAgent = idAgent;
     }
 
     public String getIme() {

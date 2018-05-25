@@ -2,22 +2,22 @@ package si.feri.NepremicninskaAgencija.models;
 
 public class Naslov{
 
-    int id;
+    int idNaslov;
     String ulica;
     String hisnaSt;
-    int tk_id_kraj;
+    int Kraj_idkraj;
 
     Naslov(String ulica, String hisnaSt){
         this.ulica=ulica;
         this.hisnaSt=hisnaSt;
     }
 
-    public int getId() {
-        return id;
+    public int getIdNaslov() {
+        return idNaslov;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdNaslov(int idNaslov) {
+        this.idNaslov = idNaslov;
     }
 
     public String getUlica() {
@@ -36,11 +36,11 @@ public class Naslov{
         this.hisnaSt = hisnaSt;
     }
 
-    public int getTk_id_kraj() {
-        return tk_id_kraj;
+    public int getKraj_idkraj() {
+        return Kraj_idkraj;
     }
 
-    public void setTk_id_kraj(int tk_id_kraj) {
-        this.tk_id_kraj = tk_id_kraj;
+    public void setKraj_idkraj(int kraj_idkraj) {
+        this.Kraj_idkraj = kraj_idkraj;
     }
 }

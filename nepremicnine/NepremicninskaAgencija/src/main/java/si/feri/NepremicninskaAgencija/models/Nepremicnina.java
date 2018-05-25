@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Nepremicnina{
 
-    Integer id;
+    Integer idNepremicnina;
     Double cena;
     Double kvadraturaBivalnegaProstora;
     Double skupnaKvadratura;
@@ -20,7 +20,7 @@ public class Nepremicnina{
     boolean prodano;
     Date datumObjave;
 
-    Integer tk_id_agent;
+    Integer Agent_idAgent;
     Integer tk_id_naslov;
     Integer tk_id_vrstaNepremicnine;
 
@@ -28,7 +28,7 @@ public class Nepremicnina{
     }
 
     public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
-        this.id = id;
+        this.idNepremicnina = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
         this.skupnaKvadratura = skupnaKvadratura;
@@ -44,18 +44,18 @@ public class Nepremicnina{
         this.prodano = prodano;
         this.datumObjave = datumObjave;
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
-        this.tk_id_agent = tk_id_agent;
+        this.Agent_idAgent = tk_id_agent;
         this.tk_id_naslov = tk_id_naslov;
     }
 
     //KONSTRUKTORJI
 
-    public Integer getId() {
-        return id;
+    public Integer getidNepremicnina() {
+        return idNepremicnina;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setidNepremicnina(Integer id) {
+        this.idNepremicnina = id;
     }
 
     public Double getCena() {
@@ -170,12 +170,12 @@ public class Nepremicnina{
         this.datumObjave = datumObjave;
     }
 
-    public Integer getTk_id_agent() {
-        return tk_id_agent;
+    public Integer getAgent_idAgent() {
+        return Agent_idAgent;
     }
 
-    public void setTk_id_agent(Integer tk_id_agent) {
-        this.tk_id_agent = tk_id_agent;
+    public void setAgent_idAgent(Integer agent_idAgent) {
+        this.Agent_idAgent = agent_idAgent;
     }
 
     public Integer getTk_id_naslov() {

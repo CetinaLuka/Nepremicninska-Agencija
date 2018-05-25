@@ -27,7 +27,7 @@ public class SlikaDao {
             final File blobIn = convert(f);
             final InputStream blobIs = new FileInputStream(blobIn);
             jdbcTemplate.execute(
-                    "INSERT INTO slika (UrlSlike,OpisSlike,Nepremičnina_idNepremičnina,Agent_idAgent) VALUES (?,?,?,?)",
+                    "INSERT INTO slika (urlSlike,opisSlike,Nepremicnina_idNepremicnina,Agent_idAgent) VALUES (?,?,?,?)",
                     new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
                         protected void setValues(PreparedStatement ps, LobCreator lobCreator)
                                 throws SQLException {

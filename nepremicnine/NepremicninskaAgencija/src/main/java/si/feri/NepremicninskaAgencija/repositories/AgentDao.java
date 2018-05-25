@@ -20,12 +20,12 @@ public class AgentDao {
 
     public int addAgent(String ime, String priimek, String email, String geslo){
 
-        String sql ="INSERT into agent(Ime,Priimek,EMailNaslov,Geslo) values(?,?,?,?)";
+        String sql ="INSERT into agent(ime,priimek,email,geslo) values(?,?,?,?)";
         return jdbcTemplate.update(sql, new Object[]{ime,priimek,email,geslo});
     }
 
     public boolean obstaja(String email){
-        String sql ="SELECT * FROM agent WHERE EMailNaslov=?";
+        String sql ="SELECT * FROM agent WHERE email=?";
         List<Map<String,Object>> rows =  jdbcTemplate.queryForList(sql, new Object[] {email} );
         if(rows.isEmpty()){
             return false;
@@ -33,7 +33,7 @@ public class AgentDao {
         return true;
     }
     public boolean pravilnoGeslo(String email, String geslo){
-        String sql ="SELECT Geslo FROM agent WHERE EMailNaslov = '"+email+"'";
+        String sql ="SELECT geslo FROM agent WHERE email = '"+email+"'";
         String name = (String)jdbcTemplate.queryForObject(sql, String.class);
         if(name.equals(geslo)){
             return true;
@@ -42,28 +42,28 @@ public class AgentDao {
     }
 
     public int getId(String mail){
-        String sql="SELECT idAgent FROM agent WHERE EMailNaslov= '"+mail+"'";
+        String sql="SELECT idAgent FROM agent WHERE email= '"+mail+"'";
         int id=Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
         return id;
     }
 
     public String getIme(int id){
-        String sql="SELECT Ime FROM agent WHERE idAgent="+id;
+        String sql="SELECT ime FROM agent WHERE idAgent="+id;
         String ime= ((String)jdbcTemplate.queryForObject(sql, String.class));
         return ime;
     }
     public String getPriimek(int id){
-        String sql="SELECT Priimek FROM agent WHERE idAgent="+id;
+        String sql="SELECT priimek FROM agent WHERE idAgent="+id;
         String priimek= ((String)jdbcTemplate.queryForObject(sql, String.class));
         return priimek;
     }
     public String getEmail(int id){
-        String sql="SELECT EMailNaslov FROM agent WHERE idAgent="+id;
+        String sql="SELECT email FROM agent WHERE idAgent="+id;
         String mail= ((String)jdbcTemplate.queryForObject(sql, String.class));
         return mail;
     }
     public String getTelefon(int id){
-        String sql="SELECT telŠt FROM agent WHERE idAgent="+id;
+        String sql="SELECT telefonskaSt FROM agent WHERE idAgent="+id;
         String tel= ((String)jdbcTemplate.queryForObject(sql, String.class));
         return tel;
     }
@@ -79,12 +79,12 @@ public class AgentDao {
         Object i=session.getAttribute("trenutniUporabnik");
         int id=Integer.parseInt(i.toString());
 
-        String sql="UPDATE agent SET Ime=?, Priimek=?, EMailNaslov=?, TelŠt=? WHERE idAgent="+id;
+        String sql="UPDATE agent SET ime=?, priimek=?, email=?, telefonskaSt=? WHERE idAgent="+id;
         return  jdbcTemplate.update(sql, new Object[]{ime,priimek,mail,tel});
     }
 
     public int posodobiGeslo(String geslo, int id){
-        String sql="UPDATE agent SET Geslo=? WHERE idAgent=?";
+        String sql="UPDATE agent SET geslo=? WHERE idAgent=?";
         return  jdbcTemplate.update(sql, new Object[]{geslo, id});
     }
 

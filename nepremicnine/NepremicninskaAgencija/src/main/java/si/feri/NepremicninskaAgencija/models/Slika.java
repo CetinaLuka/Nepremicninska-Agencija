@@ -1,31 +1,32 @@
+package si.feri.NepremicninskaAgencija.models;
 public class Slika{
 
-    int id;
+    int idSlika;
     String URLSlike;
     String opisSlike;
-    int tk_id_nepremicnina;
+    int Nepremicnina_idNepremicnina;
+    int Agent_idAgent;
 
-    public int getTk_id_agent() {
-        return tk_id_agent;
+    public int getAgent_idAgent() {
+        return Agent_idAgent;
     }
 
-    public void setTk_id_agent(int tk_id_agent) {
-        this.tk_id_agent = tk_id_agent;
+    public void setAgent_idAgent(int agent_idAgent) {
+        this.Agent_idAgent = agent_idAgent;
     }
 
-    int tk_id_agent;
 
     Slika(String URLSlike, String opisSlike){
         this.URLSlike=URLSlike;
         this.opisSlike=opisSlike;
     }
 
-    public int getId() {
-        return id;
+    public int getIdSlika() {
+        return idSlika;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSlika(int idSlika) {
+        this.idSlika = idSlika;
     }
 
     public String getURLSlike() {
@@ -44,11 +45,11 @@ public class Slika{
         this.opisSlike = opisSlike;
     }
 
-    public int getTk_id_nepremicnina() {
-        return tk_id_nepremicnina;
+    public int getNepremicnina_idNepremicnina() {
+        return Nepremicnina_idNepremicnina;
     }
 
-    public void setTk_id_nepremicnina(int tk_id_nepremicnina) {
-        this.tk_id_nepremicnina = tk_id_nepremicnina;
+    public void setNepremicnina_idNepremicnina(int nepremicnina_idNepremicnina) {
+        this.Nepremicnina_idNepremicnina = nepremicnina_idNepremicnina;
     }
 }

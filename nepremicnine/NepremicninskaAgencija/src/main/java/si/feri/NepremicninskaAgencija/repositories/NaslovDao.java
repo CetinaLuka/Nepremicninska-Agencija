@@ -15,13 +15,13 @@ public class NaslovDao {
 
     public int addNaslov(String ulica, String hišnaŠt, int Kraj_idKraj){
 
-        String sql ="INSERT into NASLOV(ulica,hišnaŠt, Kraj_idKraj) values(?,?,?)";
+        String sql ="INSERT into NASLOV(ulica,hisnaSt, Kraj_idKraj) values(?,?,?)";
 
         return jdbcTemplate.update(sql, new Object[]{ulica,hišnaŠt,Kraj_idKraj});
     }
 
     public List<Integer> vrniID(String ulica, String hišnaŠt, int Kraj_idKraj){
-        String sql = "SELECT Naslov.idNaslov FROM Naslov WHERE ulica=? AND hišnaŠt=? AND Kraj_idKraj=?";
+        String sql = "SELECT Naslov.idNaslov FROM Naslov WHERE ulica=? AND hisnaSt=? AND Kraj_idKraj=?";
         List<Integer> ret = new ArrayList<Integer>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{ulica,hišnaŠt,Kraj_idKraj});
         for (Map row : rows) {

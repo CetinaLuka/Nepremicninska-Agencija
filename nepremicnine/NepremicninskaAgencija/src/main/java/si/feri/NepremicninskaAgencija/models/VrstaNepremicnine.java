@@ -1,18 +1,19 @@
+package si.feri.NepremicninskaAgencija.models;
 public class VrstaNepremicnine{
 
-    int id;
+    int idVrstaNepremicnine;
     String vrsta;
 
     VrstaNepremicnine(String vrsta){
         this.vrsta=vrsta;
     }
 
-    public int getId() {
-        return id;
+    public int getIdVrstaNepremicnine() {
+        return idVrstaNepremicnine;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVrstaNepremicnine(int idVrstaNepremicnine) {
+        this.idVrstaNepremicnine = idVrstaNepremicnine;
     }
 
     public String getVrsta() {
