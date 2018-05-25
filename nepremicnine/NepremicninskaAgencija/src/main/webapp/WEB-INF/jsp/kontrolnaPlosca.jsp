@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="desc">
                                         <div class="top d-flex justify-content-between">
-                                            <h4><a href="#">04 Bed Duplex</a></h4>
+                                            <h4><a href="/prikazNepremicnine/16">04 Bed Duplex</a></h4>
                                             <h4></h4>
                                         </div>
                                         <div class="middle">

@@ -1,18 +1,17 @@
 package si.feri.NepremicninskaAgencija.models;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class Nepremicnina{
 
-    int id;
-    double cena;
-    double kvadraturaBivalnegaProstora;
-    double skupnaKvadratura;
-    int steviloSob;
-    int nadstropje;
-    int letoIzgradnje;
-    int letoPrenove;
+    Integer id;
+    Double cena;
+    Double kvadraturaBivalnegaProstora;
+    Double skupnaKvadratura;
+    Integer steviloSob;
+    Integer nadstropje;
+    Integer LetnikIzgradnje;
+    Integer letoPrenove;
     boolean garaza;
     boolean balkon;
     String opis;
@@ -21,21 +20,21 @@ public class Nepremicnina{
     boolean prodano;
     Date datumObjave;
 
-    int tk_id_agent;
-    int tk_id_naslov;
-    int tk_id_vrstaNepremicnine;
+    Integer tk_id_agent;
+    Integer tk_id_naslov;
+    Integer tk_id_vrstaNepremicnine;
 
     public Nepremicnina() {
     }
 
-    public Nepremicnina(int id, double cena, double kvadraturaBivalnegaProstora, double skupnaKvadratura, int steviloSob, int nadstropje, int letoIzgradnje, int letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, int tk_id_vrstaNepremicnine, int tk_id_agent, int tk_id_naslov) {
+    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer LetnikIzgradnje, Integer letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
         this.id = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
         this.skupnaKvadratura = skupnaKvadratura;
         this.steviloSob = steviloSob;
         this.nadstropje = nadstropje;
-        this.letoIzgradnje = letoIzgradnje;
+        this.LetnikIzgradnje = LetnikIzgradnje;
         this.letoPrenove = letoPrenove;
         this.garaza = garaza;
         this.balkon = balkon;
@@ -51,67 +50,67 @@ public class Nepremicnina{
 
     //KONSTRUKTORJI
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public double getCena() {
+    public Double getCena() {
         return cena;
     }
 
-    public void setCena(double cena) {
+    public void setCena(Double cena) {
         this.cena = cena;
     }
 
-    public double getKvadraturaBivalnegaProstora() {
+    public Double getKvadraturaBivalnegaProstora() {
         return kvadraturaBivalnegaProstora;
     }
 
-    public void setKvadraturaBivalnegaProstora(double kvadraturaBivalnegaProstora) {
+    public void setKvadraturaBivalnegaProstora(Double kvadraturaBivalnegaProstora) {
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
     }
 
-    public double getSkupnaKvadratura() {
+    public Double getSkupnaKvadratura() {
         return skupnaKvadratura;
     }
 
-    public void setSkupnaKvadratura(double skupnaKvadratura) {
+    public void setSkupnaKvadratura(Double skupnaKvadratura) {
         this.skupnaKvadratura = skupnaKvadratura;
     }
 
-    public int getSteviloSob() {
+    public Integer getSteviloSob() {
         return steviloSob;
     }
 
-    public void setSteviloSob(int steviloSob) {
+    public void setSteviloSob(Integer steviloSob) {
         this.steviloSob = steviloSob;
     }
 
-    public int getNadstropje() {
+    public Integer getNadstropje() {
         return nadstropje;
     }
 
-    public void setNadstropje(int nadstropje) {
+    public void setNadstropje(Integer nadstropje) {
         this.nadstropje = nadstropje;
     }
 
-    public int getLetoIzgradnje() {
-        return letoIzgradnje;
+    public Integer getLetnikIzgradnje() {
+        return LetnikIzgradnje;
     }
 
-    public void setLetoIzgradnje(int letoIzgradnje) {
-        this.letoIzgradnje = letoIzgradnje;
+    public void setLetnikIzgradnje(Integer letnikIzgradnje) {
+        this.LetnikIzgradnje = letnikIzgradnje;
     }
 
-    public int getLetoPrenove() {
+    public Integer getLetoPrenove() {
         return letoPrenove;
     }
 
-    public void setLetoPrenove(int letoPrenove) {
+    public void setLetoPrenove(Integer letoPrenove) {
         this.letoPrenove = letoPrenove;
     }
 
@@ -171,27 +170,27 @@ public class Nepremicnina{
         this.datumObjave = datumObjave;
     }
 
-    public int getTk_id_agent() {
+    public Integer getTk_id_agent() {
         return tk_id_agent;
     }
 
-    public void setTk_id_agent(int tk_id_agent) {
+    public void setTk_id_agent(Integer tk_id_agent) {
         this.tk_id_agent = tk_id_agent;
     }
 
-    public int getTk_id_naslov() {
+    public Integer getTk_id_naslov() {
         return tk_id_naslov;
     }
 
-    public void setTk_id_naslov(int tk_id_naslov) {
+    public void setTk_id_naslov(Integer tk_id_naslov) {
         this.tk_id_naslov = tk_id_naslov;
     }
 
-    public int getTk_id_vrstaNepremicnine() {
+    public Integer getTk_id_vrstaNepremicnine() {
         return tk_id_vrstaNepremicnine;
     }
 
-    public void setTk_id_vrstaNepremicnine(int tk_id_vrstaNepremicnine) {
+    public void setTk_id_vrstaNepremicnine(Integer tk_id_vrstaNepremicnine) {
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
     }
 }

@@ -43,9 +43,10 @@ public class MainController {
         model.addAttribute("message");
         return "index";
     }
-    @RequestMapping(value = {"/prikazNepremicnine" }, method = RequestMethod.GET)
-    public String prikazNepremicnine(Model model) {
+    @RequestMapping(value = {"/prikazNepremicnine/{nepremicninaId}" }, method = RequestMethod.GET)
+    public String prikazNepremicnine(Model model, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
+        model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
         return "prikazNepremicnine";
     }
 

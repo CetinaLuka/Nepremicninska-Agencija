@@ -168,4 +168,13 @@ public class NepremicninaDao {
         return ret;
     }
 
+    public Nepremicnina vrniNepremicnino(int id){
+        String sql="SELECT * FROM nepremičnina WHERE idNepremičnina=?";
+        Nepremicnina n = (Nepremicnina)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Nepremicnina.class));
+        System.out.println(n.getNadstropje());
+        System.out.println(n.getLetnikIzgradnje());
+        System.out.println(n.getSteviloSob());
+        return n;
+    }
+
 }
