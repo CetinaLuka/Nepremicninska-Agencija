@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Naslov` (
   CONSTRAINT `fk_Naslov_Kraj`
     FOREIGN KEY (`Kraj_idKraj`)
     REFERENCES `mydb`.`Kraj` (`idKraj`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -96,17 +96,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Nepremicnina` (
   CONSTRAINT `fk_Nepremicnina_Naslov1`
     FOREIGN KEY (`tk_id_naslov`)
     REFERENCES `mydb`.`Naslov` (`idNaslov`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tk_id_vrstaNepremicnine1`
     FOREIGN KEY (`tk_id_vrstaNepremicnine`)
     REFERENCES `mydb`.`VrstaNepremicnine` (`idVrstaNepremicnine`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Nepremicnina_Agent1`
     FOREIGN KEY (`Agent_idAgent`)
     REFERENCES `mydb`.`Agent` (`idAgent`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -116,9 +116,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Slika` (
   `idSlika` INT NOT NULL AUTO_INCREMENT,
-  `urlSlike` BLOB NOT NULL,
-  `opisSlike` VARCHAR(20) NOT NULL,
-  `Nepremicnina_idNepremicnina` INT NOT NULL,
+  `urlSlike` MEDIUMBLOB NOT NULL,
+  `opisSlike` VARCHAR(20),
+  `Nepremicnina_idNepremicnina` INT,
   `Agent_idAgent` INT NOT NULL,
   PRIMARY KEY (`idSlika`),
   INDEX `fk_Slika_Nepremicnina1_idx` (`Nepremicnina_idNepremicnina` ASC),
@@ -126,12 +126,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Slika` (
   CONSTRAINT `fk_Slika_Nepremicnina1`
     FOREIGN KEY (`Nepremicnina_idNepremicnina`)
     REFERENCES `mydb`.`Nepremicnina` (`idNepremicnina`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Slika_Agent1`
     FOREIGN KEY (`Agent_idAgent`)
     REFERENCES `mydb`.`Agent` (`idAgent`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
