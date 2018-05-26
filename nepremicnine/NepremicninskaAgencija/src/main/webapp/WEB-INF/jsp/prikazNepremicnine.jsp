@@ -60,41 +60,36 @@
 
     <div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
-            <!-- Slide 1 -->
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija6.jpg"/>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija5.jpg"/>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija4.jpg"/>
-            </div>
-
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija3.jpg"/>
-            </div>
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija2.jpg"/>
-            </div>
-            <div class="sp-slide">
-                <img class="sp-image" src="../img/regija1.jpg"/>
-            </div>
+            <c:forEach var = "i" begin = "1" end = "6">
+                <div class="sp-slide">
+                    <img class="sp-image" src="../img/regija${i}.jpg"/>
+                </div>
+            </c:forEach>
         </div>
-
         <div class="sp-thumbnails">
-            <img class="sp-thumbnail" src="../img/regija6.jpg"/>
-            <img class="sp-thumbnail" src="../img/regija5.jpg"/>
-            <img class="sp-thumbnail" src="../img/regija4.jpg"/>
-            <img class="sp-thumbnail" src="../img/regija3.jpg"/>
-            <img class="sp-thumbnail" src="../img/regija2.jpg"/>
-            <img class="sp-thumbnail" src="../img/regija1.jpg"/>
+            <c:forEach var = "j" begin = "1" end = "6">
+                <img class="sp-thumbnail" src="../img/regija${j}.jpg"/>
+            </c:forEach>
         </div>
     </div>
+
+   <%-- <div class="slider-pro" id="my-slider" style="margin-top: 30px">
+        <div class="sp-slides">
+            <c:forEach  items="${nepremicnina_slika}" var ="slika">
+                <div class="sp-slide">
+                    <img src="data:image/jpeg;base64,${slika.URLSlike}" />
+                </div>
+            </c:forEach>
+        </div>
+        <div class="sp-thumbnails">
+            <c:forEach  items="${nepremicnina_slika}" var ="slika">
+                <img class="sp-thumbnail" src="data:image/jpeg;base64,${slika.URLSlike}" />
+            </c:forEach>
+        </div>
+    </div>--%>
+
+
+
 
 
         <section class="col-xs-12 col-lg-12 section-gap">

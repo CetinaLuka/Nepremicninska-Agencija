@@ -16,9 +16,12 @@ public class Slika{
     }
 
 
-    Slika(String URLSlike, String opisSlike){
+    public Slika(String URLSlike, String opisSlike){
         this.URLSlike=URLSlike;
         this.opisSlike=opisSlike;
+    }
+    public Slika(String URLSlike){
+        this.URLSlike=URLSlike;
     }
 
     public int getIdSlika() {

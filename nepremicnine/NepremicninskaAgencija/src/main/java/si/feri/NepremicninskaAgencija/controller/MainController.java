@@ -53,6 +53,7 @@ public class MainController {
         model.addAttribute("nepremicnina_kraj", krajDao.vrniKraj(tkKraj));
         int tkAgent=nepremicninaDao.vrniTKagenta(nepremicninaId);
         model.addAttribute("nepremicnina_agent", agentDao.vrniAgenta(tkAgent));
+        model.addAttribute("nepremicnina_slika", slikaDao.vrniSlike(nepremicninaId));
         return "prikazNepremicnine";
     }
 

@@ -171,9 +171,6 @@ public class NepremicninaDao {
     public Nepremicnina vrniNepremicnino(int id){
         String sql="SELECT * FROM nepremicnina WHERE idNepremicnina=?";
         Nepremicnina n = (Nepremicnina)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Nepremicnina.class));
-        System.out.println(n.getNadstropje());
-        System.out.println(n.getLetoIzgradnje());
-        System.out.println(n.getSteviloSob());
         return n;
     }
     public int vrniTKagenta(int id){
