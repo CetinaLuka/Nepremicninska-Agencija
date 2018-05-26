@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import si.feri.NepremicninskaAgencija.repositories.AgentDao;
-import si.feri.NepremicninskaAgencija.repositories.KrajDao;
-import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
-import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
+import si.feri.NepremicninskaAgencija.repositories.*;
 import si.feri.NepremicninskaAgencija.models.Agent;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +24,8 @@ public class RegistracijaInPrijavaController {
     NepremicninaDao nepremicninaDao;
     @Autowired
     AgentDao agentDao;
+    @Autowired
+    SlikaDao slikaDao;
 
 
     @RequestMapping(value = {"/prijava" }, method = RequestMethod.GET)
@@ -60,7 +59,7 @@ public class RegistracijaInPrijavaController {
         HttpSession session = request.getSession(true);//true will create if necessary
 
         session.setAttribute("trenutniUporabnik", id);
-
+        red.addFlashAttribute("slikaAgentaObstaja",false);
         return "redirect:/kontrolnaPlosca";
     }
     //prijava
@@ -77,6 +76,11 @@ public class RegistracijaInPrijavaController {
 
         session.setAttribute("trenutniUporabnik", id);
 
+        if(slikaDao.obstajaSlikaAgenta(id)){
+            red.addFlashAttribute("slikaAgentaObstaja",true);
+            red.addFlashAttribute("profilnaSlikaAgenta",slikaDao.vrniSlikoAgenta(id));
+        }
+        red.addFlashAttribute("slikaAgentaObstaja",false);
         return "redirect:/kontrolnaPlosca";
     }
 

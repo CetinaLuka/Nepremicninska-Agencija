@@ -202,7 +202,10 @@
                         <div  class="statistika">
                             <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
                             <div class="text-center">
-                            <img src="../img/i8.jpg" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></div>
+                                <c:if test="${slikaAgentaObstaja==true}"><img src="data:image/jpeg;base64,${profilnaSlikaAgenta.URLSlike}" /></c:if>
+                                <c:if test="${slikaAgentaObstaja==false}"> <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></c:if>
+                                 <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></div>
+
                             <div class="text-center bold-black">${nepremicnina_agent.ime} ${fn:toUpperCase(nepremicnina_agent.priimek)}</div></br>
                             <div ><i class="fa fa-envelope"></i>  Email: ${nepremicnina_agent.email}</div>
                             <div > <c:if test="${!(nepremicnina_agent.telefonskaSt).equals('')}">

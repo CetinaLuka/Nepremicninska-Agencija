@@ -64,8 +64,9 @@
                 <div class="row">
                     <div class="col-12 col-lg-12">
                         <div class="row profil-kartica">
-                            <div class="col-12 col-md-3 col-lg-12">
-                                <img src="img/i8.jpg" class="profil-slika img-thumbnail mb-1"/><br />
+                            <div class="col-12 col-md-3 col-lg-12 text-center">
+                                <c:if test="${slikaAgentaObstaja==true}"><img src="data:image/jpeg;base64,${profilnaSlikaAgenta.URLSlike}" /></c:if>
+                                <c:if test="${slikaAgentaObstaja==false}"> <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></c:if><br />
                                 <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
                                 <button class="genric-btn default border">Uredi profil</button>
                             </div>

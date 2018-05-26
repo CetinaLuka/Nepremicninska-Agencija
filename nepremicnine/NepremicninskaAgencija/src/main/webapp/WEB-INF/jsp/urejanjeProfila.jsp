@@ -80,17 +80,75 @@
     </c:choose>
 
     <div class="text-center" style="margin-top:50px">
-
         <div class="text-center">
-        <img src="img/i8.jpg" class="profil-slika" height="300px" width="300px"/><br />
-            <br>
-            <button type="submit" class="genric-btn primary circle text-center">
-                Posodobi profilno sliko
-            </button><br />
-            </div>
-
+            <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/>
+           <%-- <c:if test="${slikaAgentaObstaja==true}"><img src="data:image/jpeg;base64,${profilnaSlikaAgenta.URLSlike}" /></c:if>
+            <c:if test="${slikaAgentaObstaja==false}"> <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></c:if>--%>
         </div>
     </div>
+    <%--...................................--%>
+    <form name="posodobiProfilnoSliko" method="POST" action="/posodobiProfilnoSliko" modelAttribute="uploadForm" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <label class="genric-btn default mb-10 " for="image_uploads">naloži profilno sliko</label>
+            <input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
+        </div>
+    </div>
+    <div class="row text-dark">
+        <div id="posodobiProfilnoSliko" class="col-5"></div>
+    </div>
+
+    <script>
+        var fileTypes = [
+            'image/jpeg',
+            'image/pjpeg',
+            'image/png'
+        ]
+        var input = document.querySelector('#image_uploads');
+        var preview = document.querySelector('#posodobiProfilnoSliko');
+        input.style.visibility = 'hidden';
+        input.addEventListener('change', posodobiPregledSlik);
+        function  posodobiPregledSlik() {
+            var curFiles = input.files;
+            if(curFiles.length !== 0) {
+                var list = document.createElement('ol');
+                preview.appendChild(list);
+                for(var i = 0; i < curFiles.length; i++) {
+                    if(validFileType(curFiles[i])) {
+                        var listItem = document.createElement('li');
+                        listItem.setAttribute("class","list-group-item");
+                        var para = document.createElement('span');
+                        para.textContent = '' + curFiles[i].name+' ';
+                        var image = document.createElement('img');
+                        list.setAttribute("class","slikaZaFotografije");
+                        image.src = window.URL.createObjectURL(curFiles[i]);
+                        listItem.appendChild(para);
+                        listItem.appendChild(image);
+                        list.appendChild(document.createElement('BR'));
+                    }
+                    list.appendChild(listItem);
+                }
+            }
+        }
+        function validFileType(file) {
+            for(var i = 0; i < fileTypes.length; i++) {
+                if(file.type === fileTypes[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mt-10">
+                <input type="submit" value="SHRANI" class="genric-btn primary-border circle mb-50">
+            </div>
+        </div>
+    </div>
+</form>
+    <%-- .......................................................................--%>
 
     <div class="text-center" style="margin-top: 50px">
         <h1>Posodobi osebne podatke</h1>
@@ -124,7 +182,6 @@
                     <div class="input-group">
                         <input type="text" name="novPriimek" value="${priimekUporabnika}"
                                id="novPriimek"
-
                                required class="single-input">
                     </div>
                 </div>
@@ -140,7 +197,6 @@
                     <div class="input-group">
                         <input type="email" name="novMail" value="${mailUporabnika}"
                                id="novMail"
-
                                required class="single-input">
                     </div>
                 </div>
@@ -157,7 +213,6 @@
                     <div class="input-group">
                         <input type="text" name="telefonskaStevilka" value="${telUporabnika}"
                                id="telefonskaStevilka"
-
                                class="single-input">
                     </div>
                 </div>

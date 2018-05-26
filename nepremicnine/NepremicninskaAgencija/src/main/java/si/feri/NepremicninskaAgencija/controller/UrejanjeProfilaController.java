@@ -3,23 +3,31 @@ package si.feri.NepremicninskaAgencija.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import si.feri.NepremicninskaAgencija.models.Agent;
+import si.feri.NepremicninskaAgencija.models.FileUploadForm;
 import si.feri.NepremicninskaAgencija.repositories.AgentDao;
+import si.feri.NepremicninskaAgencija.repositories.SlikaDao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UrejanjeProfilaController {
 
     @Autowired
     AgentDao agentDao;
+    @Autowired
+    SlikaDao slikaDao;
 
     @RequestMapping(value = {"/urejanjeProfila" }, method = RequestMethod.GET)
     public String urejanjeProfila(Model model) {
@@ -81,4 +89,34 @@ public class UrejanjeProfilaController {
         session.removeAttribute("trenutniUporabnik");
         return "redirect:/registracija";
     }
+    @RequestMapping(value = {"/posodobiProfilnoSliko" }, method = RequestMethod.POST)
+    public String posodobiProfilnoSliko(Model model, @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map,
+                                        RedirectAttributes red) {
+        model.addAttribute("message");
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);//true will create if necessary
+        int id=Integer.parseInt(session.getAttribute("trenutniUporabnik").toString());
+
+        List<MultipartFile> files = uploadForm.getFiles();
+        List<String> fileNames = new ArrayList<String>();
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                if(slikaDao.obstajaSlikaAgenta(id)){
+                    slikaDao.saveUpdate(multipartFile, id);
+                }else {
+                    slikaDao.saveA(multipartFile, id);
+                }
+            }
+        }
+        map.addAttribute("files", fileNames);
+
+
+        // red.addFlashAttribute("profilnaSlikaAgentaObstaja",true);
+        //red.addFlashAttribute("profilnaSlikaAgenta",slikaDao.vrniSlikoAgenta(id));
+        return "redirect:/urejanjeProfila";
+    }
+
 }

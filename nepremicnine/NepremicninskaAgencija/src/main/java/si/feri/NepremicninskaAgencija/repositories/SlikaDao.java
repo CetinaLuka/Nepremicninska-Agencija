@@ -68,28 +68,7 @@ public class SlikaDao {
         return null;
     }
 
-    public List<Slika> vrniSlike2(int id) {
-        String sql ="SELECT * FROM slika WHERE Nepremicnina_idNepremicnina="+id;
-        List<Slika> ret =new ArrayList<Slika>();
-        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
-        for (Map<String,Object> row : rows) {
-            String retrieveBlobAsString = null;
-          //  Blob b =(Blob)row.get("urlSlike");//cast with (Blob) if required. Blob from resultSet as rs.getBlob(index).
-            byte[] blob = (byte[]) row.get("urlSlike");
-            try {
-                Blob b = new javax.sql.rowset.serial.SerialBlob(blob);
-                InputStream bis = b.getBinaryStream();
-                ObjectInputStream ois = new ObjectInputStream(bis);
-                retrieveBlobAsString = (String) ois.readObject();
-            }catch(IOException|SQLException|ClassNotFoundException e){
-                e.printStackTrace();
-            }
 
-            ret.add(new Slika(retrieveBlobAsString));
-        }
-
-        return ret;
-    }
     public List<Slika> vrniSlike(int id) {
         String sql = "SELECT * FROM slika WHERE Nepremicnina_idNepremicnina=" + id;
         List<Slika> ret = new ArrayList<Slika>();
@@ -102,5 +81,65 @@ public class SlikaDao {
             ret.add(new Slika(retrieveBlobAsString));
         }
         return ret;
+    }
+    public boolean obstajaSlikaAgenta(int id){
+        String sql = "SELECT * FROM slika WHERE Nepremicnina_idNepremicnina IS null AND Agent_idAgent=" + id;
+        List<Slika> ret = new ArrayList<Slika>();
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        if(rows.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    public Slika vrniSlikoAgenta(int id){
+        String sql = "SELECT URLSlike FROM slika WHERE Nepremicnina_idNepremicnina IS null AND Agent_idAgent="+id;
+        Map<String, Object> row=jdbcTemplate.queryForList(sql).get(0);
+        byte[] blob = (byte[]) row.get("urlSlike");
+        String retrieveBlobAsString = Base64.getEncoder().encodeToString(blob);
+        return (new Slika(retrieveBlobAsString));
+    }
+    public void saveA(MultipartFile f,int tk_agent){
+        try {
+            LobHandler lobhandler = new DefaultLobHandler();
+            final File blobIn = convert(f);
+            final InputStream blobIs = new FileInputStream(blobIn);
+            jdbcTemplate.execute(
+                    "INSERT INTO slika (urlSlike,opisSlike,Agent_idAgent) VALUES (?,?,?)",
+                    new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
+                        protected void setValues(PreparedStatement ps, LobCreator lobCreator)
+                                throws SQLException {
+                            //ps.setLong(1, 1L);
+                            lobCreator.setBlobAsBinaryStream(ps, 1, blobIs, (int) blobIn.length());
+                            ps.setString(2, "nekaj");
+                            ps.setString(3, ""+tk_agent);
+                        }
+                    }
+            );
+            blobIs.close();
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+    }
+    public void saveUpdate(MultipartFile f,int tk_agent){
+        try {
+            LobHandler lobhandler = new DefaultLobHandler();
+            final File blobIn = convert(f);
+            final InputStream blobIs = new FileInputStream(blobIn);
+            jdbcTemplate.execute(
+                    "UPDATE  slika SET urlSlike=? WHERE Agent_idAgent="+tk_agent,
+                    new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
+                        protected void setValues(PreparedStatement ps, LobCreator lobCreator)
+                                throws SQLException {
+                            //ps.setLong(1, 1L);
+                            lobCreator.setBlobAsBinaryStream(ps, 1, blobIs, (int) blobIn.length());
+                        }
+                    }
+            );
+            blobIs.close();
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
     }
 }
