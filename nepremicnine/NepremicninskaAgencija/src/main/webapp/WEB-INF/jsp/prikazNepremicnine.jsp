@@ -210,7 +210,9 @@
                               </div>
                         </div>
                         <div  class="statistika" style="height: 50%; max-height: 400px">
-                            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
+                            <%-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 --%>
+                            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8&q=
+                             ${nepremicnina_naslov.ulica}+${nepremicnina_naslov.hisnaSt}+ ${nepremicnina_kraj.imeKraja}" allowfullscreen></iframe>
                         </div>
                     </div>
 
