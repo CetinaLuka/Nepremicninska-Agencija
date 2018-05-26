@@ -159,16 +159,16 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
-							<h1>Kdo so naši agenti</h1>
+							<h1>Zakaj izbrati nas?</h1>
 							<p>
-								Who are in extremely love with eco friendly system.
+								Izbira nepremičninskih agencij je velika. Zaradi spodnjih razlogov se boste odločili za nas!
 							</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-4 col-md-6 pb-30">
 							<div class="single-service">
-								<h4><span class="lnr lnr-user"></span>Expert Technicians</h4>
+								<h4><span class="lnr lnr-user"></span>Izkušenost agentov</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>
@@ -176,7 +176,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 pb-30">
 							<div class="single-service">
-								<h4><span class="lnr lnr-license"></span>Professional Service</h4>
+								<h4><span class="lnr lnr-license"></span>Profesionalne storitve</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
@@ -184,7 +184,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 pb-30">
 							<div class="single-service">
-								<h4><span class="lnr lnr-phone"></span>Great Support</h4>
+								<h4><span class="lnr lnr-phone"></span>Podpora in pomoč</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
@@ -192,7 +192,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-rocket"></span>Technical Skills</h4>
+								<h4><span class="lnr lnr-rocket"></span>Tehnična znanja</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>				
@@ -200,7 +200,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-diamond"></span>Highly Recomended</h4>
+								<h4><span class="lnr lnr-diamond"></span>Dolgoletna priznanost</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
@@ -208,7 +208,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-bubble"></span>Positive Reviews</h4>
+								<h4><span class="lnr lnr-bubble"></span>Pozitivna mnenja</h4>
 								<p>
 									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>									
@@ -225,9 +225,9 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
-							<h1>Our Top Rated Properties</h1>
+							<h1>Zadnje nepremičnine</h1>
 							<p>
-								Who are in extremely love with eco friendly system.
+								Oglejte si nepremičnine, ki so bile v prodajo dodane najbolj nedavno.
 							</p>
 						</div>
 					</div>
@@ -386,7 +386,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4 col-md-6 mt-30">
+						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
 								<a href="#" target="_blank">
 									<div class="content-overlay"></div>
@@ -397,7 +397,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 mt-30">
+						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
 								<a href="#" target="_blank">
 									<div class="content-overlay"></div>
@@ -408,7 +408,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 mt-30">
+						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
 								<a href="#" target="_blank">
 									<div class="content-overlay"></div>
@@ -457,7 +457,8 @@
 			<!-- End About Area -->
 		
 			<!-- Start contact-info Area -->
-			<section class="contact-info-area section-gap"  id="contact">
+			<section class="contact-info-area section-gap relative"  id="contact">
+				<div class="overlay ozadje-contact"></div>
 				<div class="container">
 					<div class="row">
 						<div class="single-info col-lg-3 col-md-6">
@@ -478,7 +479,7 @@
 						<div class="single-info col-lg-3 col-md-6">
 							 <h4>Pišite nam</h4>
 							 <p>
-								 Email: agencija.praktikum@gmail.com<br>
+								 Email: praktikum1@gmail.com<br>
 								 FAX: 02-6532-568-746
 							 </p>                                   
 						</div>
@@ -486,7 +487,7 @@
 							<h4>Tehnična pomoč</h4>
 							<p>
 								pomoc@colorlib.com <br>
-								tehnicne.tezave@colorlib.com <br>
+								tehnicne.tezave@help.com <br>
 								navoljo24@gmail.com
 							</p>
 						</div>
