@@ -47,6 +47,12 @@ public class MainController {
     public String prikazNepremicnine(Model model, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
         model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
+        int tkNaslov=nepremicninaDao.vrniTKnaslov(nepremicninaId);
+        model.addAttribute("nepremicnina_naslov",naslovDao.vrniNaslov(tkNaslov));
+        int tkKraj=naslovDao.vrniTKkraj(tkNaslov);
+        model.addAttribute("nepremicnina_kraj", krajDao.vrniKraj(tkKraj));
+        int tkAgent=nepremicninaDao.vrniTKagenta(nepremicninaId);
+        model.addAttribute("nepremicnina_agent", agentDao.vrniAgenta(tkAgent));
         return "prikazNepremicnine";
     }
 

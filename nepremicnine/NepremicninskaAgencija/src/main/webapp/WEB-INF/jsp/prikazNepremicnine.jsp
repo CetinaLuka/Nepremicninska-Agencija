@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -51,7 +52,9 @@
     <section>
         <div class=" col-xs-12 col-lg-12 bold-black">
             <p style="font-size:x-large; float: left">tip nepremičnine: &nbsp </p>
-            <p style="color: #f41068; font-size:x-large"> stanovanje</p>
+            <p style="color: #f41068; font-size:x-large"> <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">stanovanje</c:if>
+                <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">hiša</c:if>
+                <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">posest</c:if></p>
         </div>
     </section>
 
@@ -96,76 +99,76 @@
 
         <section class="col-xs-12 col-lg-12 section-gap">
             <div class=" col-xs-12 col-lg-12 bold-black">
-                <p style="font-size:x-large">MARIBOR, Smetanova ulica 17</p>
-                <p style="color: #f41068; font-size:xx-large">18.500€</p></br>
+                <p style="font-size:x-large">${fn:toUpperCase(nepremicnina_kraj.imeKraja)}, ${nepremicnina_naslov.ulica} ${nepremicnina_naslov.hisnaSt}</p>
+                <p style="color: #f41068; font-size:xx-large">${nepremicnina.cena}€</p></br>
         </div>
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-lg-8 ">
                     <div class="statistika">
-                   <%--    <c:choose>
-                                <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">--%>
+                       <c:choose>
+                                <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-bed"></i>    Število sob</div>
+                                        <div class="bold-black"><i class="fa fa-bed" style="font-size: x-large"></i>    Število sob</div>
                                         <div> ${nepremicnina.steviloSob}</div>
                                     </div>
                                     <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-building"></i>   Nadstropje</div>
+                                        <div class="bold-black"><i class="fa fa-building" style="font-size: x-large"></i>   Nadstropje</div>
                                         <div> ${nepremicnina.nadstropje}</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-expand"></i>    Kvadratura (m2)</div>
+                                        <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>    Kvadratura (m2)</div>
                                         <div> ${nepremicnina.skupnaKvadratura}m2</div>
                                     </div>
                                     <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
+                                        <div class="bold-black"><i class="fa fa-wrench" style="font-size: x-large"></i>   Leto izgradnje</div>
                                         <div> ${nepremicnina.letoIzgradnje}</div>
                                     </div>
                                 </div>
-                       <%--    </c:when>
-                                <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">
+                           </c:when>
+                              <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">
+                            <div class="row">
+                                       <div class="col-xs-12 col-md-12 col-lg-6">
+                                           <div class="bold-black"><i class="fa fa-home" style="font-size: x-large"></i>    Vrsta hiše</div>
+                                           <div> ${nepremicnina.vrstaHise}</div>
+                                       </div>
+                                       <div class="col-xs-12 col-md-12 col-lg-6">
+                                           <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>   Kvadratura hiše (m2)</div>
+                                           <div> ${nepremicnina.kvadraturaBivalnegaProstora}m2</div>
+                                       </div>
+                                   </div>
+                                   <div class="row">
+                                       <div class="col-xs-12 col-md-12 col-lg-6">
+                                           <div class="bold-black"><i class="fa fa-tree" style="font-size: x-large"></i>    Kvadratura zemljišča(m2)</div>
+                                           <div> ${eapremicnina.skupnaKvadratura}m2</div>
+                                       </div>
+                                       <div class="col-xs-12 col-md-12 col-lg-6">
+                                           <div class="bold-black"><i class="fa fa-wrench" style="font-size: x-large"></i>   Leto izgradnje</div>
+                                           <div> ${nepremicnina.letoIzgradnje}</div>
+                                       </div>
+                                   </div>
+                         </c:when>
+                           <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">
                              <div class="row">
-                                        <div class="col-xs-12 col-md-12 col-lg-6">
-                                            <div class="bold-black"><i class="fa fa-home"></i>    Vrsta hiše</div>
-                                            <div> ${nepremicnina.vrstaHise}</div>
-                                        </div>
-                                        <div class="col-xs-12 col-md-12 col-lg-6">
-                                            <div class="bold-black"><i class="fa fa-expand"></i>   Kvadratura hiše (m2)</div>
-                                            <div> ${nepremicnina.kvadraturaBivalnegaProstora}m2</div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12 col-lg-6">
-                                            <div class="bold-black"><i class="fa fa-tree"></i>    Kvadratura zemljišča(m2)</div>
-                                            <div> ${eapremicnina.skupnaKvadratura}m2</div>
-                                        </div>
-                                        <div class="col-xs-12 col-md-12 col-lg-6">
-                                            <div class="bold-black"><i class="fa fa-wrench"></i>   Leto izgradnje</div>
-                                            <div> ${nepremicnina.letoIzgradnje}</div>
-                                        </div>
-                                    </div>
-                          </c:when>
-                            <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">
-                              <div class="row">
-                                    <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-expand"></i>    Velikost zemljišča</div>
-                                        <div> ${nepremicnina.skupnaKvadratura}m2</div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-tree"></i>   Vrsta posesti</div>
-                                        <div> ${nepremicnina.vrstaPosesti}</div>
-                                    </div>
-                                </div>
-                            </c:when>
-                        </c:choose>--%>
+                                   <div class="col-xs-12 col-md-12 col-lg-6">
+                                       <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>    Velikost zemljišča</div>
+                                       <div> ${nepremicnina.skupnaKvadratura}m2</div>
+                                   </div>
+                                   <div class="col-xs-12 col-md-12 col-lg-6">
+                                       <div class="bold-black"><i class="fa fa-tree" style="font-size: x-large"></i>   Vrsta posesti</div>
+                                       <div> ${nepremicnina.tipPosesti}</div>
+                                   </div>
+                               </div>
+                           </c:when>
+                       </c:choose>
                             <hr>
                         <div class="row">
                             <div class="col-xs-12 col-md-12 col-lg-12">
                                 <p class="bold-black">Opis nepremičnine</p>
                               <p>
-                                  ${napremicnina.opis}
+                                  ${nepremicnina.opis}
 
                                </br> V naselju Lokrovec prodamo starejšo hišo z enim večjim in enim manjšim gospodarskim poslopjem. Hiša je delno obnovljena, velikost parcel je 1359 m2 in se nahajajo ob asfaltni cesti, ob kateri poteka tudi na novo zgrajena infrastruktura. (vodovod, kanalizacija,…).
                                 Zelo mirno okolje nedaleč od Celja, v bližini je rekreativno območje Šmartinskega jezera in golf igrišče.
@@ -174,24 +177,30 @@
                             </div>
                         </div>
 
-                 <%--   <c:if test="${nepremicnina.VrstaNepremičnine_idVrstaNepremičnine!=3}" >
-                         <hr>--%>
+
+                       <c:if test="${nepremicnina.tk_id_vrstaNepremicnine!=3}"><hr>
                        <div class="row">
                                 <div class="col-xs-12 col-md-12 col-lg-12">
                                     <h4>Značilnosti/posebnosti nepremičnine:</h4>
                                     </br>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <i class="fa fa-check"></i>  BALKON
+                                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
+                                        <c:if test="${nepremicnina.balkon}" ><i class="fa fa-check" ></i></c:if>
+                                        <c:if test="${!nepremicnina.balkon}" ><i class="fa fa-times"></i></c:if> BALKON
+                                        </c:if>
                                     </div>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <i class="fa fa-check"></i> GARAŽA
+                                        <c:if test="${nepremicnina.garaza}" ><i class="fa fa-check"></i></c:if>
+                                        <c:if test="${!nepremicnina.garaza}" ><i class="fa fa-times"></i></c:if> GARAŽA
                                     </div>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <i class="fa fa-times"></i> PRENOVLJENO
+                                        <c:if test="${nepremicnina.letoPrenove!=null}" ><i class="fa fa-check"></i>
+                                                PRENOVLJENO - ${nepremicnina.letoPrenove}</c:if>
+                                        <c:if test="${nepremicnina.letoPrenove==null}" ><i class="fa fa-times"></i> PRENOVLJENO</c:if>
                                     </div>
                                 </div>
                         </div>
-                         <%-- </c:if> --%>
+                        </c:if>
                     </div>
                 </div>
                     <div  class="col-xs-12 col-md-4 col-lg-4 ">
@@ -199,9 +208,11 @@
                             <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
                             <div class="text-center">
                             <img src="../img/i8.jpg" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></div>
-                            <div class="text-center bold-black">IME PRIIMEK</div></br>
-                            <div ><i class="fa fa-envelope"></i>  Email: </div>
-                            <div ><i class="fa fa-phone"></i>  Tel: </div>
+                            <div class="text-center bold-black">${nepremicnina_agent.ime} ${fn:toUpperCase(nepremicnina_agent.priimek)}</div></br>
+                            <div ><i class="fa fa-envelope"></i>  Email: ${nepremicnina_agent.email}</div>
+                            <div > <c:if test="${!(nepremicnina_agent.telefonskaSt).equals('')}">
+                                <i class="fa fa-phone"></i>  Tel: ${nepremicnina_agent.telefonskaSt}</c:if>
+                              </div>
                         </div>
                         <div  class="statistika" style="height: 50%; max-height: 400px">
                             <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>

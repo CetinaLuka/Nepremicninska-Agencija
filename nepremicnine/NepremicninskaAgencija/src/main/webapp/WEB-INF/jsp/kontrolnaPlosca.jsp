@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="desc">
                                         <div class="top d-flex justify-content-between">
-                                            <h4><a href="#">Hiša - ${nepremicnina.vrstaHise}</a></h4>
+                                            <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
                                             <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
                                         </div>
                                         <div class="middle">
@@ -223,7 +223,7 @@
                                     </div>
                                     <div class="desc">
                                         <div class="top d-flex justify-content-between">
-                                            <h4><a href="#">Posest - ${nepremicnina.vrstaPosesti}</a></h4>
+                                            <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
                                             <h4>${nepremicnina.skupnaKvadratura}m²</h4>
                                         </div>
                                         <div class="middle">

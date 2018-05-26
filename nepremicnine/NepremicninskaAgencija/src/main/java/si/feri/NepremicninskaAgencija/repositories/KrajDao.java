@@ -1,6 +1,7 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import si.feri.NepremicninskaAgencija.models.Kraj;
@@ -40,5 +41,11 @@ public class KrajDao {
             ret.add(id);
         }
         return ret;
+    }
+
+    public Kraj vrniKraj(int id){
+        String sql = "SELECT * FROM kraj WHERE idKraj=?";
+        Kraj k = (Kraj)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Kraj.class));
+        return k;
     }
 }

@@ -7,10 +7,11 @@ public class Naslov{
     String hisnaSt;
     int Kraj_idkraj;
 
-    Naslov(String ulica, String hisnaSt){
+   public Naslov(String ulica, String hisnaSt){
         this.ulica=ulica;
         this.hisnaSt=hisnaSt;
     }
+   public Naslov(){}
 
     public int getIdNaslov() {
         return idNaslov;

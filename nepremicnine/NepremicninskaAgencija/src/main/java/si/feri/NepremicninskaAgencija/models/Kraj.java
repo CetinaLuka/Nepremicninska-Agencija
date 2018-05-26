@@ -11,6 +11,8 @@ public class Kraj{
         this.postnaSt=postnaSt;
     }
 
+    public Kraj(){}
+
     public int getIdKraj() {
         return idKraj;
     }

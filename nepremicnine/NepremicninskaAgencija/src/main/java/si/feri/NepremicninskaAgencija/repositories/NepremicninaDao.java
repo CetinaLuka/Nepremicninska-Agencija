@@ -64,27 +64,27 @@ public class NepremicninaDao {
             int letoPrenove=0;
             if(row.get("letoPrenove")!=null)
                 letoPrenove=(int)row.get("letoPrenove");
-            boolean garaza=false;
+            Boolean garaza=false;
             if(row.get("garaza")!=null)
-                garaza=(boolean)row.get("garaza");
-            boolean balkon=false;
+                garaza=(Boolean)row.get("garaza");
+            Boolean balkon=false;
             if(row.get("balkon")!=null)
-                balkon=(boolean)row.get("balkon");
+                balkon=(Boolean)row.get("balkon");
             String opis="";
             if(row.get("opis")!=null)
                 opis=(String)row.get("opis");
             String vrstaHise="";
             if(row.get("vrstaHise")!=null)
                 vrstaHise=(String)row.get("vrstaHise");
-            String vrstaPosesti="";
+            String tipPosesti="";
             if(row.get("tipPosesti")!=null)
-                vrstaPosesti=(String)row.get("tipPosesti");
-            boolean prodano=(boolean)row.get("prodano");
+                tipPosesti=(String)row.get("tipPosesti");
+            Boolean prodano=(Boolean)row.get("prodano");
             Date datumObjave=(Date)row.get("datumObjave");
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
         }
         return ret;
     }
@@ -112,27 +112,27 @@ public class NepremicninaDao {
             int letoPrenove=0;
             if(row.get("letoPrenove")!=null)
                 letoPrenove=(int)row.get("letoPrenove");
-            boolean garaza=false;
+            Boolean garaza=false;
             if(row.get("garaza")!=null)
-                garaza=(boolean)row.get("garaza");
-            boolean balkon=false;
+                garaza=(Boolean)row.get("garaza");
+            Boolean balkon=false;
             if(row.get("balkon")!=null)
-                balkon=(boolean)row.get("balkon");
+                balkon=(Boolean)row.get("balkon");
             String opis="";
             if(row.get("opis")!=null)
                 opis=(String)row.get("opis");
             String vrstaHise="";
             if(row.get("vrstaHise")!=null)
                 vrstaHise=(String)row.get("vrstaHise");
-            String vrstaPosesti="";
+            String tipPosesti="";
             if(row.get("tipPosesti")!=null)
-                vrstaPosesti=(String)row.get("tipPosesti");
-            boolean prodano=(boolean)row.get("prodano");
+                tipPosesti=(String)row.get("tipPosesti");
+            Boolean prodano=(Boolean)row.get("prodano");
             Date datumObjave=(Date)row.get("datumObjave");
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,vrstaPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
         }
         return ret;
     }
@@ -175,6 +175,14 @@ public class NepremicninaDao {
         System.out.println(n.getLetoIzgradnje());
         System.out.println(n.getSteviloSob());
         return n;
+    }
+    public int vrniTKagenta(int id){
+        String sql="SELECT Agent_idAgent FROM nepremicnina WHERE idNepremicnina="+id;
+        return Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
+    }
+    public int vrniTKnaslov(int id){
+        String sql="SELECT tk_id_naslov FROM nepremicnina WHERE idNepremicnina="+id;
+        return Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
     }
 
 }

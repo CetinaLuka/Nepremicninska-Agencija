@@ -12,12 +12,12 @@ public class Nepremicnina{
     Integer nadstropje;
     Integer letoIzgradnje;
     Integer letoPrenove;
-    boolean garaza;
-    boolean balkon;
+    Boolean garaza;
+    Boolean balkon;
     String opis;
     String vrstaHise;
-    String vrstaPosesti;
-    boolean prodano;
+    String tipPosesti;
+    Boolean prodano;
     Date datumObjave;
 
     Integer Agent_idAgent;
@@ -27,7 +27,7 @@ public class Nepremicnina{
     public Nepremicnina() {
     }
 
-    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, boolean garaza, boolean balkon, String opis, String vrstaHise, String vrstaPosesti, boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
+    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, Boolean garaza, Boolean balkon, String opis, String vrstaHise, String tipPosesti, Boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
         this.idNepremicnina = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
@@ -40,7 +40,7 @@ public class Nepremicnina{
         this.balkon = balkon;
         this.opis = opis;
         this.vrstaHise = vrstaHise;
-        this.vrstaPosesti = vrstaPosesti;
+        this.tipPosesti = tipPosesti;
         this.prodano = prodano;
         this.datumObjave = datumObjave;
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
@@ -114,19 +114,25 @@ public class Nepremicnina{
         this.letoPrenove = letoPrenove;
     }
 
-    public boolean isGaraza() {
+    public Boolean isGaraza() {
+        return garaza;
+    }
+    public Boolean getGaraza() {
         return garaza;
     }
 
-    public void setGaraza(boolean garaza) {
+    public void setGaraza(Boolean garaza) {
         this.garaza = garaza;
     }
 
-    public boolean isBalkon() {
+    public Boolean isBalkon() {
         return balkon;
     }
+    public Boolean getBalkon() {
+        return garaza;
+    }
 
-    public void setBalkon(boolean balkon) {
+    public void setBalkon(Boolean balkon) {
         this.balkon = balkon;
     }
 
@@ -146,19 +152,22 @@ public class Nepremicnina{
         this.vrstaHise = vrstaHise;
     }
 
-    public String getVrstaPosesti() {
-        return vrstaPosesti;
+    public String getTipPosesti() {
+        return tipPosesti;
     }
 
-    public void setVrstaPosesti(String vrstaPosesti) {
-        this.vrstaPosesti = vrstaPosesti;
+    public void setTipPosesti(String tipPosesti) {
+        this.tipPosesti = tipPosesti;
     }
 
-    public boolean isProdano() {
+    public Boolean isProdano() {
         return prodano;
     }
+    public Boolean getProdano() {
+        return garaza;
+    }
 
-    public void setProdano(boolean prodano) {
+    public void setProdano(Boolean prodano) {
         this.prodano = prodano;
     }
 

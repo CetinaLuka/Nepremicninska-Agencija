@@ -1,8 +1,12 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import si.feri.NepremicninskaAgencija.models.Agent;
+import si.feri.NepremicninskaAgencija.models.Naslov;
+import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,5 +33,14 @@ public class NaslovDao {
             ret.add(id);
         }
         return ret;
+    }
+    public Naslov vrniNaslov(int id){
+        String sql = "SELECT * FROM naslov WHERE idNaslov=?";
+        Naslov n = (Naslov)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Naslov.class));
+        return n;
+    }
+    public int vrniTKkraj(int id){
+        String sql = "SELECT Kraj_idKraj FROM naslov WHERE idNaslov="+id;
+        return Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
     }
 }

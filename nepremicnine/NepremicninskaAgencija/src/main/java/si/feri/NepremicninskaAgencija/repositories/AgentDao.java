@@ -1,6 +1,7 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -98,5 +99,11 @@ public class AgentDao {
             e.printStackTrace();
         }
         return 1;
+    }
+
+    public Agent vrniAgenta(int id){
+        String sql = "SELECT * FROM agent WHERE idAgent=?";
+        Agent a = (Agent)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Agent.class));
+         return a;
     }
 }
