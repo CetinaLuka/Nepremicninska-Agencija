@@ -17,12 +17,18 @@ public class NepremicninaDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int addStanovanje(String Cena, String SkupnaKvadratura, String ŠtSob, String LetnikIzgradnje, String Nadstropje, String LetoPrenove, String Garaža, String Balkon, String Opis, int Prodano, int Naslov_idNaslov, int VrstaNepremičnine_idVrstaNepremičnine, int Agent_idAgent){
+    public int addStanovanje(String Cena, String SkupnaKvadratura, String ŠtSob, String LetnikIzgradnje,
+                             String Nadstropje, int LetoPrenove, String Garaža, String Balkon, String Opis,
+                             int Prodano, int Naslov_idNaslov, int VrstaNepremičnine_idVrstaNepremičnine, int Agent_idAgent){
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         String DatumObjave=dt.format(new Date());
-        String sql ="INSERT into NEPREMIČNINA(Cena, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove, Garaža, Balkon, Opis, Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql ="INSERT into NEPREMIČNINA(Cena, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, " +
+                "LetoPrenove, Garaža, Balkon, Opis, Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, " +
+                "Agent_idAgent) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        return jdbcTemplate.update(sql, new Object[]{Cena, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove, Garaža, Balkon, Opis,Prodano, DatumObjave, Naslov_idNaslov, VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent});
+        return jdbcTemplate.update(sql, new Object[]{Cena, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove,
+                                        Garaža, Balkon, Opis,Prodano, DatumObjave, Naslov_idNaslov,
+                                         VrstaNepremičnine_idVrstaNepremičnine, Agent_idAgent});
     }
 
     public int addHisa(String Cena, String KvadraturaBivalnegaProstora, String LetnikIzgradnje, String LetoPrenove, String Garaža, String Opis, String SkupnaKvadratura, String VrstaHiše, int Prodano, int Naslov_idNaslov, int VrstaNepremičnine_idVrstaNepremičnine, int Agent_idAgent){

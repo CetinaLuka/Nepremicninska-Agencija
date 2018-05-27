@@ -28,42 +28,12 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<script>var dolocenaPovezava = true;</script>
 		</head>
 		<body>
 
 			<!-- Start Header Area -->
-			<header class="default-header">
-				<nav class="navbar navbar-expand-lg  navbar-light bg-light">
-					<div class="container">
-						  <a class="navbar-brand" href="index">
-						  	<img src="img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
-						  </a>
-						<!-- Gumb pri pomanjšanju-->
-						  <button class="navbar-toggler" type="button"
-								  data-toggle="collapse"
-								  data-target="#navbarSupportedContent"
-								  aria-controls="navbarSupportedContent"
-								  aria-expanded="false"
-								  aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse  align-items-end justify-content-end" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="#home">Domov</a></li>
-								<li><a href="#service">Storitve</a></li>
-								<li><a href="#property">Ponudba</a></li>
-								<li><a href="#contact">Kontakt</a></li>
-								<li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
-								<li class=""><a href="prijava">Prijava</a></li>
-								<li class=""><a href="registracija">Registracija</a></li>
-						    </ul>
-
-						  </div>
-					</div>
-				</nav>
-
-
-			</header>
+			<jsp:include page="includes/navigacijskiMeni.jsp" />
 			<!-- End Header Area -->
 
 			<!-- start banner Area -->

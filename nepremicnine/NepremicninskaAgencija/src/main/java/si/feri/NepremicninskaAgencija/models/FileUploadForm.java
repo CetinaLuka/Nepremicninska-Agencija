@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
     public class FileUploadForm {
-
         private List<MultipartFile> files;
+
+
 
         public List<MultipartFile> getFiles() {
             return files;
@@ -16,5 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
         public void setFiles(List<MultipartFile> files) {
             this.files = files;
         }
-    }
+
+
+        }
+
+
 

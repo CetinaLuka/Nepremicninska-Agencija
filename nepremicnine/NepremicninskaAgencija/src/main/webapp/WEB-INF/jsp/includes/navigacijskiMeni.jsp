@@ -1,7 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<header class="default-header">
+<header class="default-header" >
+
     <nav class="navbar navbar-expand-lg  navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index">
@@ -17,18 +18,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse  align-items-end justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li><a href="index#home">Domov</a></li>
-                    <li><a href="index#service">Storitve</a></li>
-                    <li><a href="index#property">Ponudba</a></li>
-                    <li><a href="index#contact">Kontakt</a></li>
+                <ul class="navbar-nav" >
+                    <noscript>
+                       <p>Vaš brskalnik ne podpira javascript-a zato povezave na strani ne delujejo!</p>
+                    </noscript>
+                    <li><a id="povezavaDomov">Domov</a></li>
+                    <li><a id="povezavaStoritve">Storitve</a></li>
+                    <li><a id="povezavaPonudba">Ponudba</a></li>
+                    <li><a id="povezavaKontakt">Kontakt</a></li>
                     <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
-                    <li><a href="prijava">Prijava</a></li>
-                    <li><a href="registracija">Registracija</a></li>
+                    <!-- To je menu za prijavljenega uporabnika ko ni seje naj se ta prikaže-->
+                    <jsp:include page="menuZaPrijavljenegaUporabnika.jsp" />
+                    <!-- to je menu za prijavljenega uporabnika ko je seja naj se ta prikaže-->
+                    <!--jsp:include page="menuZaNeprijavljenegaUporabnika.jsp" />  -->
                 </ul>
             </div>
         </div>
     </nav>
-
-
 </header>
