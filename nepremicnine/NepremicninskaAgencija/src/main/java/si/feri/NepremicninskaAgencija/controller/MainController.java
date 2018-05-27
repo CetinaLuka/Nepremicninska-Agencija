@@ -143,13 +143,20 @@ public class MainController {
         if(garaza==null){
             garaza="0";
         }
+        int letoPrenove;
+        try{
+            letoPrenove=Integer.parseInt(letnik_prenove);
+        }
+        catch (NumberFormatException e){
+            letoPrenove=0;
+        }
 
 
-        nepremicninaDao.addStanovanje(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letnik_prenove, garaza, // metoda za dodajanje stanovanja
+        nepremicninaDao.addStanovanje(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje, letoPrenove, garaza, // metoda za dodajanje stanovanja
                 balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent);
 
         int tk_nepremicnina=nepremicninaDao.vrniIDStanovanja(cena, kvadratura, stevilo_sob, letnik_izgradnje, nadstropje,
-                letnik_prenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent).get(0);
+                letoPrenove, garaza, balkon , dodaten_opis, 0,  tk_naslov, 1, tk_agent).get(0);
 
         try{
             List<MultipartFile> files = uploadForm.getFiles();
@@ -244,10 +251,6 @@ public class MainController {
 
         return "redirect:/dodajanjeNepremicnin";
     }
-
-
-
-
 
     @RequestMapping(value = {"/dodajanjePosesti" }, method = RequestMethod.POST)
     public String dodajPosest(@RequestParam(value="naslov",required=true)String naslov,

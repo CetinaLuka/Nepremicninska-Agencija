@@ -17,7 +17,7 @@ public class NepremicninaDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int addStanovanje(String Cena, String SkupnaKvadratura, String ŠtSob, String LetnikIzgradnje, String Nadstropje, String LetoPrenove, String Garaža, String Balkon, String Opis, int Prodano, int tk_id_naslov, int tk_id_vrstaNepremicnine, int Agent_idAgent){
+    public int addStanovanje(String Cena, String SkupnaKvadratura, String ŠtSob, String LetnikIzgradnje, String Nadstropje, int LetoPrenove, String Garaža, String Balkon, String Opis, int Prodano, int tk_id_naslov, int tk_id_vrstaNepremicnine, int Agent_idAgent){
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         String DatumObjave=dt.format(new Date());
         String sql ="INSERT into NEPREMICNINA(cena, skupnaKvadratura, steviloSob, letoIzgradnje, nadstropje, letoPrenove, garaza, balkon, opis, prodano, datumObjave, tk_id_naslov, tk_id_vrstaNepremicnine, Agent_idAgent) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -137,7 +137,7 @@ public class NepremicninaDao {
         return ret;
     }
 
-    public List<Integer> vrniIDStanovanja(String cena, String kvadratura, String stevilo_sob, String letnik_izgradnje, String nadstropje, String letnik_prenove, String garaza, String balkon , String dodaten_opis, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
+    public List<Integer> vrniIDStanovanja(String cena, String kvadratura, String stevilo_sob, String letnik_izgradnje, String nadstropje, int letnik_prenove, String garaza, String balkon , String dodaten_opis, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
         String sql = "SELECT nepremicnina.idNepremicnina FROM nepremicnina WHERE cena=? AND skupnaKvadratura=? AND steviloSob=? AND letoIzgradnje=? AND nadstropje=? AND letoPrenove=? AND garaza=? AND balkon=? AND opis=? AND prodano=? AND tk_id_naslov=? AND tk_id_vrstaNepremicnine=? AND Agent_idAgent=?";
         List<Integer> ret = new ArrayList<Integer>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{cena,kvadratura,stevilo_sob,letnik_izgradnje,nadstropje,letnik_prenove,garaza,balkon,dodaten_opis,prodano,tk_naslov,tk_vrstaNepr,tk_agent});
