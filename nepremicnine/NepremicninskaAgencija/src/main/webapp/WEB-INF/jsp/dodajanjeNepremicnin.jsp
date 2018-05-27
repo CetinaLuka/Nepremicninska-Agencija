@@ -40,17 +40,11 @@
 	</style>
 </head>
 <body>
-<div class="scroll-gumbi">
-	<div>
-		<a href="#top">
-			<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
-		</a>
-	</div>
-</div>
+<button onclick="topFunction()" class="scroll-to-top genric-btn primary-border circle" id="top-gumb" title="Pojdi na vrh">Pojdi na vrh</button>
 <!-- Start Header Area -->
 <jsp:include page="includes/navigacijskiMeni.jsp" />
 <!-- End Header Area -->
-<section class="generic-banner relative" id="top">
+<section class="generic-banner relative">
 	<div class="container pt-30 pb-20">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-lg-10">
@@ -98,6 +92,8 @@
 				<h2>Dodaj stanovanje</h2>
 			</div>
 		</div>
+
+		<!-- forma dodajanje stanovanja-->
 		<c:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja" modelAttribute="uploadForm" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-12 col-md-9">
@@ -134,7 +130,7 @@
 				<div class="col-12 col-sm-6 col-md-3 col-xl-3">
 					<!--Polje za vnos kvadrature - name:kvadratura-->
 					<div class="mt-10">
-						<input type="text" name="kvadratura" placeholder="Kvadratura (m2)" required class="single-input" />
+						<input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" />
 					</div>
 				</div>
 				<div class="col-12 col-sm-6 col-md-3 col-xl-3">
@@ -171,13 +167,8 @@
 					<div class="switch-wrap d-flex mt-1">
 						<div class="primary-checkbox mr-10 mt-1">
 							<!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
-							<input type="checkbox" name="prenovljeno" id="prenovljeno" value="1" data-toggle="collapse" data-target="#letnik_prenove_skrij">
+							<input type="checkbox" id="prenovljeno"  data-toggle="collapse" data-target="#letnik_prenove_skrij">
 							<label for="prenovljeno"></label>
-							<!--script>
-                                if(document.getElementById("prenovljeno").checked) {
-                                    document.getElementById('prenovljenoSkrit').disabled = true;
-                                }
-                            </script-->
 						</div>
 						<p>Prenovljeno</p>
 					</div>
@@ -195,25 +186,16 @@
 							<!--input type="hidden" name="garaza" id="garazaSkrit" value="0"-->
 							<input type="checkbox" name="garaza" id="garaza" value="1">
 							<label for="garaza"></label>
-							<!--script>
-                                if(document.getElementById("garaza").checked) {
-                                    document.getElementById('garazaSkrit').disabled = true;
-                                }
-                            </script-->
 						</div>
 						<p>Garaža</p>
 					</div>
 					<!--Checkbox za balkon - name:balkon-->
 					<div class="switch-wrap d-flex mt-1">
-						<div class="primary-checkbox mr-10">
+						<div class="primary-checkbox mr-10 mt-1">
 							<!--input type="hidden" name="balkon" id="balkonSkrit" value="0"-->
 							<input type="checkbox" name="balkon" id="balkon" value="1">
 							<label for="balkon"></label>
-							<!--script>
-                                if(document.getElementById("balkon").checked) {
-                                    document.getElementById('balkonSkrit').disabled = true;
-                                }
-                            </script-->
+
 						</div>
 						<p>Balkon</p>
 					</div>
@@ -232,15 +214,15 @@
 				</div>
 			</div>
 			<!--Dodajanje fotografije !!!-->
-			<div class="row">
+			<div class="row  ">
 				<div class="col-12 ">
 					<label class="genric-btn default mb-10 " for="image_uploads">Izberite fotografijo</label>
-					<input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
-
+					<input type="file" id="image_uploads"  name="files" accept=".jpg, .jpeg, .png" multiple>
+					<!--input class="text-hide" type="file"  name="files" accept=".jpg, .jpeg, .png" multiple-->
 				</div>
 			</div>
 			<div class="row text-dark">
-				<div id="predogled" class="col-5">
+				<div id="predogled" class="col-5 " >
 				</div>
 			</div>
 
@@ -256,6 +238,9 @@
                 input.style.visibility = 'hidden';
                 input.addEventListener('change', posodobiPregledSlik);
                 function  posodobiPregledSlik() {
+                    while(preview.firstChild) {
+                        preview.removeChild(preview.firstChild);
+                    }
                     var curFiles = input.files;
                     if(curFiles.length !== 0) {
                         var list = document.createElement('ol');
@@ -339,13 +324,13 @@
 				<div class="col-xs-12 col-md-4">
 					<!--Polje za vnos kvadrature - name:kvadratura-->
 					<div class="mt-10">
-						<input type="text" name="kvadratura" placeholder="Kvadratura (m2)" required class="single-input" />
+						<input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" />
 					</div>
 				</div>
 				<div class="col-xs-12 col-md-4">
 					<!--Polje za vnos velikosti zemljišča - name:velikost_zemljisca-->
 					<div class="mt-10">
-						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m2)" required class="single-input" />
+						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" required class="single-input" />
 					</div>
 				</div>
 
@@ -371,9 +356,9 @@
 					<label class="mt-1">Vrsta hiše</label>
 					<div class="default-select" id="vrsta_hise">
 						<select name="vrsta_hise">
-							<option value="1">Samostojna</option>
-							<option value="2">Dvojček</option>
-							<option value="3">Vrstna</option>
+							<option value="Samostojna">Samostojna</option>
+							<option value="Dvojček">Dvojček</option>
+							<option value="Vrstna">Vrstna</option>
 						</select>
 					</div>
 				</div>
@@ -383,15 +368,10 @@
 					<!--Checkbox za prenovljenost - name:prenovljeno-->
 					<div class="switch-wrap d-flex mt-1">
 						<div class="primary-checkbox mr-10 mt-1">
-							<!--input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/-->
+							<input type="hidden" name="prenovljeno" id="prenovljeno_hisaSkrito" value="0"/>
 							<input type="checkbox" name="prenovljeno" id="prenovljeno_hisa" value="1" data-toggle="collapse" data-target="#letnik_prenove_hisa_skrij">
 							<label for="prenovljeno_hisa"></label>
 						</div>
-						<!--script>
-                            if(document.getElementById("prenovljeno_hisa").checked) {
-                                document.getElementById('prenovljeno_hisaSkrito').disabled = true;
-                            }
-                        </script-->
 						<p>Prenovljeno</p>
 					</div>
 					<!--Polje za vnos letnika prenove - name:letnik_prenove-->
@@ -405,14 +385,8 @@
 					<!--Checkbox za garažo - name:garaza-->
 					<div class="switch-wrap d-flex mt-1">
 						<div class="primary-checkbox mr-10 mt-1">
-							<!--input type="hidden" name="garaza" id="garaza_hisaSkrito" value="0"/-->
 							<input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
 							<label for="garaza_hisa"></label>
-							<!--script>
-                                if(document.getElementById("garaza_hisa").checked) {
-                                    document.getElementById('garaza_hisaSkrito').disabled = true;
-                                }
-                            </script-->
 						</div>
 						<p>Garaža</p>
 					</div>
@@ -433,7 +407,7 @@
 			<div class="row">
 				<div class="col-12">
 					<label class="genric-btn default mb-10 " for="image_uploadsDva">Izberite fotografijo</label>
-					<input class="text-hide" type="file" id="image_uploadsDva"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
+					<input class="text-hide" type="file" id="image_uploadsDva"  name="files" accept=".jpg, .jpeg, .png" multiple>
 				</div>
 			</div>
 			<div class="row text-dark">
@@ -471,7 +445,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="text-center mt-10">
-						<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
+						<input type="submit" class="genric-btn primary-border circle mb-50">
 					</div>
 				</div>
 			</div>
@@ -527,7 +501,7 @@
 				</div>
 				<div class="col-xs-12 col-md-4">
 					<div class="mt-10">
-						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m2)" orequired class="single-input" />
+						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" orequired class="single-input" />
 					</div>
 				</div>
 			</div>
@@ -645,6 +619,11 @@
         } else {
             document.getElementById("top-gumb").style.display = "none";
         }
+    }
+    //scroll to top
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 </script>
 </body>
