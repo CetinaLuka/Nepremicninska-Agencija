@@ -28,9 +28,10 @@
                     <li><a id="povezavaKontakt">Kontakt</a></li>
                     <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
                     <!-- To je menu za prijavljenega uporabnika ko ni seje naj se ta prikaže-->
-                    <jsp:include page="menuZaPrijavljenegaUporabnika.jsp" />
+
+                    <jsp:include page="menuZaNeprijavljenegaUporabnika.jsp" />
                     <!-- to je menu za prijavljenega uporabnika ko je seja naj se ta prikaže-->
-                    <!--jsp:include page="menuZaNeprijavljenegaUporabnika.jsp" />  -->
+                    <!--jsp:include page="menuZaPrijavljenegaUporabnika.jsp" /> -->
                 </ul>
             </div>
         </div>
