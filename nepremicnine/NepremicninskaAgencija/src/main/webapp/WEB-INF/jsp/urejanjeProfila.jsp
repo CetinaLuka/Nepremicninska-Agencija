@@ -81,10 +81,8 @@
 
     <div class="text-center" style="margin-top:50px">
         <div class="text-center">
-            <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/>
-           <%-- <c:if test="${slikaAgentaObstaja==true}"><img src="data:image/jpeg;base64,${profilnaSlikaAgenta.URLSlike}" /></c:if>
-            <c:if test="${slikaAgentaObstaja==false}"> <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></c:if>--%>
-        </div>
+            <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px" />
+          </div>
     </div>
     <%--...................................--%>
     <form name="posodobiProfilnoSliko" method="POST" action="/posodobiProfilnoSliko" modelAttribute="uploadForm" enctype="multipart/form-data">
@@ -92,11 +90,13 @@
     <div class="row">
         <div class="col-12 text-center">
             <label class="genric-btn default mb-10 " for="image_uploads">naloži profilno sliko</label>
-            <input class="text-hide" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
+            <input style="display: none" type="file" id="image_uploads"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
         </div>
     </div>
-    <div class="row text-dark">
-        <div id="posodobiProfilnoSliko" class="col-5"></div>
+    <div class="row text-dark text-center">
+        <div class="col-12 text-center">
+        <div id="posodobiProfilnoSliko" class="col-12 text-center"></div>
+        </div>
     </div>
 
     <script>
@@ -118,12 +118,9 @@
                     if(validFileType(curFiles[i])) {
                         var listItem = document.createElement('li');
                         listItem.setAttribute("class","list-group-item");
-                        var para = document.createElement('span');
-                        para.textContent = '' + curFiles[i].name+' ';
                         var image = document.createElement('img');
                         list.setAttribute("class","slikaZaFotografije");
                         image.src = window.URL.createObjectURL(curFiles[i]);
-                        listItem.appendChild(para);
                         listItem.appendChild(image);
                         list.appendChild(document.createElement('BR'));
                     }

@@ -55,6 +55,12 @@ public class MainController {
         int tkAgent=nepremicninaDao.vrniTKagenta(nepremicninaId);
         model.addAttribute("nepremicnina_agent", agentDao.vrniAgenta(tkAgent));
         model.addAttribute("nepremicnina_slika", slikaDao.vrniSlike(nepremicninaId));
+        if(slikaDao.obstajaSlikaAgenta(tkAgent)){
+            model.addAttribute("profilnaSlika","data:image/jpeg;base64,"+slikaDao.vrniSlikoAgenta(tkAgent).getURLSlike());
+        }
+        else{
+            model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
+        }
         return "prikazNepremicnine";
     }
 
@@ -79,6 +85,12 @@ public class MainController {
         HttpSession session = request.getSession(true);
         int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
         model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVseOdAgenta(tk_agent));
+        if(slikaDao.obstajaSlikaAgenta(tk_agent)){
+            model.addAttribute("profilnaSlika","data:image/jpeg;base64,"+slikaDao.vrniSlikoAgenta(tk_agent).getURLSlike());
+        }
+        else{
+            model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
+        }
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA

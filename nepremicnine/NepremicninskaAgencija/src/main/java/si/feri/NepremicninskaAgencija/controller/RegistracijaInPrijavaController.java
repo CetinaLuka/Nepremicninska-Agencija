@@ -59,7 +59,7 @@ public class RegistracijaInPrijavaController {
         HttpSession session = request.getSession(true);//true will create if necessary
 
         session.setAttribute("trenutniUporabnik", id);
-        red.addFlashAttribute("slikaAgentaObstaja",false);
+        model.addAttribute("profilnaSlika", "../img/privzetaProfilna.png");
         return "redirect:/kontrolnaPlosca";
     }
     //prijava
@@ -75,12 +75,13 @@ public class RegistracijaInPrijavaController {
         HttpSession session = request.getSession(true);//true will create if necessary
 
         session.setAttribute("trenutniUporabnik", id);
-
         if(slikaDao.obstajaSlikaAgenta(id)){
-            red.addFlashAttribute("slikaAgentaObstaja",true);
-            red.addFlashAttribute("profilnaSlikaAgenta",slikaDao.vrniSlikoAgenta(id));
+            red.addFlashAttribute("profilnaSlika","data:image/jpeg;base64,"+slikaDao.vrniSlikoAgenta(id).getURLSlike());
         }
-        red.addFlashAttribute("slikaAgentaObstaja",false);
+        else{
+            red.addFlashAttribute("profilnaSlika","../img/privzetaProfilna.png");
+        }
+
         return "redirect:/kontrolnaPlosca";
     }
 

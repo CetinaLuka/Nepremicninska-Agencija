@@ -42,6 +42,12 @@ public class UrejanjeProfilaController {
          model.addAttribute("priimekUporabnika",agentDao.getPriimek(id));
          model.addAttribute("mailUporabnika",agentDao.getEmail(id));
          model.addAttribute("telUporabnika",agentDao.getTelefon(id));
+        if(slikaDao.obstajaSlikaAgenta(id)){
+            model.addAttribute("profilnaSlika","data:image/jpeg;base64,"+slikaDao.vrniSlikoAgenta(id).getURLSlike());
+        }
+        else{
+            model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
+        }
         return "urejanjeProfila";
     }
 
@@ -112,10 +118,6 @@ public class UrejanjeProfilaController {
             }
         }
         map.addAttribute("files", fileNames);
-
-
-        // red.addFlashAttribute("profilnaSlikaAgentaObstaja",true);
-        //red.addFlashAttribute("profilnaSlikaAgenta",slikaDao.vrniSlikoAgenta(id));
         return "redirect:/urejanjeProfila";
     }
 

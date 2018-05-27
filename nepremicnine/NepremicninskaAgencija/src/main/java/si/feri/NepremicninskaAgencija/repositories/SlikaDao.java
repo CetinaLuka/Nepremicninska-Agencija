@@ -75,7 +75,6 @@ public class SlikaDao {
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map<String, Object> row : rows) {
             byte[] blob = (byte[]) row.get("urlSlike");
-
             String retrieveBlobAsString = Base64.getEncoder().encodeToString(blob);
 
             ret.add(new Slika(retrieveBlobAsString));
@@ -127,7 +126,7 @@ public class SlikaDao {
             final File blobIn = convert(f);
             final InputStream blobIs = new FileInputStream(blobIn);
             jdbcTemplate.execute(
-                    "UPDATE  slika SET urlSlike=? WHERE Agent_idAgent="+tk_agent,
+                    "UPDATE  slika SET urlSlike=? WHERE Nepremicnina_idNepremicnina IS NULL AND Agent_idAgent="+tk_agent,
                     new AbstractLobCreatingPreparedStatementCallback(lobhandler) {
                         protected void setValues(PreparedStatement ps, LobCreator lobCreator)
                                 throws SQLException {

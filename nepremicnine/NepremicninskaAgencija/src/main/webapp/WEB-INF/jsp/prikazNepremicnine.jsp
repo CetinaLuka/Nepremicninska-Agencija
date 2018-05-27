@@ -77,7 +77,7 @@
         <div class="sp-slides">
             <c:forEach  items="${nepremicnina_slika}" var ="slika">
                 <div class="sp-slide">
-                    <img src="data:image/jpeg;base64,${slika.URLSlike}" />
+                    <img src="data:image/jpeg;base64,${slika.URLSlike}" style=" width: 100%" />
                 </div>
             </c:forEach>
         </div>
@@ -201,16 +201,14 @@
                     <div  class="col-xs-12 col-md-4 col-lg-4 ">
                         <div  class="statistika">
                             <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
-                            <div class="text-center">
-                                <c:if test="${slikaAgentaObstaja==true}"><img src="data:image/jpeg;base64,${profilnaSlikaAgenta.URLSlike}" /></c:if>
-                                <c:if test="${slikaAgentaObstaja==false}"> <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></c:if>
-                                 <img src="../img/privzetaProfilna.png" style='height:180px; width:180px' class="profil-slika img-thumbnail mb-1"/></div>
-
+                            <div class="text-center" >
+                                <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px" />
                             <div class="text-center bold-black">${nepremicnina_agent.ime} ${fn:toUpperCase(nepremicnina_agent.priimek)}</div></br>
                             <div ><i class="fa fa-envelope"></i>  Email: ${nepremicnina_agent.email}</div>
                             <div > <c:if test="${!(nepremicnina_agent.telefonskaSt).equals('')}">
                                 <i class="fa fa-phone"></i>  Tel: ${nepremicnina_agent.telefonskaSt}</c:if>
                               </div>
+                        </div>
                         </div>
                         <div  class="statistika" style="height: 50%; max-height: 400px">
                             <%-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 --%>
