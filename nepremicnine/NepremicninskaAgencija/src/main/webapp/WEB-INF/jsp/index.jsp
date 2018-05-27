@@ -28,41 +28,12 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
+			<script>var dolocenaPovezava = true;</script>
 		</head>
 		<body>
 
 			<!-- Start Header Area -->
-			<header class="default-header">
-				<nav class="navbar navbar-expand-lg  navbar-light bg-light">
-					<div class="container">
-						  <a class="navbar-brand" href="index">
-						  	<img src="img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
-						  </a>
-						<!-- Gumb pri pomanjšanju-->
-						  <button class="navbar-toggler" type="button"
-								  data-toggle="collapse"
-								  data-target="#navbarSupportedContent"
-								  aria-controls="navbarSupportedContent"
-								  aria-expanded="false"
-								  aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-						  <div class="collapse navbar-collapse  align-items-end justify-content-end" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="#home">Domov</a></li>
-								<li><a href="#service">Storitve</a></li>
-								<li><a href="#property">Ponudba</a></li>
-								<li><a href="#contact">Kontakt</a></li>
-								<li class=""><a href="prijava">Prijava</a></li>
-								<li class=""><a href="registracija">Registracija</a></li>
-						    </ul>
-
-						  </div>
-					</div>
-				</nav>
-
-
-			</header>
+			<jsp:include page="includes/navigacijskiMeni.jsp" />
 			<!-- End Header Area -->
 
 			<!-- start banner Area -->
@@ -158,7 +129,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
-							<h1>Why we are the best</h1>
+							<h1>Kdo so naši agenti</h1>
 							<p>
 								Who are in extremely love with eco friendly system.
 							</p>
@@ -385,7 +356,7 @@
 			<!-- End city Area -->
 
 			<!-- Start About Area -->
-			<section class="about-area">
+		<!--	<section class="about-area">
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
 						<div class="col-lg-6 about-left">
@@ -413,64 +384,63 @@
 						</div>			
 					</div>
 				</div>	
-			</section>
-			<!-- End About Area -->		
+			</section>-->
+			<!-- End About Area -->
 		
 			<!-- Start contact-info Area -->
-			<section class="contact-info-area section-gap">
+			<section class="contact-info-area section-gap"  id="contact">
 				<div class="container">
 					<div class="row">
 						<div class="single-info col-lg-3 col-md-6">
-							 <h4>Visit Our Office</h4>
+							 <h4>Obiščite nas</h4>
 							 <p>
-							 	56/8, bir uttam qazi nuruzzaman 
-							 	road, west panthapath, kalabagan, 
-							 	Dhanmondi, Dhaka - 1205
+							 	 Smetanova ulica 17<br>
+								 2000 Maribor<br>
+								 Slovenija
 							 </p>                                   
 						</div>
 						<div class="single-info col-lg-3 col-md-6">
-							 <h4>Let’s call us</h4>
+							 <h4>Pokličite nas</h4>
 							 <p>
-								Phone 01: 012-6532-568-9746 <br>
-								Phone 02: 012-6532-568-9748 <br>
-								FAX: 02-6532-568-746
+								Tel-pisarna: 02 88 86 668 <br>
+								Tel-info: 02 22 33 333
 							 </p>                                   
 						</div>
 						<div class="single-info col-lg-3 col-md-6">
-							 <h4>Let’s Email Us</h4>
+							 <h4>Pišite nam</h4>
 							 <p>
-								hello@colorlib.com <br>
-								mainhelpinfo@colorlib.com <br>
-								infohelp@colorlib.com
+								 Email: agencija.praktikum@gmail.com<br>
+								 FAX: 02-6532-568-746
 							 </p>                                   
 						</div>
 						<div class="single-info col-lg-3 col-md-6">
-							 <h4>Customer Support</h4>
-							 <p>
-							 	support@colorlib.com <br>
-								emergencysupp@colorlib.com <br>
-								extremesupp@colorlib.com
-							 </p>                                   
-						</div>																		
+							<h4>Tehnična pomoč</h4>
+							<p>
+								pomoc@colorlib.com <br>
+								tehnicne.tezave@colorlib.com <br>
+								navoljo24@gmail.com
+							</p>
+						</div>
 					</div>
 				</div>	
 			</section>
 			<!-- End contact-info Area -->
 
 			<!-- Start Contact Area -->
-			<section class="contact-area" id="contact">
+			<section class="contact-area">
 				<div class="container-fluid">
 					<div class="row align-items-center d-flex justify-content-start">
-						<div class="col-lg-6 col-md-12 contact-left no-padding">
-	      					<div style=" width:100%;
-	                height: 545px;" id="map"></div>
+						<div class="col-lg-6 col-md-12 text-center no-padding">
+
+							<!-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 -->
+								<iframe width="540" height="545" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
 						</div>
 						<div class="col-lg-4 col-md-12 pt-100 pb-100">
-							<form class="form-area" id="myForm" action="mail.php" method="post" class="contact-form text-right">
-								<input name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mt-10" required="" type="text">
-								<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mt-10" required="" type="email">
-								<textarea class="common-textarea mt-10" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-								<button class="primary-btn mt-20">Send Message<span class="lnr lnr-arrow-right"></span></button>
+							<form class="form-area" id="myForm" action="mailto:agencija.praktikum@gmail.com" method="GET" class="contact-form text-right">
+								<input name="ime" placeholder="Vnesite vaše ime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaše ime'" class="common-input mt-10" required="" type="text">
+								<input name="email" placeholder="Vnesite vaš email naslov" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaš email naslov'" class="common-input mt-10" required="" type="email">
+								<textarea name="body" class="common-textarea mt-10" name="sporocilo" placeholder="Sporočilo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sporočilo'" required=""></textarea>
+								<button type="submit" class="primary-btn mt-20" >Pošlji sporočilo<span class="lnr lnr-arrow-right"></span></button>
 								<div class="alert-msg">
 								</div>
 							</form>

@@ -921,11 +921,12 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn.default {
   color: #222222;
   background: #e8e8ee;
-  border: 1px solid black;/*border: 1px solid transparent;*/
+  /*border: 1px solid #cccccc;*//*border: 1px solid transparent;*/
+  border: none;
 }
 
 .genric-btn.default:hover {
-  border: 1px solid #ececf2;
+  /*border: 1px solid #ececf2;*/
   background: #f9f9f9;
 }
 
@@ -1804,7 +1805,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .default-select .nice-select .list {
   margin-top: 0;
-  border: 1px solid black;
+  border: 1px solid #e4e4e4;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 0px;
   box-shadow: none;
@@ -2464,12 +2465,15 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .single-property {
   background-color: #f4f4fa;
   padding: 20px;
-  -webkit-transition: all 0.3s ease 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  /*-webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;*/
 }
-
+.single-property:hover{
+}
 @media (max-width: 1199px) {
   .single-property {
     margin-bottom: 30px;
@@ -3075,10 +3079,15 @@ pokrivanje::selection{
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .filter-vrstica button{
   margin-left: none;
   margin-right: none;
+  background-color: #f4f4fa !important;
+}
+.filter-vrstica button:hover{
+  background-color: #e8e8ee !important;
 }
 .statistika{
   background-color: #f4f4fa;
@@ -3087,4 +3096,5 @@ pokrivanje::selection{
   width: 100%;
   height: auto;
   padding:10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }

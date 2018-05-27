@@ -213,6 +213,26 @@
                     </div>
                 </div>
 
+                <div class="row  align-items-center justify-content-center">
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-9 text-right">
+                                <c:if test="${neuspesnaRegistracija==true}">
+                                    <div style="color: darkred;">
+                                        TA RAČUN ŽE OBSTAJA!
+                                    </div>
+                                </c:if>
+                                <c:if test="${nepravilnaKoda==true}">
+                                    <div style="color: darkred;">
+                                        ŽAL SE NE MORETE REGISTRIRATI!
+                                    </div>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row  align-items-center justify-content-center" >
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <button type="submit" class="genric-btn primary circle pull-right">
@@ -225,17 +245,6 @@
             </div>
 
         </form>
-
-        <c:if test="${agentObstaja=='true'}">
-            <div class="alert alert-warning">
-                RAČUN S TEM ELEKTRONSKIM NASLOVOM ŽE OBSTAJA!
-            </div>
-        </c:if>
-        <c:if test="${pravilnaKoda=='false'}">
-            <div class="alert alert-warning">
-               ŽAL SE NE MORETE REGISTRIRATI!
-            </div>
-        </c:if>
 
         <br/>
 
