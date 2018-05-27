@@ -13,10 +13,12 @@ function zagotavljanjePovezav() {
     kontakt = document.getElementById('povezavaKontakt');
     try {
         if (dolocenaPovezava){
+
             domov.href = '#home';
             storitve.href='#service';
             ponudba.href='#property';
             kontakt.href='#contact';
+
         }
     }catch (e) {
         domov.href = 'index#home';

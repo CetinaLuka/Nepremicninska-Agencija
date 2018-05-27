@@ -22,9 +22,9 @@
                     <noscript>
                        <p>Vaš brskalnik ne podpira javascript-a zato povezave na strani ne delujejo!</p>
                     </noscript>
-                    <li><a id="povezavaDomov">Domov</a></li>
-                    <li><a id="povezavaStoritve">Storitve</a></li>
-                    <li><a id="povezavaPonudba">Ponudba</a></li>
+                    <li><a id="povezavaDomov" >Domov</a></li>
+                    <li><a id="povezavaStoritve" >Storitve</a></li>
+                    <li><a id="povezavaPonudba" >Ponudba</a></li>
                     <li><a id="povezavaKontakt">Kontakt</a></li>
                     <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
                     <!-- To je menu za prijavljenega uporabnika ko ni seje naj se ta prikaže-->
