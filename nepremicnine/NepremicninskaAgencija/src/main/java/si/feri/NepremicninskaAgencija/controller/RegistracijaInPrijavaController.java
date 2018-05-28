@@ -30,11 +30,14 @@ public class RegistracijaInPrijavaController {
 
     @RequestMapping(value = {"/prijava" }, method = RequestMethod.GET)
     public String prijava(Model model) {
+            model.addAttribute("jePrijavljen", false);
+
         return "prijava";
     }
 
     @RequestMapping(value = {"/registracija" }, method = RequestMethod.GET)
     public String registracija (Model model) {
+        model.addAttribute("jePrijavljen", false);
         return "registracija";
     }
 
