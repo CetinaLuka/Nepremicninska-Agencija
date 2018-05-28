@@ -57,17 +57,17 @@
         try {
             if (dolocenaPovezava) {
 
-                domov.href = '/#home';
-                storitve.href = '/#service';
-                ponudba.href = '/#property';
-                kontakt.href = '/#contact';
+                domov.href = '#home';
+                storitve.href = '#service';
+                ponudba.href = '#property';
+                kontakt.href = '#contact';
 
             }
         } catch (e) {
-            domov.href = '/index#home';
-            storitve.href = '/index#service';
-            ponudba.href = '/index#property';
-            kontakt.href = '/index#contact';
+            domov.href = 'index#home';
+            storitve.href = 'index#service';
+            ponudba.href = 'index#property';
+            kontakt.href = 'index#contact';
         }
 
     }
