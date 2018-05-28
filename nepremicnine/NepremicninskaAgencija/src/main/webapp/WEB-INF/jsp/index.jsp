@@ -1,4 +1,5 @@
-	<!DOCTYPE html>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -202,99 +203,132 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-property">
-								<div class="images">
-									<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-									<span>For Sale</span>
+						<c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
+						<!--stanovanje-->
+							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
+								<div class="col-xs-12 col-md-6 col-lg-4">
+									<div class="single-property mb-3 stanovanje" style="height:400px;">
+										<div class="images">
+											<a href="img/s1.jpg">
+												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+												<span>${nepremicnina.cena}€</span>
+											</a>
+										</div>
+										<div class="desc">
+											<div class="top d-flex justify-content-between">
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
+												<h4>${nepremicnina.skupnaKvadratura}m²</h4>
+											</div>
+											<div class="middle">
+												<div class="d-flex justify-content-start">
+													<p>Kraj: <span>Celje</span></p>
+													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
+													<p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
+													<p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
+													<p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
+													<p>Garaža:
+														<c:choose>
+															<c:when test="${nepremicnina.garaza}==true">
+																<span class="gr">Da</span>
+															</c:when>
+															<c:otherwise>
+																<span class="rd">Ne</span>
+															</c:otherwise>
+														</c:choose>
+													</p>
+													<p>Balkon:
+														<c:choose>
+															<c:when test="${nepremicnina.balkon}==true">
+																<span class="gr">Da</span>
+															</c:when>
+															<c:otherwise>
+																<span class="rd">Ne</span>
+															</c:otherwise>
+														</c:choose>
+													</p>
+													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-								
-								<div class="desc">
-									<div class="top d-flex justify-content-between">
-										<h4><a href="#">04 Bed Duplex</a></h4>
-										<h4>$3.5M</h4>
-									</div>
-									<div class="middle">
-										<div class="d-flex justify-content-start">
-										<p>Bed: 04</p>
-										<p>Bath: 03</p>
-										<p>Area: 750sqm</p>
+							</c:if>
+							<!--hisa-->
+							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
+								<div class="col-xs-12 col-md-6 col-lg-4">
+									<div class="single-property mb-3 hisa" style="height:400px;">
+										<div class="images">
+											<a href="img/s1.jpg">
+												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+												<span>${nepremicnina.cena}€</span>
+											</a>
 										</div>
-										<div class="d-flex justify-content-start">
-										<p>Pool: <span class="gr">Yes</span></p>
-										<p>Internet: <span class="rd">No</span></p>
-										<p>Cleaning: <span class="rd">No</span></p>
+										<div class="desc">
+											<div class="top d-flex justify-content-between">
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
+												<h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
+											</div>
+											<div class="middle">
+												<div class="d-flex justify-content-start">
+													<p>Kraj: <span>Maribor</span></p>
+													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
+													<p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
+													<p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
+													<p>Garaža:
+														<c:choose>
+															<c:when test="${nepremicnina.garaza}==true">
+																<span class="gr">Da</span>
+															</c:when>
+															<c:otherwise>
+																<span class="rd">Ne</span>
+															</c:otherwise>
+														</c:choose>
+													</p>
+													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="bottom d-flex justify-content-start">
-										<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-										<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-									</div>	
-								</div>	
-							</div>
-						</div>	
-						<div class="col-lg-4">
-							<div class="single-property">
-								<div class="images">
-									<img class="img-fluid mx-auto d-block" src="img/s2	.jpg" alt="">
-									<span>For Sale</span>
 								</div>
-								
-								<div class="desc">
-									<div class="top d-flex justify-content-between">
-										<h4><a href="#">04 Bed Duplex</a></h4>
-										<h4>$3.5M</h4>
-									</div>
-									<div class="middle">
-										<div class="d-flex justify-content-start">
-										<p>Bed: 04</p>
-										<p>Bath: 03</p>
-										<p>Area: 750sqm</p>
+							</c:if>
+							<!--posest-->
+							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
+								<div class="col-xs-12 col-md-6 col-lg-4">
+									<div class="single-property mb-3 posest" style="height:400px;">
+										<div class="images">
+											<a href="img/s1.jpg">
+												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+												<span>${nepremicnina.cena}€</span>
+											</a>
 										</div>
-										<div class="d-flex justify-content-start">
-										<p>Pool: <span class="gr">Yes</span></p>
-										<p>Internet: <span class="rd">No</span></p>
-										<p>Cleaning: <span class="rd">No</span></p>
+										<div class="desc">
+											<div class="top d-flex justify-content-between">
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
+												<h4>${nepremicnina.skupnaKvadratura}m²</h4>
+											</div>
+											<div class="middle">
+												<div class="d-flex justify-content-start">
+													<p>Kraj: <span></span></p>
+													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+												</div>
+												<div class="d-flex justify-content mb-2">
+													Opis:<br />
+													Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="bottom d-flex justify-content-start">
-										<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-										<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-									</div>	
-								</div>	
-							</div>
-						</div>	
-						<div class="col-lg-4">
-							<div class="single-property">
-								<div class="images">
-									<img class="img-fluid mx-auto d-block" src="img/s3.jpg" alt="">
-									<span>For Sale</span>
 								</div>
-								
-								<div class="desc">
-									<div class="top d-flex justify-content-between">
-										<h4><a href="#">04 Bed Duplex</a></h4>
-										<h4>$3.5M</h4>
-									</div>
-									<div class="middle">
-										<div class="d-flex justify-content-start">
-										<p>Bed: 04</p>
-										<p>Bath: 03</p>
-										<p>Area: 750sqm</p>
-										</div>
-										<div class="d-flex justify-content-start">
-										<p>Pool: <span class="gr">Yes</span></p>
-										<p>Internet: <span class="rd">No</span></p>
-										<p>Cleaning: <span class="rd">No</span></p>
-										</div>
-									</div>
-									<div class="bottom d-flex justify-content-start">
-										<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-										<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-									</div>	
-								</div>	
-							</div>
-						</div>																											
+							</c:if>
+						</c:forEach>
 					</div>
 				</div>	
 			</section>
@@ -310,7 +344,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-4 mb-10">
 						  <div class="content">
-						    <a href="#" target="_blank">
+						    <a href="iskanjeNepremicninPoRegiji?regija=1" target="_blank">
 						      <div class="content-overlay"></div>
 						  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija1.jpg" alt="">
 						      <div class="content-details fadeIn-bottom">
@@ -321,7 +355,7 @@
 						</div>
 						<div class="col-lg-8 col-md-8 mb-10">
 							<div class="content">
-							    <a href="#" target="_blank">
+							    <a href="iskanjeNepremicninPoRegiji?regija=2" target="_blank">
 							      <div class="content-overlay"></div>
 							  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija2.jpg" alt="">
 							      <div class="content-details fadeIn-bottom">
@@ -332,7 +366,7 @@
 							<div class="row city-bottom">
 								<div class="col-lg-6 col-md-6 mt-30">
 									<div class="content">
-									    <a href="#" target="_blank">
+									    <a href="iskanjeNepremicninPoRegiji?regija=3" target="_blank">
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija3.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
@@ -343,7 +377,7 @@
 								</div>
 								<div class="col-lg-6 col-md-6 mt-30">
 									<div class="content">
-									    <a href="#" target="_blank">
+									    <a href="iskanjeNepremicninPoRegiji?regija=4" target="_blank">
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="img/Regija4.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
@@ -358,7 +392,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
-								<a href="#" target="_blank">
+								<a href="iskanjeNepremicninPoRegiji?regija=5" target="_blank">
 									<div class="content-overlay"></div>
 									<img class="content-image img-fluid d-block mx-auto" src="img/Regija5.jpg" alt="">
 									<div class="content-details fadeIn-bottom">
@@ -369,7 +403,7 @@
 						</div>
 						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
-								<a href="#" target="_blank">
+								<a href="iskanjeNepremicninPoRegiji?regija=6" target="_blank">
 									<div class="content-overlay"></div>
 									<img class="content-image img-fluid d-block mx-auto" src="img/Regija6.jpg" alt="">
 									<div class="content-details fadeIn-bottom">
@@ -380,7 +414,7 @@
 						</div>
 						<div class="col-lg-4 col-md-4 mt-30">
 							<div class="content">
-								<a href="#" target="_blank">
+								<a href="iskanjeNepremicninPoRegiji?regija=7" target="_blank">
 									<div class="content-overlay"></div>
 									<img class="content-image img-fluid d-block mx-auto" src="img/Regija7.jpg" alt="">
 									<div class="content-details fadeIn-bottom">

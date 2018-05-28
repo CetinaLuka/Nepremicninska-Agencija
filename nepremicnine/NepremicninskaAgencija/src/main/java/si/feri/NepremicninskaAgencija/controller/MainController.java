@@ -10,6 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import si.feri.NepremicninskaAgencija.models.FileUploadForm;
+import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 import si.feri.NepremicninskaAgencija.repositories.*;
 
 import org.springframework.web.context.request.*;
@@ -41,9 +42,29 @@ public class MainController {
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("message");
+        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniZadnjeTri());
         return "index";
     }
+
+    @RequestMapping(value = { "/iskanjeNepremicninPoRegiji" }, method = RequestMethod.GET)
+    public String iskanjeNepremicninPoRegiji(Model model,@RequestParam(value="regija")int regija) {
+        int zac=0;
+        int konc=0;
+        switch (regija){
+            case 1:zac=1000;konc=1434;break;
+            case 2:zac=5000;konc=6333;break;
+            case 3:zac=2000;konc=3342;break;
+            case 4:zac=4000;konc=4294;break;
+            case 5:zac=8000;konc=8362;break;
+            case 6:zac=2363;konc=2394;break;
+            case 7:zac=9000;konc=9265;break;
+        }
+        List<Nepremicnina> result=nepremicninaDao.iskanjePoRegiji(zac,konc);
+        result=new ArrayList<Nepremicnina>(result);
+        //RESULT NEKAKO SPRAVIT DO /iskanjeNepremicnin IN TAM PRIKAZAT
+        return "redirect:/iskanjeNepremicnin";
+    }
+
     @RequestMapping(value = {"/prikazNepremicnine/{nepremicninaId}" }, method = RequestMethod.GET)
     public String prikazNepremicnine(Model model, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
