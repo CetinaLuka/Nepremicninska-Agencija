@@ -100,7 +100,7 @@ public class DodajNepremicninoController {
                     String fileName;
                     fileName   = multipartFile.getOriginalFilename();
                     fileNames.add(fileName);
-                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
+                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent,fileName);
                 }
 
             }
@@ -180,7 +180,7 @@ public class DodajNepremicninoController {
                     String fileName;
                     fileName   = multipartFile.getOriginalFilename();
                     fileNames.add(fileName);
-                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
+                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent,fileName);
                 }
 
             }
@@ -237,7 +237,7 @@ public class DodajNepremicninoController {
                     String fileName;
                     fileName   = multipartFile.getOriginalFilename();
                     fileNames.add(fileName);
-                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent);
+                    slikaDao.save(multipartFile,tk_nepremicnina,tk_agent,fileName);
                 }
 
             }
