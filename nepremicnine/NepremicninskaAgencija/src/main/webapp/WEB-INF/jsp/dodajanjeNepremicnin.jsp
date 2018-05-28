@@ -419,6 +419,9 @@
                 inputDva.style.visibility = 'hidden';
                 inputDva.addEventListener('change', posodobiPregledSlik);
                 function  posodobiPregledSlik() {
+                    while(previewDva.firstChild) {
+                        previewDva.removeChild(previewDva.firstChild);
+                    }
                     var curFiles = inputDva.files;
                     if(curFiles.length !== 0) {
                         var list = document.createElement('ol');
@@ -533,7 +536,7 @@
 			<div class="row">
 				<div class="col-12">
 					<label class="genric-btn default mb-10 " for="image_uploadstri">Izberite fotografijo</label>
-					<input class="text-hide" type="file" id="image_uploadstri"  name="files[0]" accept=".jpg, .jpeg, .png" multiple>
+					<input class="text-hide" type="file" id="image_uploadstri"  name="files" accept=".jpg, .jpeg, .png" multiple>
 				</div>
 			</div>
 			<div class="row text-dark">
@@ -541,15 +544,18 @@
 				</div>
 			</div>
 			<script>
-                var inputtri = document.querySelector('#image_uploadstri');
-                var previewtri = document.querySelector('#predogledtri');
-                inputtri.style.visibility = 'hidden';
-                inputtri.addEventListener('change', posodobiPregledSlik);
+                var inputTri = document.querySelector('#image_uploadstri');
+                var previewTri = document.querySelector('#predogledtri');
+                inputTri.style.visibility = 'hidden';
+                inputTri.addEventListener('change', posodobiPregledSlik);
                 function  posodobiPregledSlik() {
-                    var curFiles = inputtri.files;
+                    while(previewTri.firstChild) {
+                        previewTri.removeChild(previewTri.firstChild);
+                    }
+                    var curFiles = inputTri.files;
                     if(curFiles.length !== 0) {
                         var list = document.createElement('ol');
-                        previewtri.appendChild(list);
+                        previewTri.appendChild(list);
                         for(var i = 0; i < curFiles.length; i++) {
                             if(validFileType(curFiles[i])) {
                                 var listItem = document.createElement('li');
@@ -567,7 +573,6 @@
                         }
                     }
                 }
-
 			</script>
 			<div class="row">
 				<div class="col-12">
