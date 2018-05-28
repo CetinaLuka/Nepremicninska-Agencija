@@ -97,7 +97,6 @@
 		<c:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja" modelAttribute="uploadForm" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-12 col-md-9">
-
 					<!--Polje za vnos naslova(ulice) - name:naslov-->
 					<div class="input-group-icon mt-10">
 						<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
