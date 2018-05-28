@@ -121,6 +121,4 @@ public class MainController {
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
-
-
 }
