@@ -90,6 +90,11 @@ public class MainController {
         model.addAttribute("message");
         return "dodajanjeNepremicnin";
     }
+    @RequestMapping(value = {"/iskanjeNepremicnin" }, method = RequestMethod.GET)
+    public String iskanjeNeprmicnin(Model model) {
+        model.addAttribute("message");
+        return "iskanjeNepremicnin";
+    }
 
 
     //testen prikaz vseh vnosov
