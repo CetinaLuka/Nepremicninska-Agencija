@@ -76,113 +76,12 @@
 <section class="mt-30">
     <div class="container">
         <div class="row">
-            <!--div class="col-xs-12 col-lg-3 mb-3">
-                <form class="search-form" action="#">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="kartica-iskanje">
-                                <div class="izbira">
-                                    <label class="mt-1">Vrsta nepremičnine</label>
-                                    <div class="default-select" id="vrsta_posesti">
-                                        <select name="vrsta_posesti">
-                                            <option value="Zazidljiva">Stanovanje</option>
-                                            <option value="Nezazidljiva">Hiša</option>
-                                            <option value="Kmetijsko zemljišče">Posest</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="izbira">
-                                    <label class="mt-1">Kraj</label>
-                                    <div class="default-select" id="vrsta_posesti2">
-                                        <select name="vrsta_posesti2">
-                                            <option value="1">Ljubljana</option>
-                                            <option value="2">Maribor</option>
-                                            <option value="3">Celje</option>
-                                            <option value="4">Kranj</option>
-                                            <option value="5">Nova Gorica</option>
-                                            <option value="6">Koper</option>
-                                            <option value="7">Novo mesto</option>
-                                            <option value="8">Murska sobota</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="izbira">
-                                    <label class="mt-1">Vrsta hiše</label>
-                                    <div class="default-select" id="vrsta_posesti3">
-                                        <select name="vrsta_posesti4">
-                                            <option value="1">Samostojna</option>
-                                            <option value="2">Vrstna</option>
-                                            <option value="3">Dvojček</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="izbira">
-                                    <label class="mt-1">Vrsta posesti</label>
-                                    <div class="default-select" id="vrsta_posesti4">
-                                        <select name="vrsta_posesti4">
-                                            <option value="1">Zazidljiva</option>
-                                            <option value="2">Nezazidljiva</option>
-                                            <option value="3">Kmetijsko zemljišče</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="slider">
-                                    <p>Cena:</p>
-                                    <input type="text" id="range" value="" name="range" />
-                                </div>
-                                <div class="slider">
-                                    <p>Velikost(m2):</p>
-                                    <input type="text" id="range2" value="" name="range" />
-                                </div>
-                                <div class="">
-                                    <div class="switch-wrap d-flex mt-1">
-                                        <div class="primary-checkbox mr-10 mt-1">
-                                            <input type="checkbox" name="check" id="check" value="1"/>
-                                            <label for="check"></label>
-                                        </div>
-                                        <p>Garaža</p>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <div class="switch-wrap d-flex mt-1">
-                                        <div class="primary-checkbox mr-10 mt-1">
-                                            <input type="checkbox" name="check2" id="check2" value="1"/>
-                                            <label for="check2"></label>
-                                        </div>
-                                        <p>Balkon</p>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <div class="switch-wrap d-flex mt-1">
-                                        <div class="primary-checkbox mr-10 mt-1">
-                                            <input type="checkbox" name="check3" id="check3" value="1"/>
-                                            <label for="check3"></label>
-                                        </div>
-                                        <p>Prenovaljeno</p>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button class="genric-btn primary-border circle mt-20" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div-->
             <div class="col-xs-12 col-lg-12">
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="search-field" style="background-color: #f4f4fa; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
                             <form class="search-form" action="#">
                                 <div class="row">
-                                    <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="search-title">Iščite nepremičnine za</h4>
-                                            </div>
-
-                                        </div>
-                                    </div>
                                     <div class="col-lg-3 col-md-6 col-xs-6">
                                         <select name="location" class="app-select form-control" required>
                                             <option data-display="Izberite lokacijo">Izberite lokacijo</option>
@@ -249,8 +148,8 @@
                     <c:forEach  var="i" begin="1" end="10">
                         <!--stanovanje-->
                         <c:if test="true">
-                            <div class="col-xs-12 col-md-6 col-xl-6">
-                                <div class="single-property mb-3 stanovanje">
+                            <div class="col-xs-12 col-md-6 col-xl-4">
+                                <div class="single-property mb-3 stanovanje" style="height: 400px">
                                     <div class="images">
                                         <a href="img/s1.jpg">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -295,10 +194,6 @@
                                                 </p>
                                                 <p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
                                             </div>
-                                            <div class="bottom d-flex">
-                                                <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
-                                                <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +202,7 @@
                         <!--hisa-->
                         <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
                             <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="single-property mb-3 hisa">
+                                <div class="single-property property-md mb-3 hisa">
                                     <div class="images">
                                         <a href="img/s1.jpg">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -341,10 +236,6 @@
                                                 </p>
                                                 <p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
                                             </div>
-                                            <div class="bottom d-flex">
-                                                <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
-                                                <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -353,7 +244,7 @@
                         <!--posest-->
                         <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
                             <div class="col-xs-12 col-md-6 col-lg-6">
-                                <div class="single-property mb-3 posest">
+                                <div class="single-property property-md mb-3">
                                     <div class="images">
                                         <a href="img/s1.jpg">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -373,10 +264,6 @@
                                             <div class="d-flex justify-content mb-2">
                                                 Opis:<br />
                                                 Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
-                                            </div>
-                                            <div class="bottom d-flex">
-                                                <p class="text-left"><button class="genric-btn primary">Uredi</button></p>
-                                                <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
                                             </div>
                                         </div>
                                     </div>
