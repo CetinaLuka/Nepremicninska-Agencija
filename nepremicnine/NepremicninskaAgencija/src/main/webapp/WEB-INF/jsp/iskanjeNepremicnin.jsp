@@ -1,5 +1,4 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -31,6 +30,23 @@
     <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        .kartica-iskanje{
+            background-color: #f4f4fa;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            padding: 20px 10px 20px 10px;
+        }
+        .kartica-iskanje div{
+            margin-bottom: 10px;
+        }
+        .kartica-iskanje .izbira select{
+            width: 100%;
+            max-width: 300px;
+        }
+        .kartica-iskanje .slider{
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,7 +67,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-10">
                 <div class="generic-banner-content text-center">
-                    <h2 class="text-white">Kontrolna plošča agenta</h2>
+                    <h2 class="text-white">Iskanje nepremičnin</h2>
                 </div>
             </div>
         </div>
@@ -59,57 +75,181 @@
 </section>
 <section class="mt-30">
     <div class="container">
-        <!--user info card-->
         <div class="row">
-            <div class="col-xs-12 col-lg-3">
-                <div class="row">
-                    <div class="col-12 col-lg-12">
-                        <div class="row profil-kartica">
-                            <div class="col-12 col-md-3 col-lg-12 text-center">
-                                <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
-                                <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
-                                <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
-                                  </div>
-                            <br />
-                            <div class="col-12 col-md-5 col-lg-12">
-                                <div class="bold-black">${fn:toUpperCase(agent.ime)} ${fn:toUpperCase(agent.priimek)}</div>
-                                <div class="">Email: ${agent.email}</div>
-                                <c:if test="${!(agent.telefonskaSt).equals('')}">
-                                     <div class="">Tel: ${agent.telefonskaSt}</div>
-                                 </c:if>
-                            </div>
-                            <br /><br /><br /><br />
-                            <div class="col-12 col-md-4 col-lg-12">
-                                <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
+            <!--div class="col-xs-12 col-lg-3 mb-3">
+                <form class="search-form" action="#">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="kartica-iskanje">
+                                <div class="izbira">
+                                    <label class="mt-1">Vrsta nepremičnine</label>
+                                    <div class="default-select" id="vrsta_posesti">
+                                        <select name="vrsta_posesti">
+                                            <option value="Zazidljiva">Stanovanje</option>
+                                            <option value="Nezazidljiva">Hiša</option>
+                                            <option value="Kmetijsko zemljišče">Posest</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="izbira">
+                                    <label class="mt-1">Kraj</label>
+                                    <div class="default-select" id="vrsta_posesti2">
+                                        <select name="vrsta_posesti2">
+                                            <option value="1">Ljubljana</option>
+                                            <option value="2">Maribor</option>
+                                            <option value="3">Celje</option>
+                                            <option value="4">Kranj</option>
+                                            <option value="5">Nova Gorica</option>
+                                            <option value="6">Koper</option>
+                                            <option value="7">Novo mesto</option>
+                                            <option value="8">Murska sobota</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="izbira">
+                                    <label class="mt-1">Vrsta hiše</label>
+                                    <div class="default-select" id="vrsta_posesti3">
+                                        <select name="vrsta_posesti4">
+                                            <option value="1">Samostojna</option>
+                                            <option value="2">Vrstna</option>
+                                            <option value="3">Dvojček</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="izbira">
+                                    <label class="mt-1">Vrsta posesti</label>
+                                    <div class="default-select" id="vrsta_posesti4">
+                                        <select name="vrsta_posesti4">
+                                            <option value="1">Zazidljiva</option>
+                                            <option value="2">Nezazidljiva</option>
+                                            <option value="3">Kmetijsko zemljišče</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="slider">
+                                    <p>Cena:</p>
+                                    <input type="text" id="range" value="" name="range" />
+                                </div>
+                                <div class="slider">
+                                    <p>Velikost(m2):</p>
+                                    <input type="text" id="range2" value="" name="range" />
+                                </div>
+                                <div class="">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <input type="checkbox" name="check" id="check" value="1"/>
+                                            <label for="check"></label>
+                                        </div>
+                                        <p>Garaža</p>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <input type="checkbox" name="check2" id="check2" value="1"/>
+                                            <label for="check2"></label>
+                                        </div>
+                                        <p>Balkon</p>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <input type="checkbox" name="check3" id="check3" value="1"/>
+                                            <label for="check3"></label>
+                                        </div>
+                                        <p>Prenovaljeno</p>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="genric-btn primary-border circle mt-20" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </form>
+            </div-->
+            <div class="col-xs-12 col-lg-12">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="search-field" style="background-color: #f4f4fa; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                            <form class="search-form" action="#">
+                                <div class="row">
+                                    <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 class="search-title">Iščite nepremičnine za</h4>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="location" class="app-select form-control" required>
+                                            <option data-display="Izberite lokacijo">Izberite lokacijo</option>
+                                            <option value="1">Dhaka</option>
+                                            <option value="2">Rangpur</option>
+                                            <option value="3">Bogra</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="property-type" class="app-select form-control" required>
+                                            <option data-display="Tip nepremičnine">Tip nepremičnine</option>
+                                            <option value="1">Property type 1</option>
+                                            <option value="2">Property type 2</option>
+                                            <option value="3">Property type 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="bedroom" class="app-select form-control" required>
+                                            <option data-display="Spalnice">Spalnice</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="bedroom" class="app-select form-control" required>
+                                            <option data-display="Spalnice">Spalnice</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 range-wrap">
+                                        <p>Cena:</p>
+                                        <input type="text" id="range" value="" name="range" />
+                                    </div>
+                                    <div class="col-lg-4 range-wrap">
+                                        <p>Velikost(m2):</p>
+                                        <input type="text" id="range2" value="" name="range" />
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="filter-vrstica text-center">
+                            Sortiraj po:
+                            <button class="genric-btn default">Prodano</button>
+                            <button class="genric-btn default">Na prodaj</button>
+                            <button class="genric-btn default">Abecedi</button>
+                            <button class="genric-btn default">Ceni</button>
+                            <button class="genric-btn default">Kvadraturi</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
 
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-lg-9">
-                <div class="row statistika">
-                    <div class="col-xs-12 col-md-6 col-lg-6">
-                        <div class="bold-black">Podatki o nepremičninah:</div>
-                        <div class="">Število prodanih nepremičnin: ${stProdanihNepremicnin}</div>
-                        <div class="">Število nepremičnin na prodaj: ${stNepremicninNaprodaj}</div>
-                        <div class="">Zaslužek od prodanih nepremičnin: ${zasluzek}€</div>
-                        <div class="">Skupna cena prodanih nepremičnin: ${cenaProdanihNepremicnin}€</div>
-                    </div>
-                </div>
-                <div class="filter-vrstica">
-                    Sortiraj po:
-                    <button class="genric-btn default">Prodano</button>
-                    <button class="genric-btn default">Na prodaj</button>
-                    <button class="genric-btn default">Abecedi</button>
-                    <button class="genric-btn default">Ceni</button>
-                    <button class="genric-btn default">Kvadraturi</button>
-                </div>
                 <div class="row">
-                    <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
+                    <c:forEach  var="i" begin="1" end="10">
                         <!--stanovanje-->
-                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
+                        <c:if test="true">
+                            <div class="col-xs-12 col-md-6 col-xl-6">
                                 <div class="single-property mb-3 stanovanje">
                                     <div class="images">
                                         <a href="img/s1.jpg">
