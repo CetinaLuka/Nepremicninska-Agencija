@@ -76,7 +76,7 @@
 <section class="mt-30">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-lg-3 mb-3 ">
+            <!--div class="col-xs-12 col-lg-3 mb-3">
                 <form class="search-form" action="#">
                     <div class="row">
                         <div class="col-12">
@@ -168,15 +168,67 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="col-xs-12 col-lg-9">
-                <div class="row">
+            </div-->
+            <div class="col-xs-12 col-lg-12">
+                <div class="row mb-3">
                     <div class="col-12">
-                        <h4>Iskanje za "stanovanje enosobno"</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
+                        <div class="search-field" style="background-color: #f4f4fa; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                            <form class="search-form" action="#">
+                                <div class="row">
+                                    <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 class="search-title">Iščite nepremičnine za</h4>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="location" class="app-select form-control" required>
+                                            <option data-display="Izberite lokacijo">Izberite lokacijo</option>
+                                            <option value="1">Dhaka</option>
+                                            <option value="2">Rangpur</option>
+                                            <option value="3">Bogra</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="property-type" class="app-select form-control" required>
+                                            <option data-display="Tip nepremičnine">Tip nepremičnine</option>
+                                            <option value="1">Property type 1</option>
+                                            <option value="2">Property type 2</option>
+                                            <option value="3">Property type 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="bedroom" class="app-select form-control" required>
+                                            <option data-display="Spalnice">Spalnice</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-6">
+                                        <select name="bedroom" class="app-select form-control" required>
+                                            <option data-display="Spalnice">Spalnice</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 range-wrap">
+                                        <p>Cena:</p>
+                                        <input type="text" id="range" value="" name="range" />
+                                    </div>
+                                    <div class="col-lg-4 range-wrap">
+                                        <p>Velikost(m2):</p>
+                                        <input type="text" id="range2" value="" name="range" />
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         <div class="filter-vrstica text-center">
                             Sortiraj po:
                             <button class="genric-btn default">Prodano</button>
@@ -187,11 +239,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
                 <div class="row">
                     <c:forEach  var="i" begin="1" end="10">
                         <!--stanovanje-->
                         <c:if test="true">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="col-xs-12 col-md-6 col-xl-6">
                                 <div class="single-property mb-3 stanovanje">
                                     <div class="images">
                                         <a href="img/s1.jpg">
