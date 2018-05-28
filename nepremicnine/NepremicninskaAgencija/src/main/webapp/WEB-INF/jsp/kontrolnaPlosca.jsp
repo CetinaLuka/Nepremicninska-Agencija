@@ -1,5 +1,9 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<<<<<<< HEAD
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
+=======
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+>>>>>>> 71c9a20597f53f675ce9d160388b66737fdee6c3
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -55,6 +59,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </section>
     <section class="mt-30">
         <div class="container">
@@ -83,11 +88,40 @@
                                 <div class="col-12 col-md-4 col-lg-12">
                                     <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
                                 </div>
+=======
+    </div>
+</section>
+<section class="mt-30">
+    <div class="container">
+        <!--user info card-->
+        <div class="row">
+            <div class="col-xs-12 col-lg-3">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="row profil-kartica">
+                            <div class="col-12 col-md-3 col-lg-12 text-center">
+                                <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
+                                <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
+                                <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
+                                  </div>
+                            <br />
+                            <div class="col-12 col-md-5 col-lg-12">
+                                <div class="bold-black">${fn:toUpperCase(agent.ime)} ${fn:toUpperCase(agent.priimek)}</div>
+                                <div class="">Email: ${agent.email}</div>
+                                <c:if test="${!(agent.telefonskaSt).equals('')}">
+                                     <div class="">Tel: ${agent.telefonskaSt}</div>
+                                 </c:if>
+                            </div>
+                            <br /><br /><br /><br />
+                            <div class="col-12 col-md-4 col-lg-12">
+                                <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
+>>>>>>> 71c9a20597f53f675ce9d160388b66737fdee6c3
                             </div>
 
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-xs-12 col-lg-9">
                     <div class="row statistika">
                         <div class="col-xs-12 col-md-6 col-lg-6">
@@ -97,6 +131,17 @@
                             <div class="">Zaslužek od prodanih nepremičnin: 500000€</div>
                             <div class="">Skupna cena prodanih nepremičnin: 1.500.000€</div>
                         </div>
+=======
+            </div>
+            <div class="col-xs-12 col-lg-9">
+                <div class="row statistika">
+                    <div class="col-xs-12 col-md-6 col-lg-6">
+                        <div class="bold-black">Podatki o nepremičninah:</div>
+                        <div class="">Število prodanih nepremičnin: ${stProdanihNepremicnin}</div>
+                        <div class="">Število nepremičnin na prodaj: ${stNepremicninNaprodaj}</div>
+                        <div class="">Zaslužek od prodanih nepremičnin: ${zasluzek}€</div>
+                        <div class="">Skupna cena prodanih nepremičnin: ${cenaProdanihNepremicnin}€</div>
+>>>>>>> 71c9a20597f53f675ce9d160388b66737fdee6c3
                     </div>
                     <div class="filter-vrstica">
                         Sortiraj po:

@@ -1,6 +1,7 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -179,8 +180,35 @@ public class NepremicninaDao {
     }
     public int vrniTKnaslov(int id){
         String sql="SELECT tk_id_naslov FROM nepremicnina WHERE idNepremicnina="+id;
-        return Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
+        try{
+            Object o=jdbcTemplate.queryForObject(sql, String.class);
+            return Integer.parseInt(o.toString());
+        }catch (EmptyResultDataAccessException e){
+            return 0;
+        }
     }
+   public int vrniSteviloNepremicnin(int tkAgent, boolean jeProdano){
+        String sql="SELECT COUNT(idNepremicnina) FROM nepremicnina WHERE prodano="+jeProdano+" AND Agent_idAgent="+tkAgent
+                +" GROUP BY Agent_idAgent";
+        try{
+            Object o=jdbcTemplate.queryForObject(sql, String.class);
+            return Integer.parseInt(o.toString());
+        }catch (EmptyResultDataAccessException e){
+            return 0;
+        }
+
+    }
+    public int skupnaCenaNepremicnin(int tkAgent) {
+        String sql = "SELECT SUM(cena) FROM nepremicnina WHERE prodano=true AND Agent_idAgent=" + tkAgent +
+                " GROUP BY Agent_idAgent";
+        try {
+            Object o = jdbcTemplate.queryForObject(sql, String.class);
+            return Integer.parseInt(o.toString());
+        } catch (EmptyResultDataAccessException e) {
+            return 0;
+        }
+    }
+
     public List<Nepremicnina> iskanjePoRegiji(int zac,int konc){
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
