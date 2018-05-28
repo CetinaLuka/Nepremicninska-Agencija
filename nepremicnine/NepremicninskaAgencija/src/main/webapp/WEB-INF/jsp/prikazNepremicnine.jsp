@@ -189,9 +189,9 @@
                                         <c:if test="${!nepremicnina.garaza}" ><i class="fa fa-times"></i></c:if> GARAŽA
                                     </div>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <c:if test="${nepremicnina.letoPrenove!=null}" ><i class="fa fa-check"></i>
+                                        <c:if test="${nepremicnina.letoPrenove!=0}" ><i class="fa fa-check"></i>
                                                 PRENOVLJENO - ${nepremicnina.letoPrenove}</c:if>
-                                        <c:if test="${nepremicnina.letoPrenove==null}" ><i class="fa fa-times"></i> PRENOVLJENO</c:if>
+                                        <c:if test="${nepremicnina.letoPrenove==0}" ><i class="fa fa-times"></i> PRENOVLJENO</c:if>
                                     </div>
                                 </div>
                         </div>

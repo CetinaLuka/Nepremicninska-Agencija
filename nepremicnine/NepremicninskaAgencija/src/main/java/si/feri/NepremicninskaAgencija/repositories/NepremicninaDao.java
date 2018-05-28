@@ -313,4 +313,15 @@ public class NepremicninaDao {
         }
         return ret;
     }
+
+    public int zbrisiNepremicnino(int id){
+        String sql = "DELETE FROM nepremicnina WHERE idNepremicnina=?";
+        try {
+            return jdbcTemplate.update(sql, new Object[]{id});
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return 1;
+    }
 }
