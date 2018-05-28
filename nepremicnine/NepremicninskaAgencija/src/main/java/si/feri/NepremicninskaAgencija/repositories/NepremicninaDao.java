@@ -26,7 +26,7 @@ public class NepremicninaDao {
         return jdbcTemplate.update(sql, new Object[]{Cena, SkupnaKvadratura, ŠtSob, LetnikIzgradnje, Nadstropje, LetoPrenove, Garaža, Balkon, Opis,Prodano, DatumObjave, tk_id_naslov, tk_id_vrstaNepremicnine, Agent_idAgent});
     }
 
-    public int addHisa(String Cena, String KvadraturaBivalnegaProstora, String LetnikIzgradnje, String LetoPrenove, String Garaža, String Opis, String SkupnaKvadratura, String VrstaHiše, int Prodano, int tk_id_naslov, int tk_id_vrstaNepremicnine, int Agent_idAgent){
+    public int addHisa(String Cena, String KvadraturaBivalnegaProstora, String LetnikIzgradnje, int LetoPrenove, String Garaža, String Opis, String SkupnaKvadratura, String VrstaHiše, int Prodano, int tk_id_naslov, int tk_id_vrstaNepremicnine, int Agent_idAgent){
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         String DatumObjave=dt.format(new Date());
         String sql ="INSERT into NEPREMICNINA(cena, kvadraturaBivalnegaProstora, letoIzgradnje, letoPrenove, garaza, opis, skupnaKvadratura, vrstaHise, prodano, datumObjave, tk_id_naslov, tk_id_vrstaNepremicnine, Agent_idAgent) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -148,7 +148,7 @@ public class NepremicninaDao {
         }
         return ret;
     }
-    public List<Integer> vrniIDHise(String cena, String kvadratura, String letnik_izgradnje, String letnik_prenove, String garaza, String dodaten_opis, String velikost_zemljisca, String vrsta_hise, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
+    public List<Integer> vrniIDHise(String cena, String kvadratura, String letnik_izgradnje, int letnik_prenove, String garaza, String dodaten_opis, String velikost_zemljisca, String vrsta_hise, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
         String sql = "SELECT nepremicnina.idNepremicnina FROM nepremicnina WHERE cena=? AND kvadraturaBivalnegaProstora=? AND letoIzgradnje=? AND letoPrenove=? AND garaza=? AND opis=? AND skupnaKvadratura=? AND vrstaHise=? AND prodano=? AND tk_id_naslov=? AND tk_id_vrstaNepremicnine=? AND Agent_idAgent=?";
         List<Integer> ret = new ArrayList<Integer>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{cena,kvadratura,letnik_izgradnje,letnik_prenove,garaza,dodaten_opis,velikost_zemljisca,vrsta_hise,prodano,tk_naslov,tk_vrstaNepr,tk_agent});
