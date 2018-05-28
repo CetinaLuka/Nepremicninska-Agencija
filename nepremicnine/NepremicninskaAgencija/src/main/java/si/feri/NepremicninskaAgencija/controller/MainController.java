@@ -331,4 +331,12 @@ public class MainController {
         return "redirect:/dodajanjeNepremicnin";
     }
 
+    @RequestMapping(value = {"/zbrisiNepremicnino" }, method = RequestMethod.DELETE, params = {"idZaIzbris"})
+    @ResponseBody
+    public Boolean zbrisiNepremicnino(@RequestParam( value = "idZaIzbris") Integer idZaIzbris, HttpServletRequest request) {
+        nepremicninaDao.zbrisiNepremicnino(idZaIzbris);
+        return true;
+    }
+
+
 }

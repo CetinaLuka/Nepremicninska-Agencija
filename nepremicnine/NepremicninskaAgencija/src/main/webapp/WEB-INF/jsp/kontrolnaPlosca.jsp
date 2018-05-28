@@ -108,7 +108,7 @@
                         <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
                             <!--stanovanje-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
-                                <div class="col-xs-12 col-md-6 col-lg-6">
+                                <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 stanovanje">
                                         <div class="images">
                                             <a href="img/s1.jpg">
@@ -156,7 +156,7 @@
                                                 </div>
                                                 <div class="bottom d-flex">
                                                     <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
-                                                    <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                                    <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
                             </c:if>
                             <!--hisa-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
-                                <div class="col-xs-12 col-md-6 col-lg-6">
+                                <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 hisa">
                                         <div class="images">
                                             <a href="img/s1.jpg">
@@ -202,7 +202,7 @@
                                                 </div>
                                                 <div class="bottom d-flex">
                                                     <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
-                                                    <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                                    <p class="text-rigth"><button class="genric-btn primary"  onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})>Izbriši</button></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +211,7 @@
                             </c:if>
                             <!--posest-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
-                                <div class="col-xs-12 col-md-6 col-lg-6">
+                                <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 posest">
                                         <div class="images">
                                             <a href="img/s1.jpg">
@@ -235,7 +235,7 @@
                                                 </div>
                                                 <div class="bottom d-flex">
                                                     <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
-                                                    <p class="text-rigth"><button class="genric-btn primary">Izbriši</button></p>
+                                                    <p class="text-rigth"><button class="genric-btn primary"  onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})>Izbriši</button></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -639,6 +639,20 @@
                 $('#stanovanje-modal').hide();
                 $('#hisa-modal').show();
             }*/
+        }
+
+        function zbrisiNepremicnino(id){
+            $.ajax({
+                url: "/zbrisiNepremicnino?idZaIzbris=" + id,
+                method: "DELETE",
+                dataType: 'json',
+                success: function (data){
+                    $("#" + id).remove();
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
         }
     </script>
 </body>
