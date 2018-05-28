@@ -36,8 +36,14 @@ public class MainController {
     SlikaDao slikaDao;
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model, HttpServletRequest request) {
         model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniZadnjeTri());
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik") == null){
+            model.addAttribute("jePrijavljen", false);
+        }else{
+            model.addAttribute("jePrijavljen", true);
+        }
         return "index";
     }
 
@@ -61,7 +67,7 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/prikazNepremicnine/{nepremicninaId}" }, method = RequestMethod.GET)
-    public String prikazNepremicnine(Model model, @PathVariable("nepremicninaId") int nepremicninaId) {
+    public String prikazNepremicnine(Model model,HttpServletRequest request, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
         model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
         int tkNaslov=nepremicninaDao.vrniTKnaslov(nepremicninaId);
@@ -77,25 +83,50 @@ public class MainController {
         else{
             model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
         }
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik") == null){
+            model.addAttribute("jePrijavljen", false);
+        }else{
+            model.addAttribute("jePrijavljen", true);
+        }
+
         return "prikazNepremicnine";
     }
 
     @RequestMapping(value = {"/dodajanjeNepremicnin" }, method = RequestMethod.GET)
-    public String dodajanjeNepremicnin(Model model) {
+    public String dodajanjeNepremicnin(Model model, HttpServletRequest request) {
         model.addAttribute("message");
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik") == null){
+            model.addAttribute("jePrijavljen", false);
+        }else{
+            model.addAttribute("jePrijavljen", true);
+        }
         return "dodajanjeNepremicnin";
     }
     @RequestMapping(value = {"/iskanjeNepremicnin" }, method = RequestMethod.GET)
-    public String iskanjeNeprmicnin(Model model) {
+    public String iskanjeNeprmicnin(Model model, HttpServletRequest request) {
         model.addAttribute("message");
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik") == null){
+            model.addAttribute("jePrijavljen", false);
+        }else{
+            model.addAttribute("jePrijavljen", true);
+        }
         return "iskanjeNepremicnin";
     }
 
 
     //testen prikaz vseh vnosov
     @RequestMapping(value = {"/seznamVseh" }, method = RequestMethod.GET)
-    public String seznamVseh(Model model) {
+    public String seznamVseh(Model model, HttpServletRequest request) {
         model.addAttribute("kraji",krajDao.getAllKraji());
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik") == null){
+            model.addAttribute("jePrijavljen", false);
+        }else{
+            model.addAttribute("jePrijavljen", true);
+        }
         return "seznamVseh";
     }
 
@@ -117,8 +148,16 @@ public class MainController {
         model.addAttribute("stNepremicninNaprodaj",  nepremicninaDao.vrniSteviloNepremicnin(tk_agent, false));
         model.addAttribute("cenaProdanihNepremicnin",  nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
         model.addAttribute("zasluzek",  (nepremicninaDao.skupnaCenaNepremicnin(tk_agent)*0.1));
+        model.addAttribute("jePrijavljen", true);
         return "kontrolnaPlosca";
 
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
+
+    @RequestMapping(value = {"/zbrisiNepremicnino" }, method = RequestMethod.DELETE, params = {"idZaIzbris"})
+    @ResponseBody
+       public Boolean zbrisiNepremicnino(@RequestParam( value = "idZaIzbris") Integer idZaIzbris, HttpServletRequest request) {
+               nepremicninaDao.zbrisiNepremicnino(idZaIzbris);
+               return true;
+          }
 }

@@ -31,7 +31,6 @@ public class RegistracijaInPrijavaController {
     @RequestMapping(value = {"/prijava" }, method = RequestMethod.GET)
     public String prijava(Model model) {
             model.addAttribute("jePrijavljen", false);
-
         return "prijava";
     }
 
@@ -88,6 +87,16 @@ public class RegistracijaInPrijavaController {
         return "redirect:/kontrolnaPlosca";
     }
 
+    @RequestMapping(value = {"/odjava" }, method = RequestMethod.GET)
+    public String odjava(Model model, RedirectAttributes red) {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);//true will create if necessary
+
+        red.addFlashAttribute("jePrijavljen", false);
+        model.addAttribute("jePrijavljen", false);
+        session.removeAttribute("trenutniUporabnik");
+        return "redirect:/index";
+    }
 
 
 

@@ -27,13 +27,13 @@
                     <li><a id="povezavaPonudba" >Ponudba</a></li>
                     <li><a id="povezavaKontakt">Kontakt</a></li>
                     <c:if test="${!jePrijavljen}">
-                        <li><a href="prijava">Prijava</a></li>
-                        <li><a href="registracija">Registracija</a></li>
+                        <li><a href="/prijava">Prijava</a></li>
+                        <li><a href="/registracija">Registracija</a></li>
                     </c:if>
                     <c:if test="${jePrijavljen}">
-                        <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
-                        <li><a  href="kontrolnaPlosca">Kontrolna plošča</a></li>
-                        <li><a href="">Odjava</a></li>
+                        <li><a href="/dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
+                        <li><a  href="/kontrolnaPlosca">Kontrolna plošča</a></li>
+                        <li><a href="/odjava">Odjava</a></li>
                     </c:if>
                 </ul>
             </div>
@@ -57,17 +57,17 @@
         try {
             if (dolocenaPovezava) {
 
-                domov.href = '#home';
-                storitve.href = '#service';
-                ponudba.href = '#property';
-                kontakt.href = '#contact';
+                domov.href = '/#home';
+                storitve.href = '/#service';
+                ponudba.href = '/#property';
+                kontakt.href = '/#contact';
 
             }
         } catch (e) {
-            domov.href = 'index#home';
-            storitve.href = 'index#service';
-            ponudba.href = 'index#property';
-            kontakt.href = 'index#contact';
+            domov.href = '/index#home';
+            storitve.href = '/index#service';
+            ponudba.href = '/index#property';
+            kontakt.href = '/index#contact';
         }
 
     }
