@@ -322,7 +322,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 stanovanje" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
@@ -382,7 +382,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 hisa" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
@@ -431,7 +431,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 posest" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
