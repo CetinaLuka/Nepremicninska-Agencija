@@ -239,13 +239,13 @@
 			<!-- End banner Area -->
 
 			<!-- Start service Area -->
-			<section class="service-area section-gap" id="service">
+			<section class="service-area section-gap" id="service" style="padding-top: 60px; padding-bottom: 60px;">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
 							<h1>Zakaj izbrati nas?</h1>
 							<p>
-								Izbira nepremičninskih agencij je velika. Zaradi spodnjih razlogov se boste odločili za nas!
+								Ob nakupu nepremičnine igra veliko vlogo dobra izbira nepremičninske agencije. Pri nas se lahko pohvalimo z mnogimi vrlinami.
 							</p>
 						</div>
 					</div>
@@ -254,7 +254,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-user"></span>Izkušenost agentov</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Vsi naši nepremičninski agenti se na svoje delo spoznajo, so zanj izučeni in vam vedno pripravljeni pomagati.
 								</p>
 							</div>
 						</div>
@@ -262,7 +262,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-license"></span>Profesionalne storitve</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Zagotavljamo profesionalen odnos vseh naših zaposlenih ob koriščenju naših storitev.
 								</p>								
 							</div>
 						</div>
@@ -270,7 +270,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-phone"></span>Podpora in pomoč</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Za kakršnakoli vprašanja smo v delovnem času dostopni preko elektronske pošte in preko telefona.
 								</p>								
 							</div>
 						</div>
@@ -278,23 +278,23 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-rocket"></span>Tehnična znanja</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Vsi zaposleni se spoznajo na svojo stroko in vam lahko zagotovijo točne in uporabne informacije.
 								</p>				
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-diamond"></span>Dolgoletna priznanost</h4>
+								<h4><span class="lnr lnr-diamond"></span>Dolgoletna tradicija</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Podjetje se lahko pohvali z uspešnim delovanjem že od same ustanovitve leta 1998.
 								</p>								
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-bubble"></span>Pozitivna mnenja</h4>
+								<h4><span class="lnr lnr-bubble"></span>Zadovoljne stranke</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Za vsako stranko posebej poskrbimo kot se le najboljše da. To pričajo tudi njihova mnoga pozitivna mnenja.
 								</p>									
 							</div>
 						</div>						
@@ -311,7 +311,7 @@
 						<div class="col-md-8 pb-40 header-text">
 							<h1>Zadnje nepremičnine</h1>
 							<p>
-								Oglejte si nepremičnine, ki so bile v prodajo dodane najbolj nedavno.
+								Oglejte si nabor nedavno dodanih nepremičnin.
 							</p>
 						</div>
 					</div>
@@ -461,7 +461,7 @@
 			</section>
 			<!-- End property Area -->
 			<!-- Start city Area -->
-			<section class="city-area section-gap">
+			<section class="city-area section-gap" style="padding-top: 60px; padding-bottom: 0px;">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-lg-12 col-md-8 pb-40 header-text text-center">
@@ -588,8 +588,8 @@
 			<!-- End About Area -->
 		
 			<!-- Start contact-info Area -->
-			<section class="contact-info-area section-gap relative"  id="contact">
-				<div class="overlay ozadje-contact"></div>
+			<section class="contact-info-area section-gap relative"  id="contact" style="padding-bottom: 40px;">
+				<div class="overlay ozadje-contact" style="margin-bottom:0px;"></div>
 				<div class="container">
 					<div class="row">
 						<div class="single-info col-lg-3 col-md-6">
@@ -631,12 +631,13 @@
 			<section class="contact-area">
 				<div class="container-fluid">
 					<div class="row align-items-center d-flex justify-content-start">
-						<div class="col-lg-6 col-md-12 text-center no-padding">
+						<div class="col-lg-12 col-md-12 no-padding">
 
 							<!-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 -->
-								<iframe width="540" height="545" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
+								<iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
 						</div>
-						<div class="col-lg-4 col-md-12 pt-100 pb-100">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-6 col-md-12 pt-50 pb-50">
 							<form class="form-area" id="myForm" action="mailto:agencija.praktikum@gmail.com" method="GET" class="contact-form text-right">
 								<input name="ime" placeholder="Vnesite vaše ime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaše ime'" class="common-input mt-10" required="" type="text">
 								<input name="email" placeholder="Vnesite vaš email naslov" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaš email naslov'" class="common-input mt-10" required="" type="email">
