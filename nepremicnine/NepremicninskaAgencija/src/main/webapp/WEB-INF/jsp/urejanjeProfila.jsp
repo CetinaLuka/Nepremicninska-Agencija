@@ -42,9 +42,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-10">
                 <div class="generic-banner-content text-center">
-
                     <h2 class="text-white">UREJANJE PROFILA</h2>
-
                 </div>
             </div>
         </div>
@@ -316,12 +314,12 @@
 
 
     <section class="section-gap text-center">
-        <h1>ZBRIŠI RAČUN</h1>
+        <h1>IZBRIŠI RAČUN</h1>
         <form action="/zbrisiRacun" method="POST">
     <div class="row  align-items-center justify-content-center ">
         <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left " for="novoGesloSpremeni2">
-            <strong>Ko boste zbrisali račun se ne boste mogli več prijaviti. Izgubili boste vse do sedanje podatke. </strong>
-            Ste prepričani, da želite zbrisati račun?
+            <strong>Ko boste izbrisali račun, se ne boste mogli več prijaviti. Izgubili boste vse dosedanje podatke. </strong>
+            Ste prepričani, da želite izbrisati račun?
         </label>
     </div>
 

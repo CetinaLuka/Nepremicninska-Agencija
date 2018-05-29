@@ -48,6 +48,7 @@ public class UrejanjeProfilaController {
         else{
             model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
         }
+        model.addAttribute("jePrijavljen", true);
         return "urejanjeProfila";
     }
 
