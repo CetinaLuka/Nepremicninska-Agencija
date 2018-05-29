@@ -6,7 +6,7 @@
     <nav class="navbar navbar-expand-lg  navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index">
-                <img src="img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
+                <img src="/img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
             </a>
             <!-- Gumb pri pomanjšanju-->
             <button class="navbar-toggler" type="button"
@@ -26,12 +26,15 @@
                     <li><a id="povezavaStoritve" >Storitve</a></li>
                     <li><a id="povezavaPonudba" >Ponudba</a></li>
                     <li><a id="povezavaKontakt">Kontakt</a></li>
-                    <li><a href="dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
-                    <!-- To je menu za prijavljenega uporabnika ko ni seje naj se ta prikaže-->
-
-                    <jsp:include page="menuZaNeprijavljenegaUporabnika.jsp" />
-                    <!-- to je menu za prijavljenega uporabnika ko je seja naj se ta prikaže-->
-                    <!--jsp:include page="menuZaPrijavljenegaUporabnika.jsp" /> -->
+                    <c:if test="${!jePrijavljen}">
+                        <li><a href="/prijava">Prijava</a></li>
+                        <li><a href="/registracija">Registracija</a></li>
+                    </c:if>
+                    <c:if test="${jePrijavljen}">
+                        <li><a href="/dodajanjeNepremicnin">Dodaj nepremičnino</a></li>
+                        <li><a  href="/kontrolnaPlosca">Kontrolna plošča</a></li>
+                        <li><a href="/odjava">Odjava</a></li>
+                    </c:if>
                 </ul>
             </div>
         </div>
@@ -52,20 +55,21 @@
         ponudba = document.getElementById('povezavaPonudba');
         kontakt = document.getElementById('povezavaKontakt');
         try {
-            if (dolocenaPovezava){
+            if (dolocenaPovezava) {
 
-                domov.href = '#home';
-                storitve.href='#service';
-                ponudba.href='#property';
-                kontakt.href='#contact';
+                domov.href = '/#home';
+                storitve.href = '/#service';
+                ponudba.href = '/#property';
+                kontakt.href = '/#contact';
 
             }
-        }catch (e) {
-            domov.href = 'index#home';
-            storitve.href='index#service';
-            ponudba.href='index#property';
-            kontakt.href='index#contact';
+        } catch (e) {
+            domov.href = '/index#home';
+            storitve.href = '/index#service';
+            ponudba.href = '/index#property';
+            kontakt.href = '/index#contact';
         }
 
     }
+
 </script>
