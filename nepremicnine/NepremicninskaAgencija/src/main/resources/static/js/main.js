@@ -158,7 +158,7 @@ $(document).ready(function(){
                   to: 4000,
                   type: 'double',
                   step: 1,
-                  prefix: "m²",
+                  prefix: "",
                   grid: true
               });
                 $("#range3").ionRangeSlider({
@@ -173,74 +173,57 @@ $(document).ready(function(){
                     prefix: "€",
                     grid: true
                 });
-
-    $("#range4).ionRangeSlider({
-        hide_min_max: true,
-        keyboard: true,
-        min: 0,
-        max: 1000,
-        from: 100,
-        to: 400,
-        type: 'double',
-        step: 1,
-        prefix: "m²",
-        grid: true
-    });
-    $("#range5").ionRangeSlider({
-        hide_min_max: true,
-        keyboard: true,
-        min: 0,
-        max: 1000,
-        from: 100,
-        to: 400,
-        type: 'double',
-        step: 1,
-        prefix: "m²",
-        grid: true
-    });
-    $("#range6").ionRangeSlider({
-        hide_min_max: true,
-        keyboard: true,
-        min: 0,
-        max: 1000000,
-        from: 50000,
-        to: 200000,
-        type: 'double',
-        step: 1,
-        prefix: "€",
-        grid: true
-    });
-    $("#range7").ionRangeSlider({
-        hide_min_max: true,
-        keyboard: true,
-        min: 0,
-        max: 1000,
-        from: 100,
-        to: 400,
-        type: 'double',
-        step: 1,
-        prefix: "m²",
-        grid: true
-    });
-    $("#range8").ionRangeSlider({
-        hide_min_max: true,
-        keyboard: true,
-        min: 0,
-        max: 1000,
-        from: 100,
-        to: 400,
-        type: 'double',
-        step: 1,
-        prefix: "m²",
-        grid: true
+                $("#range4").ionRangeSlider({
+                hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+                $("#range5").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+                $("#range6").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000000,
+                    from: 50000,
+                    to: 200000,
+                    type: 'double',
+                    step: 1,
+                    prefix: "€",
+                    grid: true
+                });
+                $("#range7").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
     });
 
 
-
-
-
-
- });
 function menjavaIskanja(){
     if(document.getElementById("tip_nepr").value==1){
         document.getElementById("iskanjeStanovanje").style.display="block";

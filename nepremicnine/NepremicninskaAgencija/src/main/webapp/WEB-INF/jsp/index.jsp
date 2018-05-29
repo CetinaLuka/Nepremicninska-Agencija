@@ -66,10 +66,10 @@
 											<br />
 											<br />
 									    </div>
-										 <div id="iskanjeStanovanje" style="display:none; width:300%;" >
+										 <div id="iskanjeStanovanje" style="display:none;" class="col-lg-12">
 											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
 												 <div class="row">
-													 <div class="col-lg-4 col-md-6 col-xs-6">
+													 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 														 <select name="select_pokrajina" class="app-select form-control" required>
 															 <option data-display="Pokrajina">Pokrajina</option>
 															 <option value="1">Notranjska</option>
@@ -119,7 +119,7 @@
 														 <input type="text" id="range" value="" name="range" />
 													 </div>
 													 <div class="col-lg-4 range-wrap">
-														 <p>Velikost stanovanja(m2):</p>
+														 <p>Velikost stanovanja(m²):</p>
 														 <input type="text" id="range2" value="" name="range" />
 													 </div>
 													 <div class="col-lg-12 d-flex justify-content-end">
@@ -128,10 +128,10 @@
 												 </div>
 											 </form>
 										 </div>
-										 <div id="iskanjeHisa" style="display:none;">
+										 <div id="iskanjeHisa" style="display:none;" class="col-lg-12">
 											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
 												 <div class="row">
-													<div class="col-lg-4 col-md-6 col-xs-6">
+													<div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 														<select name="select_pokrajina" class="app-select form-control" required>
 															<option data-display="Pokrajina">Pokrajina</option>
 															<option value="1">Notranjska</option>
@@ -143,7 +143,7 @@
 															<option value="7">Prekmurska</option>
 														</select>
 													</div>
-													<div class="col-lg-4 col-md-6 col-xs-6">
+													<div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 														<select name="select_tip_hisa" class="app-select form-control" required>
 															<option data-display="Tip hiše">Tip hiše</option>
 															<option value="1">Samostojna</option>
@@ -176,11 +176,11 @@
 														<input type="text" id="range3" value="" name="range" />
 													</div>
 													<div class="col-lg-4 range-wrap">
-														<p>Skupna velikost(m2):</p>
+														<p>Skupna velikost(m²):</p>
 														<input type="text" id="range4" value="" name="range" />
 													</div>
 													 <div class="col-lg-4 range-wrap">
-														 <p>Velikost bivalnega prostora(m2):</p>
+														 <p>Velikost bivalnega prostora(m²):</p>
 														 <input type="text" id="range5" value="" name="range" />
 													 </div>
 													 <div class="col-lg-12 d-flex justify-content-end">
@@ -190,10 +190,10 @@
 											 </form>
 										 </div>
 
-										 <div id="iskanjePosest" style="display:none;">
+										 <div id="iskanjePosest" style="display:none;" class="col-lg-12">
 											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
 												 <div class="row">
-													 <div class="col-lg-4 col-md-6 col-xs-6">
+													 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 														 <select name="select_pokrajina" class="app-select form-control" required>
 															 <option data-display="Pokrajina">Pokrajina</option>
 															 <option value="1">Notranjska</option>
@@ -205,7 +205,7 @@
 															 <option value="7">Prekmurska</option>
 														 </select>
 													 </div>
-														 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 															 <select name="select_tip_hisa" class="app-select form-control" required>
 																 <option data-display="Tip posesti">Tip posesti</option>
 																 <option value="1">Zazidljiva</option>
@@ -220,8 +220,8 @@
 														 <input type="text" id="range6" value="" name="range" />
 													 </div>
 													 <div class="col-lg-4 range-wrap">
-														 <p>Velikost(m2):</p>
-														 <input type="text" id="range8" value="" name="range" />
+														 <p>Velikost(m²):</p>
+														 <input type="text" id="range7" value="" name="range" />
 													 </div>
 													 <div class="col-lg-12 d-flex justify-content-end">
 														 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>

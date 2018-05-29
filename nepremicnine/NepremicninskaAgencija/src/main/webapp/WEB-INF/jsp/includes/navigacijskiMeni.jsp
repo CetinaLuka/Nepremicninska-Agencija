@@ -6,7 +6,7 @@
     <nav class="navbar navbar-expand-lg  navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/index">
-                <img src="/img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
+                <img src="/img/logo/logo.png" alt="ikonična slika" height="50" width="70">
             </a>
             <!-- Gumb pri pomanjšanju-->
             <button class="navbar-toggler" type="button"
