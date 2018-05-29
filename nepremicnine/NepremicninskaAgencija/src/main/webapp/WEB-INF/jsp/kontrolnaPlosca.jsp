@@ -111,7 +111,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 stanovanje">
                                         <div class="images">
-                                            <a href="img/s1.jpg">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                 <span>${nepremicnina.cena}€</span>
                                             </a>
@@ -177,7 +177,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 hisa">
                                         <div class="images">
-                                            <a href="img/s1.jpg">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                 <span>${nepremicnina.cena}€</span>
                                             </a>
@@ -230,7 +230,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 posest">
                                         <div class="images">
-                                            <a href="img/s1.jpg">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                 <span>${nepremicnina.cena}€</span>
                                             </a>
