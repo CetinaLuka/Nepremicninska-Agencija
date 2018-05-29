@@ -230,13 +230,29 @@
 											 </form>
 										 </div>
 									  </div>
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-- End banner Area -->
+
+			<div class="col-lg-12 text-center">
+				<button class="primary-btn mt-50 text-center " style="padding-right: 30px" data-toggle="modal" data-target="#zemljevid" style="height: 45px;">ZEMLJEVID NEPREMIČNIN</button>
+			</div>
+			<div class="modal fade" id="zemljevid" tabindex="-1" role="dialog" aria-labelledby="zemljevid" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="zemljevid-naslov">LOKACIJE NEPREMIČNIN</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body" style="height: 400px;">
+							<div id="zemljevidNepremicnin" style="height: 100%;"></div>
+						</div>
+					</div></div></div>
 
 			<!-- Start service Area -->
 			<section class="service-area section-gap" id="service" style="padding-top: 60px; padding-bottom: 60px;">
@@ -666,6 +682,53 @@
 			<script src="js/ion.rangeSlider.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>
+		<script>
+            var map;
+            var bounds;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('zemljevidNepremicnin'), {
+                    center: {lat: 46.1219704, lng: 14.3290785},
+                    zoom: 9
+                });
+                bounds = new google.maps.LatLngBounds();
+            }
+
+            var testArray = ["Kotlje 16, Kotlje", "Na fari 8, Prevalje", "gosposvetska cesta 46, maribor"];
+
+            function codeAddress(addressArray){      //polje naslovov, objekt mapa
+                geocoder = new google.maps.Geocoder();
+
+                var icon = {
+                    url: "home-512.png", // url
+                    scaledSize: new google.maps.Size(25, 25), // scaled size
+                    origin: new google.maps.Point(0,0), // origin
+                    anchor: new google.maps.Point(0, 0) // anchor
+                };
+
+                for(var i=0; i<addressArray.length; i++){
+                    geocoder.geocode({
+                        'address': addressArray[i]
+                    }, function (results, status) {
+                        if(status === google.maps.GeocoderStatus.OK){
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+
+                            bounds.extend(marker.position); //razširim meje, da mapa vključuje vse markerje
+                        }
+                    });
+                }
+            }
+
+            $(document).ready(function(){
+                initMap();
+                codeAddress(testArray);
+				$('#zemljevid').on('shown.bs.modal', function(){
+                    map.fitBounds(bounds);
+				});
+            });
+		</script>
 		</body>
 	</html>
