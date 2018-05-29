@@ -345,7 +345,7 @@
 												<div class="d-flex justify-content-start">
 													<p>Garaža:
 														<c:choose>
-															<c:when test="${nepremicnina.garaza}==true">
+															<c:when test="${nepremicnina.garaza}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -355,7 +355,7 @@
 													</p>
 													<p>Balkon:
 														<c:choose>
-															<c:when test="${nepremicnina.balkon}==true">
+															<c:when test="${nepremicnina.balkon}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -363,7 +363,14 @@
 															</c:otherwise>
 														</c:choose>
 													</p>
-													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+													<p>Prenova: <c:choose>
+														<c:when test="${nepremicnina.letoPrenove>0}">
+															<span class="gr">${nepremicnina.letoPrenove}</span>
+														</c:when>
+														<c:otherwise>
+															<span class="rd">/</span>
+														</c:otherwise>
+													</c:choose></p>
 												</div>
 											</div>
 										</div>
@@ -397,7 +404,7 @@
 												<div class="d-flex justify-content-start">
 													<p>Garaža:
 														<c:choose>
-															<c:when test="${nepremicnina.garaza}==true">
+															<c:when test="${nepremicnina.garaza}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -405,7 +412,14 @@
 															</c:otherwise>
 														</c:choose>
 													</p>
-													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+													<p>Prenova: <c:choose>
+														<c:when test="${nepremicnina.letoPrenove>0}">
+															<span class="gr">${nepremicnina.letoPrenove}</span>
+														</c:when>
+														<c:otherwise>
+															<span class="rd">/</span>
+														</c:otherwise>
+													</c:choose></p>
 												</div>
 											</div>
 										</div>
