@@ -48,6 +48,7 @@ public class MainController {
         }else{
             model.addAttribute("jePrijavljen", true);
         }
+        model.addAttribute("podatki", naslovDao.vrniPodatke());
         return "index";
     }
 
