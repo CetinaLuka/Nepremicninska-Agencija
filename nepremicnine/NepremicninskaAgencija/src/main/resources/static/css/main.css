@@ -2245,6 +2245,8 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .search-field {
   background-color: #fff;
   padding: 40px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  z-index: 1;
 }
 
 .search-field .app-select {
@@ -2410,12 +2412,13 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  cursor: default !important;
 }
 
 .single-service:hover {
   box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
-  cursor: pointer;
   color: #fff;
+  cursor: default !important;
 }
 
 .single-service:hover h4 {
@@ -2444,7 +2447,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .ozadje-contact {
   background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
   margin-top: 80px;
-  margin-bottom: 80px;
 }
 
 .property-area {

@@ -141,12 +141,12 @@ $(document).ready(function(){
                   hide_min_max: true,
                   keyboard: true,
                   min: 0,
-                  max: 5000,
-                  from: 1000,
-                  to: 4000,
+                  max: 1000000,
+                  from: 50000,
+                  to: 200000,
                   type: 'double',
                   step: 1,
-                  prefix: "$",
+                  prefix: "€",
                   grid: true
               });
               $("#range2").ionRangeSlider({
@@ -161,10 +161,84 @@ $(document).ready(function(){
                   prefix: "",
                   grid: true
               });
+                $("#range3").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000000,
+                    from: 50000,
+                    to: 200000,
+                    type: 'double',
+                    step: 1,
+                    prefix: "€",
+                    grid: true
+                });
+                $("#range4").ionRangeSlider({
+                hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+                $("#range5").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+                $("#range6").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000000,
+                    from: 50000,
+                    to: 200000,
+                    type: 'double',
+                    step: 1,
+                    prefix: "€",
+                    grid: true
+                });
+                $("#range7").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 1000,
+                    from: 100,
+                    to: 400,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+    });
 
 
+function menjavaIskanja(){
+    if(document.getElementById("tip_nepr").value==1){
+        document.getElementById("iskanjeStanovanje").style.display="block";
+        document.getElementById("iskanjeHisa").style.display="none";
+        document.getElementById("iskanjePosest").style.display="none";
 
-
-
-
- });
+    }
+    else if(document.getElementById("tip_nepr").value==2){
+        document.getElementById("iskanjeStanovanje").style.display="none";
+        document.getElementById("iskanjeHisa").style.display="block";
+        document.getElementById("iskanjePosest").style.display="none";
+    }
+    else if(document.getElementById("tip_nepr").value==3){
+        document.getElementById("iskanjeStanovanje").style.display="none";
+        document.getElementById("iskanjeHisa").style.display="none";
+        document.getElementById("iskanjePosest").style.display="block";
+    }
+}

@@ -47,77 +47,189 @@
 								Nepremičninska Agencija
 							</h1>
 							<div class="search-field">
-								<form class="search-form" action="#">
 									 <div class="row">
 									 	<div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
 											<div class="row">
 												<div class="col">
-													<h4 class="search-title">Iščite nepremičnine za</h4>
-												</div>
-												<div class="col">
-													<div class="onoffswitch3 d-block mx-auto">
-													    <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked>
-													    <label class="onoffswitch3-label" for="myonoffswitch3">
-													        <span class="onoffswitch3-inner">
-													            <span class="onoffswitch3-active">
-													            	<span class="onoffswitch3-switch">Nakup</span>
-													            	<span class="lnr lnr-arrow-right"></span>
-													            </span>
-													            <span class="onoffswitch3-inactive">
-													            	<span class="lnr lnr-arrow-left"></span>
-													            	<span class="onoffswitch3-switch">Najem</span>
-													            </span>
-													        </span>
-													    </label>
-													</div>													
+													<h4 class="search-title">Iščite med nepremičninami:</h4>
 												</div>
 											</div>
 									 	</div>
-									    <div class="col-lg-3 col-md-6 col-xs-6">
-											<select name="location" class="app-select form-control" required>
-												<option data-display="Izberite lokacijo">Izberite lokacijo</option>
-												<option value="1">Dhaka</option>
-												<option value="2">Rangpur</option>
-												<option value="3">Bogra</option>
-											</select>
-									    </div>
-									    <div class="col-lg-3 col-md-6 col-xs-6">
-											<select name="property-type" class="app-select form-control" required>
+									    <div class="col-lg-12 col-md-12 col-xs-12">
+											<select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="app-select form-control" required>
 												<option data-display="Tip nepremičnine">Tip nepremičnine</option>
-												<option value="1">Property type 1</option>
-												<option value="2">Property type 2</option>
-												<option value="3">Property type 3</option>
+												<option value="1">Stanovanje</option>
+												<option value="2">Hiša</option>
+												<option value="3">Posest</option>
 											</select>
+											<br />
+											<br />
+											<br />
 									    </div>
-									    <div class="col-lg-3 col-md-6 col-xs-6">
-											<select name="bedroom" class="app-select form-control" required>
-												<option data-display="Spalnice">Spalnice</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-									    </div>
-									    <div class="col-lg-3 col-md-6 col-xs-6">
-											<select name="bedroom" class="app-select form-control" required>
-												<option data-display="Spalnice">Spalnice</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-									    </div>
-									    <div class="col-lg-4 range-wrap">
-									    	<p>Cena:</p>
-									    	<input type="text" id="range" value="" name="range" />
-									    </div>	
-									    <div class="col-lg-4 range-wrap">
-									    	<p>Velikost(m2):</p>
-									    	<input type="text" id="range2" value="" name="range" />
-									    </div>										    
-									    <div class="col-lg-4 d-flex justify-content-end">
-											<button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
-										</div>						  
+										 <div id="iskanjeStanovanje" style="display:none;" class="col-lg-12">
+											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
+												 <div class="row">
+													 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+														 <select name="select_pokrajina" class="app-select form-control" required>
+															 <option data-display="Pokrajina">Pokrajina</option>
+															 <option value="1">Notranjska</option>
+															 <option value="2">Primorska</option>
+															 <option value="3">Štajerska</option>
+															 <option value="4">Gorenjska</option>
+															 <option value="5">Dolenjska</option>
+															 <option value="6">Koroška</option>
+															 <option value="7">Prekmurska</option>
+														 </select>
+													 </div>
+													 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="mt-10">
+															 <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
+														 </div>
+													 </div>
+													 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="mt-10">
+															 <input type="text" name="letnik_prenove" placeholder="Letnik prenove" required class="single-input" />
+														 </div>
+													 </div>
+														 <div class="col-lg-4 col-md-6 col-xs-6">
+															 <div class="mt-10">
+																 <input type="text" name="stevilo_sob" placeholder="Število sob" required class="single-input" />
+															 </div>
+														 </div>
+													 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="switch-wrap d-flex mt-1" style="padding-top: 15px;">
+															 <div class="primary-checkbox mr-10 mt-1">
+																 <input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
+																 <label for="garaza_hisa"></label>
+															 </div>
+															 <p>Garaža</p>
+														 </div>
+													 </div>
+														 <div class="col-lg-4 col-md-6 col-xs-6">
+															 <div class="switch-wrap d-flex mt-1" style="padding-top: 15px;">
+																 <div class="primary-checkbox mr-10 mt-1">
+																	 <input type="checkbox" name="balkon" id="balkon_stanovanje" value="1"/>
+																	 <label for="balkon_stanovanje"></label>
+																 </div>
+																 <p>Balkon</p>
+															 </div>
+														 </div>
+													 <div class="col-lg-4 range-wrap">
+														 <p>Cena:</p>
+														 <input type="text" id="range" value="" name="range" />
+													 </div>
+													 <div class="col-lg-4 range-wrap">
+														 <p>Velikost stanovanja(m²):</p>
+														 <input type="text" id="range2" value="" name="range" />
+													 </div>
+													 <div class="col-lg-12 d-flex justify-content-end">
+														 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+													 </div>
+												 </div>
+											 </form>
+										 </div>
+										 <div id="iskanjeHisa" style="display:none;" class="col-lg-12">
+											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
+												 <div class="row">
+													<div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+														<select name="select_pokrajina" class="app-select form-control" required>
+															<option data-display="Pokrajina">Pokrajina</option>
+															<option value="1">Notranjska</option>
+															<option value="2">Primorska</option>
+															<option value="3">Štajerska</option>
+															<option value="4">Gorenjska</option>
+															<option value="5">Dolenjska</option>
+															<option value="6">Koroška</option>
+															<option value="7">Prekmurska</option>
+														</select>
+													</div>
+													<div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+														<select name="select_tip_hisa" class="app-select form-control" required>
+															<option data-display="Tip hiše">Tip hiše</option>
+															<option value="1">Samostojna</option>
+															<option value="2">Dvojček</option>
+															<option value="3">Vrstna</option>
+														</select>
+													</div>
+													 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="mt-10">
+															 <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
+														 </div>
+													 </div>
+													 <div class="col-lg-4 col-md-6 col-xs-6">
+														 <div class="mt-10">
+															 <input type="text" name="letnik_prenove" placeholder="Letnik prenove" required class="single-input" />
+														 </div>
+													 </div>
+													 <div class="col-lg-8 col-md-6 col-xs-6">
+														 <div class="switch-wrap d-flex mt-1" style="padding-top: 15px;">
+															 <div class="primary-checkbox mr-10 mt-1">
+																 <input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
+																 <label for="garaza_hisa"></label>
+															 </div>
+															 <p>Garaža</p>
+														 </div>
+													 </div>
+
+													<div class="col-lg-4 range-wrap">
+														<p>Cena:</p>
+														<input type="text" id="range3" value="" name="range" />
+													</div>
+													<div class="col-lg-4 range-wrap">
+														<p>Skupna velikost(m²):</p>
+														<input type="text" id="range4" value="" name="range" />
+													</div>
+													 <div class="col-lg-4 range-wrap">
+														 <p>Velikost bivalnega prostora(m²):</p>
+														 <input type="text" id="range5" value="" name="range" />
+													 </div>
+													 <div class="col-lg-12 d-flex justify-content-end">
+														<button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+													</div>
+												 </div>
+											 </form>
+										 </div>
+
+										 <div id="iskanjePosest" style="display:none;" class="col-lg-12">
+											 <form class="search-form" method="get" action="/iskanjeNepremicnin">
+												 <div class="row">
+													 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+														 <select name="select_pokrajina" class="app-select form-control" required>
+															 <option data-display="Pokrajina">Pokrajina</option>
+															 <option value="1">Notranjska</option>
+															 <option value="2">Primorska</option>
+															 <option value="3">Štajerska</option>
+															 <option value="4">Gorenjska</option>
+															 <option value="5">Dolenjska</option>
+															 <option value="6">Koroška</option>
+															 <option value="7">Prekmurska</option>
+														 </select>
+													 </div>
+														 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+															 <select name="select_tip_hisa" class="app-select form-control" required>
+																 <option data-display="Tip posesti">Tip posesti</option>
+																 <option value="1">Zazidljiva</option>
+																 <option value="2">Nezazidljiva</option>
+																 <option value="3">Kmetijsko zemljišče</option>
+															 </select>
+														 </div>
+													 <div class="col-lg-4">
+													 </div>
+													 <div class="col-lg-4 range-wrap">
+														 <p>Cena:</p>
+														 <input type="text" id="range6" value="" name="range" />
+													 </div>
+													 <div class="col-lg-4 range-wrap">
+														 <p>Velikost(m²):</p>
+														 <input type="text" id="range7" value="" name="range" />
+													 </div>
+													 <div class="col-lg-12 d-flex justify-content-end">
+														 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
+													 </div>
+												 </div>
+											 </form>
+										 </div>
 									  </div>
-							  	</form>
 							</div>
 						</div>
 					</div>
@@ -125,14 +237,31 @@
 			</section>
 			<!-- End banner Area -->
 
+			<div class="col-lg-12 text-center">
+				<button class="primary-btn mt-50 text-center " style="padding-right: 30px" data-toggle="modal" data-target="#zemljevid" style="height: 45px;">ZEMLJEVID NEPREMIČNIN</button>
+			</div>
+			<div class="modal fade" id="zemljevid" tabindex="-1" role="dialog" aria-labelledby="zemljevid" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="zemljevid-naslov">LOKACIJE NEPREMIČNIN</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body" style="height: 400px;">
+							<div id="zemljevidNepremicnin" style="height: 100%;"></div>
+						</div>
+					</div></div></div>
+
 			<!-- Start service Area -->
-			<section class="service-area section-gap" id="service">
+			<section class="service-area section-gap" id="service" style="padding-top: 60px; padding-bottom: 60px;">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
 							<h1>Zakaj izbrati nas?</h1>
 							<p>
-								Izbira nepremičninskih agencij je velika. Zaradi spodnjih razlogov se boste odločili za nas!
+								Ob nakupu nepremičnine igra veliko vlogo dobra izbira nepremičninske agencije. Pri nas se lahko pohvalimo z mnogimi vrlinami.
 							</p>
 						</div>
 					</div>
@@ -141,7 +270,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-user"></span>Izkušenost agentov</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Vsi naši nepremičninski agenti se na svoje delo spoznajo, so zanj izučeni in vam vedno pripravljeni pomagati.
 								</p>
 							</div>
 						</div>
@@ -149,7 +278,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-license"></span>Profesionalne storitve</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Zagotavljamo profesionalen odnos vseh naših zaposlenih ob koriščenju naših storitev.
 								</p>								
 							</div>
 						</div>
@@ -157,7 +286,7 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-phone"></span>Podpora in pomoč</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Za kakršnakoli vprašanja smo v delovnem času dostopni preko elektronske pošte in preko telefona.
 								</p>								
 							</div>
 						</div>
@@ -165,23 +294,23 @@
 							<div class="single-service">
 								<h4><span class="lnr lnr-rocket"></span>Tehnična znanja</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Vsi zaposleni se spoznajo na svojo stroko in vam lahko zagotovijo točne in uporabne informacije.
 								</p>				
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-diamond"></span>Dolgoletna priznanost</h4>
+								<h4><span class="lnr lnr-diamond"></span>Dolgoletna tradicija</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Podjetje se lahko pohvali z uspešnim delovanjem že od same ustanovitve leta 1998.
 								</p>								
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-service">
-								<h4><span class="lnr lnr-bubble"></span>Pozitivna mnenja</h4>
+								<h4><span class="lnr lnr-bubble"></span>Zadovoljne stranke</h4>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									Za vsako stranko posebej poskrbimo kot se le najboljše da. To pričajo tudi njihova mnoga pozitivna mnenja.
 								</p>									
 							</div>
 						</div>						
@@ -198,7 +327,7 @@
 						<div class="col-md-8 pb-40 header-text">
 							<h1>Zadnje nepremičnine</h1>
 							<p>
-								Oglejte si nepremičnine, ki so bile v prodajo dodane najbolj nedavno.
+								Oglejte si nabor nedavno dodanih nepremičnin.
 							</p>
 						</div>
 					</div>
@@ -209,7 +338,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 stanovanje" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
@@ -232,7 +361,7 @@
 												<div class="d-flex justify-content-start">
 													<p>Garaža:
 														<c:choose>
-															<c:when test="${nepremicnina.garaza}==true">
+															<c:when test="${nepremicnina.garaza}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -242,7 +371,7 @@
 													</p>
 													<p>Balkon:
 														<c:choose>
-															<c:when test="${nepremicnina.balkon}==true">
+															<c:when test="${nepremicnina.balkon}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -250,7 +379,14 @@
 															</c:otherwise>
 														</c:choose>
 													</p>
-													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+													<p>Prenova: <c:choose>
+														<c:when test="${nepremicnina.letoPrenove>0}">
+															<span class="gr">${nepremicnina.letoPrenove}</span>
+														</c:when>
+														<c:otherwise>
+															<span class="rd">/</span>
+														</c:otherwise>
+													</c:choose></p>
 												</div>
 											</div>
 										</div>
@@ -262,7 +398,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 hisa" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
@@ -284,7 +420,7 @@
 												<div class="d-flex justify-content-start">
 													<p>Garaža:
 														<c:choose>
-															<c:when test="${nepremicnina.garaza}==true">
+															<c:when test="${nepremicnina.garaza}">
 																<span class="gr">Da</span>
 															</c:when>
 															<c:otherwise>
@@ -292,7 +428,14 @@
 															</c:otherwise>
 														</c:choose>
 													</p>
-													<p>Prenova: <span>${nepremicnina.letoPrenove}</span></p>
+													<p>Prenova: <c:choose>
+														<c:when test="${nepremicnina.letoPrenove>0}">
+															<span class="gr">${nepremicnina.letoPrenove}</span>
+														</c:when>
+														<c:otherwise>
+															<span class="rd">/</span>
+														</c:otherwise>
+													</c:choose></p>
 												</div>
 											</div>
 										</div>
@@ -304,7 +447,7 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 posest" style="height:400px;">
 										<div class="images">
-											<a href="img/s1.jpg">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
@@ -334,7 +477,7 @@
 			</section>
 			<!-- End property Area -->
 			<!-- Start city Area -->
-			<section class="city-area section-gap">
+			<section class="city-area section-gap" style="padding-top: 60px; padding-bottom: 0px;">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-lg-12 col-md-8 pb-40 header-text text-center">
@@ -461,8 +604,8 @@
 			<!-- End About Area -->
 		
 			<!-- Start contact-info Area -->
-			<section class="contact-info-area section-gap relative"  id="contact">
-				<div class="overlay ozadje-contact"></div>
+			<section class="contact-info-area section-gap relative"  id="contact" style="padding-bottom: 40px;">
+				<div class="overlay ozadje-contact" style="margin-bottom:0px;"></div>
 				<div class="container">
 					<div class="row">
 						<div class="single-info col-lg-3 col-md-6">
@@ -504,12 +647,13 @@
 			<section class="contact-area">
 				<div class="container-fluid">
 					<div class="row align-items-center d-flex justify-content-start">
-						<div class="col-lg-6 col-md-12 text-center no-padding">
+						<div class="col-lg-12 col-md-12 no-padding">
 
 							<!-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 -->
-								<iframe width="540" height="545" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
+								<iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJf4rU2K93b0cRLmIL3dGAiTk&key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8" allowfullscreen></iframe>
 						</div>
-						<div class="col-lg-4 col-md-12 pt-100 pb-100">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-6 col-md-12 pt-50 pb-50">
 							<form class="form-area" id="myForm" action="mailto:agencija.praktikum@gmail.com" method="GET" class="contact-form text-right">
 								<input name="ime" placeholder="Vnesite vaše ime" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaše ime'" class="common-input mt-10" required="" type="text">
 								<input name="email" placeholder="Vnesite vaš email naslov" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vnesite vaš email naslov'" class="common-input mt-10" required="" type="email">
@@ -538,6 +682,53 @@
 			<script src="js/ion.rangeSlider.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>
+		<script>
+            var map;
+            var bounds;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('zemljevidNepremicnin'), {
+                    center: {lat: 46.1219704, lng: 14.3290785},
+                    zoom: 9
+                });
+                bounds = new google.maps.LatLngBounds();
+            }
+
+            var testArray = ["Kotlje 16, Kotlje", "Na fari 8, Prevalje", "gosposvetska cesta 46, maribor"];
+
+            function codeAddress(addressArray){      //polje naslovov, objekt mapa
+                geocoder = new google.maps.Geocoder();
+
+                var icon = {
+                    url: "home-512.png", // url
+                    scaledSize: new google.maps.Size(25, 25), // scaled size
+                    origin: new google.maps.Point(0,0), // origin
+                    anchor: new google.maps.Point(0, 0) // anchor
+                };
+
+                for(var i=0; i<addressArray.length; i++){
+                    geocoder.geocode({
+                        'address': addressArray[i]
+                    }, function (results, status) {
+                        if(status === google.maps.GeocoderStatus.OK){
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+
+                            bounds.extend(marker.position); //razširim meje, da mapa vključuje vse markerje
+                        }
+                    });
+                }
+            }
+
+            $(document).ready(function(){
+                initMap();
+                codeAddress(testArray);
+				$('#zemljevid').on('shown.bs.modal', function(){
+                    map.fitBounds(bounds);
+				});
+            });
+		</script>
 		</body>
 	</html>

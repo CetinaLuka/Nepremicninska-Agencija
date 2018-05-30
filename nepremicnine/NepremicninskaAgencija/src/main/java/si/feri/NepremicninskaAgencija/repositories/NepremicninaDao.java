@@ -213,7 +213,7 @@ public class NepremicninaDao {
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
         if(zac==2000&&konc==3342){
-            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslova=nepremicnina.tk_id_naslov AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
             ret = new ArrayList<Nepremicnina>();
             rows = jdbcTemplate.queryForList(sql, zac, konc);
         }
@@ -227,7 +227,7 @@ public class NepremicninaDao {
             double cena=(double)row.get("cena");
             double kvadraturaBivalnegaProstora=0;
             if(row.get("kvadraturaBivalnegaProstora")!=null)
-                kvadraturaBivalnegaProstora=(double)row.get("svadraturaBivalnegaProstora");
+                kvadraturaBivalnegaProstora=(double)row.get("kvadraturaBivalnegaProstora");
             double skupnaKvadratura=(double)row.get("SkupnaKvadratura");
             int steviloSob=0;
             if(row.get("steviloSob")!=null)
