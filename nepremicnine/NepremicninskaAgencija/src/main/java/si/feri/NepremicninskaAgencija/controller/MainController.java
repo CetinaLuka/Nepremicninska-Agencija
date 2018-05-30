@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
+import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 import si.feri.NepremicninskaAgencija.repositories.*;
 
@@ -14,6 +16,8 @@ import si.feri.NepremicninskaAgencija.repositories.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -115,7 +119,26 @@ public class MainController {
         }
         return "iskanjeNepremicnin";
     }
-
+    static boolean sortCena = false;
+    @RequestMapping(value = {"/sortiranjeKontrolna" }, method = RequestMethod.GET, params = {"vrsta"})
+    public String sortiranje(@RequestParam( value = "vrsta") String vrsta, HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(true);
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
+        List<Nepremicnina> seznamNepremicnin = nepremicninaDao.vrniVseOdAgenta(tk_agent);
+        if(vrsta.equals("cena"))
+            if(sortCena==false) {
+                Collections.sort(seznamNepremicnin, new PrimerjajCena());
+                sortCena = true;
+            }
+            else{
+                Collections.sort(seznamNepremicnin, new PrimerjajCena().reversed());
+                sortCena = false;
+            }
+        else if(vrsta.equals("kvadratura"))
+            Collections.sort(seznamNepremicnin, new PrimerjajKvadratura());
+        model.addAttribute("seznamNepremicnin", seznamNepremicnin);
+        return "kontrolnaPlosca";
+    }
 
     //testen prikaz vseh vnosov
     @RequestMapping(value = {"/seznamVseh" }, method = RequestMethod.GET)
@@ -129,7 +152,6 @@ public class MainController {
         }
         return "seznamVseh";
     }
-
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
@@ -150,7 +172,6 @@ public class MainController {
         model.addAttribute("zasluzek",  (nepremicninaDao.skupnaCenaNepremicnin(tk_agent)*0.1));
         model.addAttribute("jePrijavljen", true);
         return "kontrolnaPlosca";
-
         //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
 
@@ -160,4 +181,4 @@ public class MainController {
                nepremicninaDao.zbrisiNepremicnino(idZaIzbris);
                return true;
           }
-}
+    }

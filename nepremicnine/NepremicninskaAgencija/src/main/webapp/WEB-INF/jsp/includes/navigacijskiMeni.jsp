@@ -5,7 +5,7 @@
 
     <nav class="navbar navbar-expand-lg  navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="index">
+            <a class="navbar-brand" href="/index">
                 <img src="/img/logo/logo2.svg" alt="ikonična slika" height="50" width="70">
             </a>
             <!-- Gumb pri pomanjšanju-->
@@ -56,11 +56,11 @@
         kontakt = document.getElementById('povezavaKontakt');
         try {
             if (dolocenaPovezava) {
-
-                domov.href = '/#home';
-                storitve.href = '/#service';
-                ponudba.href = '/#property';
-                kontakt.href = '/#contact';
+//tu ne črtice!!!!
+                domov.href = '#home';
+                storitve.href = '#service';
+                ponudba.href = '#property';
+                kontakt.href = '#contact';
 
             }
         } catch (e) {
