@@ -694,29 +694,38 @@
                 bounds = new google.maps.LatLngBounds();
             }
 
-            var testArray = ["Kotlje 16, Kotlje", "Na fari 8, Prevalje", "gosposvetska cesta 46, maribor"];
+            var testArray=new Array();
 
-            function codeAddress(addressArray){      //polje naslovov, objekt mapa
+            <c:forEach  items="${podatki}" var ="p">
+				var niz="${p.ulica} ${p.hisnaSt} ${p.imeKraja}";
+				testArray.push(niz);
+            </c:forEach>
+
+            function codeAddress(addressArray){
                 geocoder = new google.maps.Geocoder();
 
-                var icon = {
-                    url: "home-512.png", // url
-                    scaledSize: new google.maps.Size(25, 25), // scaled size
-                    origin: new google.maps.Point(0,0), // origin
-                    anchor: new google.maps.Point(0, 0) // anchor
-                };
+                var icon= {
+                        //  url: "img/stanovanje.png"
+                        url: "img/hisa.png",
+                        //url: "img/posest.png"
+                        scaledSize: new google.maps.Size(25, 25),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(0, 0)
+                    };
+
 
                 for(var i=0; i<addressArray.length; i++){
                     geocoder.geocode({
                         'address': addressArray[i]
                     }, function (results, status) {
-                        if(status === google.maps.GeocoderStatus.OK){
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: results[0].geometry.location
-                            });
+                        if(status === google.maps.GeocoderStatus.OK) {
+                                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: results[0].geometry.location,
+                                    icon: icon
+                                });
 
-                            bounds.extend(marker.position); //razširim meje, da mapa vključuje vse markerje
+                                bounds.extend(marker.position);
                         }
                     });
                 }
