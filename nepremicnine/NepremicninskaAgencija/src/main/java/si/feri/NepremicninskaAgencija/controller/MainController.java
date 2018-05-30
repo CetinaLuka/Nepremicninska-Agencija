@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 import si.feri.NepremicninskaAgencija.repositories.*;
@@ -49,7 +48,6 @@ public class MainController {
         }else{
             model.addAttribute("jePrijavljen", true);
         }
-        model.addAttribute("podatki", naslovDao.vrniPodatke());
         return "index";
     }
 
@@ -105,8 +103,7 @@ public class MainController {
         HttpSession session = request.getSession(true);
         if(session.getAttribute("trenutniUporabnik") == null){
             model.addAttribute("jePrijavljen", false);
-        }
-        else{
+        }else{
             model.addAttribute("jePrijavljen", true);
         }
         return "dodajanjeNepremicnin";
@@ -121,6 +118,26 @@ public class MainController {
             model.addAttribute("jePrijavljen", true);
         }
         return "iskanjeNepremicnin";
+    }
+    static boolean sortCena = false;
+    @RequestMapping(value = {"/sortiranjeKontrolna" }, method = RequestMethod.GET, params = {"vrsta"})
+    public String sortiranje(@RequestParam( value = "vrsta") String vrsta, HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(true);
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
+        List<Nepremicnina> seznamNepremicnin = nepremicninaDao.vrniVseOdAgenta(tk_agent);
+        if(vrsta.equals("cena"))
+            if(sortCena==false) {
+                Collections.sort(seznamNepremicnin, new PrimerjajCena());
+                sortCena = true;
+            }
+            else{
+                Collections.sort(seznamNepremicnin, new PrimerjajCena().reversed());
+                sortCena = false;
+            }
+        else if(vrsta.equals("kvadratura"))
+            Collections.sort(seznamNepremicnin, new PrimerjajKvadratura());
+        model.addAttribute("seznamNepremicnin", seznamNepremicnin);
+        return "kontrolnaPlosca";
     }
 
     //testen prikaz vseh vnosov
