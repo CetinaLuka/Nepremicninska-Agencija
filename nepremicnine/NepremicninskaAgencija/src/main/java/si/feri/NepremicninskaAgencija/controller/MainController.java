@@ -157,22 +157,24 @@ public class MainController {
         model.addAttribute("message");
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
-        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
-        model.addAttribute("agent", agentDao.vrniAgenta(tk_agent));
-        model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVseOdAgenta(tk_agent));
-        if(slikaDao.obstajaSlikaAgenta(tk_agent)){
-            model.addAttribute("profilnaSlika","data:image/jpeg;base64,"+slikaDao.vrniSlikoAgenta(tk_agent).getURLSlike());
+        if(session.getAttribute("trenutniUporabnik")==null)
+            return "redirect:/prijava";
+        else {
+            int tk_agent = Integer.parseInt("" + session.getAttribute("trenutniUporabnik"));
+            model.addAttribute("agent", agentDao.vrniAgenta(tk_agent));
+            model.addAttribute("seznamNepremicnin", nepremicninaDao.vrniVseOdAgenta(tk_agent));
+            if (slikaDao.obstajaSlikaAgenta(tk_agent)) {
+                model.addAttribute("profilnaSlika", "data:image/jpeg;base64," + slikaDao.vrniSlikoAgenta(tk_agent).getURLSlike());
+            } else {
+                model.addAttribute("profilnaSlika", "../img/privzetaProfilna.png");
+            }
+            model.addAttribute("stProdanihNepremicnin", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, true));
+            model.addAttribute("stNepremicninNaprodaj", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, false));
+            model.addAttribute("cenaProdanihNepremicnin", nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
+            model.addAttribute("zasluzek", (nepremicninaDao.skupnaCenaNepremicnin(tk_agent) * 0.1));
+            model.addAttribute("jePrijavljen", true);
+            return "kontrolnaPlosca";
         }
-        else{
-            model.addAttribute("profilnaSlika","../img/privzetaProfilna.png");
-        }
-        model.addAttribute("stProdanihNepremicnin", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, true));
-        model.addAttribute("stNepremicninNaprodaj",  nepremicninaDao.vrniSteviloNepremicnin(tk_agent, false));
-        model.addAttribute("cenaProdanihNepremicnin",  nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
-        model.addAttribute("zasluzek",  (nepremicninaDao.skupnaCenaNepremicnin(tk_agent)*0.1));
-        model.addAttribute("jePrijavljen", true);
-        return "kontrolnaPlosca";
-        //DODAJ, ČE NI PRIJAVLJEN GA REDIRECTA
     }
 
     @RequestMapping(value = {"/zbrisiNepremicnino" }, method = RequestMethod.DELETE, params = {"idZaIzbris"})
