@@ -138,6 +138,25 @@ public class NepremicninaDao {
         return ret;
     }
 
+    public List<Nepremicnina> vrniVseProdaneOdAgenta(int Agent_idAgent){
+        List<Nepremicnina> ret = vrniVseOdAgenta(Agent_idAgent);
+        List<Nepremicnina> ret2= new ArrayList<Nepremicnina>();
+        for(Nepremicnina n:ret){
+            if(n.getProdano()==true)
+                ret2.add(n);
+        }
+        return ret2;
+    }
+    public List<Nepremicnina> vrniVseNeprodaneOdAgenta(int Agent_idAgent){
+        List<Nepremicnina> ret = vrniVseOdAgenta(Agent_idAgent);
+        List<Nepremicnina> ret2= new ArrayList<Nepremicnina>();
+        for(Nepremicnina n:ret){
+            if(n.getProdano()==false)
+                ret2.add(n);
+        }
+        return ret2;
+    }
+
     public List<Integer> vrniIDStanovanja(String cena, String kvadratura, String stevilo_sob, String letnik_izgradnje, String nadstropje, int letnik_prenove, String garaza, String balkon , String dodaten_opis, int prodano, int tk_naslov, int tk_vrstaNepr, int tk_agent){
         String sql = "SELECT nepremicnina.idNepremicnina FROM nepremicnina WHERE cena=? AND skupnaKvadratura=? AND steviloSob=? AND letoIzgradnje=? AND nadstropje=? AND letoPrenove=? AND garaza=? AND balkon=? AND opis=? AND prodano=? AND tk_id_naslov=? AND tk_id_vrstaNepremicnine=? AND Agent_idAgent=?";
         List<Integer> ret = new ArrayList<Integer>();
