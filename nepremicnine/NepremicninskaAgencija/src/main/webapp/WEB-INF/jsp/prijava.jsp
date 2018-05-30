@@ -111,7 +111,7 @@
                                </div>
                                     <div class="col-6 text-right">
                                      <a href="/registracija" >
-                                         <p>Želim se registrirat!</p>
+                                         <p>Želim se registrirati!</p>
                                      </a>
                                     </div>
                             </div>
