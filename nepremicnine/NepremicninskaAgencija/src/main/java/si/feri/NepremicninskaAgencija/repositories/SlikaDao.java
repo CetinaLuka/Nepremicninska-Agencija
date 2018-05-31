@@ -1,12 +1,8 @@
 package si.feri.NepremicninskaAgencija.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
@@ -15,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import si.feri.NepremicninskaAgencija.models.Slika;
 
 import java.io.*;
-import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
