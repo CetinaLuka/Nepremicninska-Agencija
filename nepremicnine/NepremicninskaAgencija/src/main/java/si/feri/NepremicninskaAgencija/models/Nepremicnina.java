@@ -245,11 +245,13 @@ public class Nepremicnina{
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
     }
 
-    public Nepremicnina(Integer tk_id_vrstaNepremicnine, String ulica,String hisnaSt,String imeKraja){
+    public Nepremicnina(Integer id, Integer tk_id_vrstaNepremicnine, String ulica,String hisnaSt,String imeKraja, Double cena){
         this.tk_id_vrstaNepremicnine=tk_id_vrstaNepremicnine;
         this.ulica=ulica;
         this.hisnaSt=hisnaSt;
         this.imeKraja=imeKraja;
+        this.idNepremicnina=id;
+        this.cena=cena;
 
     }
 }

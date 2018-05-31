@@ -698,20 +698,49 @@
             var testArray=[];
             var vrsta=[];
             var contentString =[];
-
+			var niz;
+			var niz2;
+			var v;
             <c:forEach  items="${podatki}" var ="p">
-				var niz="${p.ulica} ${p.hisnaSt}, ${p.imeKraja}";
+				niz="${p.ulica} ${p.hisnaSt}, ${p.imeKraja}";
 				testArray.push(niz);
 				vrsta.push(${p.tk_id_vrstaNepremicnine});
-				var v;
 				<c:if test="${p.tk_id_vrstaNepremicnine==1}"> v='stanovanje' </c:if>
                 <c:if test="${p.tk_id_vrstaNepremicnine==2}"> v='hiša' </c:if>
                 <c:if test="${p.tk_id_vrstaNepremicnine==3}"> v='posest' </c:if>
-				var niz2='<div id="content">'+
+				niz2='<div id="content">'+
                     '<h5 id="firstHeading">'+ v +'</h5>'+
-                    '<div id="bodyContent">'+niz+'</div>'+'</div>';
+                    '<div id="bodyContent"> ${p.imeKraja},  ${p.cena}€ </div><hr/>'+
+                    '<div><a href="prikazNepremicnine/${p.idNepremicnina}">poglej</a></div></div>';
 				contentString.push(niz2);
             </c:forEach>
+
+            function addMarkers(addressArray, geocoder, counter, ikone){
+                if(counter === addressArray.length){
+                    return;
+				}
+                geocoder.geocode({
+                    'address': addressArray[counter]
+                }, function (results, status) {
+                    if(status === google.maps.GeocoderStatus.OK) {
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            icon: ikone[vrsta[counter]]
+                        });
+                        marker.addListener('click', function() {
+                            infowindow.open(map, this);
+                        });
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString[counter],
+                            maxWidth: 200
+                        });
+
+                        bounds.extend(marker.position);
+                        addMarkers(addressArray, geocoder, counter+1, ikone);
+                    }
+                });
+            }
 
             function codeAddress(addressArray) {
                 geocoder = new google.maps.Geocoder();
@@ -735,30 +764,9 @@
                         origin: new google.maps.Point(0, 0),
                         anchor: new google.maps.Point(0, 0)
                     }
-            };
+            	};
 
-                for(var i=0; i<addressArray.length; i++){
-                    geocoder.geocode({
-                        'address': addressArray[i]
-                    }, function (results, status) {
-                        if(status === google.maps.GeocoderStatus.OK) {
-                                 marker = new google.maps.Marker({
-                                    map: map,
-                                    position: results[0].geometry.location,
-                                    icon: ikone[vrsta[2]]
-                                });
-                            marker.addListener('click', function() {
-                                infowindow.open(map, this);
-                            });
-                            var infowindow = new google.maps.InfoWindow({
-                                content: contentString[1],
-                                maxWidth: 200
-                            });
-
-                                bounds.extend(marker.position);
-                        }
-                    });
-                }
+				addMarkers(addressArray, geocoder, 0, ikone);
             }
 
             $(document).ready(function(){
