@@ -343,4 +343,175 @@ public class NepremicninaDao {
         }
         return 1;
     }
+
+    public List<Nepremicnina> iskanjePosest(int zac, int konc,String tip_posesti,String [] razpon_cena, String [] razpon_skupnaKvadratura){
+        List<Nepremicnina> ret;
+        List<Map<String, Object>> rows;
+        if(zac==2000&&konc==3342){
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.tipPosesti=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, tip_posesti, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
+        }
+        else {
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.tipPosesti=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, tip_posesti, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
+        }
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremicnina");
+            double cena=(double)row.get("cena");
+            double kvadraturaBivalnegaProstora=0;
+            if(row.get("kvadraturaBivalnegaProstora")!=null)
+                kvadraturaBivalnegaProstora=(double)row.get("kvadraturaBivalnegaProstora");
+            double skupnaKvadratura=(double)row.get("skupnaKvadratura");
+            int steviloSob=0;
+            if(row.get("steviloSob")!=null)
+                steviloSob=(int)row.get("steviloSob");
+            int nadstropje=0;
+            if(row.get("nadstropje")!=null)
+                nadstropje=(int)row.get("nadstropje");
+            int letoIzgradnje=0;
+            if(row.get("letoIzgradnje")!=null)
+                letoIzgradnje=(int)row.get("letoIzgradnje");
+            int letoPrenove=0;
+            if(row.get("letoPrenove")!=null)
+                letoPrenove=(int)row.get("letoPrenove");
+            Boolean garaza=false;
+            if(row.get("garaza")!=null)
+                garaza=(Boolean)row.get("garaza");
+            Boolean balkon=false;
+            if(row.get("balkon")!=null)
+                balkon=(Boolean)row.get("balkon");
+            String opis="";
+            if(row.get("opis")!=null)
+                opis=(String)row.get("opis");
+            String vrstaHise="";
+            if(row.get("vrstaHise")!=null)
+                vrstaHise=(String)row.get("vrstaHise");
+            String tipPosesti="";
+            if(row.get("tipPosesti")!=null)
+                tipPosesti=(String)row.get("tipPosesti");
+            Boolean prodano=(Boolean)row.get("prodano");
+            Date datumObjave=(Date)row.get("datumObjave");
+            int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
+            int tk_id_agent = (int)row.get("Agent_idAgent");
+            int tk_id_naslov = (int)row.get("tk_id_naslov");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+        }
+        return ret;
+    }
+
+    public List<Nepremicnina> iskanjeHisa(int zac, int konc,String tip_hisa, String letnik_izgradnje, String letnik_prenove, String garaza_vnos, String [] razpon_cena, String [] razpon_skupnaKvadratura, String [] razpon_kvadratura){
+        List<Nepremicnina> ret;
+        List<Map<String, Object>> rows;
+        if(zac==2000&&konc==3342){
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.vrstaHise=? AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.garaza=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND nepremicnina.kvadraturaBivalnegaProstora BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, tip_hisa, letnik_izgradnje, letnik_prenove, garaza_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], razpon_kvadratura[0], razpon_kvadratura[1], zac, konc);
+        }
+        else {
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.vrstaHise=? AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.garaza=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND nepremicnina.kvadraturaBivalnegaProstora BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, tip_hisa, letnik_izgradnje, letnik_prenove, garaza_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], razpon_kvadratura[0], razpon_kvadratura[1], zac, konc);
+        }
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremicnina");
+            double cena=(double)row.get("cena");
+            double kvadraturaBivalnegaProstora=0;
+            if(row.get("kvadraturaBivalnegaProstora")!=null)
+                kvadraturaBivalnegaProstora=(double)row.get("kvadraturaBivalnegaProstora");
+            double skupnaKvadratura=(double)row.get("skupnaKvadratura");
+            int steviloSob=0;
+            if(row.get("steviloSob")!=null)
+                steviloSob=(int)row.get("steviloSob");
+            int nadstropje=0;
+            if(row.get("nadstropje")!=null)
+                nadstropje=(int)row.get("nadstropje");
+            int letoIzgradnje=0;
+            if(row.get("letoIzgradnje")!=null)
+                letoIzgradnje=(int)row.get("letoIzgradnje");
+            int letoPrenove=0;
+            if(row.get("letoPrenove")!=null)
+                letoPrenove=(int)row.get("letoPrenove");
+            Boolean garaza=false;
+            if(row.get("garaza")!=null)
+                garaza=(Boolean)row.get("garaza");
+            Boolean balkon=false;
+            if(row.get("balkon")!=null)
+                balkon=(Boolean)row.get("balkon");
+            String opis="";
+            if(row.get("opis")!=null)
+                opis=(String)row.get("opis");
+            String vrstaHise="";
+            if(row.get("vrstaHise")!=null)
+                vrstaHise=(String)row.get("vrstaHise");
+            String tipPosesti="";
+            if(row.get("tipPosesti")!=null)
+                tipPosesti=(String)row.get("tipPosesti");
+            Boolean prodano=(Boolean)row.get("prodano");
+            Date datumObjave=(Date)row.get("datumObjave");
+            int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
+            int tk_id_agent = (int)row.get("Agent_idAgent");
+            int tk_id_naslov = (int)row.get("tk_id_naslov");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+        }
+        return ret;
+    }
+
+    public List<Nepremicnina> iskanjeStanovanje(int zac, int konc,String letnik_izgradnje, String letnik_prenove, String stSob_vnos, String garaza_vnos, String balkon_vnos, String [] razpon_cena, String [] razpon_skupnaKvadratura){
+        List<Nepremicnina> ret;
+        List<Map<String, Object>> rows;
+        if(zac==2000&&konc==3342){
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.steviloSob=? AND nepremicnina.garaza=? AND nepremicnina.balkon=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, letnik_izgradnje, letnik_prenove, stSob_vnos, garaza_vnos, balkon_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
+        }
+        else {
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.steviloSob=? AND nepremicnina.garaza=? AND nepremicnina.balkon=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND ?";
+            ret = new ArrayList<Nepremicnina>();
+            rows = jdbcTemplate.queryForList(sql, letnik_izgradnje, letnik_prenove, stSob_vnos, garaza_vnos, balkon_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
+        }
+        for (Map row : rows) {
+            int id = (int)row.get("idNepremicnina");
+            double cena=(double)row.get("cena");
+            double kvadraturaBivalnegaProstora=0;
+            if(row.get("kvadraturaBivalnegaProstora")!=null)
+                kvadraturaBivalnegaProstora=(double)row.get("kvadraturaBivalnegaProstora");
+            double skupnaKvadratura=(double)row.get("skupnaKvadratura");
+            int steviloSob=0;
+            if(row.get("steviloSob")!=null)
+                steviloSob=(int)row.get("steviloSob");
+            int nadstropje=0;
+            if(row.get("nadstropje")!=null)
+                nadstropje=(int)row.get("nadstropje");
+            int letoIzgradnje=0;
+            if(row.get("letoIzgradnje")!=null)
+                letoIzgradnje=(int)row.get("letoIzgradnje");
+            int letoPrenove=0;
+            if(row.get("letoPrenove")!=null)
+                letoPrenove=(int)row.get("letoPrenove");
+            Boolean garaza=false;
+            if(row.get("garaza")!=null)
+                garaza=(Boolean)row.get("garaza");
+            Boolean balkon=false;
+            if(row.get("balkon")!=null)
+                balkon=(Boolean)row.get("balkon");
+            String opis="";
+            if(row.get("opis")!=null)
+                opis=(String)row.get("opis");
+            String vrstaHise="";
+            if(row.get("vrstaHise")!=null)
+                vrstaHise=(String)row.get("vrstaHise");
+            String tipPosesti="";
+            if(row.get("tipPosesti")!=null)
+                tipPosesti=(String)row.get("tipPosesti");
+            Boolean prodano=(Boolean)row.get("prodano");
+            Date datumObjave=(Date)row.get("datumObjave");
+            int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
+            int tk_id_agent = (int)row.get("Agent_idAgent");
+            int tk_id_naslov = (int)row.get("tk_id_naslov");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+        }
+        return ret;
+    }
 }

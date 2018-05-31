@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
@@ -16,10 +17,7 @@ import si.feri.NepremicninskaAgencija.repositories.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class MainController {
@@ -54,7 +52,7 @@ public class MainController {
     }
 
     @RequestMapping(value = { "/iskanjeNepremicninPoRegiji" }, method = RequestMethod.GET)
-    public String iskanjeNepremicninPoRegiji(Model model,@RequestParam(value="regija")int regija) {
+    public String iskanjeNepremicninPoRegiji(RedirectAttributes red, Model model,@RequestParam(value="regija")int regija) {
         int zac=0;
         int konc=0;
         switch (regija){
@@ -68,7 +66,7 @@ public class MainController {
         }
         List<Nepremicnina> result=nepremicninaDao.iskanjePoRegiji(zac,konc);
         result=new ArrayList<Nepremicnina>(result);
-        //RESULT NEKAKO SPRAVIT DO /iskanjeNepremicnin IN TAM PRIKAZAT
+        red.addFlashAttribute("seznamIskanja",result);
         return "redirect:/iskanjeNepremicnin";
     }
 
@@ -112,7 +110,7 @@ public class MainController {
         return "dodajanjeNepremicnin";
     }
     @RequestMapping(value = {"/iskanjeNepremicnin" }, method = RequestMethod.GET)
-    public String iskanjeNeprmicnin(Model model, HttpServletRequest request) {
+    public String iskanjeNepremicnin(RedirectAttributes red, Model model, HttpServletRequest request) {
         model.addAttribute("message");
         HttpSession session = request.getSession(true);
         if(session.getAttribute("trenutniUporabnik") == null){
@@ -121,6 +119,78 @@ public class MainController {
             model.addAttribute("jePrijavljen", true);
         }
         return "iskanjeNepremicnin";
+    }
+
+    @RequestMapping(value = {"/iskanjeStanovanje" }, method = RequestMethod.GET)
+    public String iskanjeStanovanje(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija,
+                                    @RequestParam(value="letnik_izgradnje")String letnik_izgradnje, @RequestParam(value="letnik_prenove")String letnik_prenove,
+                                    @RequestParam(value="stevilo_sob")String stevilo_sob, @RequestParam(value="garaza")String garaza,
+                                    @RequestParam(value="balkon")String balkon,
+                                    @RequestParam(value="range1")String range1, @RequestParam(value="range2")String range2) {
+        model.addAttribute("message");
+        int zac=0;
+        int konc=0;
+        switch (regija){
+            case 1:zac=1000;konc=1434;break;
+            case 2:zac=5000;konc=6333;break;
+            case 3:zac=2000;konc=3342;break;
+            case 4:zac=4000;konc=4294;break;
+            case 5:zac=8000;konc=8362;break;
+            case 6:zac=2363;konc=2394;break;
+            case 7:zac=9000;konc=9265;break;
+        }
+        String [] cena=range1.split(";");
+        String [] skupnaKvadratura=range2.split(";");
+        List<Nepremicnina> list=nepremicninaDao.iskanjeStanovanje(zac,konc,letnik_izgradnje,letnik_prenove,stevilo_sob,garaza,balkon,cena,skupnaKvadratura);
+        red.addFlashAttribute("seznamIskanja",list);
+        return "redirect:/iskanjeNepremicnin";
+    }
+
+    @RequestMapping(value = {"/iskanjeHisa" }, method = RequestMethod.GET)
+    public String iskanjeHisa(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_hisa")String tip_hisa
+            , @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,@RequestParam(value="letnik_prenove")String letnik_prenove,
+            @RequestParam(value="garaza")String garaza,@RequestParam(value="range3")String range3,
+            @RequestParam(value="range4")String range4, @RequestParam(value="range5")String range5) {
+        model.addAttribute("message");
+        int zac=0;
+        int konc=0;
+        switch (regija){
+            case 1:zac=1000;konc=1434;break;
+            case 2:zac=5000;konc=6333;break;
+            case 3:zac=2000;konc=3342;break;
+            case 4:zac=4000;konc=4294;break;
+            case 5:zac=8000;konc=8362;break;
+            case 6:zac=2363;konc=2394;break;
+            case 7:zac=9000;konc=9265;break;
+        }
+        String [] cena=range3.split(";");
+        String [] skupnaKvadratura=range4.split(";");
+        String [] kvadraturaBivalnegaProstora=range5.split(";");
+        List<Nepremicnina> list=nepremicninaDao.iskanjeHisa(zac,konc,tip_hisa,letnik_izgradnje,letnik_prenove,garaza,cena,skupnaKvadratura,kvadraturaBivalnegaProstora);
+        red.addFlashAttribute("seznamIskanja",list);
+        return "redirect:/iskanjeNepremicnin";
+    }
+
+    @RequestMapping(value = {"/iskanjePosest" }, method = RequestMethod.GET)
+    public String iskanjePosest(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_posesti")String tip_posesti
+            , @RequestParam(value="range6")String range6, @RequestParam(value="range7")String range7) {
+        model.addAttribute("message");
+        int zac=0;
+        int konc=0;
+        switch (regija){
+            case 1:zac=1000;konc=1434;break;
+            case 2:zac=5000;konc=6333;break;
+            case 3:zac=2000;konc=3342;break;
+            case 4:zac=4000;konc=4294;break;
+            case 5:zac=8000;konc=8362;break;
+            case 6:zac=2363;konc=2394;break;
+            case 7:zac=9000;konc=9265;break;
+        }
+        String [] cena=range6.split(";");
+        String [] skupnaKvadratura=range7.split(";");
+        List<Nepremicnina> list=nepremicninaDao.iskanjePosest(zac,konc,tip_posesti,cena,skupnaKvadratura);
+        red.addFlashAttribute("seznamIskanja",list);
+        return "redirect:/iskanjeNepremicnin";
     }
 
     //testen prikaz vseh vnosov
@@ -165,5 +235,7 @@ public class MainController {
        public Boolean zbrisiNepremicnino(@RequestParam( value = "idZaIzbris") Integer idZaIzbris, HttpServletRequest request) {
                nepremicninaDao.zbrisiNepremicnino(idZaIzbris);
                return true;
-          }
     }
+}
+
+
