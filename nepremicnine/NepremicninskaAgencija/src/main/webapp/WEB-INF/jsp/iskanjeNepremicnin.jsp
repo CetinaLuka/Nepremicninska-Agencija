@@ -256,9 +256,8 @@
                         </div>
                         <div class="filter-vrstica text-center">
                             Sortiraj po:
-                            <button class="genric-btn default">Prodano</button>
-                            <button class="genric-btn default">Na prodaj</button>
-                            <button class="genric-btn default">Abecedi</button>
+                            <button class="genric-btn default">Dodano</button>
+                            <button class="genric-btn default">Zgrajeno/prenovljeno</button>
                             <button class="genric-btn default">Ceni</button>
                             <button class="genric-btn default">Kvadraturi</button>
                         </div>
