@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-12">
                             <div class="row profil-kartica">
-                                <div class="col-12 col-md-3 col-lg-12 text-center">
+                                <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
                                     <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
                                     <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
                                     <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
@@ -224,7 +224,7 @@
                                                                </p>
                                                         </div>
                                                         <div class="bottom d-flex">
-                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
+                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
                                                             <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
                                                         </div>
                                                     </div>
@@ -277,7 +277,7 @@
                                                             </c:choose></p>
                                                         </div>
                                                         <div class="bottom d-flex">
-                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal" >Uredi</button></p>
+                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal" >Uredi</button></p>
                                                             <p class="text-rigth"><button class="genric-btn primary"  onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina}")>Izbriši</button></p>
                                                         </div>
                                                     </div>
@@ -310,7 +310,7 @@
                                                             Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
                                                         </div>
                                                         <div class="bottom d-flex">
-                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina},${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
+                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
                                                             <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
                                                         </div>
                                                     </div>
@@ -329,15 +329,148 @@
     <!-- Modal -->
     <div class="modal fade" id="urediNepremicninoModal" tabindex="-1" role="dialog" aria-labelledby="urediNepremicninoModal" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="naslovStanovanjeModal">Urejanje hiše</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content" id="modal-vsebina">
+                <div id="stanovanje-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Urejanje stanovanja</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <s:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja" modelAttribute="uploadForm" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 col-md-9">
+                                    <!--Polje za vnos naslova(ulice) - name:naslov-->
+                                    <div class="input-group-icon mt-10">
+                                        <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <!--Polje za vnos hišne številke - name:hisna_st-->
+                                    <div class="mt-10">
+                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-9">
+                                    <!--Polje za vnos kraja - name:kraj-->
+                                    <div class="input-group-icon mt-10">
+                                        <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <!--Polje za vnos poštne številke - name:postna_st-->
+                                    <div class="mt-10">
+                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                                    <!--Polje za vnos kvadrature - name:kvadratura-->
+                                    <div class="mt-10">
+                                        <input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" value="${nepremicninaModal.skupnaKvadratura}"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                                    <!--Polje za vnos števila sob - name:stevilo_sob-->
+                                    <div class="mt-10">
+                                        <input type="text" name="stevilo_sob" placeholder="Število sob" required class="single-input" value="${nepremicninaModal.steviloSob}"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                                    <!--Polje za vnos letnika izgradnje - name:letnik_izgradnje-->
+                                    <div class="mt-10">
+                                        <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" value="${nepremicninaModal.letoIzgradnje}"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                                    <!--Polje za vnos nadstropja - name:nadstropje-->
+                                    <div class="mt-10">
+                                        <input type="text" name="nadstropje" placeholder="Nadstropje" required class="single-input" value="${nepremicninaModal.nadstropje}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <!--Polje za vnos cene - name:cena-->
+                                    <div class="input-group-icon mt-10">
+                                        <div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" value="${nepremicninaModal.cena}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <!--Checkbox za prenovljenost - name:prenovljeno-->
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
+                                            <input type="checkbox" id="prenovljeno"  data-toggle="collapse" data-target="#letnik_prenove_skrij">
+                                            <label for="prenovljeno"></label>
+                                        </div>
+                                        <p>Prenovljeno</p>
+                                    </div>
+                                    <!--Polje za vnos letnika prenove - name:letnik_prenove-->
+                                    <div class="collapse" id="letnik_prenove_skrij" >
+                                        <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" value="${nepremicninaModal.letoPrenove}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <!--Checkbox za garažo - name:garaza-->
+                                    <div class="switch-wrap d-flex mt-1 ">
+                                        <div class="primary-checkbox mr-10">
+                                            <!--input type="hidden" name="garaza" id="garazaSkrit" value="0"-->
+                                            <input type="checkbox" name="garaza" id="garaza" value="1">
+                                            <label for="garaza"></label>
+                                        </div>
+                                        <p>Garaža</p>
+                                    </div>
+                                    <!--Checkbox za balkon - name:balkon-->
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <!--input type="hidden" name="balkon" id="balkonSkrit" value="0"-->
+                                            <input type="checkbox" name="balkon" id="balkon" value="1">
+                                            <label for="balkon"></label>
+
+                                        </div>
+                                        <p>Balkon</p>
+                                    </div>
+                                    <!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
+                                    <div class="switch-wrap d-flex ">
+                                        <div class="primary-switch mr-10">
+                                            <input type="checkbox" name="dodaten_opis_stanovanja_check" id="dodaten_opis_stanovanja_check" data-toggle="collapse" data-target="#dodaten_opis_stanovanja_skrij">
+                                            <label for="dodaten_opis_stanovanja_check"></label>
+                                        </div>
+                                        <p>Dodaten opis</p>
+                                    </div>
+                                    <!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
+                                    <div class="mt-10 mb-10 collapse " id="dodaten_opis_stanovanja_skrij">
+                                        <textarea name="dodaten_opis_stanovanja" class="single-textarea" placeholder="Dodaten opis" value="${nepremicninaModal.opis}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
+                            <button type="submit" class="genric-btn info">Shrani</button>
+                        </div>
+                    </s:form>
                 </div>
-                <s:form name="dodaj_hiso_form" method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
-                    <div id="hisa-modal">
+                <div id="hisa-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Urejanje hiše</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <s:form name="dodaj_hiso_form"  method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12 col-md-8">
@@ -374,20 +507,20 @@
                                 <div class="col-xs-12 col-md-4">
                                     <!--Polje za vnos kvadrature - name:kvadratura-->
                                     <div class="mt-10">
-                                        <input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" />
+                                        <input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" value="${nepremicninaModal.kvadraturaBivalnegaProstora}"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-4">
                                     <!--Polje za vnos velikosti zemljišča - name:velikost_zemljisca-->
                                     <div class="mt-10">
-                                        <input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" required class="single-input" />
+                                        <input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" required class="single-input" value="${nepremicninaModal.skupnaKvadratura}"/>
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-md-4">
                                     <!--Polje za vnos letnika izgradnje - name:letnik_izgradnje-->
                                     <div class="mt-10">
-                                        <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
+                                        <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" value="${nepremicninaModal.letoIzgradnje}"/>
                                     </div>
                                 </div>
                             </div>
@@ -396,7 +529,7 @@
                                     <!--Polje za vnos cene - name:cena-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" />
+                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" value="${nepremicninaModal.cena}"/>
                                     </div>
                                 </div>
                             </div>
@@ -405,7 +538,7 @@
                                     <!--Select za vnos vrste hiše - name:vrsta_hise-->
                                     <label class="mt-1">Vrsta hiše</label>
                                     <div class="default-select" id="vrsta_hise">
-                                        <select name="vrsta_hise">
+                                        <select name="vrsta_hise" value="${nepremicninaModal.vrstaHise}">
                                             <option value="Samostojna">Samostojna</option>
                                             <option value="Dvojček">Dvojček</option>
                                             <option value="Vrstna">Vrstna</option>
@@ -426,7 +559,7 @@
                                     </div>
                                     <!--Polje za vnos letnika prenove - name:letnik_prenove-->
                                     <div class="collapse" id="letnik_prenove_hisa_skrij" >
-                                        <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" />
+                                        <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" value="${nepremicninaModal.letoPrenove}"/>
                                     </div>
                                 </div>
                             </div>
@@ -440,7 +573,7 @@
                                         </div>
                                         <p>Garaža</p>
                                     </div>
-                                    <!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
+                                    <!--Switch za dodaten opis - name:dodaten_opis_hise_check-->
                                     <div class="switch-wrap d-flex">
                                         <div class="primary-switch mr-10">
                                             <input type="checkbox" name="dodaten_opis_hise_check" id="dodaten_opis_hise_check" data-toggle="collapse" data-target="#dodaten_opis_hise_skrij">
@@ -459,133 +592,16 @@
                             <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
                             <button type="submit" class="genric-btn info">Shrani</button>
                         </div>
+                    </s:form>
+                </div>
+                <div id="posest-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Urejanje posesti</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div id="stanovanje-modal">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-12 col-md-9">
-                                    <!--Polje za vnos naslova(ulice) - name:naslov-->
-                                    <div class="input-group-icon mt-10">
-                                        <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-3">
-                                    <!--Polje za vnos hišne številke - name:hisna_st-->
-                                    <div class="mt-10">
-                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-9">
-                                    <!--Polje za vnos kraja - name:kraj-->
-                                    <div class="input-group-icon mt-10">
-                                        <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-3">
-                                    <!--Polje za vnos poštne številke - name:postna_st-->
-                                    <div class="mt-10">
-                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
-                                    <!--Polje za vnos kvadrature - name:kvadratura-->
-                                    <div class="mt-10">
-                                        <input type="text" name="kvadratura" placeholder="Kvadratura (m²)" required class="single-input" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
-                                    <!--Polje za vnos števila sob - name:stevilo_sob-->
-                                    <div class="mt-10">
-                                        <input type="text" name="stevilo_sob" placeholder="Število sob" required class="single-input" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
-                                    <!--Polje za vnos letnika izgradnje - name:letnik_izgradnje-->
-                                    <div class="mt-10">
-                                        <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
-                                    <!--Polje za vnos nadstropja - name:nadstropje-->
-                                    <div class="mt-10">
-                                        <input type="text" name="nadstropje" placeholder="Nadstropje" required class="single-input" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <!--Polje za vnos cene - name:cena-->
-                                    <div class="input-group-icon mt-10">
-                                        <div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <!--Checkbox za prenovljenost - name:prenovljeno-->
-                                    <div class="switch-wrap d-flex mt-1">
-                                        <div class="primary-checkbox mr-10 mt-1">
-                                            <!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
-                                            <input type="checkbox" id="prenovljeno"  data-toggle="collapse" data-target="#letnik_prenove_skrij">
-                                            <label for="prenovljeno"></label>
-                                        </div>
-                                        <p>Prenovljeno</p>
-                                    </div>
-                                    <!--Polje za vnos letnika prenove - name:letnik_prenove-->
-                                    <div class="collapse" id="letnik_prenove_skrij" >
-                                        <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <!--Checkbox za garažo - name:garaza-->
-                                    <div class="switch-wrap d-flex mt-1 ">
-                                        <div class="primary-checkbox mr-10">
-                                            <!--input type="hidden" name="garaza" id="garazaSkrit" value="0"-->
-                                            <input type="checkbox" name="garaza" id="garaza" value="1">
-                                            <label for="garaza"></label>
-                                        </div>
-                                        <p>Garaža</p>
-                                    </div>
-                                    <!--Checkbox za balkon - name:balkon-->
-                                    <div class="switch-wrap d-flex mt-1">
-                                        <div class="primary-checkbox mr-10 mt-1">
-                                            <!--input type="hidden" name="balkon" id="balkonSkrit" value="0"-->
-                                            <input type="checkbox" name="balkon" id="balkon" value="1">
-                                            <label for="balkon"></label>
-
-                                        </div>
-                                        <p>Balkon</p>
-                                    </div>
-                                    <!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
-                                    <div class="switch-wrap d-flex ">
-                                        <div class="primary-switch mr-10">
-                                            <input type="checkbox" name="dodaten_opis_stanovanja_check" id="dodaten_opis_stanovanja_check" data-toggle="collapse" data-target="#dodaten_opis_stanovanja_skrij">
-                                            <label for="dodaten_opis_stanovanja_check"></label>
-                                        </div>
-                                        <p>Dodaten opis</p>
-                                    </div>
-                                    <!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
-                                    <div class="mt-10 mb-10 collapse " id="dodaten_opis_stanovanja_skrij">
-                                        <textarea name="dodaten_opis_stanovanja" class="single-textarea" placeholder="Dodaten opis"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
-                            <button type="submit" class="genric-btn info">Shrani</button>
-                        </div>
-                    </div>
-                    <div id="posest-modal">
+                    <s:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12 col-md-8">
@@ -621,12 +637,12 @@
                                 <div class="col-xs-12 col-md-4">
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" />
+                                        <input type="text" name="cena" placeholder="Cena" required class="single-input" value="${nepremicninaModal.cena}"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-4">
                                     <div class="mt-10">
-                                        <input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" orequired class="single-input" />
+                                        <input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" orequired class="single-input" value="${nepremicninaModal.skupnaKvadratura}"/>
                                     </div>
                                 </div>
                             </div>
@@ -634,7 +650,7 @@
                                 <div class="col-12">
                                     <label class="mt-1">Vrsta posesti</label>
                                     <div class="default-select" id="vrsta_posesti">
-                                        <select name="vrsta_posesti">
+                                        <select name="vrsta_posesti" value="${nepremicninaModal.tipPosesti}">
                                             <option value="Zazidljiva">Zazidljiva</option>
                                             <option value="Nezazidljiva">Nezazidljiva</option>
                                             <option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
@@ -652,7 +668,7 @@
                                         <p>Dodaten opis</p>
                                     </div>
                                     <div class="collapse mt-10 mb-10" id="dodaten_opis_posesti_skrij">
-                                        <textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis"></textarea>
+                                        <textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis" value="${nepremicninaModal.opis}"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -661,8 +677,8 @@
                             <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
                             <button type="submit" class="genric-btn info">Shrani</button>
                         </div>
-                    </div>
-                </s:form>
+                    </s:form>
+                </div>
             </div>
         </div>
     </div>
@@ -705,18 +721,17 @@
             }
         }
         function urejanje(id, vrsta){
-            console.log(vrsta);
-            $('input[name=naslov]').val(id);
-            $('#id_hisa').val(id);
-            $('#hisa-modal').hide();
-            /*if(vrsta==1){
-                $('#hisa-modal').hide();
-                $('#stanovanje-modal').show();
+            var vrstaNepremicnine = "";
+            if(vrsta==1){
+                vrstaNepremicnine = "#stanovanje-modal"
             }
             else if(vrsta==2){
-                $('#stanovanje-modal').hide();
-                $('#hisa-modal').show();
-            }*/
+                vrstaNepremicnine = "#hisa-modal"
+            }
+            else{
+                vrstaNepremicnine = "#posest-modal"
+            }
+            $('#modal-vsebina').load("urejanjeNepremicnineKontrolna?id="+id+" "+vrstaNepremicnine);
         }
         function sortirajProdano(){
             $('#seznam-wrapper').load("sortiranjeKontrolna?vrsta=prodano #seznam");
