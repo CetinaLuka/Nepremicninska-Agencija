@@ -200,18 +200,6 @@ public class MainController {
         return "redirect:/iskanjeNepremicnin";
     }
 
-    //testen prikaz vseh vnosov
-    @RequestMapping(value = {"/seznamVseh" }, method = RequestMethod.GET)
-    public String seznamVseh(Model model, HttpServletRequest request) {
-        model.addAttribute("kraji",krajDao.getAllKraji());
-        HttpSession session = request.getSession(true);
-        if(session.getAttribute("trenutniUporabnik") == null){
-            model.addAttribute("jePrijavljen", false);
-        }else{
-            model.addAttribute("jePrijavljen", true);
-        }
-        return "seznamVseh";
-    }
     @RequestMapping(value = {"/kontrolnaPlosca" }, method = RequestMethod.GET)
     public String kontrolnaPlosca(Model model) {
         model.addAttribute("message");
