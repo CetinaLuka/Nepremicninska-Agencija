@@ -428,7 +428,11 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }
@@ -485,7 +489,11 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }
@@ -542,7 +550,11 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }
