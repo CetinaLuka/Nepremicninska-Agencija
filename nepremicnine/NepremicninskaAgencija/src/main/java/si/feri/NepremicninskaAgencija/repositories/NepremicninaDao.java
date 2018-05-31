@@ -205,7 +205,11 @@ public class NepremicninaDao {
     }
 
     public Nepremicnina vrniNepremicnino(int id){
-        String sql="SELECT * FROM nepremicnina WHERE idNepremicnina=?";
+        String sql1 = "CREATE OR REPLACE VIEW vrniNepremicnino AS " +
+                "SELECT * FROM (nepremicnina LEFT JOIN naslov ON nepremicnina.tk_id_naslov=naslov.idNaslov " +
+                "LEFT JOIN kraj ON naslov.Kraj_idKraj=kraj.idKraj LEFT JOIN agent ON nepremicnina.Agent_idAgent=agent.idAgent);";
+        jdbcTemplate.update(sql1, new Object[]{});
+        String sql="SELECT * FROM vrniNepremicnino WHERE idNepremicnina=?";
         Nepremicnina n = (Nepremicnina)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Nepremicnina.class));
         return n;
     }

@@ -365,7 +365,7 @@
                                 <div class="col-12 col-md-3">
                                     <!--Polje za vnos poštne številke - name:postna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input">
+                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input" value="${nepremicninaModal.postnaSt}">
                                     </div>
                                 </div>
                             </div>
@@ -499,7 +499,7 @@
                                 <div class="col-12 col-md-4">
                                     <!--Polje za vnos poštne številke - name:postna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input">
+                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input" value="${nepremicninaModal.postnaSt}">
                                     </div>
                                 </div>
                             </div>
@@ -629,7 +629,7 @@
                                 <div class="col-12 col-md-4">
                                     <!--Polje za vnos poštne številke - name:postna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input">
+                                        <input type="text" name="postna_st" placeholder="Poštna številka" required class="single-input" value="${nepremicninaModal.postnaSt}">
                                     </div>
                                 </div>
                             </div>
