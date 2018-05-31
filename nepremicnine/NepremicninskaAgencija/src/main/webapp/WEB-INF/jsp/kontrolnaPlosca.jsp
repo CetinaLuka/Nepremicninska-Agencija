@@ -344,13 +344,13 @@
                                     <!--Polje za vnos naslova(ulice) - name:naslov-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input">
+                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input" value="${nepremicninaModal.ulica}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3">
                                     <!--Polje za vnos hišne številke - name:hisna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input">
+                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input" value="${nepremicninaModal.hisnaSt}">
                                     </div>
                                 </div>
                             </div>
@@ -359,7 +359,7 @@
                                     <!--Polje za vnos kraja - name:kraj-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input">
+                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input" value="${nepremicninaModal.imeKraja}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3">
@@ -478,13 +478,13 @@
                                     <!--Polje za vnos naslova(ulice) - name:naslov-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input">
+                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input" value="${nepremicninaModal.ulica}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <!--Polje za vnos hišne številke - name:hisna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input">
+                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input" value="${nepremicninaModal.hisnaSt}">
                                     </div>
                                 </div>
                             </div>
@@ -493,7 +493,7 @@
                                     <!--Polje za vnos kraja - name:kraj-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input">
+                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input" value="${nepremicninaModal.imeKraja}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4">
@@ -608,13 +608,13 @@
                                     <!--Polje za vnos naslova(ulice) - name:naslov-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input">
+                                        <input type="text" name="naslov" placeholder="Naslov" required class="single-input" value="${nepremicninaModal.ulica}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <!--Polje za vnos hišne številke - name:hisna_st-->
                                     <div class="mt-10">
-                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input">
+                                        <input type="text" name="hisna_st" placeholder="Hišna številka" required class="single-input" value="${nepremicninaModal.hisnaSt}">
                                     </div>
                                 </div>
                             </div>
@@ -623,7 +623,7 @@
                                     <!--Polje za vnos kraja - name:kraj-->
                                     <div class="input-group-icon mt-10">
                                         <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input">
+                                        <input type="text" name="kraj" placeholder="Kraj" required class="single-input" value="${nepremicninaModal.imeKraja}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4">
