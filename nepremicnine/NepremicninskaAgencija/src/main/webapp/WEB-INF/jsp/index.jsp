@@ -686,6 +686,7 @@
 		<script>
             var map;
             var bounds;
+            var marker;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('zemljevidNepremicnin'), {
                     center: {lat: 46.1219704, lng: 14.3290785},
@@ -694,36 +695,65 @@
                 bounds = new google.maps.LatLngBounds();
             }
 
-            var testArray=new Array();
+            var testArray=[];
+            var vrsta=[];
+            var contentString =[];
 
             <c:forEach  items="${podatki}" var ="p">
-				var niz="${p.ulica} ${p.hisnaSt} ${p.imeKraja}";
+				var niz="${p.ulica} ${p.hisnaSt}, ${p.imeKraja}";
 				testArray.push(niz);
+				vrsta.push(${p.tk_id_vrstaNepremicnine});
+				var v;
+				<c:if test="${p.tk_id_vrstaNepremicnine==1}"> v='stanovanje' </c:if>
+                <c:if test="${p.tk_id_vrstaNepremicnine==2}"> v='hiša' </c:if>
+                <c:if test="${p.tk_id_vrstaNepremicnine==3}"> v='posest' </c:if>
+				var niz2='<div id="content">'+
+                    '<h5 id="firstHeading">'+ v +'</h5>'+
+                    '<div id="bodyContent">'+niz+'</div>'+'</div>';
+				contentString.push(niz2);
             </c:forEach>
 
-            function codeAddress(addressArray){
+            function codeAddress(addressArray) {
                 geocoder = new google.maps.Geocoder();
 
-                var icon= {
-                        //  url: "img/stanovanje.png"
+                var ikone = {
+                 1: {
+                     url: "img/stanovanje.png",
+                    scaledSize: new google.maps.Size(25, 25),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(0, 0)
+                },
+                    2: {
                         url: "img/hisa.png",
-                        //url: "img/posest.png"
                         scaledSize: new google.maps.Size(25, 25),
                         origin: new google.maps.Point(0, 0),
                         anchor: new google.maps.Point(0, 0)
-                    };
-
+                    },
+                    3: {
+                        url: "img/posest.png",
+                        scaledSize: new google.maps.Size(25, 25),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(0, 0)
+                    }
+            };
 
                 for(var i=0; i<addressArray.length; i++){
                     geocoder.geocode({
                         'address': addressArray[i]
                     }, function (results, status) {
                         if(status === google.maps.GeocoderStatus.OK) {
-                                var marker = new google.maps.Marker({
+                                 marker = new google.maps.Marker({
                                     map: map,
                                     position: results[0].geometry.location,
-                                    icon: icon
+                                    icon: ikone[vrsta[2]]
                                 });
+                            marker.addListener('click', function() {
+                                infowindow.open(map, this);
+                            });
+                            var infowindow = new google.maps.InfoWindow({
+                                content: contentString[1],
+                                maxWidth: 200
+                            });
 
                                 bounds.extend(marker.position);
                         }
@@ -738,6 +768,23 @@
                     map.fitBounds(bounds);
 				});
             });
-		</script>
+
+           /* var contentString = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                'sandstone rock formation in the southern part of the '+
+                'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+                'Aboriginal people of the area. It has many springs, waterholes, '+
+                'rock caves and ancient paintings. Uluru is listed as a World '+
+                'Heritage Site.</p>'+
+                '</div>'+
+                '</div>';*/
+
+
+
+        </script>
 		</body>
 	</html>
