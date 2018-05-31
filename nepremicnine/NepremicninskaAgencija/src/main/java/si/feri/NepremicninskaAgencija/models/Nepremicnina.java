@@ -24,10 +24,48 @@ public class Nepremicnina{
     Integer tk_id_naslov;
     Integer tk_id_vrstaNepremicnine;
 
+    public String getUlica() {
+        return ulica;
+    }
+
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    public String getHisnaSt() {
+        return hisnaSt;
+    }
+
+    public void setHisnaSt(String hisnaSt) {
+        this.hisnaSt = hisnaSt;
+    }
+
+    public String getImeKraja() {
+        return imeKraja;
+    }
+
+    public void setImeKraja(String imeKraja) {
+        this.imeKraja = imeKraja;
+    }
+
+    String ulica;
+    String hisnaSt;
+    String imeKraja;
+
+    public Integer getPostnaSt() {
+        return postnaSt;
+    }
+
+    public void setPostnaSt(Integer postnaSt) {
+        this.postnaSt = postnaSt;
+    }
+
+    Integer postnaSt;
+
     public Nepremicnina() {
     }
 
-    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, Boolean garaza, Boolean balkon, String opis, String vrstaHise, String tipPosesti, Boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov) {
+    public Nepremicnina(Integer id, Double cena, Double kvadraturaBivalnegaProstora, Double skupnaKvadratura, Integer steviloSob, Integer nadstropje, Integer letoIzgradnje, Integer letoPrenove, Boolean garaza, Boolean balkon, String opis, String vrstaHise, String tipPosesti, Boolean prodano, Date datumObjave, Integer tk_id_vrstaNepremicnine, Integer tk_id_agent, Integer tk_id_naslov, String ulica, String kraj, String hisnaSt, Integer postnaSt) {
         this.idNepremicnina = id;
         this.cena = cena;
         this.kvadraturaBivalnegaProstora = kvadraturaBivalnegaProstora;
@@ -46,6 +84,10 @@ public class Nepremicnina{
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
         this.Agent_idAgent = tk_id_agent;
         this.tk_id_naslov = tk_id_naslov;
+        this.ulica=ulica;
+        this.hisnaSt=hisnaSt;
+        this.imeKraja=kraj;
+        this.postnaSt=postnaSt;
     }
 
     //KONSTRUKTORJI
@@ -201,5 +243,13 @@ public class Nepremicnina{
 
     public void setTk_id_vrstaNepremicnine(Integer tk_id_vrstaNepremicnine) {
         this.tk_id_vrstaNepremicnine = tk_id_vrstaNepremicnine;
+    }
+
+    public Nepremicnina(Integer tk_id_vrstaNepremicnine, String ulica,String hisnaSt,String imeKraja){
+        this.tk_id_vrstaNepremicnine=tk_id_vrstaNepremicnine;
+        this.ulica=ulica;
+        this.hisnaSt=hisnaSt;
+        this.imeKraja=imeKraja;
+
     }
 }

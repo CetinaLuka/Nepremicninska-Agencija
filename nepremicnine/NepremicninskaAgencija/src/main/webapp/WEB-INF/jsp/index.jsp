@@ -350,8 +350,8 @@
 											</div>
 											<div class="middle">
 												<div class="d-flex justify-content-start">
-													<p>Kraj: <span>Celje</span></p>
-													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
 												<div class="d-flex justify-content-start">
 													<p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
@@ -410,8 +410,8 @@
 											</div>
 											<div class="middle">
 												<div class="d-flex justify-content-start">
-													<p>Kraj: <span>Maribor</span></p>
-													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
 												<div class="d-flex justify-content-start">
 													<p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
@@ -459,8 +459,8 @@
 											</div>
 											<div class="middle">
 												<div class="d-flex justify-content-start">
-													<p>Kraj: <span></span></p>
-													<p>Naslov: <span>${nepremicnina.tk_id_naslov}</span></p>
+													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
 												<div class="d-flex justify-content mb-2">
 													Opis:<br />
