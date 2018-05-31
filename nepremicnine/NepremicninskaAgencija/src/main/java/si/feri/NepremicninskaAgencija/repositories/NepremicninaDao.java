@@ -43,7 +43,11 @@ public class NepremicninaDao {
     }
 
     public List<Nepremicnina> vrniVse(){
-        String sql = "SELECT * FROM NEPREMICNINA";
+        String sql1 = "CREATE OR REPLACE VIEW zemljevid AS " +
+                "SELECT * FROM (nepremicnina LEFT JOIN naslov ON nepremicnina.tk_id_naslov=naslov.idNaslov " +
+                "LEFT JOIN kraj ON naslov.Kraj_idKraj=kraj.idKraj);";
+        jdbcTemplate.update(sql1, new Object[]{});
+        String sql = "SELECT * FROM zemljevid";
         List<Nepremicnina> ret = new ArrayList<Nepremicnina>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
@@ -85,13 +89,21 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }
 
     public List<Nepremicnina> vrniVseOdAgenta(int Agent_idAgent){
-        String sql = "SELECT * FROM NEPREMICNINA WHERE Agent_idAgent=?";
+        String sql1 = "CREATE OR REPLACE VIEW zemljevid AS " +
+                "SELECT * FROM (nepremicnina LEFT JOIN naslov ON nepremicnina.tk_id_naslov=naslov.idNaslov " +
+                "LEFT JOIN kraj ON naslov.Kraj_idKraj=kraj.idKraj LEFT JOIN agent ON nepremicnina.Agent_idAgent=agent.idAgent);";
+        jdbcTemplate.update(sql1, new Object[]{});
+        String sql = "SELECT * FROM zemljevid WHERE idAgent=?";
         List<Nepremicnina> ret = new ArrayList<Nepremicnina>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql,Agent_idAgent);
         for (Map row : rows) {
@@ -133,7 +145,11 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }
@@ -189,7 +205,11 @@ public class NepremicninaDao {
     }
 
     public Nepremicnina vrniNepremicnino(int id){
-        String sql="SELECT * FROM nepremicnina WHERE idNepremicnina=?";
+        String sql1 = "CREATE OR REPLACE VIEW vrniNepremicnino AS " +
+                "SELECT * FROM (nepremicnina LEFT JOIN naslov ON nepremicnina.tk_id_naslov=naslov.idNaslov " +
+                "LEFT JOIN kraj ON naslov.Kraj_idKraj=kraj.idKraj LEFT JOIN agent ON nepremicnina.Agent_idAgent=agent.idAgent);";
+        jdbcTemplate.update(sql1, new Object[]{});
+        String sql="SELECT * FROM vrniNepremicnino WHERE idNepremicnina=?";
         Nepremicnina n = (Nepremicnina)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Nepremicnina.class));
         return n;
     }
@@ -280,13 +300,21 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt,postnaSt));
         }
         return ret;
     }
 
     public List<Nepremicnina> vrniZadnjeTri(){
-        String sql = "SELECT * FROM NEPREMICNINA ORDER BY datumObjave DESC LIMIT 3";
+        String sql1 = "CREATE OR REPLACE VIEW zemljevid AS " +
+                "SELECT * FROM (nepremicnina LEFT JOIN naslov ON nepremicnina.tk_id_naslov=naslov.idNaslov " +
+                "LEFT JOIN kraj ON naslov.Kraj_idKraj=kraj.idKraj LEFT JOIN agent ON nepremicnina.Agent_idAgent=agent.idAgent);";
+        jdbcTemplate.update(sql1, new Object[]{});
+        String sql = "SELECT * FROM zemljevid ORDER BY datumObjave DESC LIMIT 3";
         List<Nepremicnina> ret = new ArrayList<Nepremicnina>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
@@ -328,7 +356,11 @@ public class NepremicninaDao {
             int tk_id_vrstaNepremicnine = (int)row.get("tk_id_vrstaNepremicnine");
             int tk_id_agent = (int)row.get("Agent_idAgent");
             int tk_id_naslov = (int)row.get("tk_id_naslov");
-            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov));
+            String ulica=(String)row.get("ulica");
+            String kraj=(String)row.get("imeKraja");
+            String hisnaSt=(String)row.get("hisnaSt");
+            int postnaSt = (int)row.get("postnaSt");
+            ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
     }

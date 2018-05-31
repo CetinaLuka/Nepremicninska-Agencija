@@ -124,7 +124,7 @@
                             <div class="col-9 text-right">
                                 <c:if test="${prijavaNeuspesna==true}">
                                     <div style="color: darkred;">
-                                        NEPRAVILNO GESLO ALI EMAIL NASLOV!
+                                        Nepravilno geslo ali e-mail naslov!
                                     </div>
                                 </c:if>
                             </div>

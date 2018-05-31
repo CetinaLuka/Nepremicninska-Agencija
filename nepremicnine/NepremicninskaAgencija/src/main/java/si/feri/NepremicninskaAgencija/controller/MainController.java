@@ -50,7 +50,14 @@ public class MainController {
         model.addAttribute("podatki", naslovDao.vrniPodatke());
         return "index";
     }
-
+    @RequestMapping(value = {"/urejanjeNepremicnineKontrolna" }, method = RequestMethod.GET, params = {"id"})
+    public String urejanjeNepremicnineKontrolna(@RequestParam( value = "id") int id,
+                                                HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(true);
+        Nepremicnina nepremicnina = nepremicninaDao.vrniNepremicnino(id);
+        model.addAttribute("nepremicninaModal",nepremicnina);
+        return "kontrolnaPlosca";
+    }
     @RequestMapping(value = { "/iskanjeNepremicninPoRegiji" }, method = RequestMethod.GET)
     public String iskanjeNepremicninPoRegiji(RedirectAttributes red, Model model,@RequestParam(value="regija")int regija) {
         int zac=0;
