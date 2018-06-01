@@ -338,14 +338,14 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 stanovanje" style="height:400px;">
 										<div class="images">
-											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
 										</div>
 										<div class="desc">
 											<div class="top d-flex justify-content-between">
-												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">Stanovanje</a></h4>
 												<h4>${nepremicnina.skupnaKvadratura}m²</h4>
 											</div>
 											<div class="middle">
@@ -398,14 +398,14 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 hisa" style="height:400px;">
 										<div class="images">
-											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
 										</div>
 										<div class="desc">
 											<div class="top d-flex justify-content-between">
-												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">Hiša - ${nepremicnina.vrstaHise}</a></h4>
 												<h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
 											</div>
 											<div class="middle">
@@ -447,14 +447,14 @@
 								<div class="col-xs-12 col-md-6 col-lg-4">
 									<div class="single-property mb-3 posest" style="height:400px;">
 										<div class="images">
-											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>
 										</div>
 										<div class="desc">
 											<div class="top d-flex justify-content-between">
-												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
+												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">Posest - ${nepremicnina.tipPosesti}</a></h4>
 												<h4>${nepremicnina.skupnaKvadratura}m²</h4>
 											</div>
 											<div class="middle">
@@ -464,7 +464,8 @@
 												</div>
 												<div class="d-flex justify-content mb-2">
 													Opis:<br />
-													Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+													<c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+													<c:if test="${nepremicnina.opis.equals('')}">/</c:if>
 												</div>
 											</div>
 										</div>

@@ -169,7 +169,7 @@
 
 
 
-<!-- start footer Area
+<!-- start footer Area -->
 <jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 </div>

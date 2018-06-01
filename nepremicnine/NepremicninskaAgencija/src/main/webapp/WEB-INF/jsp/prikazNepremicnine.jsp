@@ -163,7 +163,8 @@
                             <div class="col-xs-12 col-md-12 col-lg-12">
                                 <p class="bold-black">Opis nepremičnine</p>
                               <p>
-                                  ${nepremicnina.opis}
+                                  <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                  <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
 
                                </br> V naselju Lokrovec prodamo starejšo hišo z enim večjim in enim manjšim gospodarskim poslopjem. Hiša je delno obnovljena, velikost parcel je 1359 m2 in se nahajajo ob asfaltni cesti, ob kateri poteka tudi na novo zgrajena infrastruktura. (vodovod, kanalizacija,…).
                                 Zelo mirno okolje nedaleč od Celja, v bližini je rekreativno območje Šmartinskega jezera in golf igrišče.
