@@ -137,5 +137,17 @@ public class SlikaDao {
         }
     }
 
+    public List<Slika> vrniSlikoNepremicnine() {
+        String sql = "SELECT Nepremicnina_idNepremicnina, urlSlike from slika where Nepremicnina_idNepremicnina in (select idNepremicnina from nepremicnina) group by Nepremicnina_idNepremicnina;";
+        List<Slika> ret = new ArrayList<Slika>();
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map<String, Object> row : rows) {
+            byte[] blob = (byte[]) row.get("urlSlike");
+            String retrieveBlobAsString = Base64.getEncoder().encodeToString(blob);
+            int Nepremicnina_idNepremicnina=(int)row.get("Nepremicnina_idNepremicnina");
 
+            ret.add(new Slika(retrieveBlobAsString, Nepremicnina_idNepremicnina));
+        }
+        return ret;
+    }
 }

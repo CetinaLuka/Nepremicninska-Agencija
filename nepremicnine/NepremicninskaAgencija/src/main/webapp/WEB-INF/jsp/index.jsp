@@ -339,6 +339,14 @@
 									<div class="single-property mb-3 stanovanje" style="height:400px;">
 										<div class="images">
 											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+											<%--	<c:forEach  items="${seznamSlik}" var ="slika">
+													<c:if test="${nepremicnina.idNepremicnina==slika.Nepremicnina_idNepremicnina}">
+												<img class="img-fluid mx-auto d-block" src="img/Regija1.jpg" alt="">
+												</c:if>
+													<c:if test="${nepremicnina.idNepremicnina!=15}">
+														<img class="img-fluid mx-auto d-block" src="img/Regija6.jpg" alt="">
+													</c:if>
+												</c:forEach>--%>
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
 												<span>${nepremicnina.cena}€</span>
 											</a>

@@ -47,6 +47,7 @@ public class MainController {
         }else{
             model.addAttribute("jePrijavljen", true);
         }
+        model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
         model.addAttribute("podatki", naslovDao.vrniPodatke());
         return "index";
     }

@@ -23,6 +23,10 @@ public class Slika{
     public Slika(String URLSlike){
         this.URLSlike=URLSlike;
     }
+    public Slika(String URLSlike, int Nepremicnina_idNepremicnina){
+        this.URLSlike=URLSlike;
+        this.Nepremicnina_idNepremicnina=Nepremicnina_idNepremicnina;
+    }
 
     public int getIdSlika() {
         return idSlika;
@@ -52,7 +56,7 @@ public class Slika{
         return Nepremicnina_idNepremicnina;
     }
 
-    public void setNepremicnina_idNepremicnina(int nepremicnina_idNepremicnina) {
-        this.Nepremicnina_idNepremicnina = nepremicnina_idNepremicnina;
+    public void setNepremicnina_idNepremicnina(int Nepremicnina_idNepremicnina) {
+        this.Nepremicnina_idNepremicnina = Nepremicnina_idNepremicnina;
     }
 }
