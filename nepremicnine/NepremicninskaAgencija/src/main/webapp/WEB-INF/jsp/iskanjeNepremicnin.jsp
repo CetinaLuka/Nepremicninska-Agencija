@@ -276,7 +276,7 @@
                             <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property mb-3 stanovanje" style="height: 400px">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
@@ -329,7 +329,7 @@
                             <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property property-md mb-3 hisa">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
@@ -371,7 +371,7 @@
                             <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property property-md mb-3">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
@@ -388,7 +388,8 @@
                                             </div>
                                             <div class="d-flex justify-content mb-2">
                                                 Opis:<br />
-                                                Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+                                                <c:if test="${nepremicnina.opis}">${nepremicnina.opis}</c:if>
+                                                <c:if test="${!nepremicnina.opis}">/</c:if>
                                             </div>
                                         </div>
                                     </div>

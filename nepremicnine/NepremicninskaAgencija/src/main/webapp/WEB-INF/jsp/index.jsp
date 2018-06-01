@@ -464,7 +464,8 @@
 												</div>
 												<div class="d-flex justify-content mb-2">
 													Opis:<br />
-													Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+													<c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+													<c:if test="${nepremicnina.opis.equals('')}">/</c:if>
 												</div>
 											</div>
 										</div>

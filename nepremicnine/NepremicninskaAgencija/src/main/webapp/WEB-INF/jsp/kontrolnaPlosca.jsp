@@ -307,7 +307,8 @@
                                                         </div>
                                                         <div class="d-flex justify-content mb-2">
                                                             Opis:<br />
-                                                            Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+                                                            <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                            <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
                                                         </div>
                                                         <div class="bottom d-flex">
                                                             <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
