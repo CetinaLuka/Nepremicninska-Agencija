@@ -3,14 +3,9 @@ package si.feri.NepremicninskaAgencija.Email;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -41,30 +36,27 @@ public class EmailService {
                 StandardWatchEventKinds.ENTRY_DELETE,StandardWatchEventKinds.ENTRY_MODIFY,
                 StandardWatchEventKinds.OVERFLOW);
 */
+            try {
+            PdfGenerator ustvariNovPdf = new PdfGenerator();
+            /*
+            PDDocument doc = new PDDocument();
+            PDPage page = new PDPage();
+            doc.addPage(page);
+            PDPageContentStream content = new PDPageContentStream(doc, page);
+            content.beginText();
+            content.setFont(PDType1Font.HELVETICA, 12);
+            content.newLineAtOffset(100, 700);
+            content.showText("Apache PDFBox Create PDF Documentaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            content.endText();
+            content.close();
+            // FileSystemResource file = new FileSystemResource("src//main//resources//PDFDokumenti//simplee.pdf");
+            //  doc.save(new File("src/main/resources/PDFDokumenti/simplee.pdf"));
+            doc.save(new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf").getFile());
+            doc.close();
+*/
 
-
-
-        try {
-                    PDDocument doc = new PDDocument();
-                    PDPage page = new PDPage();
-                    doc.addPage(page);
-                    PDPageContentStream content = new PDPageContentStream(doc, page);
-                    content.beginText();
-                    content.setFont(PDType1Font.HELVETICA, 12);
-                    content.newLineAtOffset(100, 700);
-                    content.showText("Apache PDFBox Create PDF Documentaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
-                            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                    content.endText();
-                    content.close();
-                   // FileSystemResource file = new FileSystemResource("src//main//resources//PDFDokumenti//simplee.pdf");
-                  //  doc.save(new File("src/main/resources/PDFDokumenti/simplee.pdf"));
-                     doc.save(new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf").getFile());
-
-                    doc.close();
-
-
-                    //test
-
+            //test
 /*
                             WatchService service = FileSystems.getDefault().newWatchService();
                             Map<WatchKey,Path> keyMap= new HashMap<>();
@@ -76,12 +68,7 @@ public class EmailService {
                                     path);
 
                             WatchKey watchKey;
-
-
-
                             do {
-
-
                                 watchKey=service.take();
                                 Path eventDir = keyMap.get(watchKey);
                                 for(WatchEvent<?> event : watchKey.pollEvents()) {
@@ -91,26 +78,7 @@ public class EmailService {
                                 }
 
                             }while(watchKey.reset());
-
-
-
-
-
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             /*
             WatchService watcher = FileSystems.getDefault().newWatchService();
             Path dir =Paths.get("/src/main/resources/PDFDokumenti/");
