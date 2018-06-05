@@ -4,8 +4,8 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.springframework.core.io.FileSystemResource;
 
+import java.io.File;
 import java.io.IOException;
 
 public class PdfGenerator {
@@ -14,7 +14,7 @@ public class PdfGenerator {
 
     }
 
-
+//testni primer- na njem probaj izvesti watchService
     public void test() {
         try {
             PDDocument doc = new PDDocument();
@@ -27,13 +27,14 @@ public class PdfGenerator {
             content.showText("Apache PDFBox Create PDF Document");
             content.endText();
             content.close();
-            // FileSystemResource file = new FileSystemResource("src//main//resources//PDFDokumenti//simplee.pdf");
-            //  doc.save(new File("src/main/resources/PDFDokumenti/simplee.pdf"));
-            doc.save(new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf").getFile());
+            // FileSystemResource file = new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf");
+             doc.save(new File("src/main/resources/PDFDokumenti/simple.pdf"));
+            //doc.save(new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf").getFile());
             doc.close();
         } catch (IOException e) {
-
-
         }
     }
+
+
+
 }

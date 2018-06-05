@@ -106,7 +106,7 @@ public class EmailService {
                     helper.setTo(mail.getTo());
                     helper.setText(html, true);
                     helper.setSubject(mail.getSubject());
-                    helper.setFrom(mail.getFrom());
+                //  helper.setFrom(mail.getFrom());
                     helper.addAttachment("simple.pdf", new ClassPathResource("/PDFDokumenti/simple.pdf"));
 
                     //Path a = Paths.get(System.getProperty("/PDFDokumenti/simplee.pdf"));
