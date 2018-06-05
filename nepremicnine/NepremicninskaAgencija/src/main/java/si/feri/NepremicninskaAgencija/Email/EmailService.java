@@ -37,7 +37,7 @@ public class EmailService {
                 StandardWatchEventKinds.OVERFLOW);
 */
             try {
-            PdfGenerator ustvariNovPdf = new PdfGenerator();
+            PdfGenerator ustvariNovPdf = new PdfGenerator(mail.getNepremicnina());
             /*
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage();
@@ -107,7 +107,10 @@ public class EmailService {
                     helper.setText(html, true);
                     helper.setSubject(mail.getSubject());
                 //  helper.setFrom(mail.getFrom());
-                    helper.addAttachment("simple.pdf", new ClassPathResource("/PDFDokumenti/simple.pdf"));
+
+
+
+                   helper.addAttachment("odebeljen.pdf", new ClassPathResource("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
 
                     //Path a = Paths.get(System.getProperty("/PDFDokumenti/simplee.pdf"));
                   //  FileSystemResource a =  new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf");

@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
+
 @Component
 public class NepremicninaDao {
     @Autowired
@@ -557,5 +559,18 @@ public class NepremicninaDao {
             ret.add(new Nepremicnina(id,cena,kvadraturaBivalnegaProstora,skupnaKvadratura,steviloSob,nadstropje,letoIzgradnje,letoPrenove,garaza,balkon,opis,vrstaHise,tipPosesti,prodano,datumObjave,tk_id_vrstaNepremicnine,tk_id_agent,tk_id_naslov, ulica, kraj, hisnaSt, postnaSt));
         }
         return ret;
+    }
+
+    public String vrniNepremicninoZaPdf(int id){
+        /*
+        String sql = "SELECT * FROM NEPREMICNINA" +
+                " WHERE IDNepremicnina = ?";
+        return jdbcTemplate.queryForObject(sql,
+                                        new Object[]{id},
+                                        (RowMapper<Object>) new BeanPropertyRowMapper(Nepremicnina.class));*/
+        String sql = "SELECT opis FROM nepremicnina WHERE idNepremicnina = "+id;
+        String name = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return name;
     }
 }
