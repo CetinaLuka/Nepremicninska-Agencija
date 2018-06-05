@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.NepremicninskaAgencija.Email.EmailService;
 import si.feri.NepremicninskaAgencija.Email.Mail;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 public class MailController {
 
@@ -22,16 +19,9 @@ public class MailController {
 
             try {
                 Mail mail = new Mail();
-                mail.setFrom("no-reply@memorynotfound.com");
-                mail.setTo("zankovi998@gmail.com");
-                mail.setSubject("Sending Email with Freemarker HTML Template Example");
-
-                Map<String, Object> model = new HashMap<String, Object>();
-                model.put("name", "Memorynotfound.com");
-                model.put("location", "Belgium");
-                model.put("signature", "http://memorynotfound.com");
-                mail.setModel(model);
-
+                mail.setFrom("agencija.praktikum@gmail.com");
+                mail.setTo(email);
+                mail.setSubject("Nepremičnine");
                 emailService.sendSimpleMessage(mail);
 
             }catch (Exception e){
