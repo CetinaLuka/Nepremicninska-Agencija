@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <div class="slider-pro" id="my-slider" style="margin-top: 30px">
+    <!--div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
             <c:forEach var = "i" begin = "1" end = "6">
                 <div class="sp-slide">
@@ -71,9 +71,9 @@
                 <img class="sp-thumbnail" src="../img/regija${j}.jpg"/>
             </c:forEach>
         </div>
-    </div>
+    </div-->
 
-   <%-- <div class="slider-pro" id="my-slider" style="margin-top: 30px">
+   <div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
             <c:forEach  items="${nepremicnina_slika}" var ="slika">
                 <div class="sp-slide">
@@ -86,7 +86,7 @@
                 <img class="sp-thumbnail" src="data:image/jpeg;base64,${slika.URLSlike}" />
             </c:forEach>
         </div>
-    </div>--%>
+    </div>
 
 
 

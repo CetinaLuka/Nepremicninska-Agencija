@@ -12,6 +12,7 @@ import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
+import si.feri.NepremicninskaAgencija.models.Slika;
 import si.feri.NepremicninskaAgencija.repositories.*;
 
 
@@ -126,6 +127,7 @@ public class MainController {
         }else{
             model.addAttribute("jePrijavljen", true);
         }
+        model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
         return "iskanjeNepremicnin";
     }
 
@@ -222,6 +224,7 @@ public class MainController {
             model.addAttribute("cenaProdanihNepremicnin", nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
             model.addAttribute("zasluzek", (nepremicninaDao.skupnaCenaNepremicnin(tk_agent) * 0.1));
             model.addAttribute("jePrijavljen", true);
+            model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
             return "kontrolnaPlosca";
         }
     }

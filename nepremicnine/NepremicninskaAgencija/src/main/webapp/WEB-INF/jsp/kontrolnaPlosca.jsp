@@ -172,7 +172,17 @@
                                             <div class="single-property mb-3 stanovanje">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                                         <span>${nepremicnina.cena}€</span>
                                                     </a>
                                                 </div>
@@ -238,7 +248,17 @@
                                             <div class="single-property mb-3 hisa">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                                         <span>${nepremicnina.cena}€</span>
                                                     </a>
                                                 </div>
@@ -291,7 +311,17 @@
                                             <div class="single-property mb-3 posest">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                                         <span>${nepremicnina.cena}€</span>
                                                     </a>
                                                 </div>
