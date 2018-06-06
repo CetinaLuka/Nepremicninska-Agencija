@@ -257,7 +257,7 @@
                         <div class="filter-vrstica text-center">
                             Sortiraj po:
                             <button class="genric-btn default">Dodano</button>
-                            <button class="genric-btn default">Zgrajeno/prenovljeno</button>
+                            <button class="genric-btn default" style="width:150px !important;">Zgrajeno/prenovljeno</button>
                             <button class="genric-btn default">Ceni</button>
                             <button class="genric-btn default">Kvadraturi</button>
                         </div>
@@ -427,6 +427,24 @@
                             </div>
                         </c:if>
                     </c:forEach>
+                    <c:if test="${seznamIskanja.size()==0}">
+
+                        <div class="col-12">
+                            <div class="search-field">
+                                <div class="row">
+                                    <div class="col-3">
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="margin-bottom:0px; font-weight:bold;">Žal vaše iskanje ni obrodilo sadov. Poskusite ponovno!</p>
+                                    </div>
+                                    <div class="col-3">
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                        </div>
+
+                    </c:if>
                 </div>
             </div>
         </div>

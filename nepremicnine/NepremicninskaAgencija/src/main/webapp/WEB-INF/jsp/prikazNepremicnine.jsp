@@ -209,6 +209,11 @@
                             <div > <c:if test="${!(nepremicnina_agent.telefonskaSt).equals('')}">
                                 <i class="fa fa-phone"></i>  Tel: ${nepremicnina_agent.telefonskaSt}</c:if>
                               </div>
+                                <!-- Calendly badge widget begin -->
+                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                                <script type="text/javascript">Calendly.initBadgeWidget({url: 'https://calendly.com/nepremicninska_agencija', text: 'Rezerviraj ogled', color: '#ffffff', branding: false});</script>
+                                <!-- Calendly badge widget end -->
                         </div>
                         </div>
                         <div  class="statistika" style="height: 50%; max-height: 400px">

@@ -80,7 +80,7 @@
                                 </div>
                                 <br /><br /><br /><br />
                                 <div class="col-12 col-md-4 col-lg-12">
-                                    <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
+                                    <iframe src="https://calendar.google.com/calendar/embed?src=agencija.praktikum%40gmail.com&ctz=Europe%2FBelgrade" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
                                 </div>
                             </div>
                         </div>
