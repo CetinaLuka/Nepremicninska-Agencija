@@ -573,4 +573,21 @@ public class NepremicninaDao {
 
         return name;
     }
+
+    public int urediHiso(Integer idNepremicnina, Integer tk_id_naslov, Integer kvadraturaBivalnegaProstora, Integer skupnaKvadratura, Integer letoIzgradnje, Integer cena, String vrstaHise, Integer letoPrenove, Boolean garaza, String opis, Boolean prodano){
+        // String sql1="SELECT * FROM naslov WHERE idNaslov="+tk_id_naslov;
+        String sql="UPDATE nepremicnina SET kvadraturaBivalnegaProstora=?, " +
+                " skupnaKvadratura=?, letoIzgradnje=?, cena=?, vrstaHise=?, letoPrenove=?, garaza=?, opis=?, prodano=? WHERE idNepremicnine=?";
+        return  jdbcTemplate.update(sql, new Object[]{kvadraturaBivalnegaProstora, skupnaKvadratura, letoIzgradnje, cena, vrstaHise, letoPrenove, garaza, opis, prodano, idNepremicnina  });
+    }
+    public int urediStanovanje(Integer idNepremicnina, Integer tk_id_naslov, Integer kvadraturaBivalnegaProstora,Integer letoIzgradnje, Integer steviloSob, Integer nadstropje, Integer cena, Integer letoPrenove, Boolean garaza, Boolean balkon,  String opis, Boolean prodano){
+        String sql="UPDATE nepremicnina SET kvadraturaBivalnegaProstora=?," +
+                " letoIzgradnje=?, steviloSob=?, nadstropje=?, cena=?, letoPrenove=?, garaza=?, balkon=?, opis=?, prodano=? WHERE idNepremicnina=? ";
+        return  jdbcTemplate.update(sql, new Object[]{kvadraturaBivalnegaProstora, letoIzgradnje, steviloSob, nadstropje, cena, letoPrenove, garaza, balkon, opis, prodano, idNepremicnina});
+    }
+    public int urediPosest(int idNepremicnina, int tk_id_naslov, String skupnaKvadratura, Double cena, String tipPosesti, String opis, int prodano ){
+        String sql="UPDATE nepremicnina SET skupnaKvadratura=?, "+
+                "cena=?, tipPosesti=?, opis=?, prodano=? WHERE idNepremicnina=?";
+        return  jdbcTemplate.update(sql, new Object[]{skupnaKvadratura, cena, tipPosesti, opis,prodano, idNepremicnina});
+    }
 }

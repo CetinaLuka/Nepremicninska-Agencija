@@ -67,7 +67,6 @@
                             <div class="row profil-kartica">
                                 <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
                                     <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
-                                    <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
                                     <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
                                 </div>
                                 <br />
@@ -394,7 +393,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <s:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeStanovanja" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <s:form name="dodaj_stanovanje_form" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
+                        <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12 col-md-9">
@@ -513,6 +513,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <!--input type="hidden" name="prodano" id="prodano" value="0"-->
+                                            <input type="checkbox" name="prodano" id="prodano" value="1">
+                                            <label for="prodano"></label>
+
+                                        </div>
+                                        <p>Prodano</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
@@ -527,7 +540,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <s:form name="dodaj_hiso_form"  method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <s:form name="dodaj_hiso_form"  method="POST" action="urediHiso" modelAttribute="uploadForm" enctype="multipart/form-data">
+                       <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12 col-md-8">
@@ -644,6 +658,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <!--input type="hidden" name="prodano" id="prodano" value="0"-->
+                                            <input type="checkbox" name="prodano" value="1">
+                                            <label for="prodano"></label>
+
+                                        </div>
+                                        <p>Prodano</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="genric-btn default" data-dismiss="modal">Zapri</button>
@@ -658,7 +685,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <s:form name="dodaj_stanovanje_form" method="POST" action="dodajanjeHise" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <s:form name="dodaj_stanovanje_form" method="POST" action="urediPosest" modelAttribute="uploadForm" enctype="multipart/form-data">
+                        <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12 col-md-8">
@@ -727,6 +755,20 @@
                                     <div class="collapse mt-10 mb-10" id="dodaten_opis_posesti_skrij">
                                         <textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis" value="${nepremicninaModal.opis}"></textarea>
                                     </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="switch-wrap d-flex mt-1">
+                                    <div class="primary-checkbox mr-10 mt-1">
+                                        <!--input type="hidden" name="prodano" id="prodano" value="0"-->
+                                        <input type="checkbox" name="prodano" value="1">
+                                        <label for="prodano"></label>
+
+                                    </div>
+                                    <p>Prodano</p>
                                 </div>
                             </div>
                         </div>
