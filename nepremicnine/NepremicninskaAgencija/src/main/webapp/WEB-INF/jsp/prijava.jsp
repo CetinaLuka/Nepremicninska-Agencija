@@ -139,7 +139,6 @@
                             </div>
                         </div>
                 </div>
-<<<<<<< HEAD
         </form>
         <br/>
         <br/>
@@ -161,44 +160,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
-=======
-                    <div class="row  align-items-center justify-content-center" >
-                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                            <button type="submit" class="genric-btn primary circle pull-right">
-                                Prijava
-                             </button>
-                        </div>
-                    </div>
-            </div>
-    </form>
-
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-</main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- End Generic Start -->
-
-
-
 
 <!-- start footer Area -->
 <jsp:include page="includes/footer.jsp" />
@@ -218,6 +179,5 @@
 <script>
 
 </script>
->>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
 </body>
 </html>

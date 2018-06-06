@@ -172,10 +172,6 @@
                                             <div class="single-property mb-3 stanovanje">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-<<<<<<< HEAD
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                                        <span class="cena">${nepremicnina.cena}€</span>
-=======
                                                         <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                         <c:forEach  items="${seznamSlik}" var ="slika">
                                                             <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -186,9 +182,7 @@
                                                         <c:if test="${niNajdenaSlika}">
                                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                         </c:if>
-                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                                        <span>${nepremicnina.cena}€</span>
->>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
+                                                        <span class="cena">${nepremicnina.cena}€</span>
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -242,10 +236,13 @@
                                                                 </c:choose>
                                                                </p>
                                                         </div>
-                                                        <div class="bottom d-flex">
-                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
-                                                            <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
-                                                        </div>
+                                                    </div>
+                                                    <div class="justify-content mb-2">
+                                                        Opis:
+                                                    </div>
+                                                    <div class="bottom d-flex">
+                                                        <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
+                                                        <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,10 +254,6 @@
                                             <div class="single-property mb-3 hisa">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-<<<<<<< HEAD
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                                        <span class="cena">${nepremicnina.cena}€</span>
-=======
                                                         <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                         <c:forEach  items="${seznamSlik}" var ="slika">
                                                             <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -271,9 +264,7 @@
                                                         <c:if test="${niNajdenaSlika}">
                                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                         </c:if>
-                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                                        <span>${nepremicnina.cena}€</span>
->>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
+                                                        <span class="cena">${nepremicnina.cena}€</span>
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -282,19 +273,19 @@
                                                         <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
                                                     </div>
                                                     <div class="naslov">
-                                                        <div class="d-flex justify-content-start">
+                                                        <div class="d-flex justify-content-start podatek">
                                                             <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
                                                         </div>
-                                                        <div class="d-flex justify-content-start">
+                                                        <div class="d-flex justify-content-start podatek">
                                                             <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                         </div>
                                                     </div>
                                                     <div class="middle">
-                                                        <div class="d-flex justify-content-start">
+                                                        <div class="d-flex justify-content-start podatek">
                                                             <p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
                                                             <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
                                                         </div>
-                                                        <div class="d-flex justify-content-start">
+                                                        <div class="d-flex justify-content-start podatek">
                                                             <p>Garaža:
                                                                 <c:choose>
                                                                     <c:when test="${nepremicnina.garaza}">
@@ -314,10 +305,17 @@
                                                                 </c:otherwise>
                                                             </c:choose></p>
                                                         </div>
-                                                        <div class="bottom d-flex">
-                                                            <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal" >Uredi</button></p>
-                                                            <p class="text-rigth"><button class="genric-btn primary"  onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina}")>Izbriši</button></p>
-                                                        </div>
+                                                    </div>
+                                                    <div class="justify-content mb-2">
+                                                        Opis:<br />
+                                                        <p class="opis">
+                                                            <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                            <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
+                                                        </p>
+                                                    </div>
+                                                    <div class="bottom d-flex">
+                                                        <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal" >Uredi</button></p>
+                                                        <p class="text-rigth"><button class="genric-btn primary"  onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina}")>Izbriši</button></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -329,11 +327,6 @@
                                             <div class="single-property mb-3 posest">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
-<<<<<<< HEAD
-                                                        <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
-                                                        <span class="cena">${nepremicnina.cena}€</span>
-                                                        <span class="prodano">Prodano</span>
-=======
                                                         <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                         <c:forEach  items="${seznamSlik}" var ="slika">
                                                             <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -345,8 +338,11 @@
                                                             <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                         </c:if>
                                                         <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                                        <span>${nepremicnina.cena}€</span>
->>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
+                                                        <span class="cena">${nepremicnina.cena}€</span>
+                                                        <c:if test="${prodano==true}">
+                                                            <span class="prodano">Prodano</span>
+                                                        </c:if>
+                                                        <span class="prodano">Prodano</span>
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -361,21 +357,15 @@
                                                         <div class="d-flex justify-content-start">
                                                             <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                         </div>
-<<<<<<< HEAD
+                                                    </div>
                                                     <div class="middle">
-=======
-                                                        <div class="d-flex justify-content mb-2">
-                                                            Opis:<br />
-                                                            <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
-                                                            <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
->>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
-                                                        </div>
                                                         <div class="justify-content mb-2">
-                                                            Opis:
-                                                            <div id="opis-posesti">
-                                                                <p  class="opis">OPis posjsbsisbfsdiwebedi. asouhesd iuszfjeh susfbwkje fbwief. iuqwgfiuwegb oiuwbejfieb. wieubfujebf jebfieboebf ebfioevbfoehfbejfoeb. efbeiofbeb.</p>
-                                                            </div>
-                                                            </div>
+                                                            Opis:<br />
+                                                            <p class="opis">
+                                                                <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                                <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
+                                                            </p>
+                                                        </div>
                                                         <div class="bottom d-flex">
                                                             <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
                                                             <p class="text-rigth"><button class="genric-btn primary" onclick="zbrisiNepremicnino(${nepremicnina.idNepremicnina})">Izbriši</button></p>
