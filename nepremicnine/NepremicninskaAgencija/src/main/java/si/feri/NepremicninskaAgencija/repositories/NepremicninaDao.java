@@ -585,7 +585,7 @@ public class NepremicninaDao {
                 " letoIzgradnje=?, steviloSob=?, nadstropje=?, cena=?, letoPrenove=?, garaza=?, balkon=?, opis=?, prodano=? WHERE idNepremicnina=? ";
         return  jdbcTemplate.update(sql, new Object[]{kvadraturaBivalnegaProstora, letoIzgradnje, steviloSob, nadstropje, cena, letoPrenove, garaza, balkon, opis, prodano, idNepremicnina});
     }
-    public int urediPosest(int idNepremicnina, int tk_id_naslov, String skupnaKvadratura, Double cena, String tipPosesti, String opis, int prodano ){
+    public int urediPosest(int idNepremicnina, int tk_id_naslov, String skupnaKvadratura, String cena, String tipPosesti, String opis, String prodano ){
         String sql="UPDATE nepremicnina SET skupnaKvadratura=?, "+
                 "cena=?, tipPosesti=?, opis=?, prodano=? WHERE idNepremicnina=?";
         return  jdbcTemplate.update(sql, new Object[]{skupnaKvadratura, cena, tipPosesti, opis,prodano, idNepremicnina});
