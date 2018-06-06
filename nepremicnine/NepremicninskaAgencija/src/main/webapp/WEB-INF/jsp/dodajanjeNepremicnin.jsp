@@ -448,7 +448,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="text-center mt-10">
-						<input type="submit" class="genric-btn primary-border circle mb-50">
+						<input type="submit" value="Dodaj hišo" class="genric-btn primary-border circle mb-50">
 					</div>
 				</div>
 			</div>

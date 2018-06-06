@@ -2475,7 +2475,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  height: 540px;
+  height: 564px;
   -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   -moz-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   -o-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -2594,7 +2594,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 @media (max-width: 414px) {
   .desc .middle p {
-    font-size: 10px;
   }
 }
 
@@ -3159,14 +3158,14 @@ pokrivanje::selection{
   width: 100%;
 }
 .posest .opis{
-  height: 79px;
+  height: 78px;
   overflow: hidden;
-  margin-bottom: 0px;
+  margin-bottom: 9px;
 }
 .hisa .opis{
-  height: 59px;
+  height: 54px;
   overflow: hidden;
-  margin-bottom: 0px;
+  margin-bottom: 12px;
   width: 100%;
 }
 .stanovanje .opis{
@@ -3179,6 +3178,9 @@ pokrivanje::selection{
 }
 .hisa .opis p{
   width: 100%;
+}
+.dodano{
+  font-size: 14px;
 }
 .prodano{
   color: #fff;
