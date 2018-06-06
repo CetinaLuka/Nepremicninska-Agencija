@@ -79,7 +79,7 @@
                                 </div>
                                 <br /><br /><br /><br />
                                 <div class="col-12 col-md-4 col-lg-12">
-                                    <iframe src="https://calendar.google.com/calendar/embed?src=en.slovenian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FLondon" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
+                                    <iframe src="https://calendar.google.com/calendar/embed?src=agencija.praktikum%40gmail.com&ctz=Europe%2FBelgrade" style="border: 0; max-width: 285px;" width="100%" height="285px" frameborder="0" scrolling="no"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +201,6 @@
                                                         <div class="d-flex justify-content-start">
                                                             <p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
                                                             <p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
-                                                            <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
                                                         </div>
                                                         <div class="d-flex justify-content-start">
                                                             <p>Garaža:
@@ -224,7 +223,10 @@
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </p>
-                                                            Prenova:
+                                                        </div>
+                                                        <div class="d-flex justify-content-start" style="margin-bottom: 6px">
+                                                            <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                            <p>Prenova:
                                                                 <c:choose>
                                                                     <c:when test="${nepremicnina.letoPrenove>0}">
                                                                         <span class="gr">${nepremicnina.letoPrenove}</span>
@@ -233,11 +235,8 @@
                                                                         <span class="rd">/</span>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                               </p>
+                                                            </p>
                                                         </div>
-                                                    </div>
-                                                    <div class="justify-content mb-2">
-                                                        Opis:
                                                     </div>
                                                     <div class="bottom d-flex">
                                                         <p class="text-left"><button onclick="urejanje(${nepremicnina.idNepremicnina}, ${nepremicnina.tk_id_vrstaNepremicnine})" class="genric-btn primary" data-toggle="modal" data-target="#urediNepremicninoModal">Uredi</button></p>
@@ -306,7 +305,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="justify-content mb-2">
-                                                        Opis:<br />
                                                         <p class="opis">
                                                             <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
                                                             <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
