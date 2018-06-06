@@ -663,9 +663,9 @@
                                 <div class="col-12">
                                     <div class="switch-wrap d-flex mt-1">
                                         <div class="primary-checkbox mr-10 mt-1">
-                                            <!--input type="hidden" name="prodano" id="prodano" value="0"-->
-                                            <input type="checkbox" name="prodano" value="1">
-                                            <label for="prodano"></label>
+                                            <!--input type="hidden" name="prodano2" id="prodano2" value="0"-->
+                                            <input type="checkbox" name="prodano2" id="prodano2" value="1">
+                                            <label for="prodano2"></label>
 
                                         </div>
                                         <p>Prodano</p>
@@ -759,17 +759,17 @@
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="switch-wrap d-flex mt-1">
-                                    <div class="primary-checkbox mr-10 mt-1">
-                                        <!--input type="hidden" name="prodano" id="prodano" value="0"-->
-                                        <input type="checkbox" name="prodano" value="1">
-                                        <label for="prodano"></label>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="switch-wrap d-flex mt-1">
+                                        <div class="primary-checkbox mr-10 mt-1">
+                                            <!--input type="hidden" name="prodano3" id="prodano3" value="0"-->
+                                            <input type="checkbox" name="prodano3" id="prodano3" value="1">
+                                            <label for="prodano3"></label>
 
+                                        </div>
+                                        <p>Prodano</p>
                                     </div>
-                                    <p>Prodano</p>
                                 </div>
                             </div>
                         </div>
