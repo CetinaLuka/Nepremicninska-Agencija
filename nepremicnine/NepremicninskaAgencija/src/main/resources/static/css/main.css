@@ -3188,5 +3188,8 @@ pokrivanje::selection{
   margin-top: -60px;
   position: absolute;
   right: 60px;
-  background-color: #ee0600;
+  background-color: #ffffff;
+  color: #7d7d7d;
+  opacity: 0.6;
+  font-weight: 600;
 }
