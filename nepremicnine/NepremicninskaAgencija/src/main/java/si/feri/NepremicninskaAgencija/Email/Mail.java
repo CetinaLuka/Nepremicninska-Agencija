@@ -1,5 +1,7 @@
 package si.feri.NepremicninskaAgencija.Email;
 
+import si.feri.NepremicninskaAgencija.models.Nepremicnina;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ public class Mail {
     private String subject;
     private List<Object> attachments;
     private Map<String, Object> model;
+    private Nepremicnina nepremicnina;
 
     public Mail() {
 
@@ -53,5 +56,12 @@ public class Mail {
 
     public void setModel(Map<String, Object> model) {
         this.model = model;
+    }
+    public Nepremicnina getNepremicnina() {
+        return nepremicnina;
+    }
+
+    public void setNepremicnina(Nepremicnina nepremicnina) {
+        this.nepremicnina = nepremicnina;
     }
 }

@@ -139,6 +139,7 @@
                             </div>
                         </div>
                 </div>
+<<<<<<< HEAD
         </form>
         <br/>
         <br/>
@@ -160,5 +161,63 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
+=======
+                    <div class="row  align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                            <button type="submit" class="genric-btn primary circle pull-right">
+                                Prijava
+                             </button>
+                        </div>
+                    </div>
+            </div>
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- End Generic Start -->
+
+
+
+
+<!-- start footer Area -->
+<jsp:include page="includes/footer.jsp" />
+<!-- End footer Area -->
+</div>
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/ion.rangeSlider.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+
+</script>
+>>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
 </body>
 </html>

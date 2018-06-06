@@ -172,8 +172,23 @@
                                             <div class="single-property mb-3 stanovanje">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+<<<<<<< HEAD
                                                         <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                         <span class="cena">${nepremicnina.cena}€</span>
+=======
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                        <span>${nepremicnina.cena}€</span>
+>>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -242,8 +257,23 @@
                                             <div class="single-property mb-3 hisa">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+<<<<<<< HEAD
                                                         <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                         <span class="cena">${nepremicnina.cena}€</span>
+=======
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                        <span>${nepremicnina.cena}€</span>
+>>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -299,9 +329,24 @@
                                             <div class="single-property mb-3 posest">
                                                 <div class="images">
                                                     <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+<<<<<<< HEAD
                                                         <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
                                                         <span class="cena">${nepremicnina.cena}€</span>
                                                         <span class="prodano">Prodano</span>
+=======
+                                                        <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                        <c:forEach  items="${seznamSlik}" var ="slika">
+                                                            <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                                <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                                <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${niNajdenaSlika}">
+                                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                        </c:if>
+                                                        <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                        <span>${nepremicnina.cena}€</span>
+>>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
                                                     </a>
                                                 </div>
                                                 <div class="desc">
@@ -316,7 +361,14 @@
                                                         <div class="d-flex justify-content-start">
                                                             <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                         </div>
+<<<<<<< HEAD
                                                     <div class="middle">
+=======
+                                                        <div class="d-flex justify-content mb-2">
+                                                            Opis:<br />
+                                                            <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                            <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
+>>>>>>> e09ef8862fe02105103fbf9a470bd212c31e0053
                                                         </div>
                                                         <div class="justify-content mb-2">
                                                             Opis:

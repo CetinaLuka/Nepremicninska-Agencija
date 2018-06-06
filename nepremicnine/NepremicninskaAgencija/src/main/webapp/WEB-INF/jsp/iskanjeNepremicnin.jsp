@@ -90,7 +90,7 @@
                                     <br />
                                 </div>
                                 <div id="iskanjeStanovanje" style="display:block;" class="col-lg-12">
-                                    <form class="search-form" method="get" action="/iskanjeNepremicnin">
+                                    <form class="search-form" method="get" action="/iskanjeStanovanje">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
@@ -139,11 +139,11 @@
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Cena:</p>
-                                                <input type="text" id="range" value="" name="range" />
+                                                <input type="text" id="range" value="" name="range1" />
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Velikost stanovanja(m²):</p>
-                                                <input type="text" id="range2" value="" name="range" />
+                                                <input type="text" id="range2" value="" name="range2" />
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-end">
                                                 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
@@ -152,7 +152,7 @@
                                     </form>
                                 </div>
                                 <div id="iskanjeHisa" style="display:none;" class="col-lg-12">
-                                    <form class="search-form" method="get" action="/iskanjeNepremicnin">
+                                    <form class="search-form" method="get" action="/iskanjeHisa">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
@@ -169,9 +169,9 @@
                                             <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
                                                 <select name="select_tip_hisa" class="app-select form-control" required>
                                                     <option data-display="Tip hiše">Tip hiše</option>
-                                                    <option value="1">Samostojna</option>
-                                                    <option value="2">Dvojček</option>
-                                                    <option value="3">Vrstna</option>
+                                                    <option value="Samostojna">Samostojna</option>
+                                                    <option value="Dvojček">Dvojček</option>
+                                                    <option value="Vrstna">Vrstna</option>
                                                 </select>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
@@ -187,8 +187,8 @@
                                             <div class="col-lg-8 col-md-6 col-xs-6">
                                                 <div class="switch-wrap d-flex mt-1" style="padding-top: 15px;">
                                                     <div class="primary-checkbox mr-10 mt-1">
-                                                        <input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
-                                                        <label for="garaza_hisa"></label>
+                                                        <input type="checkbox" name="garaza" id="garaza_hisa2" value="1"/>
+                                                        <label for="garaza_hisa2"></label>
                                                     </div>
                                                     <p>Garaža</p>
                                                 </div>
@@ -196,15 +196,15 @@
 
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Cena:</p>
-                                                <input type="text" id="range3" value="" name="range" />
+                                                <input type="text" id="range3" value="" name="range3" />
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Skupna velikost(m²):</p>
-                                                <input type="text" id="range4" value="" name="range" />
+                                                <input type="text" id="range4" value="" name="range4" />
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Velikost bivalnega prostora(m²):</p>
-                                                <input type="text" id="range5" value="" name="range" />
+                                                <input type="text" id="range5" value="" name="range5" />
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-end">
                                                 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
@@ -214,7 +214,7 @@
                                 </div>
 
                                 <div id="iskanjePosest" style="display:none;" class="col-lg-12">
-                                    <form class="search-form" method="get" action="/iskanjeNepremicnin">
+                                    <form class="search-form" method="get" action="/iskanjePosest">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
@@ -229,22 +229,22 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
-                                                <select name="select_tip_hisa" class="app-select form-control" required>
+                                                <select name="select_tip_posesti" class="app-select form-control" required>
                                                     <option data-display="Tip posesti">Tip posesti</option>
-                                                    <option value="1">Zazidljiva</option>
-                                                    <option value="2">Nezazidljiva</option>
-                                                    <option value="3">Kmetijsko zemljišče</option>
+                                                    <option value="Zazidljiva">Zazidljiva</option>
+                                                    <option value="Nezazidljiva">Nezazidljiva</option>
+                                                    <option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
                                                 </select>
                                             </div>
                                             <div class="col-lg-4">
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Cena:</p>
-                                                <input type="text" id="range6" value="" name="range" />
+                                                <input type="text" id="range6" value="" name="range6" />
                                             </div>
                                             <div class="col-lg-4 range-wrap">
                                                 <p>Velikost(m²):</p>
-                                                <input type="text" id="range7" value="" name="range" />
+                                                <input type="text" id="range7" value="" name="range7" />
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-end">
                                                 <button class="primary-btn mt-50" style="height: 45px;">Išči nepremičnine<span class="lnr lnr-arrow-right"></span></button>
@@ -256,9 +256,8 @@
                         </div>
                         <div class="filter-vrstica text-center">
                             Sortiraj po:
-                            <button class="genric-btn default">Prodano</button>
-                            <button class="genric-btn default">Na prodaj</button>
-                            <button class="genric-btn default">Abecedi</button>
+                            <button class="genric-btn default">Dodano</button>
+                            <button class="genric-btn default">Zgrajeno/prenovljeno</button>
                             <button class="genric-btn default">Ceni</button>
                             <button class="genric-btn default">Kvadraturi</button>
                         </div>
@@ -271,14 +270,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <c:forEach  var="i" begin="1" end="10">
+                    <c:forEach  items="${seznamIskanja}" var="nepremicnina">
                         <!--stanovanje-->
-                        <c:if test="true">
+                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
                             <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property mb-3 stanovanje" style="height: 400px">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
-                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                            <c:forEach  items="${seznamSlik}" var ="slika">
+                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${niNajdenaSlika}">
+                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                            </c:if>
+                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
                                     </div>
@@ -327,11 +336,21 @@
                         </c:if>
                         <!--hisa-->
                         <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property property-md mb-3 hisa">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
-                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                            <c:forEach  items="${seznamSlik}" var ="slika">
+                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${niNajdenaSlika}">
+                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                            </c:if>
+                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
                                     </div>
@@ -369,11 +388,21 @@
                         </c:if>
                         <!--posest-->
                         <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
-                            <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="col-xs-12 col-md-6 col-xl-4">
                                 <div class="single-property property-md mb-3">
                                     <div class="images">
-                                        <a href="img/s1.jpg">
-                                            <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
+                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                            <c:forEach  items="${seznamSlik}" var ="slika">
+                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${niNajdenaSlika}">
+                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                            </c:if>
+                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                             <span>${nepremicnina.cena}€</span>
                                         </a>
                                     </div>
@@ -389,7 +418,8 @@
                                             </div>
                                             <div class="d-flex justify-content mb-2">
                                                 Opis:<br />
-                                                Zelo lepa posest, ki ima tudi kmetijsko poslopje in travnik.
+                                                <c:if test="${nepremicnina.opis}">${nepremicnina.opis}</c:if>
+                                                <c:if test="${!nepremicnina.opis}">/</c:if>
                                             </div>
                                         </div>
                                     </div>

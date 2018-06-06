@@ -14,28 +14,30 @@
         body {
             font-family: 'Roboto', sans-serif;
             font-size: 48px;
+            color:black;
         }
+
     </style>
 </head>
 <body style="margin: 0; padding: 0;">
 
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
         <tr>
-            <td align="center" bgcolor="#78ab46" style="padding: 40px 0 30px 0;">
-                <img src="cid:logo.png"  style="display: block;" />
+            <td align="center" bgcolor="#f41068" style="padding: 40px 0 30px 0;">
+                <h2>Nepremičninska agencija</h2>
             </td>
         </tr>
         <tr>
             <td bgcolor="#eaeaea" style="padding: 40px 30px 40px 30px;">
-                <p>Dear ${name},</p>
-                <p>Sending Email using Spring Boot with <b>FreeMarker template !!!</b></p>
-                <p>Thanks</p>
+              <p>Pozdravljeni!</p>
+                <p>V priponki vam pošiljamo podatke o izbrani nepremičnini.</p>
+                <p>Lep pozdrav!</p>
             </td>
         </tr>
         <tr>
             <td bgcolor="#777777" style="padding: 30px 30px 30px 30px;">
-                <p>${signature}</p>
-                <p>${location}</p>
+                <p>©Žan Kovač, Luka Četina, David Žele, Eva Smolak</p>
+                <p>FERI ITK UN - Praktikum1</p>
             </td>
         </tr>
     </table>
