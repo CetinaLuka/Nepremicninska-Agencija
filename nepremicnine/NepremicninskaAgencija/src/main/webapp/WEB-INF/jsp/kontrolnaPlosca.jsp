@@ -90,10 +90,10 @@
                     <div class="row statistika">
                         <div class="col-xs-12 col-md-6 col-lg-6">
                             <div class="bold-black">Podatki o nepremičninah:</div>
-                            <div class="">Število prodanih nepremičnin: ${stProdanihNepremicnin}</div>
-                            <div class="">Število nepremičnin na prodaj: ${stNepremicninNaprodaj}</div>
-                            <div class="">Zaslužek od prodanih nepremičnin: ${zasluzek}€</div>
-                            <div class="">Skupna cena prodanih nepremičnin: ${cenaProdanihNepremicnin}€</div>
+                            <div class="">Število prodanih nepremičnin: <span class="counter" style="font-weight: 600; color:black;">${stProdanihNepremicnin}</span></div>
+                            <div class="">Število nepremičnin na prodaj: <span class="counter" style="font-weight: 600; color:black;">${stNepremicninNaprodaj}</span></div>
+                            <div class="">Zaslužek od prodanih nepremičnin: <span class="counter" style="font-weight: 600; color:black;">${zasluzek}</span><span style="font-weight: 600; color:black;">€</span></div>
+                            <div class="">Skupna cena prodanih nepremičnin: <span class="counter" style="font-weight: 600; color:black;">${cenaProdanihNepremicnin}</span><span style="font-weight: 600; color:black;">€</span></div>
                         </div>
                     </div>
                     <div id="seznam-wrapper">
@@ -751,6 +751,19 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script>
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000,
+            offset: 70,
+            beginAt: 100,
+            formatter: function (n) {
+                return n.replace(/,/g, '.');
+            }
+        });
+    </script>
     <script>
         $(".scroll-gumbi div a[href^='#']").on('click', function(event) {
             var target = this.hash;
