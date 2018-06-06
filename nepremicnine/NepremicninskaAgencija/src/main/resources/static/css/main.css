@@ -84,7 +84,7 @@
 body {
   color: #777777;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.625em;
   position: relative;
@@ -2006,7 +2006,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.p1-gradient-bg, .primary-btn, .primary-btn:after, .primary-btn2.primary-border:hover, .onoffswitch3-active .onoffswitch3-switch, .onoffswitch3-inactive .onoffswitch3-switch, .single-service:hover, .property-area .overlay-bg, .images span, .content .content-overlay, .single-footer-widget .click-btn {
+.p1-gradient-bg, .primary-btn, .primary-btn:after, .primary-btn2.primary-border:hover, .onoffswitch3-active .onoffswitch3-switch, .onoffswitch3-inactive .onoffswitch3-switch, .single-service:hover, .property-area .overlay-bg, .images .cena, .content .content-overlay, .single-footer-widget .click-btn {
   background-image: -moz-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
   background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
   background-image: -ms-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
@@ -2475,20 +2475,12 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  height: 540px;
   -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   -moz-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   -o-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-.lg{
-  height: 510px;
-}
-.md{
-  height: 400px;
-}
-.property-sm{
-  height: 300px;
-}
 
+}
 .single-property:hover{
 }
 @media (max-width: 1199px) {
@@ -2515,7 +2507,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   opacity: .5;
 }
 
-.images span {
+.images .cena {
   color: #fff;
   padding: 5px 25px;
   margin-top: -60px;
@@ -2523,26 +2515,42 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   margin-left: 22px;
 }
 
-.desc .top {
+.stanovanje .desc .top {
+  padding: 25px 0;
+  padding-bottom: 10px;
+}
+.hisa .desc .top {
+  padding: 25px 0;
+  padding-bottom: 10px;
+}
+.posest .desc .top {
   padding: 25px 0;
 }
-
 .desc .top a {
   color: #222;
 }
 
 .desc .middle {
-  padding-bottom: 5px;
+  padding-bottom: none;
 }
 
 .stanovanje .desc .middle p {
   width: 33%;
+}
+.stanovanje .desc .naslov p {
+  width: 100%;
 }
 .stanovanje .desc .middle .bottom p {
   width: 50%;
 }
 .hisa .desc .middle p {
   width: 50%;
+}
+.hisa .podatek{
+  height: 35px;
+}
+.stanovanje .podatek{
+  height: 35px;
 }
 .posest .desc .middle p {
   width: 100%;
@@ -2556,10 +2564,12 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .desc .middle .gr {
   color: #1fe111;
+  font-weight: 400px;
 }
 
 .desc .middle .rd {
   color: #f40f68;
+  font-weight: 400px;
 }
 
 .desc .bottom {
@@ -3139,9 +3149,42 @@ pokrivanje::selection{
   padding:10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-.single-property .middle span{
+.single-property .desc span{
+  color: black;
+}
+.single-property .desc .opis{
   color: black;
 }
 #urediStanovanjeModal .modal-content{
   width: 100%;
+}
+.posest .opis{
+  height: 79px;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.hisa .opis{
+  height: 34px;
+  overflow: hidden;
+  margin-bottom: 0px;
+  width: 100%;
+}
+.stanovanje .opis{
+  height: 34px;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.stanovanje .opis p{
+  width: 100%;
+}
+.hisa .opis p{
+  width: 100%;
+}
+.prodano{
+  color: #fff;
+  padding: 5px 25px;
+  margin-top: -60px;
+  position: absolute;
+  margin-left: 220px;
+  background-color: #18b518;
 }
