@@ -336,7 +336,7 @@
 						<!--stanovanje-->
 							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
 								<div class="col-xs-12 col-md-6 col-lg-4">
-									<div class="single-property mb-3 stanovanje" style="height:400px;">
+									<div class="single-property mb-3 stanovanje" style="height:450px;">
 										<div class="images">
 											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -348,11 +348,15 @@
 												<h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
 												<h4>${nepremicnina.skupnaKvadratura}m²</h4>
 											</div>
-											<div class="middle">
+											<div class="naslov">
 												<div class="d-flex justify-content-start">
 													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
 													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
+											</div>
+											<div class="middle">
 												<div class="d-flex justify-content-start">
 													<p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
 													<p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
@@ -396,7 +400,7 @@
 							<!--hisa-->
 							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
 								<div class="col-xs-12 col-md-6 col-lg-4">
-									<div class="single-property mb-3 hisa" style="height:400px;">
+									<div class="single-property mb-3 hisa" style="height:450px;">
 										<div class="images">
 											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -411,6 +415,8 @@
 											<div class="middle">
 												<div class="d-flex justify-content-start">
 													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
 													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
 												<div class="d-flex justify-content-start">
@@ -445,7 +451,7 @@
 							<!--posest-->
 							<c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
 								<div class="col-xs-12 col-md-6 col-lg-4">
-									<div class="single-property mb-3 posest" style="height:400px;">
+									<div class="single-property mb-3 posest" style="height:450px;">
 										<div class="images">
 											<a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
 												<img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="">
@@ -460,6 +466,8 @@
 											<div class="middle">
 												<div class="d-flex justify-content-start">
 													<p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+												</div>
+												<div class="d-flex justify-content-start">
 													<p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
 												</div>
 												<div class="d-flex justify-content mb-2">

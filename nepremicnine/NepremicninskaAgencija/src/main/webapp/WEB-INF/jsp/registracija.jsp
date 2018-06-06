@@ -250,7 +250,6 @@
 
     </main>
 <!-- End Generic Start -->
-<!-- start footer Area
 <jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 </div>

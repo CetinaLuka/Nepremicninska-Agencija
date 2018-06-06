@@ -61,131 +61,104 @@
                         </div>
 -->
 
-<main class="container">
-    <br/>
-    <br/>
-    <form action="/kontrolnaPloscaPr" method="POST" class="">
-            <div class="container ">
+    <main class="container">
+        <br/>
+        <br/>
+        <form action="/kontrolnaPloscaPr" method="POST" class="">
+                <div class="container ">
 
-                    <div class="row  align-items-center justify-content-center ">
-                        <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputEmailPriPrijavi">
-                           <strong>E-mail:</strong>
-                        </label>
-                    </div>
-                    <div class="row  align-items-center justify-content-center" >
-                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                            <div class="input-group">
-                                <input type="email" name="email"
-                                       id="inputEmailPriPrijavi"
-                                       placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'npr: borisNovak@email.com'"
-                                       required class="single-input">
+                        <div class="row  align-items-center justify-content-center ">
+                            <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputEmailPriPrijavi">
+                               <strong>E-mail:</strong>
+                            </label>
+                        </div>
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <div class="input-group">
+                                    <input type="email" name="email"
+                                           id="inputEmailPriPrijavi"
+                                           placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'npr: borisNovak@email.com'"
+                                           required class="single-input">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div class="row  align-items-center justify-content-center">
+                            <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriPrijavi">
+                               <strong>Geslo:</strong>
+                            </label>
+                        </div>
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <div class="input-group">
+                                    <input type="password" name="geslo"
+                                           id="inputGesloPriPrijavi"
+                                           placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
+                                           required class="single-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <div class="row">
+                                   <div class="col-6 text-left">
+                                     <a href="">
+                                        <p>Pozabil sem geslo!</p>
+                                     </a>
+                                   </div>
+                                        <div class="col-6 text-right">
+                                         <a href="/registracija" >
+                                             <p>Želim se registrirati!</p>
+                                         </a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="row  align-items-center justify-content-center">
-                        <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="inputGesloPriPrijavi">
-                           <strong>Geslo:</strong>
-                        </label>
-                    </div>
-                    <div class="row  align-items-center justify-content-center" >
-                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                            <div class="input-group">
-                                <input type="password" name="geslo"
-                                       id="inputGesloPriPrijavi"
-                                       placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = '&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'"
-                                       required class="single-input">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row  align-items-center justify-content-center" >
                         <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                             <div class="row">
-                               <div class="col-6 text-left">
-                                 <a href="">
-                                    <p>Pozabil sem geslo!</p>
-                                 </a>
-                               </div>
-                                    <div class="col-6 text-right">
-                                     <a href="/registracija" >
-                                         <p>Želim se registrirati!</p>
-                                     </a>
-                                    </div>
+                                <div class="col-3"></div>
+                                <div class="col-9 text-right">
+                                    <c:if test="${prijavaNeuspesna==true}">
+                                        <div style="color: darkred;">
+                                            Nepravilno geslo ali e-mail naslov!
+                                        </div>
+                                    </c:if>
+                                </div>
                             </div>
                         </div>
                     </div>
-                <div class="row  align-items-center justify-content-center">
-                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                        <div class="row">
-                            <div class="col-3"></div>
-                            <div class="col-9 text-right">
-                                <c:if test="${prijavaNeuspesna==true}">
-                                    <div style="color: darkred;">
-                                        Nepravilno geslo ali e-mail naslov!
-                                    </div>
-                                </c:if>
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <button type="submit" class="genric-btn primary circle pull-right">
+                                    Prijava
+                                 </button>
                             </div>
                         </div>
-                    </div>
                 </div>
-                    <div class="row  align-items-center justify-content-center" >
-                        <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
-                            <button type="submit" class="genric-btn primary circle pull-right">
-                                Prijava
-                             </button>
-                        </div>
-                    </div>
-            </div>
-    </form>
-
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-</main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- End Generic Start -->
-
-
-
-
-<!-- start footer Area
-<jsp:include page="includes/footer.jsp" />
-<!-- End footer Area -->
-</div>
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/ion.rangeSlider.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/main.js"></script>
-<script>
-
-</script>
+        </form>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </main>
+    <!-- start footer Area-->
+    <jsp:include page="includes/footer.jsp" />
+    <!-- End footer Area -->
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/ion.rangeSlider.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
