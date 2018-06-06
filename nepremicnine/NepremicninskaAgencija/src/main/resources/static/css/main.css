@@ -2535,7 +2535,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .stanovanje .desc .middle p {
-  width: 33%;
+  width: 50%;
 }
 .stanovanje .desc .naslov p {
   width: 100%;
@@ -2558,7 +2558,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 @media (max-width: 1024px) and (min-width: 992px) {
   .desc .middle p {
-    font-size: 11px;
+
   }
 }
 
@@ -3164,7 +3164,7 @@ pokrivanje::selection{
   margin-bottom: 0px;
 }
 .hisa .opis{
-  height: 34px;
+  height: 59px;
   overflow: hidden;
   margin-bottom: 0px;
   width: 100%;
@@ -3185,6 +3185,6 @@ pokrivanje::selection{
   padding: 5px 25px;
   margin-top: -60px;
   position: absolute;
-  margin-left: 220px;
-  background-color: #18b518;
+  right: 60px;
+  background-color: #ee0600;
 }
