@@ -56,8 +56,8 @@ public class NepremicninaDao {
             int id = (int)row.get("idNepremicnina");
             double cena=(double)row.get("cena");
             double kvadraturaBivalnegaProstora=0;
-            if(row.get("kvadraturaBivalnegaProstora")!=null)
-                kvadraturaBivalnegaProstora=(double)row.get("svadraturaBivalnegaProstora");
+            //if(row.get("kvadraturaBivalnegaProstora")!=null)
+            //    kvadraturaBivalnegaProstora=(double)row.get("svadraturaBivalnegaProstora");
             double skupnaKvadratura=(double)row.get("SkupnaKvadratura");
             int steviloSob=0;
             if(row.get("steviloSob")!=null)

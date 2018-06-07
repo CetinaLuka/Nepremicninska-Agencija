@@ -118,6 +118,16 @@ public class MainController {
         }
         return "dodajanjeNepremicnin";
     }
+
+
+    @RequestMapping(value = {"/isciGumb" }, method = RequestMethod.GET)
+    public String isciGumb(RedirectAttributes red) {
+        List<Nepremicnina> list=nepremicninaDao.vrniVse();
+        red.addFlashAttribute("seznamIskanja",list);
+        return "redirect:/iskanjeNepremicnin";
+    }
+
+
     @RequestMapping(value = {"/iskanjeNepremicnin" }, method = RequestMethod.GET)
     public String iskanjeNepremicnin(RedirectAttributes red, Model model, HttpServletRequest request) {
         model.addAttribute("message");

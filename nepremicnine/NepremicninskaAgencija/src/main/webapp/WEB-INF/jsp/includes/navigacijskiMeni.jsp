@@ -26,6 +26,7 @@
                     <li><a id="povezavaStoritve" >Storitve</a></li>
                     <li><a id="povezavaPonudba" >Ponudba</a></li>
                     <li><a id="povezavaKontakt">Kontakt</a></li>
+                    <li><a href="/isciGumb">Iskanje</a></li>
                     <c:if test="${!jePrijavljen}">
                         <li><a href="/prijava">Prijava</a></li>
                         <li><a href="/registracija">Registracija</a></li>
