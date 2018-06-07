@@ -123,6 +123,7 @@
                         list.appendChild(document.createElement('BR'));
                     }
                     list.appendChild(listItem);
+                    document.getElementById("shraniSliko").disabled = false;
                 }
             }
         }
@@ -138,7 +139,7 @@
     <div class="row">
         <div class="col-12">
             <div class="text-center mt-10">
-                <input type="submit" value="SHRANI" class="genric-btn primary-border circle mb-50">
+                <input type="submit" value="SHRANI" id="shraniSliko" class="genric-btn primary-border circle mb-50" disabled>
             </div>
         </div>
     </div>

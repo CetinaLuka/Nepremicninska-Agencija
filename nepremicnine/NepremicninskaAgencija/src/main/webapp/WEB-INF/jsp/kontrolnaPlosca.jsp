@@ -67,7 +67,6 @@
                         <div class="row profil-kartica">
                             <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
                                 <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
-                                <button class="genric-btn default border mb-1">Spremeni sliko</button><br />
                                 <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
                             </div>
                             <br />

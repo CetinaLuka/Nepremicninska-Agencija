@@ -72,7 +72,7 @@
             </c:forEach>
         </div>
     </div-->
-
+    <c:if test="${!(empty nepremicnina_slika)}">
    <div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
             <c:forEach  items="${nepremicnina_slika}" var ="slika">
@@ -87,7 +87,23 @@
             </c:forEach>
         </div>
     </div>
-
+    </c:if>
+    <c:if test="${empty nepremicnina_slika}">
+        <div class="col-12">
+            <div class="search-field">
+                <div class="row">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-6 text-center">
+                        <p style="margin-bottom:0px; font-weight:bold;">Ni slik za prikaz.</p>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </c:if>
 
 
 
@@ -165,10 +181,6 @@
                               <p>
                                   <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
                                   <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
-
-                               </br> V naselju Lokrovec prodamo starejšo hišo z enim večjim in enim manjšim gospodarskim poslopjem. Hiša je delno obnovljena, velikost parcel je 1359 m2 in se nahajajo ob asfaltni cesti, ob kateri poteka tudi na novo zgrajena infrastruktura. (vodovod, kanalizacija,…).
-                                Zelo mirno okolje nedaleč od Celja, v bližini je rekreativno območje Šmartinskega jezera in golf igrišče.
-                                Ugodno prodamo, v račun vzamemo stanovanje ali manjše zazidljivo zemljišče.
                               </p>
                             </div>
                         </div>
