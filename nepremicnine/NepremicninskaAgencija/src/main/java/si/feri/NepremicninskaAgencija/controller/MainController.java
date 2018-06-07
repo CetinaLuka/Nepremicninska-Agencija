@@ -258,7 +258,7 @@ public class MainController {
                             @RequestParam(value="cena")String cena,
                             @RequestParam(value="velikost_zemljisca")String skupnaKvadratura,
                             @RequestParam(value="vrsta_hise")String vrstaHise,
-                            @RequestParam(value="dodaten_opis_hise",required = false)String opis,
+                            @RequestParam(value="dodaten_opis",required = false)String opis,
                             @RequestParam(value="letnik_prenove",required = false)String letoPrenove,
                             @RequestParam(value="garaza",required = false)String garaza,
                             @RequestParam(value="prodano2",required=false)String prodano) {
@@ -312,7 +312,7 @@ public class MainController {
                                   @RequestParam(value="balkon",required=false)String balkon, // opcijsko za balkon
                                   @RequestParam(value="garaza",required=false)String garaza, //opcijsko za garažo
                                   @RequestParam(value="letnik_prenove",required=false)String letoPrenove, // letnik prenove, opcijski parameter
-                                  @RequestParam(value="dodaten_opis_stanovanja",required=false)String opis,
+                                  @RequestParam(value="dodaten_opis",required=false)String opis,
                                   @RequestParam(value="prodano1",required=false)String prodano) {
         if(prodano==null){
             prodano="0";
@@ -364,7 +364,7 @@ public class MainController {
                               @RequestParam(value="cena")String cena,
                               @RequestParam(value="velikost_zemljisca")String skupnaKvadratura,
                               @RequestParam(value="vrsta_posesti")String tipPosesti,
-                              @RequestParam(value="dodaten_opis_posesti",required = false)String opis,
+                              @RequestParam(value="dodaten_opis",required = false)String opis,
                               @RequestParam(value="prodano3",required=false)String prodano) {
 
         List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
@@ -385,7 +385,7 @@ public class MainController {
         if(vsiNaslovi.size()>0) {
             tk_naslov = vsiNaslovi.get(0);
         }
-       if(prodano==null){
+       if(prodano==null || prodano=="0"){
            prodano="0";
        }
        else {
