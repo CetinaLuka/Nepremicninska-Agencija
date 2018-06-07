@@ -62,6 +62,7 @@ public class Nepremicnina{
 
     Integer postnaSt;
 
+
     public Nepremicnina() {
     }
 
@@ -254,4 +255,34 @@ public class Nepremicnina{
         this.cena=cena;
 
     }
+
+    public void brezSumnikov(){
+       opis=preveri(opis);
+       vrstaHise=preveri(vrstaHise);
+       tipPosesti=preveri(tipPosesti);
+       ulica=preveri(ulica);
+       hisnaSt=preveri(hisnaSt);
+       imeKraja=preveri(imeKraja);
+    }
+
+
+
+    private String preveri (String string){
+        String[] sumniki  = {"č","ć","đ","š","ž"};
+        String[] brezSumnikov = {"c","c","d","s","z"};
+        if (string!=null) {
+            for (int i = 0; i < string.length(); i++) {
+                for (int j = 0; j < sumniki.length; j++) {
+                    if (sumniki[j].charAt(0) == string.charAt(i)) {
+                        string = brezSumnikov[j];
+                    }
+                }
+            }
+        }
+        return string;
+    }
+
+
+
+
 }

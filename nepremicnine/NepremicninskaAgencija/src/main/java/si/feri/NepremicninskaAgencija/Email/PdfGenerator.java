@@ -8,7 +8,9 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
+import si.feri.NepremicninskaAgencija.models.Slika;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,53 +21,74 @@ public class PdfGenerator {
     private static final PDFont FONT = PDType1Font.HELVETICA;
     private static final float FONT_SIZE = 12;
     private static final float LEADING = -1.5f * FONT_SIZE;
+    private static final String GLAVNI_NASLOV_PDF="Nepremicninska agencija!";
 
     private Nepremicnina nepremicnina;
-    private File file;
+    private PDDocument doc;
 
-    PdfGenerator(Nepremicnina nepremicnina) {
-         this.nepremicnina=nepremicnina;
-        odebeljenTextCenter();
+        PdfGenerator(){
+
+        }
+
+    PdfGenerator(Nepremicnina nep, List<Slika> slike) {
+        try {
+            nep.brezSumnikov();
+            nepremicnina=nep;
+
+
+
+
+
+
+            //doc.save(new File("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
+            //doc.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
-        public void odebeljenTextCenter(){
+        public PdfInputStream odebeljenTextCenter(){
             try {
-
-                String title = "Apache PDFBox Center Text PDF Document";
-                PDFont font = PDType1Font.HELVETICA_BOLD;
-                int marginTop = 30;
-                int fontSize = 16;
-
-                final PDDocument doc = new PDDocument();
+                doc = new PDDocument();
                 PDPage page = new PDPage(PDRectangle.A4);
                 PDRectangle mediaBox = page.getMediaBox();
-                doc.addPage(page);
 
+
+                String title = GLAVNI_NASLOV_PDF;
+                PDFont font = PDType1Font.HELVETICA_BOLD;
+                int marginTop = 30;
+                int fontSize = 25;
                 PDPageContentStream stream = new PDPageContentStream(doc, page);
-
                 float titleWidth = font.getStringWidth(title) / 1000 * fontSize;
                 float titleHeight = font.getFontDescriptor().getFontBoundingBox().getHeight() / 1000 * fontSize;
-
                 float startX = (mediaBox.getWidth() - titleWidth) / 2;
                 float startY = mediaBox.getHeight() - marginTop - titleHeight;
-
                 stream.beginText();
                 stream.setFont(font, fontSize);
                 stream.newLineAtOffset(startX, startY);
                 stream.showText(title);
+                stream.showText(title);
+                stream.showText(title);
                 stream.endText();
                 stream.close();
+                doc.addPage(page);
 
-                doc.save(new File("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
+
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                doc.save(baos);
                 doc.close();
+                return new PdfInputStream(baos);
             } catch (IOException e){
                 System.err.println("Exception while trying to create pdf document - " + e);
             }
+            return null;
         }
 
 
 
-        public void slika(){
+        public PdfInputStream slika(){
             try (final PDDocument doc = new PDDocument()){
 
                 PDPage page = new PDPage();
@@ -83,13 +106,19 @@ public class PdfGenerator {
                 float startX = (mediaBox.getWidth() - pdImage.getWidth()) / 2;
                 float startY = (mediaBox.getHeight() - pdImage.getHeight()) / 2;
                 contents.drawImage(pdImage, 110, 0);
-
                 contents.close();
 
-                doc.save(new File("src/main/resources/PDFDokumenti/simple.pdf"));
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                doc.save(baos);
+                doc.close();
+
+                return new PdfInputStream(baos);
             } catch (IOException e){
                 System.err.println("Exception while trying to create pdf document - " + e);
             }
+            return null;
         }
 
 

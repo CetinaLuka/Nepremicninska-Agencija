@@ -6,6 +6,7 @@ import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -36,8 +37,7 @@ public class EmailService {
                 StandardWatchEventKinds.ENTRY_DELETE,StandardWatchEventKinds.ENTRY_MODIFY,
                 StandardWatchEventKinds.OVERFLOW);
 */
-            try {
-            PdfGenerator ustvariNovPdf = new PdfGenerator(mail.getNepremicnina());
+
             /*
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage();
@@ -92,28 +92,35 @@ public class EmailService {
             }
             */
 
+        try {
+
 
                     MimeMessage message = emailSender.createMimeMessage();
                     MimeMessageHelper helper = new MimeMessageHelper(message,
                             MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
                             StandardCharsets.UTF_8.name());
                     helper.addAttachment("logo.png", new ClassPathResource("/PDFDokumenti/logo.png"));
+            PdfGenerator ustvariNovPdf = new PdfGenerator();
+            InputStreamSource iss = ustvariNovPdf.slika();
 
-
+            helper.addAttachment("odebeljen.pdf", iss);
+            iss.getInputStream().close();
                     Template t = freemarkerConfig.getTemplate("email-template.ftl");
                     String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
 
                     helper.setTo(mail.getTo());
                     helper.setText(html, true);
                     helper.setSubject(mail.getSubject());
-                //  helper.setFrom(mail.getFrom());
+                    //helper.setFrom(mail.getFrom());
 
 
 
-                   helper.addAttachment("odebeljen.pdf", new ClassPathResource("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
+                    //helper.addAttachment("odebeljen.pdf", new ClassPathResource("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
 
-                    //Path a = Paths.get(System.getProperty("/PDFDokumenti/simplee.pdf"));
-                  //  FileSystemResource a =  new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf");
+                     //Path a = Paths.get(System.getProperty("/PDFDokumenti/simplee.pdf"));
+                    //FileSystemResource a =  new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf");
+                //    PdfGenerator ustvariNovPdf = new PdfGenerator(mail.getNepremicnina(),mail.getSlike());
+
 
 
                     emailSender.send(message);
