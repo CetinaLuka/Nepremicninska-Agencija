@@ -207,9 +207,9 @@
 						</div>
 						<p>Dodaten opis</p>
 					</div>
-					<!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
+					<!--Polje za vnos dodatnega opisa - name:dodaten_opis-->
 					<div class="mt-10 mb-10 collapse " id="dodaten_opis_stanovanja_skrij">
-						<textarea name="dodaten_opis_stanovanja" class="single-textarea" placeholder="Dodaten opis"></textarea>
+						<textarea name="dodaten_opis" class="single-textarea" placeholder="Dodaten opis"></textarea>
 					</div>
 				</div>
 			</div>
@@ -398,9 +398,9 @@
 						</div>
 						<p>Dodaten opis</p>
 					</div>
-					<!--Polje za vnos dodatnega opisa - name:dodaten_opis_hise-->
+					<!--Polje za vnos dodatnega opisa - name:dodaten_opis-->
 					<div class="mt-10 mb-10 collapse" id="dodaten_opis_hise_skrij">
-						<textarea name="dodaten_opis_hise" class="single-textarea" placeholder="Dodaten opis"></textarea>
+						<textarea name="dodaten_opis" class="single-textarea" placeholder="Dodaten opis"></textarea>
 					</div>
 				</div>
 			</div>
@@ -530,7 +530,7 @@
 						<p>Dodaten opis</p>
 					</div>
 					<div class="collapse mt-10 mb-10" id="dodaten_opis_posesti_skrij">
-						<textarea name="dodaten_opis_posesti" class="single-textarea" placeholder="Dodaten opis"></textarea>
+						<textarea name="dodaten_opis" class="single-textarea" placeholder="Dodaten opis"></textarea>
 					</div>
 				</div>
 			</div>

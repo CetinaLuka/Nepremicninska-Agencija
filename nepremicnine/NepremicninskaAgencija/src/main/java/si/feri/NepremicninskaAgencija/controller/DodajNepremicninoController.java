@@ -45,7 +45,7 @@ public class DodajNepremicninoController {
                                   @RequestParam(value="balkon",required=false)String balkon, // opcijsko za balkon
                                   @RequestParam(value="garaza",required=false)String garaza, //opcijsko za garažo
                                   @RequestParam(value="letnik_prenove",required=false)String letnik_prenove, // letnik prenove, opcijski parameter
-                                  @RequestParam(value="dodaten_opis_stanovanja",required=false)String dodaten_opis,
+                                  @RequestParam(value="dodaten_opis",required=false)String dodaten_opis,
                                   @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map)  {
 
         List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
@@ -123,7 +123,7 @@ public class DodajNepremicninoController {
                             @RequestParam(value="cena")String cena,
                             @RequestParam(value="velikost_zemljisca")String velikost_zemljisca,
                             @RequestParam(value="vrsta_hise")String vrsta_hise,
-                            @RequestParam(value="dodaten_opis_hise",required = false)String dodaten_opis,
+                            @RequestParam(value="dodaten_opis",required = false)String dodaten_opis,
                             @RequestParam(value="letnik_prenove",required = false)String letnik_prenove,
                             @RequestParam(value="garaza",required = false)String garaza,
                             @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
@@ -201,7 +201,7 @@ public class DodajNepremicninoController {
                               @RequestParam(value="cena")String cena,
                               @RequestParam(value="velikost_zemljisca")String velikost_zemljisca,
                               @RequestParam(value="vrsta_posesti")String vrsta_posesti,
-                              @RequestParam(value="dodaten_opis_posesti",required = false)String dodaten_opis,
+                              @RequestParam(value="dodaten_opis",required = false)String dodaten_opis,
                               @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
 
         List<Integer> ceObstaja=krajDao.vrniID(kraj,postna_st);
