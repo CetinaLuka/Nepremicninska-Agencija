@@ -9,7 +9,7 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/elements/fav.png">
+    <link rel="shortcut icon" href="img/logo/logo.png">
     <!-- Author Meta -->
     <meta name="author" content="CodePixar">
     <!-- Meta Description -->
@@ -182,6 +182,9 @@
                                                     <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
                                                 <span class="cena">${nepremicnina.cena}€</span>
+                                                <c:if test="${nepremicnina.prodano==true}">
+                                                    <span class="prodano">Prodano</span>
+                                                </c:if>
                                             </a>
                                         </div>
                                         <div class="desc">
@@ -264,6 +267,9 @@
                                                     <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
                                                 <span class="cena">${nepremicnina.cena}€</span>
+                                                <c:if test="${nepremicnina.prodano==true}">
+                                                    <span class="prodano">Prodano</span>
+                                                </c:if>
                                             </a>
                                         </div>
                                         <div class="desc">
@@ -338,10 +344,9 @@
                                                 </c:if>
                                                 <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
                                                 <span class="cena">${nepremicnina.cena}€</span>
-                                                <c:if test="${prodano==true}">
+                                                <c:if test="${nepremicnina.prodano==true}">
                                                     <span class="prodano">Prodano</span>
                                                 </c:if>
-                                                <span class="prodano">Prodano</span>
                                             </a>
                                         </div>
                                         <div class="desc">
@@ -483,8 +488,14 @@
                                 <!--Checkbox za garažo - name:garaza-->
                                 <div class="switch-wrap d-flex mt-1 ">
                                     <div class="primary-checkbox mr-10">
-                                        <input type="hidden" name="garaza" id="garazaSkrit" value="0">
-                                        <input type="checkbox" name="garaza" id="garaza" value="1">
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.garaza==true}">
+                                                <input type="checkbox" name="garaza" id="garaza" value="1" checked>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="garaza" id="garaza" value="0">
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="garaza"></label>
                                     </div>
                                     <p>Garaža</p>
@@ -492,10 +503,15 @@
                                 <!--Checkbox za balkon - name:balkon-->
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
-                                        <input type="hidden" name="balkon" id="balkonSkrit" value="0">
-                                        <input type="checkbox" name="balkon" id="balkon" value="1">
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.balkon==true}">
+                                                <input type="checkbox" name="balkon" id="balkon" value="1" checked>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="balkon" id="balkon" value="0">
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="balkon"></label>
-
                                     </div>
                                     <p>Balkon</p>
                                 </div>
@@ -513,8 +529,14 @@
                                 </div>
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
-                                        <!--input type="hidden" name="prodano2" id="prodano1" value="0"-->
-                                        <input type="checkbox" name="prodano2" id="prodano1" value="1">
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.prodano==true}">
+                                                <input type="checkbox" name="prodano2" id="prodano1" value="1" checked>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="prodano2" id="prodano1" value="0">
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="prodano1"></label>
                                     </div>
                                     <p>Prodano</p>
@@ -633,7 +655,14 @@
                                 <!--Checkbox za garažo - name:garaza-->
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10">
-                                        <input type="checkbox" name="garaza" id="garaza_hisa" value="1"/>
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.garaza==true}">
+                                                <input type="checkbox" name="garaza" id="garaza_hisa" value="1" checked/>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="garaza" id="garaza_hisa" value="0"/>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="garaza_hisa"></label>
                                     </div>
                                     <p>Garaža</p>
@@ -652,8 +681,14 @@
                                 </div>
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
-                                        <!--input type="hidden" name="prodano2" id="prodano2" value="0"-->
-                                        <input type="checkbox" name="prodano2" id="prodano2" value="1">
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.prodano==true}">
+                                                <input type="checkbox" name="prodano2" id="prodano2" value="1" checked>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="prodano2" id="prodano2" value="0">
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="prodano2"></label>
                                     </div>
                                     <p>Prodano</p>
@@ -749,8 +784,14 @@
                             <div class="col-12">
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
-                                        <!--input type="hidden" name="prodano3" id="prodano3" value="0"-->
-                                        <input type="checkbox" name="prodano3" id="prodano3" value="1">
+                                        <c:choose>
+                                            <c:when test="${nepremicninaModal.prodano==true}">
+                                                <input type="checkbox" name="prodano3" id="prodano3" value="1" checked>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="checkbox" name="prodano3" id="prodano3" value="0">
+                                            </c:otherwise>
+                                        </c:choose>
                                         <label for="prodano3"></label>
                                     </div>
                                     <p>Prodano</p>

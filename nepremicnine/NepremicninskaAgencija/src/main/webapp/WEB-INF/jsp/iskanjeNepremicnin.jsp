@@ -7,7 +7,7 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/elements/fav.png">
+    <link rel="shortcut icon" href="img/logo/logo.png">
     <!-- Author Meta -->
     <meta name="author" content="CodePixar">
     <!-- Meta Description -->
@@ -456,7 +456,7 @@
                                         <div class="middle">
                                             <div class="justify-content mb-2">
                                                 Opis:<br />
-                                                <p class="opis">
+                                                <p class="opis" style="height:54px;margin-bottom:13px">
                                                     <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
                                                     <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
                                                 </p>
@@ -469,7 +469,6 @@
                         </c:if>
                     </c:forEach>
                     <c:if test="${seznamIskanja.size()==0}">
-
                         <div class="col-12">
                             <div class="search-field">
                                 <div class="row">
@@ -484,7 +483,6 @@
                             </div>
                             <br/>
                         </div>
-
                     </c:if>
                 </div>
             </div>
