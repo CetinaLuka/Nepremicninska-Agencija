@@ -81,8 +81,8 @@
                     <div class="col-12">
                         <div class="search-field">
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-xs-12">
-                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="app-select form-control" required>
+                                <div class="col-lg-12 col-md-12 col-xs-12 isci">
+                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="neki-select app-select form-control" required>
                                         <option value="1" selected>Stanovanje</option>
                                         <option value="2">Hiša</option>
                                         <option value="3">Posest</option>
@@ -92,7 +92,7 @@
                                 <div id="iskanjeStanovanje" style="display:block;" class="col-lg-12">
                                     <form class="search-form" method="get" action="/iskanjeStanovanje">
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+                                            <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
                                                     <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
@@ -154,7 +154,7 @@
                                 <div id="iskanjeHisa" style="display:none;" class="col-lg-12">
                                     <form class="search-form" method="get" action="/iskanjeHisa">
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+                                            <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
                                                     <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
@@ -166,7 +166,7 @@
                                                     <option value="7">Prekmurska</option>
                                                 </select>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+                                            <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_tip_hisa" class="app-select form-control" required>
                                                     <option data-display="Tip hiše">Tip hiše</option>
                                                     <option value="Samostojna">Samostojna</option>
@@ -216,7 +216,7 @@
                                 <div id="iskanjePosest" style="display:none;" class="col-lg-12">
                                     <form class="search-form" method="get" action="/iskanjePosest">
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+                                            <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
                                                     <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
@@ -228,7 +228,7 @@
                                                     <option value="7">Prekmurska</option>
                                                 </select>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
+                                            <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_tip_posesti" class="app-select form-control" required>
                                                     <option data-display="Tip posesti">Tip posesti</option>
                                                     <option value="Zazidljiva">Zazidljiva</option>

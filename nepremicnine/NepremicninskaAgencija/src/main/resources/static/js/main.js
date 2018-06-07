@@ -29,6 +29,9 @@ $(document).ready(function(){
     if(document.getElementById("property")){
           $('select').niceSelect();
     };
+    if(document.getElementsByClassName("isci")){
+        $('select').niceSelect();
+    };
 
     $('.img-pop-up').magnificPopup({
         type: 'image',
