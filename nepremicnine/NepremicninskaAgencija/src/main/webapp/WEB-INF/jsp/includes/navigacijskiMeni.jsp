@@ -23,7 +23,6 @@
                         <p>Vaš brskalnik ne podpira javascript-a zato povezave na strani ne delujejo!</p>
                     </noscript>
                     <li><a id="povezavaDomov" >Domov</a></li>
-                    <li><a id="povezavaStoritve" >Storitve</a></li>
                     <li><a id="povezavaPonudba" >Ponudba</a></li>
                     <li><a id="povezavaKontakt">Kontakt</a></li>
                     <li><a href="/isciGumb">Iskanje</a></li>
@@ -48,25 +47,21 @@
 
     function zagotavljanjePovezav() {
         var domov;
-        var storitve;
         var ponudba;
         var kontakt;
         domov = document.getElementById('povezavaDomov');
-        storitve = document.getElementById('povezavaStoritve');
         ponudba = document.getElementById('povezavaPonudba');
         kontakt = document.getElementById('povezavaKontakt');
         try {
             if (dolocenaPovezava) {
 //tu ne črtice!!!!
                 domov.href = '#home';
-                storitve.href = '#service';
                 ponudba.href = '#property';
                 kontakt.href = '#contact';
 
             }
         } catch (e) {
             domov.href = '/index#home';
-            storitve.href = '/index#service';
             ponudba.href = '/index#property';
             kontakt.href = '/index#contact';
         }

@@ -6,7 +6,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="img/logo/logo.png">
 		<!-- Author Meta -->
 		<meta name="author" content="CodePixar">
 		<!-- Meta Description -->
@@ -241,8 +241,8 @@
 				<button class="primary-btn mt-50 text-center " style="padding-right: 30px" data-toggle="modal" data-target="#zemljevid" style="height: 45px;">ZEMLJEVID NEPREMIČNIN</button>
 			</div>
 			<div class="modal fade" id="zemljevid" tabindex="-1" role="dialog" aria-labelledby="zemljevid" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
+				<div class="modal-dialog modal-lg" role="document"  style="max-width: 100%; margin: 100px;">
+					<div class="modal-content" style="widht:100%">
 						<div class="modal-header">
 							<h5 class="modal-title" id="zemljevid-naslov">LOKACIJE NEPREMIČNIN</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -805,14 +805,14 @@
 
                 var ikone = {
                  1: {
-                     url: "img/stanovanje.png",
+                     url: "img/ikona-blok.png",
                     scaledSize: new google.maps.Size(25, 25),
                     origin: new google.maps.Point(0, 0),
                     anchor: new google.maps.Point(0, 0)
                 },
                     2: {
-                        url: "img/hisa.png",
-                        scaledSize: new google.maps.Size(25, 25),
+                        url: "img/ikona-hisa.png",
+                        scaledSize: new google.maps.Size(20, 20),
                         origin: new google.maps.Point(0, 0),
                         anchor: new google.maps.Point(0, 0)
                     },
