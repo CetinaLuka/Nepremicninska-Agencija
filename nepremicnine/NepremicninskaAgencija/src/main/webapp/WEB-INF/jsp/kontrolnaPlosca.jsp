@@ -472,7 +472,7 @@
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
                                         <!--input type="hidden" name="prenovljeno" id="prenovljenoSkrit" value="0" /-->
-                                        <input type="checkbox" id="prenovljeno"  data-toggle="collapse" data-target="#letnik_prenove_skrij">
+                                        <input type="checkbox" id="prenovljeno" name="prenovljeno"  data-toggle="collapse" data-target="#letnik_prenove_skrij">
                                         <label for="prenovljeno"></label>
                                     </div>
                                     <p>Prenovljeno</p>
@@ -518,14 +518,14 @@
                                 <!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
                                 <div class="switch-wrap d-flex ">
                                     <div class="primary-switch mr-10">
-                                        <input type="checkbox" name="dodaten_opis_stanovanja_check" id="dodaten_opis_stanovanja_check" data-toggle="collapse" data-target="#dodaten_opis_stanovanja_skrij">
+                                        <input type="checkbox" name="dodaten_opis_check" id="dodaten_opis_stanovanja_check" data-toggle="collapse" data-target="#dodaten_opis_stanovanja_skrij">
                                         <label for="dodaten_opis_stanovanja_check"></label>
                                     </div>
                                     <p>Dodaten opis</p>
                                 </div>
                                 <!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
                                 <div class="mt-10 mb-10 collapse " id="dodaten_opis_stanovanja_skrij" data-toggle="tooltip" data-placement="top" title="Dodaten opis">
-                                    <textarea name="dodaten_opis_stanovanja" class="single-textarea mb-1" placeholder="Dodaten opis" value="${nepremicninaModal.opis}"></textarea>
+                                    <textarea name="dodaten_opis" id="dodaten_opis_stanovanja" class="single-textarea mb-1" placeholder="Dodaten opis">${nepremicninaModal.opis}</textarea>
                                 </div>
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
@@ -667,17 +667,17 @@
                                     </div>
                                     <p>Garaža</p>
                                 </div>
-                                <!--Switch za dodaten opis - name:dodaten_opis_stanovanja_check-->
+                                <!--Switch za dodaten opis - name:dodaten_opis_hise_check-->
                                 <div class="switch-wrap d-flex ">
                                     <div class="primary-switch mr-10">
-                                        <input type="checkbox" name="dodaten_opis_hise_check" id="dodaten_opis_hise_check" data-toggle="collapse" data-target="#dodaten_opis_hise_skrij">
+                                        <input type="checkbox" name="dodaten_opis_check" id="dodaten_opis_hise_check" data-toggle="collapse" data-target="#dodaten_opis_hise_skrij">
                                         <label for="dodaten_opis_hise_check"></label>
                                     </div>
                                     <p>Dodaten opis</p>
                                 </div>
-                                <!--Polje za vnos dodatnega opisa - name:dodaten_opis_stanovanja-->
+                                <!--Polje za vnos dodatnega opisa - name:dodaten_opis_hise-->
                                 <div class="mt-10 mb-10 collapse " id="dodaten_opis_hise_skrij" data-toggle="tooltip" data-placement="top" title="Dodaten opis">
-                                    <textarea name="dodaten_opis_hise" class="single-textarea mb-1" placeholder="Dodaten opis" value="${nepremicninaModal.opis}"></textarea>
+                                    <textarea name="dodaten_opis" id="dodaten_opis_hise" class="single-textarea mb-1" placeholder="Dodaten opis">${nepremicninaModal.opis}</textarea>
                                 </div>
                                 <div class="switch-wrap d-flex mt-1">
                                     <div class="primary-checkbox mr-10 mt-1">
@@ -770,13 +770,13 @@
                             <div class="col-12">
                                 <div class="switch-wrap d-flex mt-10">
                                     <div class="primary-switch mr-10">
-                                        <input type="checkbox" name="dodaten_opis_posesti_check" id="dodaten_opis_posesti_check" data-toggle="collapse" data-target="#dodaten_opis_posesti_skrij">
+                                        <input type="checkbox" name="dodaten_opis_check" id="dodaten_opis_posesti_check" data-toggle="collapse" data-target="#dodaten_opis_posesti_skrij">
                                         <label for="dodaten_opis_posesti_check"></label>
                                     </div>
                                     <p>Dodaten opis</p>
                                 </div>
                                 <div class="collapse mt-10 mb-10" id="dodaten_opis_posesti_skrij">
-                                    <textarea name="dodaten_opis_posesti" class="single-textarea mb-1" placeholder="Dodaten opis" value="${nepremicninaModal.opis}" data-toggle="tooltip" data-placement="top" title="Dodaten opis"></textarea>
+                                    <textarea name="dodaten_opis" id="dodaten_opis_posesti" class="single-textarea mb-1" placeholder="Dodaten opis" data-toggle="tooltip" data-placement="top" title="Dodaten opis">${nepremicninaModal.opis}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -873,12 +873,34 @@
         $('#modal-vsebina').load("urejanjeNepremicnineKontrolna?id="+id+" "+vrstaNepremicnine);
     }
     $(window).on('shown.bs.modal', function() {
-        if($('#letnik_prenove_hisa').val().length==4){
-            document.getElementById("prenovljeno_hisa").click();
 
+        try{
+            if($('input[name="letnik_prenove"]').val()!=null && $('input[name="letnik_prenove"]').val().length==4) {
+                document.getElementsByName("prenovljeno")[0].click();
+            }
+            if($('textarea[name="dodaten_opis"]').text()!=null && $('textarea[name="dodaten_opis"]').text().length>0) {
+                console.log($('textarea[name="dodaten_opis"]').text());
+                document.getElementsByName("dodaten_opis_check")[0].click();
+            }
         }
-        else if($('#letnik_prenove_stanovanje').val().length){
-            document.getElementById("prenovljeno").click();
+        catch(err){
+            console.log(err.message);
+        }
+        try{
+            /*document.getElementsByName("dodaten_opis_stanovanja_check")[0].click();*/
+            /*
+            if($('#dodaten_opis_stanovanja').text().length>0){
+                document.getElementById("dodaten_opis_stanovanje_check").click();
+            }
+            else if($('#dodaten_opis_hise').text().length>0){
+                document.getElementById("dodaten_opis_hise_check").click();
+            }
+            else if($('#dodaten_opis_posesti').text().length>0){
+                document.getElementById("dodaten_opis_posesti_check").click();
+            }*/
+        }
+        catch(err){
+            console.log(err);
         }
     });
     function sortirajProdano(){
