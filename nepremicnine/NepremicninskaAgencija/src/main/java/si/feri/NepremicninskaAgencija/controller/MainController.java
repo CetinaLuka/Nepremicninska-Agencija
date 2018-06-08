@@ -121,9 +121,11 @@ public class MainController {
 
 
     @RequestMapping(value = {"/isciGumb" }, method = RequestMethod.GET)
-    public String isciGumb(RedirectAttributes red) {
+    public String isciGumb(RedirectAttributes red, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
         List<Nepremicnina> list=nepremicninaDao.vrniVse();
         red.addFlashAttribute("seznamIskanja",list);
+        session.setAttribute("rezultati",list);
         return "redirect:/iskanjeNepremicnin";
     }
 
@@ -142,7 +144,7 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/iskanjeStanovanje" }, method = RequestMethod.GET)
-    public String iskanjeStanovanje(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija,
+    public String iskanjeStanovanje(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija,
                                     @RequestParam(value="letnik_izgradnje")String letnik_izgradnje, @RequestParam(value="letnik_prenove")String letnik_prenove,
                                     @RequestParam(value="stevilo_sob")String stevilo_sob, @RequestParam(value="garaza")String garaza,
                                     @RequestParam(value="balkon")String balkon,
@@ -163,6 +165,8 @@ public class MainController {
         String [] skupnaKvadratura=range2.split(";");
         List<Nepremicnina> list=nepremicninaDao.iskanjeStanovanje(zac,konc,letnik_izgradnje,letnik_prenove,stevilo_sob,garaza,balkon,cena,skupnaKvadratura);
         red.addFlashAttribute("seznamIskanja",list);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("rezultati",list);
         return "redirect:/iskanjeNepremicnin";
     }
 

@@ -399,7 +399,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <s:form name="dodaj_stanovanje_form" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <s:form name="dodaj_stanovanje_form" id="urediForm" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
                    <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                     <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
@@ -630,9 +630,21 @@
                                 <label class="mt-1">Vrsta hiše</label>
                                 <div class="default-select" id="vrsta_hise">
                                     <select name="vrsta_hise" value="${nepremicninaModal.vrstaHise}">
-                                        <option value="Samostojna">Samostojna</option>
-                                        <option value="Dvojček">Dvojček</option>
-                                        <option value="Vrstna">Vrstna</option>
+                                        <option value="Samostojna"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Samostojna')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Samostojna</option>
+                                        <option value="Dvojček"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Dvojček')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Dvojček</option>
+                                        <option value="Vrstna"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Vrstna')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Vrstna</option>
                                     </select>
                                 </div>
                             </div>
@@ -763,11 +775,23 @@
                         <div class="row">
                             <div class="col-12">
                                 <label class="mt-1">Vrsta posesti</label>
-                                <div class="default-select isci" id="vrsta_posesti">
-                                    <select name="vrsta_posesti" value="${nepremicninaModal.tipPosesti}">
-                                        <option value="Zazidljiva">Zazidljiva</option>
-                                        <option value="Nezazidljiva">Nezazidljiva</option>
-                                        <option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
+                                <div class="default-select" id="vrsta_posesti">
+                                    <select name="vrsta_posesti">
+                                        <option value="Zazidljiva"
+                                            <c:if test="${nepremicninaModal.tipPosesti.equals('Zazidljiva')}">
+                                                selected="selected"
+                                            </c:if>
+                                        >Zazidljiva</option>
+                                        <option value="Nezazidljiva"
+                                                <c:if test="${nepremicninaModal.tipPosesti.equals('Nezazidljiva')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Nezazidljiva</option>
+                                        <option value="Kmetijsko zemljišče"
+                                                <c:if test="${nepremicninaModal.tipPosesti.equals('Kmetijsko zemljišče')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Kmetijsko zemljišče</option>
                                     </select>
                                 </div>
                             </div>
