@@ -239,12 +239,12 @@ public class NepremicninaDao {
         }
 
     }
-    public int skupnaCenaNepremicnin(int tkAgent) {
-        String sql = "SELECT SUM(cena) FROM nepremicnina WHERE prodano=true AND Agent_idAgent=" + tkAgent +
+    public double skupnaCenaNepremicnin(int tkAgent) {
+        String sql = "SELECT SUM(cena) FROM nepremicnina WHERE prodano=1 AND Agent_idAgent=" + tkAgent +
                 " GROUP BY Agent_idAgent";
         try {
             Object o = jdbcTemplate.queryForObject(sql, String.class);
-            return Integer.parseInt(o.toString());
+            return Double.parseDouble(o.toString());
         } catch (EmptyResultDataAccessException e) {
             return 0;
         }
@@ -574,20 +574,19 @@ public class NepremicninaDao {
         return name;
     }
 
-    public int urediHiso(Integer idNepremicnina, Integer tk_id_naslov, Integer kvadraturaBivalnegaProstora, Integer skupnaKvadratura, Integer letoIzgradnje, Integer cena, String vrstaHise, Integer letoPrenove, Boolean garaza, String opis, Boolean prodano){
+    public int urediHiso(Integer idNepremicnina, Integer tk_id_naslov, String kvadraturaBivalnegaProstora, String skupnaKvadratura, String letoIzgradnje, String cena, String vrstaHise, String letoPrenove, String garaza, String opis, String prodano){
         // String sql1="SELECT * FROM naslov WHERE idNaslov="+tk_id_naslov;
-        String sql="UPDATE nepremicnina SET kvadraturaBivalnegaProstora=?, " +
-                " skupnaKvadratura=?, letoIzgradnje=?, cena=?, vrstaHise=?, letoPrenove=?, garaza=?, opis=?, prodano=? WHERE idNepremicnine=?";
-        return  jdbcTemplate.update(sql, new Object[]{kvadraturaBivalnegaProstora, skupnaKvadratura, letoIzgradnje, cena, vrstaHise, letoPrenove, garaza, opis, prodano, idNepremicnina  });
+        String sql="UPDATE nepremicnina SET tk_id_naslov=?, kvadraturaBivalnegaProstora=?, " +
+                " skupnaKvadratura=?, letoIzgradnje=?, cena=?, vrstaHise=?, letoPrenove=?, garaza=?, opis=?, prodano=? WHERE idNepremicnina=?";
+        return  jdbcTemplate.update(sql, new Object[]{tk_id_naslov,kvadraturaBivalnegaProstora, skupnaKvadratura, letoIzgradnje, cena, vrstaHise, letoPrenove, garaza, opis, prodano, idNepremicnina  });
     }
-    public int urediStanovanje(Integer idNepremicnina, Integer tk_id_naslov, Integer kvadraturaBivalnegaProstora,Integer letoIzgradnje, Integer steviloSob, Integer nadstropje, Integer cena, Integer letoPrenove, Boolean garaza, Boolean balkon,  String opis, Boolean prodano){
-        String sql="UPDATE nepremicnina SET kvadraturaBivalnegaProstora=?," +
+    public int urediStanovanje(int idNepremicnina, Integer tk_id_naslov, String skupnaKvadratura,String letoIzgradnje, String steviloSob, String nadstropje, String cena, String letoPrenove, String garaza, String balkon,  String opis, String prodano){
+        String sql="UPDATE nepremicnina SET tk_id_naslov=?,skupnaKvadratura=?," +
                 " letoIzgradnje=?, steviloSob=?, nadstropje=?, cena=?, letoPrenove=?, garaza=?, balkon=?, opis=?, prodano=? WHERE idNepremicnina=? ";
-        return  jdbcTemplate.update(sql, new Object[]{kvadraturaBivalnegaProstora, letoIzgradnje, steviloSob, nadstropje, cena, letoPrenove, garaza, balkon, opis, prodano, idNepremicnina});
+        return  jdbcTemplate.update(sql, new Object[]{tk_id_naslov,skupnaKvadratura, letoIzgradnje, steviloSob, nadstropje, cena, letoPrenove, garaza, balkon, opis, prodano, idNepremicnina});
     }
-    public int urediPosest(int idNepremicnina, int tk_id_naslov, String skupnaKvadratura, String cena, String tipPosesti, String opis, String prodano ){
-        String sql="UPDATE nepremicnina SET skupnaKvadratura=?, "+
-                "cena=?, tipPosesti=?, opis=?, prodano=? WHERE idNepremicnina=?";
-        return  jdbcTemplate.update(sql, new Object[]{skupnaKvadratura, cena, tipPosesti, opis,prodano, idNepremicnina});
+    public int urediPosest(int idNepremicnina, int tk_id_naslov, String skupnaKvadratura, double cena, String tipPosesti, String opis, String prodano ){
+        String sql="UPDATE nepremicnina SET tk_id_naslov=?,skupnaKvadratura=?, cena=?, tipPosesti=?, opis=?, prodano=? WHERE idNepremicnina=?";
+        return  jdbcTemplate.update(sql, new Object[]{tk_id_naslov,skupnaKvadratura, cena, tipPosesti, opis,prodano, idNepremicnina});
     }
 }

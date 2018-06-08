@@ -400,6 +400,8 @@
                     </button>
                 </div>
                 <s:form name="dodaj_stanovanje_form" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
+                   <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
+                    <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 col-md-9">
@@ -558,6 +560,8 @@
                     </button>
                 </div>
                 <s:form name="dodaj_hiso_form"  method="POST" action="urediHiso" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
+                    <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 col-md-8">
@@ -710,6 +714,8 @@
                     </button>
                 </div>
                 <s:form name="dodaj_posest_form" method="POST" action="urediPosest" modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
+                    <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 col-md-8">

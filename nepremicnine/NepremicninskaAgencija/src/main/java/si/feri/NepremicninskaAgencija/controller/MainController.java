@@ -232,7 +232,7 @@ public class MainController {
             model.addAttribute("stProdanihNepremicnin", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, true));
             model.addAttribute("stNepremicninNaprodaj", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, false));
             model.addAttribute("cenaProdanihNepremicnin", nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
-            model.addAttribute("zasluzek", (nepremicninaDao.skupnaCenaNepremicnin(tk_agent) * 0.1));
+            model.addAttribute("zasluzek", (nepremicninaDao.skupnaCenaNepremicnin(tk_agent) * 0.2));
             model.addAttribute("jePrijavljen", true);
             model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
             return "kontrolnaPlosca";
@@ -248,58 +248,35 @@ public class MainController {
 
     @RequestMapping(value = {"/urediHiso" }, method = RequestMethod.POST)
     public String urediHiso(RedirectAttributes red, Model model, HttpServletRequest request,
-                            @RequestParam(value="idNepremicnina")String idNepremicnina,
+                            @RequestParam(value="idNepremicnina")int idNepremicnina,
                             @RequestParam(value="naslov")String naslov,
                             @RequestParam(value="kraj")String kraj,
                             @RequestParam(value="postna_st")String postna_st,
                             @RequestParam(value="hisna_st")String hisnaSt,
                             @RequestParam(value="kvadratura")String kvadraturaBivalnegaProstora,
-                            @RequestParam(value="letnik_izgradnje")Integer letoIzgradnje,
+                            @RequestParam(value="letnik_izgradnje")String letoIzgradnje,
                             @RequestParam(value="cena")String cena,
                             @RequestParam(value="velikost_zemljisca")String skupnaKvadratura,
                             @RequestParam(value="vrsta_hise")String vrstaHise,
-                            @RequestParam(value="dodaten_opis_hise",required = false)String opis,
+                            @RequestParam(value="dodaten_opis",required = false)String opis,
                             @RequestParam(value="letnik_prenove",required = false)String letoPrenove,
-                            @RequestParam(value="garaza",required = false)String garaza,  @RequestParam(value="prodano",required=false)String prodano) {
-        int tk_id_naslov=1;
-        // nepremicninaDao.urediHiso( idNepremicnina,  tk_id_naslov,  kvadraturaBivalnegaProstora,  skupnaKvadratura,  letoIzgradnje,  cena,  vrstaHise,  letoPrenove,  garaza,  opis,  prodano);
-        return "redirect:/kontrolnaPlosca";
-    }
-    @RequestMapping(value = {"/urediStanovanje" }, method = RequestMethod.POST)
-    public String urediStanovanje(RedirectAttributes red, Model model, HttpServletRequest request,
-                                  @RequestParam(value="idNepremicnina")String idNepremicnina,
-                                  @RequestParam(value="naslov")String naslov,
-                                  @RequestParam(value="kraj")String kraj,
-                                  @RequestParam(value="postna_st")String postna_st,
-                                  @RequestParam(value="hisna_st")String hisnaSt,
-                                  @RequestParam(value="kvadratura")String skupnaKvadratura,
-                                  @RequestParam(value="stevilo_sob")String steviloSob,
-                                  @RequestParam(value="letnik_izgradnje")String letoIzgradnje,
-                                  @RequestParam(value="nadstropje")String nadstropje,
-                                  @RequestParam(value="cena")String cena,
-                                  @RequestParam(value="balkon",required=false)String balkon, // opcijsko za balkon
-                                  @RequestParam(value="garaza",required=false)String garaza, //opcijsko za garažo
-                                  @RequestParam(value="letnik_prenove",required=false)String letoPrenove, // letnik prenove, opcijski parameter
-                                  @RequestParam(value="dodaten_opis_stanovanja",required=false)String opis,
-                                  @RequestParam(value="prodano",required=false)String prodano) {
-        int tk_id_naslov=1;
-        //  nepremicninaDao.urediStanovanje( Integer.parseInt(idNepremicnina), tk_id_naslov,  Integer.parseInt(skupnaKvadratura), Integer.parseInt(letoIzgradnje),  Integer.parseInt(steviloSob),  Integer.parseInt(nadstropje),  Integer.parseInt(cena),  Integer.parseInt(letoPrenove),  true,  true,   opis,  prodano);
-        return "redirect:/kontrolnaPlosca";
-    }
-    @RequestMapping(value = {"/urediPosest" }, method = RequestMethod.POST)
-    public String urediPosest(RedirectAttributes red, Model model, HttpServletRequest request,
-                              @RequestParam(value="idNepremicnina")int idNepremicnina,
-                              @RequestParam(value="naslov")String naslov,
-                              @RequestParam(value="kraj")String kraj,
-                              @RequestParam(value="postna_st")String postna_st,
-                              @RequestParam(value="hisna_st")String hisnaSt,
-                              @RequestParam(value="cena")String cena,
-                              @RequestParam(value="velikost_zemljisca")String skupnaKvadratura,
-                              @RequestParam(value="vrsta_posesti")String tipPosesti,
-                              @RequestParam(value="dodaten_opis_posesti",required = false)String opis, @RequestParam(value="prodano",required=false)String prodano) {
+                            @RequestParam(value="garaza",required = false)String garaza,
+                            @RequestParam(value="prodano2",required=false)String prodano) {
+        if(prodano==null){
+            prodano="0";
+        }
+        else {
+            prodano="1";
+        }
+        if(garaza==null){
+            garaza="0";
+        }
+        else {
+            garaza="1";
+        }
+        Double c=Double.parseDouble(cena);
 
-        System.out.println(idNepremicnina+naslov+kraj+postna_st+hisnaSt+cena+skupnaKvadratura+tipPosesti+opis+prodano);
-       /* List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
+        List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
         if(ceObstajaKraj.size()==0){
             krajDao.addKraj(kraj,postna_st);
         }
@@ -316,11 +293,106 @@ public class MainController {
         int tk_naslov=0;
         if(vsiNaslovi.size()>0) {
             tk_naslov = vsiNaslovi.get(0);
-        }*/
+        }
+        nepremicninaDao.urediHiso( idNepremicnina,  tk_naslov,  kvadraturaBivalnegaProstora,  skupnaKvadratura,  letoIzgradnje,  cena,  vrstaHise,  letoPrenove,  garaza,  opis,  prodano);
+        return "redirect:/kontrolnaPlosca";
+    }
+    @RequestMapping(value = {"/urediStanovanje" }, method = RequestMethod.POST)
+    public String urediStanovanje(RedirectAttributes red, Model model, HttpServletRequest request,
+                                  @RequestParam(value="idNepremicnina")int idNepremicnina,
+                                  @RequestParam(value="naslov")String naslov,
+                                  @RequestParam(value="kraj")String kraj,
+                                  @RequestParam(value="postna_st")String postna_st,
+                                  @RequestParam(value="hisna_st")String hisnaSt,
+                                  @RequestParam(value="kvadratura")String skupnaKvadratura,
+                                  @RequestParam(value="stevilo_sob")String steviloSob,
+                                  @RequestParam(value="letnik_izgradnje")String letoIzgradnje,
+                                  @RequestParam(value="nadstropje")String nadstropje,
+                                  @RequestParam(value="cena")String cena,
+                                  @RequestParam(value="balkon",required=false)String balkon, // opcijsko za balkon
+                                  @RequestParam(value="garaza",required=false)String garaza, //opcijsko za garažo
+                                  @RequestParam(value="letnik_prenove",required=false)String letoPrenove, // letnik prenove, opcijski parameter
+                                  @RequestParam(value="dodaten_opis",required=false)String opis,
+                                  @RequestParam(value="prodano1",required=false)String prodano) {
+        if(prodano==null){
+            prodano="0";
+        }
+        else {
+            prodano="1";
+        }
+        if(balkon==null){
+            balkon="0";
+        }
+        else {
+            balkon="1";
+        }
+        if(garaza==null){
+            garaza="0";
+        }
+        else {
+            garaza="1";
+        }
+        List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
+        if(ceObstajaKraj.size()==0){
+            krajDao.addKraj(kraj,postna_st);
+        }
+        List<Integer> vsiKraji=krajDao.vrniID(kraj,postna_st);
+        int tk_kraj=0;
+        if(vsiKraji.size()>0) {
+            tk_kraj = vsiKraji.get(0);
+        }
+        List<Integer> ceObstajaNaslov=naslovDao.vrniID(naslov,hisnaSt,tk_kraj);
+        if(ceObstajaNaslov.size()==0){
+            naslovDao.addNaslov(naslov,hisnaSt,tk_kraj);
+        }
+        List<Integer> vsiNaslovi=naslovDao.vrniID(naslov,hisnaSt,tk_kraj);
+        int tk_naslov=0;
+        if(vsiNaslovi.size()>0) {
+            tk_naslov = vsiNaslovi.get(0);
+        }
+        Double c=Double.parseDouble(cena);
+        nepremicninaDao.urediStanovanje( idNepremicnina, tk_naslov,skupnaKvadratura,letoIzgradnje,steviloSob,  nadstropje,  cena,  letoPrenove,  garaza,  balkon,   opis,  prodano);
+        return "redirect:/kontrolnaPlosca";
+    }
+    @RequestMapping(value = {"/urediPosest" }, method = RequestMethod.POST)
+    public String urediPosest(RedirectAttributes red, Model model, HttpServletRequest request,
+                              @RequestParam(value="idNepremicnina")int idNepremicnina,
+                              @RequestParam(value="naslov")String naslov,
+                              @RequestParam(value="kraj")String kraj,
+                              @RequestParam(value="postna_st")String postna_st,
+                              @RequestParam(value="hisna_st")String hisnaSt,
+                              @RequestParam(value="cena")String cena,
+                              @RequestParam(value="velikost_zemljisca")String skupnaKvadratura,
+                              @RequestParam(value="vrsta_posesti")String tipPosesti,
+                              @RequestParam(value="dodaten_opis",required = false)String opis,
+                              @RequestParam(value="prodano3",required=false)String prodano) {
 
-        int tk_id_naslov=1;
-       // nepremicninaDao.urediPosest(idNepremicnina, tk_id_naslov, skupnaKvadratura, cena,tipPosesti,prodano);
-        //nepremicninaDao.urediPosest(7, 4, "2",Double.parseDouble("1.0"), "zazzidljivo", "op", 1 );
+        List<Integer> ceObstajaKraj=krajDao.vrniID(kraj,postna_st);
+        if(ceObstajaKraj.size()==0){
+            krajDao.addKraj(kraj,postna_st);
+        }
+        List<Integer> vsiKraji=krajDao.vrniID(kraj,postna_st);
+        int tk_kraj=0;
+        if(vsiKraji.size()>0) {
+            tk_kraj = vsiKraji.get(0);
+        }
+        List<Integer> ceObstajaNaslov=naslovDao.vrniID(naslov,hisnaSt,tk_kraj);
+        if(ceObstajaNaslov.size()==0){
+            naslovDao.addNaslov(naslov,hisnaSt,tk_kraj);
+        }
+        List<Integer> vsiNaslovi=naslovDao.vrniID(naslov,hisnaSt,tk_kraj);
+        int tk_naslov=0;
+        if(vsiNaslovi.size()>0) {
+            tk_naslov = vsiNaslovi.get(0);
+        }
+       if(prodano==null || prodano=="0"){
+           prodano="0";
+       }
+       else {
+           prodano="1";
+       }
+       Double c=Double.parseDouble(cena);
+        nepremicninaDao.urediPosest(idNepremicnina, tk_naslov, skupnaKvadratura, c,tipPosesti, opis, prodano);
             return "redirect:/kontrolnaPlosca";
     }
 }
