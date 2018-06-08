@@ -10,10 +10,7 @@ import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
 import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
-import si.feri.NepremicninskaAgencija.repositories.AgentDao;
-import si.feri.NepremicninskaAgencija.repositories.KrajDao;
-import si.feri.NepremicninskaAgencija.repositories.NaslovDao;
-import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
+import si.feri.NepremicninskaAgencija.repositories.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,6 +28,8 @@ public class SortiranjController {
     NaslovDao naslovDao;
     @Autowired
     AgentDao agentDao;
+    @Autowired
+    SlikaDao slikaDao;
 
     static boolean sortCena = false;
     static int cenaGor = 1;
@@ -102,6 +101,19 @@ public class SortiranjController {
             datumGor *= -1;
         }
         model.addAttribute("seznamNepremicnin", seznamNepremicnin);
+        model.addAttribute("jePrijavljen", true);
+        model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
+        return "kontrolnaPlosca";
+    }
+    //posodabljanje statistike po brisanju/urejanju
+    @RequestMapping(value = {"/posodabljanjeStatistike" }, method = RequestMethod.GET)
+    public String posodabljanjeStatistike(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(true);
+        int tk_agent=Integer.parseInt(""+session.getAttribute("trenutniUporabnik"));
+        model.addAttribute("stProdanihNepremicnin", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, true));
+        model.addAttribute("stNepremicninNaprodaj", nepremicninaDao.vrniSteviloNepremicnin(tk_agent, false));
+        model.addAttribute("cenaProdanihNepremicnin", nepremicninaDao.skupnaCenaNepremicnin(tk_agent));
+        model.addAttribute("zasluzek", (nepremicninaDao.skupnaCenaNepremicnin(tk_agent) * 0.1));
         return "kontrolnaPlosca";
     }
 }

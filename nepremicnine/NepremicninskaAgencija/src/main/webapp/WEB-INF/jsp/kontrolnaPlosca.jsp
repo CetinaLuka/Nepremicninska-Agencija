@@ -67,7 +67,7 @@
                         <div class="row profil-kartica">
                             <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
                                 <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
-                                <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
+                                <a href="urejanjeProfila"><button class="genric-btn default border">Uredi profil</button></a>
                             </div>
                             <br />
                             <div class="col-12 col-md-5 col-lg-12">
@@ -86,8 +86,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-lg-9">
-                <div class="row statistika">
-                    <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="row statistika" id="statistika-wrapper">
+                    <div class="col-xs-12 col-md-6 col-lg-6" id="statistika">
                         <div class="bold-black">Podatki o nepremičninah:</div>
                         <div class="">Število prodanih nepremičnin: <span class="counter" style="font-weight: 600; color:black;">${stProdanihNepremicnin}</span></div>
                         <div class="">Število nepremičnin na prodaj: <span class="counter" style="font-weight: 600; color:black;">${stNepremicninNaprodaj}</span></div>
@@ -97,73 +97,73 @@
                 </div>
                 <div id="seznam-wrapper">
                     <div id="seznam">
-                    <div class="filter-vrstica">
-                        Sortiraj po:
-                        <c:choose>
-                            <c:when test="${prodano==true}">
-                                <button class="genric-btn default kliknjen" onclick="sortirajProdano()">
-                                    Prodano
-                                </button>
-                            </c:when>
-                            <c:otherwise>
-                                <button class="genric-btn default" onclick="sortirajProdano()">
-                                    Prodano
-                                </button>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:choose>
-                            <c:when test="${naProdaj==true}">
-                                <button class="genric-btn default kliknjen" onclick="sortirajNaProdaj()">
-                                    Na prodaj
-                                </button>
-                            </c:when>
-                            <c:otherwise>
-                                <button class="genric-btn default" onclick="sortirajNaProdaj()">
-                                    Na prodaj
-                                </button>
-                            </c:otherwise>
-                        </c:choose>
-                        <button class="genric-btn default" onclick="sortirajCena()">
+                        <div class="filter-vrstica">
+                            Sortiraj po:
                             <c:choose>
-                                <c:when test="${cenaGor==1}">
-                                    Ceni<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${cenaGor==-1}">
-                                    Ceni<img src="img/icons/arrow-down.svg" />
+                                <c:when test="${prodano==true}">
+                                    <button class="genric-btn default kliknjen" onclick="sortirajProdano()">
+                                        Prodano
+                                    </button>
                                 </c:when>
                                 <c:otherwise>
-                                    Ceni
+                                    <button class="genric-btn default" onclick="sortirajProdano()">
+                                        Prodano
+                                    </button>
                                 </c:otherwise>
                             </c:choose>
-                        </button>
-                        <button class="genric-btn default" onclick="sortirajDatum()">
                             <c:choose>
-                                <c:when test="${datumGor==1}">
-                                    Dodano<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${datumGor==-1}">
-                                    Dodano<img src="img/icons/arrow-down.svg" />
+                                <c:when test="${naProdaj==true}">
+                                    <button class="genric-btn default kliknjen" onclick="sortirajNaProdaj()">
+                                        Na prodaj
+                                    </button>
                                 </c:when>
                                 <c:otherwise>
-                                    Dodano
+                                    <button class="genric-btn default" onclick="sortirajNaProdaj()">
+                                        Na prodaj
+                                    </button>
                                 </c:otherwise>
                             </c:choose>
-                        </button>
-                        <button class="genric-btn default" onclick="sortirajKvadratura()">
-                            <c:choose>
-                                <c:when test="${kvadraturaGor==1}">
-                                    Kvadraturi<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${kvadraturaGor==-1}">
-                                    Kvadraturi<img src="img/icons/arrow-down.svg" />
-                                </c:when>
-                                <c:otherwise>
-                                    Kvadraturi
-                                </c:otherwise>
-                            </c:choose>
-                        </button>
-                    </div>
-                    <div class="row">
+                            <button class="genric-btn default" onclick="sortirajCena()">
+                                <c:choose>
+                                    <c:when test="${cenaGor==1}">
+                                        Ceni<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${cenaGor==-1}">
+                                        Ceni<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Ceni
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                            <button class="genric-btn default" onclick="sortirajDatum()">
+                                <c:choose>
+                                    <c:when test="${datumGor==1}">
+                                        Dodano<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${datumGor==-1}">
+                                        Dodano<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Dodano
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                            <button class="genric-btn default" onclick="sortirajKvadratura()">
+                                <c:choose>
+                                    <c:when test="${kvadraturaGor==1}">
+                                        Kvadraturi<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${kvadraturaGor==-1}">
+                                        Kvadraturi<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Kvadraturi
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                        </div>
+                        <div class="row">
                         <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
                             <!--stanovanje-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
@@ -382,7 +382,7 @@
                             </c:if>
                         </c:forEach>
                     </div>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -886,22 +886,6 @@
         catch(err){
             console.log(err.message);
         }
-        try{
-            /*document.getElementsByName("dodaten_opis_stanovanja_check")[0].click();*/
-            /*
-            if($('#dodaten_opis_stanovanja').text().length>0){
-                document.getElementById("dodaten_opis_stanovanje_check").click();
-            }
-            else if($('#dodaten_opis_hise').text().length>0){
-                document.getElementById("dodaten_opis_hise_check").click();
-            }
-            else if($('#dodaten_opis_posesti').text().length>0){
-                document.getElementById("dodaten_opis_posesti_check").click();
-            }*/
-        }
-        catch(err){
-            console.log(err);
-        }
     });
     function sortirajProdano(){
         $('#seznam-wrapper').load("sortiranjeKontrolna?vrsta=prodano #seznam");
@@ -925,6 +909,7 @@
             dataType: 'json',
             success: function (data){
                 $("#" + id).remove();
+                $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
             },
             error: function (e) {
                 console.log(e);
