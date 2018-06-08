@@ -66,8 +66,13 @@
                     <div class="col-12 col-lg-12">
                         <div class="row profil-kartica">
                             <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
+<<<<<<< HEAD
                                 <img src="${profilnaSlika}" style=" max-height: 325px; max-width: 255px"  />
                                 <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
+=======
+                                <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
+                                <a href="urejanjeProfila"><button class="genric-btn default border">Uredi profil</button></a>
+>>>>>>> 34017b9f1d1e95339f6846b124f4981291040155
                             </div>
                             <br />
                             <div class="col-12 col-md-5 col-lg-12">
@@ -86,8 +91,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-lg-9">
-                <div class="row statistika">
-                    <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="row statistika" id="statistika-wrapper">
+                    <div class="col-xs-12 col-md-6 col-lg-6" id="statistika">
                         <div class="bold-black">Podatki o nepremičninah:</div>
                         <div class="">Število prodanih nepremičnin: <span class="counter" style="font-weight: 600; color:black;">${stProdanihNepremicnin}</span></div>
                         <div class="">Število nepremičnin na prodaj: <span class="counter" style="font-weight: 600; color:black;">${stNepremicninNaprodaj}</span></div>
@@ -97,73 +102,73 @@
                 </div>
                 <div id="seznam-wrapper">
                     <div id="seznam">
-                    <div class="filter-vrstica">
-                        Sortiraj po:
-                        <c:choose>
-                            <c:when test="${prodano==true}">
-                                <button class="genric-btn default kliknjen" onclick="sortirajProdano()">
-                                    Prodano
-                                </button>
-                            </c:when>
-                            <c:otherwise>
-                                <button class="genric-btn default" onclick="sortirajProdano()">
-                                    Prodano
-                                </button>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:choose>
-                            <c:when test="${naProdaj==true}">
-                                <button class="genric-btn default kliknjen" onclick="sortirajNaProdaj()">
-                                    Na prodaj
-                                </button>
-                            </c:when>
-                            <c:otherwise>
-                                <button class="genric-btn default" onclick="sortirajNaProdaj()">
-                                    Na prodaj
-                                </button>
-                            </c:otherwise>
-                        </c:choose>
-                        <button class="genric-btn default" onclick="sortirajCena()">
+                        <div class="filter-vrstica">
+                            Sortiraj po:
                             <c:choose>
-                                <c:when test="${cenaGor==1}">
-                                    Ceni<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${cenaGor==-1}">
-                                    Ceni<img src="img/icons/arrow-down.svg" />
+                                <c:when test="${prodano==true}">
+                                    <button class="genric-btn default kliknjen" onclick="sortirajProdano()">
+                                        Prodano
+                                    </button>
                                 </c:when>
                                 <c:otherwise>
-                                    Ceni
+                                    <button class="genric-btn default" onclick="sortirajProdano()">
+                                        Prodano
+                                    </button>
                                 </c:otherwise>
                             </c:choose>
-                        </button>
-                        <button class="genric-btn default" onclick="sortirajDatum()">
                             <c:choose>
-                                <c:when test="${datumGor==1}">
-                                    Dodano<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${datumGor==-1}">
-                                    Dodano<img src="img/icons/arrow-down.svg" />
+                                <c:when test="${naProdaj==true}">
+                                    <button class="genric-btn default kliknjen" onclick="sortirajNaProdaj()">
+                                        Na prodaj
+                                    </button>
                                 </c:when>
                                 <c:otherwise>
-                                    Dodano
+                                    <button class="genric-btn default" onclick="sortirajNaProdaj()">
+                                        Na prodaj
+                                    </button>
                                 </c:otherwise>
                             </c:choose>
-                        </button>
-                        <button class="genric-btn default" onclick="sortirajKvadratura()">
-                            <c:choose>
-                                <c:when test="${kvadraturaGor==1}">
-                                    Kvadraturi<img src="img/icons/arrow-up.svg" />
-                                </c:when>
-                                <c:when test="${kvadraturaGor==-1}">
-                                    Kvadraturi<img src="img/icons/arrow-down.svg" />
-                                </c:when>
-                                <c:otherwise>
-                                    Kvadraturi
-                                </c:otherwise>
-                            </c:choose>
-                        </button>
-                    </div>
-                    <div class="row">
+                            <button class="genric-btn default" onclick="sortirajCena()">
+                                <c:choose>
+                                    <c:when test="${cenaGor==1}">
+                                        Ceni<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${cenaGor==-1}">
+                                        Ceni<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Ceni
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                            <button class="genric-btn default" onclick="sortirajDatum()">
+                                <c:choose>
+                                    <c:when test="${datumGor==1}">
+                                        Dodano<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${datumGor==-1}">
+                                        Dodano<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Dodano
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                            <button class="genric-btn default" onclick="sortirajKvadratura()">
+                                <c:choose>
+                                    <c:when test="${kvadraturaGor==1}">
+                                        Kvadraturi<img src="img/icons/arrow-up.svg" />
+                                    </c:when>
+                                    <c:when test="${kvadraturaGor==-1}">
+                                        Kvadraturi<img src="img/icons/arrow-down.svg" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        Kvadraturi
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                        </div>
+                        <div class="row">
                         <c:forEach  items="${seznamNepremicnin}" var ="nepremicnina">
                             <!--stanovanje-->
                             <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
@@ -382,7 +387,7 @@
                             </c:if>
                         </c:forEach>
                     </div>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -399,7 +404,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <s:form name="dodaj_stanovanje_form" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <s:form name="dodaj_stanovanje_form" id="urediForm" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
                    <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                     <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
@@ -533,10 +538,10 @@
                                     <div class="primary-checkbox mr-10 mt-1">
                                         <c:choose>
                                             <c:when test="${nepremicninaModal.prodano==true}">
-                                                <input type="checkbox" name="prodano2" id="prodano1" value="1" checked>
+                                                <input type="checkbox" name="prodano1" id="prodano1" value="1" checked>
                                             </c:when>
                                             <c:otherwise>
-                                                <input type="checkbox" name="prodano2" id="prodano1" value="0">
+                                                <input type="checkbox" name="prodano1" id="prodano1" value="0">
                                             </c:otherwise>
                                         </c:choose>
                                         <label for="prodano1"></label>
@@ -630,9 +635,21 @@
                                 <label class="mt-1">Vrsta hiše</label>
                                 <div class="default-select" id="vrsta_hise">
                                     <select name="vrsta_hise" value="${nepremicninaModal.vrstaHise}">
-                                        <option value="Samostojna">Samostojna</option>
-                                        <option value="Dvojček">Dvojček</option>
-                                        <option value="Vrstna">Vrstna</option>
+                                        <option value="Samostojna"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Samostojna')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Samostojna</option>
+                                        <option value="Dvojček"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Dvojček')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Dvojček</option>
+                                        <option value="Vrstna"
+                                                <c:if test="${nepremicninaModal.vrstaHise.equals('Vrstna')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Vrstna</option>
                                     </select>
                                 </div>
                             </div>
@@ -661,7 +678,7 @@
                                     <div class="primary-checkbox mr-10">
                                         <c:choose>
                                             <c:when test="${nepremicninaModal.garaza==true}">
-                                                <input type="checkbox" name="garaza" id="garaza_hisa" value="1" checked/>
+                                                <input type="checkbox" name="garaza_hisa" id="garaza_hisa" value="1" checked/>
                                             </c:when>
                                             <c:otherwise>
                                                 <input type="checkbox" name="garaza" id="garaza_hisa" value="0"/>
@@ -764,10 +781,22 @@
                             <div class="col-12">
                                 <label class="mt-1">Vrsta posesti</label>
                                 <div class="default-select" id="vrsta_posesti">
-                                    <select name="vrsta_posesti" value="${nepremicninaModal.tipPosesti}">
-                                        <option value="Zazidljiva">Zazidljiva</option>
-                                        <option value="Nezazidljiva">Nezazidljiva</option>
-                                        <option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
+                                    <select name="vrsta_posesti">
+                                        <option value="Zazidljiva"
+                                            <c:if test="${nepremicninaModal.tipPosesti.equals('Zazidljiva')}">
+                                                selected="selected"
+                                            </c:if>
+                                        >Zazidljiva</option>
+                                        <option value="Nezazidljiva"
+                                                <c:if test="${nepremicninaModal.tipPosesti.equals('Nezazidljiva')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Nezazidljiva</option>
+                                        <option value="Kmetijsko zemljišče"
+                                                <c:if test="${nepremicninaModal.tipPosesti.equals('Kmetijsko zemljišče')}">
+                                                    selected="selected"
+                                                </c:if>
+                                        >Kmetijsko zemljišče</option>
                                     </select>
                                 </div>
                             </div>
@@ -892,22 +921,6 @@
         catch(err){
             console.log(err.message);
         }
-        try{
-            /*document.getElementsByName("dodaten_opis_stanovanja_check")[0].click();*/
-            /*
-            if($('#dodaten_opis_stanovanja').text().length>0){
-                document.getElementById("dodaten_opis_stanovanje_check").click();
-            }
-            else if($('#dodaten_opis_hise').text().length>0){
-                document.getElementById("dodaten_opis_hise_check").click();
-            }
-            else if($('#dodaten_opis_posesti').text().length>0){
-                document.getElementById("dodaten_opis_posesti_check").click();
-            }*/
-        }
-        catch(err){
-            console.log(err);
-        }
     });
     function sortirajProdano(){
         $('#seznam-wrapper').load("sortiranjeKontrolna?vrsta=prodano #seznam");
@@ -931,6 +944,7 @@
             dataType: 'json',
             success: function (data){
                 $("#" + id).remove();
+                $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
             },
             error: function (e) {
                 console.log(e);
