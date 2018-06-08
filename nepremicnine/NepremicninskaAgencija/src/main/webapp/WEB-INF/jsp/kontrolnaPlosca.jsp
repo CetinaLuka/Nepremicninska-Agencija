@@ -533,10 +533,10 @@
                                     <div class="primary-checkbox mr-10 mt-1">
                                         <c:choose>
                                             <c:when test="${nepremicninaModal.prodano==true}">
-                                                <input type="checkbox" name="prodano2" id="prodano1" value="1" checked>
+                                                <input type="checkbox" name="prodano1" id="prodano1" value="1" checked>
                                             </c:when>
                                             <c:otherwise>
-                                                <input type="checkbox" name="prodano2" id="prodano1" value="0">
+                                                <input type="checkbox" name="prodano1" id="prodano1" value="0">
                                             </c:otherwise>
                                         </c:choose>
                                         <label for="prodano1"></label>
@@ -661,7 +661,7 @@
                                     <div class="primary-checkbox mr-10">
                                         <c:choose>
                                             <c:when test="${nepremicninaModal.garaza==true}">
-                                                <input type="checkbox" name="garaza" id="garaza_hisa" value="1" checked/>
+                                                <input type="checkbox" name="garaza_hisa" id="garaza_hisa" value="1" checked/>
                                             </c:when>
                                             <c:otherwise>
                                                 <input type="checkbox" name="garaza" id="garaza_hisa" value="0"/>
