@@ -66,13 +66,8 @@
                     <div class="col-12 col-lg-12">
                         <div class="row profil-kartica">
                             <div class="col-12 col-md-3 col-lg-12 text-center mb-1">
-<<<<<<< HEAD
-                                <img src="${profilnaSlika}" style=" max-height: 325px; max-width: 255px"  />
-                                <a href="urejanjeProfila"  class="genric-btn default border" style="width: 100%">Uredi profil</a>
-=======
                                 <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px"  />
                                 <a href="urejanjeProfila"><button class="genric-btn default border">Uredi profil</button></a>
->>>>>>> 34017b9f1d1e95339f6846b124f4981291040155
                             </div>
                             <br />
                             <div class="col-12 col-md-5 col-lg-12">
