@@ -763,7 +763,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <label class="mt-1">Vrsta posesti</label>
-                                <div class="default-select" id="vrsta_posesti">
+                                <div class="default-select isci" id="vrsta_posesti">
                                     <select name="vrsta_posesti" value="${nepremicninaModal.tipPosesti}">
                                         <option value="Zazidljiva">Zazidljiva</option>
                                         <option value="Nezazidljiva">Nezazidljiva</option>
