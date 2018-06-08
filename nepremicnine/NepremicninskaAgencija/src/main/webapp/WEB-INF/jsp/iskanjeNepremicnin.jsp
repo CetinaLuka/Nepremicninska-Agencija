@@ -82,7 +82,7 @@
                         <div class="search-field">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-xs-12 isci">
-                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="neki-select app-select form-control" required>
+                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="app-select form-control" required>
                                         <option value="1" selected>Stanovanje</option>
                                         <option value="2">Hiša</option>
                                         <option value="3">Posest</option>
