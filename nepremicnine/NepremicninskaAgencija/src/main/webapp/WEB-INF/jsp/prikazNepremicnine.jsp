@@ -77,7 +77,7 @@
         <div class="sp-slides">
             <c:forEach  items="${nepremicnina_slika}" var ="slika">
                 <div class="sp-slide">
-                    <img src="data:image/jpeg;base64,${slika.URLSlike}" style=" width: 100%" />
+                    <img src="data:image/jpeg;base64,${slika.URLSlike}" style=" width: 100%; height: 100%" />
                 </div>
             </c:forEach>
         </div>

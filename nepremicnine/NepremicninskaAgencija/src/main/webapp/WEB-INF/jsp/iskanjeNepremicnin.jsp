@@ -82,7 +82,7 @@
                         <div class="search-field">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-xs-12 isci">
-                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="neki-select app-select form-control" required>
+                                    <select id="tip_nepr" name="select_tip_nepremicnina" onchange="menjavaIskanja()" class="app-select form-control" required>
                                         <option value="1" selected>Stanovanje</option>
                                         <option value="2">Hiša</option>
                                         <option value="3">Posest</option>
@@ -254,12 +254,62 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="filter-vrstica text-center">
-                            Sortiraj po:
-                            <button class="genric-btn default">Dodano</button>
-                            <button class="genric-btn default" style="width:150px !important;">Zgrajeno/prenovljeno</button>
-                            <button class="genric-btn default">Ceni</button>
-                            <button class="genric-btn default">Kvadraturi</button>
+                        <div class="filter-vrstica text-center" id="filtri-wrapper">
+                            <div  id="filtri">
+                                Sortiraj po:
+                                <button class="genric-btn default" onclick="sortirajDodano()">
+                                    <c:choose>
+                                        <c:when test="${dodanoGor==1}">
+                                            Dodano<img src="img/icons/arrow-up.svg" />
+                                        </c:when>
+                                        <c:when test="${dodanoGor==-1}">
+                                            Dodano<img src="img/icons/arrow-down.svg" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            Dodano
+                                        </c:otherwise>
+                                    </c:choose>
+                                </button>
+                                <button class="genric-btn default" onclick="sortirajZgrajeno()" style="width:150px !important;">
+                                    <c:choose>
+                                        <c:when test="${zgrajenoGor==1}">
+                                            Zgrajeno<img src="img/icons/arrow-up.svg" />
+                                        </c:when>
+                                        <c:when test="${zgrajenoGor==-1}">
+                                            Zgrajeno<img src="img/icons/arrow-down.svg" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            Zgrajeno
+                                        </c:otherwise>
+                                    </c:choose>
+                                </button>
+                                <button class="genric-btn default" onclick="sortirajCena()">
+                                    <c:choose>
+                                        <c:when test="${cenaGor==1}">
+                                            Ceni<img src="img/icons/arrow-up.svg" />
+                                        </c:when>
+                                        <c:when test="${cenaGor==-1}">
+                                            Ceni<img src="img/icons/arrow-down.svg" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            Ceni
+                                        </c:otherwise>
+                                    </c:choose>
+                                </button>
+                                <button class="genric-btn default" onclick="sortirajKvadratura()">
+                                    <c:choose>
+                                        <c:when test="${kvadraturaGor==1}">
+                                            Kvadraturi<img src="img/icons/arrow-up.svg" />
+                                        </c:when>
+                                        <c:when test="${kvadraturaGor==-1}">
+                                            Kvadraturi<img src="img/icons/arrow-down.svg" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            Kvadraturi
+                                        </c:otherwise>
+                                    </c:choose>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,221 +319,223 @@
 
                     </div>
                 </div>
-                <div class="row">
-                    <c:forEach  items="${seznamIskanja}" var="nepremicnina">
-                        <!--stanovanje-->
-                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
-                            <div class="col-xs-12 col-md-6 col-lg-4">
-                                <div class="single-property mb-3 stanovanje" style="height:500px;">
-                                    <div class="images">
-                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
-                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
-                                            <c:forEach  items="${seznamSlik}" var ="slika">
-                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
-                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
-                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                <div id="iskanje-wrapper">
+                    <div class="row" id="iskanje">
+                        <c:forEach  items="${seznamIskanja}" var="nepremicnina">
+                            <!--stanovanje-->
+                            <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
+                                <div class="col-xs-12 col-md-6 col-lg-4">
+                                    <div class="single-property mb-3 stanovanje" style="height:500px;">
+                                        <div class="images">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                                <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                <c:forEach  items="${seznamSlik}" var ="slika">
+                                                    <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                        <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                    </c:if>
+                                                </c:forEach>
+                                                <c:if test="${niNajdenaSlika}">
+                                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
-                                            </c:forEach>
-                                            <c:if test="${niNajdenaSlika}">
-                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
-                                            </c:if>
-                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                            <span class="cena">${nepremicnina.cena}€</span>
-                                        </a>
+                                                <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                <span class="cena">${nepremicnina.cena}€</span>
+                                            </a>
+                                        </div>
+                                        <div class="desc">
+                                            <div class="top d-flex justify-content-between">
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
+                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
+                                            </div>
+                                            <div class="naslov">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="middle">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
+                                                    <p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Garaža:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.garaza}">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                    <p>Balkon:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.balkon}">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex justify-content-start" style="margin-bottom: 6px">
+                                                    <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                    <p>Prenova:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.letoPrenove>0}">
+                                                                <span class="gr">${nepremicnina.letoPrenove}</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">/</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                </div>
+                                                <div class="dodano">Dodano: <span>${nepremicnina.datumObjave}</span></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="desc">
-                                        <div class="top d-flex justify-content-between">
-                                            <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
-                                            <h4>${nepremicnina.skupnaKvadratura}m²</h4>
+                                </div>
+                            </c:if>
+                            <!--hisa-->
+                            <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
+                                <div class="col-xs-12 col-md-6 col-lg-4">
+                                    <div class="single-property mb-3 hisa" style="height:500px;">
+                                        <div class="images">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                                <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                <c:forEach  items="${seznamSlik}" var ="slika">
+                                                    <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                        <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                    </c:if>
+                                                </c:forEach>
+                                                <c:if test="${niNajdenaSlika}">
+                                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
+                                                </c:if>
+                                                <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                <span class="cena">${nepremicnina.cena}€</span>
+                                            </a>
                                         </div>
-                                        <div class="naslov">
-                                            <div class="d-flex justify-content-start">
-                                                <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                        <div class="desc">
+                                            <div class="top d-flex justify-content-between">
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
+                                                <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
                                             </div>
-                                            <div class="d-flex justify-content-start">
-                                                <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                            <div class="naslov">
+                                                <div class="d-flex justify-content-start podatek">
+                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start podatek">
+                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="middle">
-                                            <div class="d-flex justify-content-start">
-                                                <p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
-                                                <p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
-                                            </div>
-                                            <div class="d-flex justify-content-start">
-                                                <p>Garaža:
-                                                    <c:choose>
-                                                        <c:when test="${nepremicnina.garaza}">
-                                                            <span class="gr">Da</span>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <span class="rd">Ne</span>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </p>
-                                                <p>Balkon:
-                                                    <c:choose>
-                                                        <c:when test="${nepremicnina.balkon}">
-                                                            <span class="gr">Da</span>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <span class="rd">Ne</span>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </p>
-                                            </div>
-                                            <div class="d-flex justify-content-start" style="margin-bottom: 6px">
-                                                <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
-                                                <p>Prenova:
-                                                    <c:choose>
+                                            <div class="middle">
+                                                <div class="d-flex justify-content-start podatek">
+                                                    <p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
+                                                    <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start podatek">
+                                                    <p>Garaža:
+                                                        <c:choose>
+                                                            <c:when test="${nepremicnina.garaza}">
+                                                                <span class="gr">Da</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="rd">Ne</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </p>
+                                                    <p>Prenova:  <c:choose>
                                                         <c:when test="${nepremicnina.letoPrenove>0}">
                                                             <span class="gr">${nepremicnina.letoPrenove}</span>
                                                         </c:when>
                                                         <c:otherwise>
                                                             <span class="rd">/</span>
                                                         </c:otherwise>
-                                                    </c:choose>
+                                                    </c:choose></p>
+                                                </div>
+                                            </div>
+                                            <div class="justify-content mb-2">
+                                                <p class="opis">
+                                                    <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                    <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
                                                 </p>
                                             </div>
                                             <div class="dodano">Dodano: <span>${nepremicnina.datumObjave}</span></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:if>
-                        <!--hisa-->
-                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==2}">
-                            <div class="col-xs-12 col-md-6 col-lg-4">
-                                <div class="single-property mb-3 hisa" style="height:500px;">
-                                    <div class="images">
-                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
-                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
-                                            <c:forEach  items="${seznamSlik}" var ="slika">
-                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
-                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
-                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                            </c:if>
+                            <!--posest-->
+                            <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
+                                <div class="col-xs-12 col-md-6 col-lg-4">
+                                    <div class="single-property mb-3 posest" style="height:500px;">
+                                        <div class="images">
+                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
+                                                <c:set var="niNajdenaSlika" scope="request" value="true"/>
+                                                <c:forEach  items="${seznamSlik}" var ="slika">
+                                                    <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
+                                                        <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
+                                                        <c:set var="niNajdenaSlika" scope="request" value="false"/>
+                                                    </c:if>
+                                                </c:forEach>
+                                                <c:if test="${niNajdenaSlika}">
+                                                    <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
-                                            </c:forEach>
-                                            <c:if test="${niNajdenaSlika}">
-                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
-                                            </c:if>
-                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                            <span class="cena">${nepremicnina.cena}€</span>
-                                        </a>
-                                    </div>
-                                    <div class="desc">
-                                        <div class="top d-flex justify-content-between">
-                                            <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
-                                            <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
+                                                <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
+                                                <span class="cena">${nepremicnina.cena}€</span>
+                                            </a>
                                         </div>
-                                        <div class="naslov">
-                                            <div class="d-flex justify-content-start podatek">
-                                                <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                        <div class="desc">
+                                            <div class="top d-flex justify-content-between">
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
+                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
                                             </div>
-                                            <div class="d-flex justify-content-start podatek">
-                                                <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                            <div class="naslov">
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                </div>
                                             </div>
+                                            <div class="middle">
+                                                <div class="justify-content mb-2">
+                                                    Opis:<br />
+                                                    <p class="opis" style="height:54px;margin-bottom:13px">
+                                                        <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
+                                                        <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="dodano">Dodano: <span>${nepremicnina.datumObjave}</span></div>
                                         </div>
-                                        <div class="middle">
-                                            <div class="d-flex justify-content-start podatek">
-                                                <p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
-                                                <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
-                                            </div>
-                                            <div class="d-flex justify-content-start podatek">
-                                                <p>Garaža:
-                                                    <c:choose>
-                                                        <c:when test="${nepremicnina.garaza}">
-                                                            <span class="gr">Da</span>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <span class="rd">Ne</span>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </p>
-                                                <p>Prenova:  <c:choose>
-                                                    <c:when test="${nepremicnina.letoPrenove>0}">
-                                                        <span class="gr">${nepremicnina.letoPrenove}</span>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <span class="rd">/</span>
-                                                    </c:otherwise>
-                                                </c:choose></p>
-                                            </div>
-                                        </div>
-                                        <div class="justify-content mb-2">
-                                            <p class="opis">
-                                                <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
-                                                <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
-                                            </p>
-                                        </div>
-                                        <div class="dodano">Dodano: <span>${nepremicnina.datumObjave}</span></div>
                                     </div>
                                 </div>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${seznamIskanja.size()==0}">
+                            <div class="col-12">
+                                <div class="search-field">
+                                    <div class="row">
+                                        <div class="col-3">
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="margin-bottom:0px; font-weight:bold;">Žal vaše iskanje ni obrodilo sadov. Poskusite ponovno!</p>
+                                        </div>
+                                        <div class="col-3">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
                             </div>
                         </c:if>
-                        <!--posest-->
-                        <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==3}">
-                            <div class="col-xs-12 col-md-6 col-lg-4">
-                                <div class="single-property mb-3 posest" style="height:500px;">
-                                    <div class="images">
-                                        <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}" target="_blank">
-                                            <c:set var="niNajdenaSlika" scope="request" value="true"/>
-                                            <c:forEach  items="${seznamSlik}" var ="slika">
-                                                <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
-                                                    <img class="img-fluid mx-auto d-block" src="data:image/jpeg;base64,${slika.URLSlike}" alt="" style="height:180px;">
-                                                    <c:set var="niNajdenaSlika" scope="request" value="false"/>
-                                                </c:if>
-                                            </c:forEach>
-                                            <c:if test="${niNajdenaSlika}">
-                                                <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
-                                            </c:if>
-                                            <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                            <span class="cena">${nepremicnina.cena}€</span>
-                                        </a>
-                                    </div>
-                                    <div class="desc">
-                                        <div class="top d-flex justify-content-between">
-                                            <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
-                                            <h4>${nepremicnina.skupnaKvadratura}m²</h4>
-                                        </div>
-                                        <div class="naslov">
-                                            <div class="d-flex justify-content-start">
-                                                <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
-                                            </div>
-                                            <div class="d-flex justify-content-start">
-                                                <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
-                                            </div>
-                                        </div>
-                                        <div class="middle">
-                                            <div class="justify-content mb-2">
-                                                Opis:<br />
-                                                <p class="opis" style="height:54px;margin-bottom:13px">
-                                                    <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
-                                                    <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="dodano">Dodano: <span>${nepremicnina.datumObjave}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:if>
-                    </c:forEach>
-                    <c:if test="${seznamIskanja.size()==0}">
-                        <div class="col-12">
-                            <div class="search-field">
-                                <div class="row">
-                                    <div class="col-3">
-                                    </div>
-                                    <div class="col-6">
-                                        <p style="margin-bottom:0px; font-weight:bold;">Žal vaše iskanje ni obrodilo sadov. Poskusite ponovno!</p>
-                                    </div>
-                                    <div class="col-3">
-                                    </div>
-                                </div>
-                            </div>
-                            <br/>
-                        </div>
-                    </c:if>
+                    </div>
                 </div>
             </div>
         </div>
@@ -528,6 +580,18 @@
         } else {
             document.getElementById("top-gumb").style.display = "none";
         }
+    }
+    function sortirajCena(){
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=cena #iskanje');
+    }
+    function sortirajKvadratura(){
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=kvadratura #iskanje');
+    }
+    function sortirajDodano(){
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=dodano #iskanje');
+    }
+    function sortirajZgrajeno(){
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=zgrajeno #iskanje');
     }
 </script>
 </body>

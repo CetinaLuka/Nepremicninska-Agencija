@@ -207,7 +207,7 @@ public class Nepremicnina{
         return prodano;
     }
     public Boolean getProdano() {
-        return garaza;
+        return prodano;
     }
 
     public void setProdano(Boolean prodano) {

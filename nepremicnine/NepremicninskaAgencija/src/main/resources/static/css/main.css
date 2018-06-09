@@ -3099,7 +3099,7 @@ pokrivanje::selection{
 .profil-kartica img{
   width: 100%;
   height: auto;
-  max-width: 285px;
+  max-width: 255px;
 }
 .profil-kartica button{
   width:100%;
