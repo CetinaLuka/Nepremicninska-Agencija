@@ -23,43 +23,50 @@ public class PdfGenerator {
     private static final float LEADING = -1.5f * FONT_SIZE;
     private static final String GLAVNI_NASLOV_PDF="Nepremicninska agencija!";
 
+    private PDPageContentStream stream;
     private Nepremicnina nepremicnina;
     private PDDocument doc;
-
-        PdfGenerator(){
-
-        }
-
-    PdfGenerator(Nepremicnina nep, List<Slika> slike) {
-        try {
-            nep.brezSumnikov();
-            nepremicnina=nep;
-
-
-
-
-
-
-            //doc.save(new File("C:\\Users\\zanko\\Desktop\\PDF\\odebeljen.pdf"));
-            //doc.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-        public PdfInputStream odebeljenTextCenter(){
+    private PDFont font;
+        PdfGenerator(Nepremicnina nep, List<Slika> slike) {
             try {
+                nep.brezSumnikov();
+                nepremicnina=nep;
                 doc = new PDDocument();
-                PDPage page = new PDPage(PDRectangle.A4);
-                PDRectangle mediaBox = page.getMediaBox();
 
 
-                String title = GLAVNI_NASLOV_PDF;
-                PDFont font = PDType1Font.HELVETICA_BOLD;
-                int marginTop = 30;
-                int fontSize = 25;
-                PDPageContentStream stream = new PDPageContentStream(doc, page);
+
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
+        public PdfInputStream pdfNepremicnina(){
+            try {
+                prvaStranGen();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                doc.save(baos);
+                doc.close();
+                return new PdfInputStream(baos);
+            }catch (IOException e ){
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+
+
+        private void prvaStranGen(){
+            PDPage prvaStran = new PDPage(PDRectangle.A4);
+            PDRectangle mediaBox = prvaStran.getMediaBox();
+            String title = GLAVNI_NASLOV_PDF;
+            font=PDType1Font.HELVETICA_BOLD;
+            int marginTop = 30;
+            int fontSize = 25;
+            try {
+                stream = new PDPageContentStream(doc, prvaStran);
                 float titleWidth = font.getStringWidth(title) / 1000 * fontSize;
                 float titleHeight = font.getFontDescriptor().getFontBoundingBox().getHeight() / 1000 * fontSize;
                 float startX = (mediaBox.getWidth() - titleWidth) / 2;
@@ -68,22 +75,32 @@ public class PdfGenerator {
                 stream.setFont(font, fontSize);
                 stream.newLineAtOffset(startX, startY);
                 stream.showText(title);
-                stream.showText(title);
-                stream.showText(title);
                 stream.endText();
+                alineja(15,0,75,750,"Podatki nepremicnine: ","");
+                alineja(12,12,60,710,"Naslov: ","");
                 stream.close();
-                doc.addPage(page);
-
-
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                doc.save(baos);
-                doc.close();
-                return new PdfInputStream(baos);
-            } catch (IOException e){
-                System.err.println("Exception while trying to create pdf document - " + e);
+            }catch (IOException e){
+                e.printStackTrace();
             }
-            return null;
+            doc.addPage(prvaStran);
+        }
+
+
+        private void alineja(int fontSize,int fontSize2,int x , int y,String textBold,String textNormal){
+            try {
+                stream.beginText();
+                font=PDType1Font.HELVETICA_BOLD;
+                stream.setFont(font,fontSize);
+                stream.newLineAtOffset(x, y);
+                stream.showText(textBold);
+                font=PDType1Font.HELVETICA;
+                stream.setFont(font,fontSize2);
+                stream.showText(textNormal);
+                stream.endText();
+
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
 
 

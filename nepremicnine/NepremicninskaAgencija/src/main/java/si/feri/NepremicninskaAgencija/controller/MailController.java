@@ -39,7 +39,7 @@ public class MailController {
                 mail.setSubject("Nepremičnine");
                 mail.setNepremicnina(nepremicnina);
                 mail.setSlike(slike);
-                emailService.sendSimpleMessage(mail);
+                emailService.sendSimpleMessage(mail,nepremicnina,slike);
 
             }catch (Exception e){
                 e.printStackTrace();

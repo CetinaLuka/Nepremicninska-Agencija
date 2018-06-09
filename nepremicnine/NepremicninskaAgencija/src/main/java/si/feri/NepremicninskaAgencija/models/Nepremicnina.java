@@ -268,13 +268,14 @@ public class Nepremicnina{
 
 
     private String preveri (String string){
-        String[] sumniki  = {"č","ć","đ","š","ž"};
-        String[] brezSumnikov = {"c","c","d","s","z"};
+        String[] sumniki  = {"č","ć","đ","š","ž","Č","Ć","Đ","Š","Ž"};
+        String[] brezSumnikov = {"c","c","d","s","z","C","C","D","S","Z"};
         if (string!=null) {
             for (int i = 0; i < string.length(); i++) {
                 for (int j = 0; j < sumniki.length; j++) {
                     if (sumniki[j].charAt(0) == string.charAt(i)) {
                         string = brezSumnikov[j];
+                        break;
                     }
                 }
             }
