@@ -170,7 +170,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 stanovanje">
                                         <div class="images">
-                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+                                            <a id="prodanoStars" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                 <c:forEach  items="${seznamSlik}" var ="slika">
                                                     <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -181,61 +181,61 @@
                                                 <c:if test="${niNajdenaSlika}">
                                                     <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
-                                                <span class="cena">${nepremicnina.cena}€</span>
+                                                <span id="cenaNepremicnine" class="cena">${nepremicnina.cena}€</span>
                                                 <c:if test="${nepremicnina.prodano==true}">
-                                                    <span class="prodano">Prodano</span>
+                                                    <span id="nepremicninaProdana" class="prodano">Prodano</span>
                                                 </c:if>
                                             </a>
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
                                                 <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
-                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
+                                                <h4><span id="kvadraturaNepremicnine">${nepremicnina.skupnaKvadratura}</span>m²</h4>
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                    <p>Kraj: <span id="imeKrajaNepremicnine">${nepremicnina.imeKraja}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                    <p>Naslov: <span id="ulicaHisnaStevilkaNepremicnine">${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                 </div>
                                             </div>
                                             <div class="middle">
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Nadstropje: <span>${nepremicnina.nadstropje}.</span></p>
-                                                    <p>Št. sob: <span>${nepremicnina.steviloSob}</span></p>
+                                                    <p>Nadstropje: <span id="nadstropjeNepremicnine">${nepremicnina.nadstropje}</span>.</p>
+                                                    <p>Št. sob: <span id="steviloSobNepremicnine">${nepremicnina.steviloSob}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start">
                                                     <p>Garaža:
                                                         <c:choose>
                                                             <c:when test="${nepremicnina.garaza}">
-                                                                <span class="gr">Da</span>
+                                                                <span id="garazaNepremicnina" class="gr">Da</span>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <span class="rd">Ne</span>
+                                                                <span id="garazaNepremicnina" class="rd">Ne</span>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </p>
                                                     <p>Balkon:
                                                         <c:choose>
                                                             <c:when test="${nepremicnina.balkon}">
-                                                                <span class="gr">Da</span>
+                                                                <span id="balkonNepremicnina" class="gr">Da</span>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <span class="rd">Ne</span>
+                                                                <span id="balkonNepremicnina" class="rd">Ne</span>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </p>
                                                 </div>
                                                 <div class="d-flex justify-content-start" style="margin-bottom: 6px">
-                                                    <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                    <p>Zgrajeno: <span id="letoIzgradnjeNepremicnine">${nepremicnina.letoIzgradnje}</span></p>
                                                     <p>Prenova:
                                                         <c:choose>
                                                             <c:when test="${nepremicnina.letoPrenove>0}">
-                                                                <span class="gr">${nepremicnina.letoPrenove}</span>
+                                                                <span id="letoPrenoveNepremicnine" class="gr">${nepremicnina.letoPrenove}</span>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <span class="rd">/</span>
+                                                                <span id="letoPrenoveNepremicnine" class="rd">/</span>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </p>
@@ -255,7 +255,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6">
                                     <div class="single-property mb-3 hisa">
                                         <div class="images">
-                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+                                            <a id="prodanoStars1" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                 <c:forEach  items="${seznamSlik}" var ="slika">
                                                     <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -266,53 +266,53 @@
                                                 <c:if test="${niNajdenaSlika}">
                                                     <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
-                                                <span class="cena">${nepremicnina.cena}€</span>
+                                                <span id="cenaNepremicnine1" class="cena">${nepremicnina.cena}€</span>
                                                 <c:if test="${nepremicnina.prodano==true}">
-                                                    <span class="prodano">Prodano</span>
+                                                    <span id="nepremicninaProdana1" class="prodano">Prodano</span>
                                                 </c:if>
                                             </a>
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - ${nepremicnina.vrstaHise}</a></h4>
-                                                <h4>${nepremicnina.kvadraturaBivalnegaProstora}m²</h4>
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - <span id="vrstaHise">${nepremicnina.vrstaHise}</span></a></h4>
+                                                <h4><span id="kvadraturaNepremicnine1">${nepremicnina.kvadraturaBivalnegaProstora}</span>m²</h4>
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start podatek">
-                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                    <p>Kraj: <span id="imeKrajaNepremicnine1">${nepremicnina.imeKraja}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start podatek">
-                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                    <p>Naslov: <span id="ulicaHisnaStevilkaNepremicnine1">${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                 </div>
                                             </div>
                                             <div class="middle">
                                                 <div class="d-flex justify-content-start podatek">
-                                                    <p>Zemljišče: <span>${nepremicnina.skupnaKvadratura}m²</span></p>
-                                                    <p>Zgrajeno: <span>${nepremicnina.letoIzgradnje}</span></p>
+                                                    <p>Zemljišče: <span id="skupnaKvadratura1">${nepremicnina.skupnaKvadratura}</span>m²</p>
+                                                    <p>Zgrajeno: <span id="letoIzgradnjeNepremicnine1">${nepremicnina.letoIzgradnje}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start podatek">
                                                     <p>Garaža:
                                                         <c:choose>
                                                             <c:when test="${nepremicnina.garaza}">
-                                                                <span class="gr">Da</span>
+                                                                <span id="garazaNepremicnina1" class="gr">Da</span>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <span class="rd">Ne</span>
+                                                                <span id="garazaNepremicnina1" class="rd">Ne</span>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </p>
                                                     <p>Prenova:  <c:choose>
                                                         <c:when test="${nepremicnina.letoPrenove>0}">
-                                                            <span class="gr">${nepremicnina.letoPrenove}</span>
+                                                            <span id="letoPrenoveNepremicnine1" class="gr">${nepremicnina.letoPrenove}</span>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <span class="rd">/</span>
+                                                            <span id="letoPrenoveNepremicnine1" class="rd">/</span>
                                                         </c:otherwise>
                                                     </c:choose></p>
                                                 </div>
                                             </div>
                                             <div class="justify-content mb-2">
-                                                <p class="opis">
+                                                <p id="opisNepremicnine1" class="opis">
                                                     <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
                                                     <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
                                                 </p>
@@ -331,7 +331,7 @@
                                 <div id="${nepremicnina.idNepremicnina}" class="col-xs-12 col-md-6 col-lg-6 align-items-stretch">
                                     <div class="single-property mb-3 posest">
                                         <div class="images">
-                                            <a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
+                                            <a id="prodanoStars2" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">
                                                 <c:set var="niNajdenaSlika" scope="request" value="true"/>
                                                 <c:forEach  items="${seznamSlik}" var ="slika">
                                                     <c:if test="${nepremicnina.idNepremicnina==slika.getNepremicnina_idNepremicnina()}">
@@ -343,29 +343,29 @@
                                                     <img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt="" style="height:180px;">
                                                 </c:if>
                                                 <!--img class="img-fluid mx-auto d-block" src="img/s1.jpg" alt=""-->
-                                                <span class="cena">${nepremicnina.cena}€</span>
+                                                <span id="cenaNepremicnine2" class="cena">${nepremicnina.cena}€</span>
                                                 <c:if test="${nepremicnina.prodano==true}">
-                                                    <span class="prodano">Prodano</span>
+                                                    <span id="nepremicninaProdana2" class="prodano">Prodano</span>
                                                 </c:if>
                                             </a>
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - ${nepremicnina.tipPosesti}</a></h4>
-                                                <h4>${nepremicnina.skupnaKvadratura}m²</h4>
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
+                                                <h4 id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}m²</h4>
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Kraj: <span>${nepremicnina.imeKraja}</span></p>
+                                                    <p>Kraj: <span id="imeKrajaNepremicnine2">${nepremicnina.imeKraja}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start">
-                                                    <p>Naslov: <span>${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
+                                                    <p>Naslov: <span id="ulicaHisnaStevilkaNepremicnine2">${nepremicnina.ulica} ${nepremicnina.hisnaSt}</span></p>
                                                 </div>
                                             </div>
                                             <div class="middle">
                                                 <div class="justify-content mb-2">
                                                     Opis:<br />
-                                                    <p class="opis">
+                                                    <p id="opisNepremicnine2" class="opis">
                                                         <c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
                                                         <c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
                                                     </p>
@@ -399,7 +399,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <s:form name="dodaj_stanovanje_form" id="urediForm" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <s:form name="dodaj_stanovanje_form" id="urediStanovanjeForm" method="POST" action="urediStanovanje" modelAttribute="uploadForm" enctype="multipart/form-data">
                    <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                     <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
@@ -559,7 +559,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <s:form name="dodaj_hiso_form"  method="POST" action="urediHiso" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <s:form id="urediHisoForm" name="dodaj_hiso_form"  method="POST" action="urediHiso" modelAttribute="uploadForm" enctype="multipart/form-data">
                     <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                     <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
@@ -725,7 +725,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <s:form name="dodaj_posest_form" method="POST" action="urediPosest" modelAttribute="uploadForm" enctype="multipart/form-data">
+                <s:form id="urediPosestForm" name="dodaj_posest_form" method="POST" action="urediPosest" modelAttribute="uploadForm" enctype="multipart/form-data">
                     <input type="hidden" value="${nepremicninaModal.idNepremicnina}" name="idNepremicnina">
                     <input type="hidden" value="${nepremicninaModal.tk_id_vrstaNepremicnine}" name="tk_id_vrstaNepremicnine">
                     <div class="modal-body">
@@ -946,6 +946,142 @@
             }
         });
     }
+
+        $("#urediNepremicninoModal").on("shown.bs.modal", function () {
+            /*$("#gumbPotrdiUrejanjeHise").click(function (event) {
+                event.preventDefault();
+                $("#urediHisoForm").submit();
+            });*/
+
+            $("#urediHisoForm").submit(function (event){
+                event.preventDefault();
+                    $.ajax({
+                       url: "/urediHiso?" + $(event.target).serialize(),
+                       method: "POST",
+                       dataType: 'json',
+                       contentType: 'json',
+                   success: function (data) {
+                       var nepremicninaDiv = $("#" + data.idNepremicnina);
+                       $("#cenaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+
+                       var spanProdana = $("#nepremicninaProdana1", nepremicninaDiv);
+                       if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
+                           data.prodano ? spanProdana.css("display", "block") : spanProdana.css("display", "none");
+                       }
+                       else if(data.prodano){
+                           var novSpan = "<span id=\"nepremicninaProdana1\" class=\"prodano\">Prodano</span>";
+                           $("#prodanoStars1", nepremicninaDiv).append(novSpan);
+                       }
+
+                       $("#kvadraturaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.kvadraturaBivalnegaProstora;
+                       $("#imeKrajaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.imeKraja;
+                       $("#ulicaHisnaStevilkaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
+                       $("#skupnaKvadratura1", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                       $("#vrstaHise", nepremicninaDiv)[0].innerHTML = data.vrstaHise;
+                       data.garaza ? $("#garazaNepremicnina1", nepremicninaDiv)[0].innerHTML = "Da" : $("#garazaNepremicnina1", nepremicninaDiv)[0].innerHTML = "Ne";
+                       $("#garazaNepremicnina1", nepremicninaDiv).removeClass();
+                       data.garaza ? $("#garazaNepremicnina1", nepremicninaDiv).addClass("gr") : $("#garazaNepremicnina1", nepremicninaDiv).addClass("rd");
+
+                       data.letoPrenove > 0 ? $("#letoPrenoveNepremicnine1", nepremicninaDiv)[0].innerHTML = data.letoPrenove : $("#letoPrenoveNepremicnine1", nepremicninaDiv)[0].innerHTML = "/";
+                       $("#letoPrenoveNepremicnine1", nepremicninaDiv).removeClass();
+                       data.letoPrenove > 0 ? $("#letoPrenoveNepremicnine1", nepremicninaDiv).addClass("gr") : $("#letoPrenoveNepremicnine1", nepremicninaDiv).addClass("rd");
+
+                       $("#letoIzgradnjeNepremicnine1", nepremicninaDiv)[0].innerHTML = data.letoIzgradnje;
+
+                       $("#opisNepremicnine1", nepremicninaDiv)[0].innerHTML = data.opis;
+
+                       $("#urediNepremicninoModal").modal('hide');
+                       $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
+                   } ,
+                    error: function (e) {
+                       console.log(e);
+                    }
+                });
+            });
+
+            $("#urediStanovanjeForm").submit(function (event){
+                event.preventDefault();
+                $.ajax({
+                    url: "/urediStanovanje?" + $(event.target).serialize(),
+                    method: "POST",
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function (data) {
+                        var nepremicninaDiv = $("#" + data.idNepremicnina);
+                        $("#cenaNepremicnine", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+
+                        var spanProdana = $("#nepremicninaProdana", nepremicninaDiv);
+                        if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
+                            data.prodano ? spanProdana.css("display", "block") : spanProdana.css("display", "none");
+                        }
+                        else if(data.prodano){
+                            var novSpan = "<span id=\"nepremicninaProdana\" class=\"prodano\">Prodano</span>";
+                            $("#prodanoStars", nepremicninaDiv).append(novSpan);
+                        }
+
+                        $("#kvadraturaNepremicnine", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                        $("#imeKrajaNepremicnine", nepremicninaDiv)[0].innerHTML = data.imeKraja;
+                        $("#ulicaHisnaStevilkaNepremicnine", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
+                        data.garaza ? $("#garazaNepremicnina", nepremicninaDiv)[0].innerHTML = "Da" : $("#garazaNepremicnina", nepremicninaDiv)[0].innerHTML = "Ne";
+                        $("#garazaNepremicnina", nepremicninaDiv).removeClass();
+                        data.garaza ? $("#garazaNepremicnina", nepremicninaDiv).addClass("gr") : $("#garazaNepremicnina", nepremicninaDiv).addClass("rd");
+
+                        data.letoPrenove > 0 ? $("#letoPrenoveNepremicnine", nepremicninaDiv)[0].innerHTML = data.letoPrenove : $("#letoPrenoveNepremicnine", nepremicninaDiv)[0].innerHTML = "/";
+                        $("#letoPrenoveNepremicnine", nepremicninaDiv).removeClass();
+                        data.letoPrenove > 0 ? $("#letoPrenoveNepremicnine", nepremicninaDiv).addClass("gr") : $("#letoPrenoveNepremicnine", nepremicninaDiv).addClass("rd");
+
+                        $("#letoIzgradnjeNepremicnine", nepremicninaDiv)[0].innerHTML = data.letoIzgradnje;
+
+                        $("#nadstropjeNepremicnine", nepremicninaDiv)[0].innerHTML = data.nadstropje;
+                        $("#steviloSobNepremicnine", nepremicninaDiv)[0].innerHTML = data.steviloSob;
+                        data.balkon ? $("#balkonNepremicnina", nepremicninaDiv)[0].innerHTML = "Da" : $("#balkonNepremicnina", nepremicninaDiv)[0].innerHTML = "Ne";
+                        $("#balkonNepremicnina", nepremicninaDiv).removeClass();
+                        data.balkon ? $("#balkonNepremicnina", nepremicninaDiv).addClass("gr") : $("#balkonNepremicnina", nepremicninaDiv).addClass("rd");
+
+                        $("#urediNepremicninoModal").modal('hide');
+                        $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
+                    } ,
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+
+            $("#urediPosestForm").submit(function (event){
+                event.preventDefault();
+                $.ajax({
+                    url: "/urediPosest?" + $(event.target).serialize(),
+                    method: "POST",
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function (data) {
+                        var nepremicninaDiv = $("#" + data.idNepremicnina);
+                        $("#cenaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+
+                        var spanProdana = $("#nepremicninaProdana2", nepremicninaDiv);
+                        if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
+                            data.prodano ? spanProdana.css("display", "block") : spanProdana.css("display", "none");
+                        }
+                        else if(data.prodano){
+                            var novSpan = "<span id=\"nepremicninaProdana2\" class=\"prodano\">Prodano</span>";
+                            $("#prodanoStars2", nepremicninaDiv).append(novSpan);
+                        }
+
+                        $("#kvadraturaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                        $("#imeKrajaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.imeKraja;
+                        $("#ulicaHisnaStevilkaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
+                        $("#tipPosesti", nepremicninaDiv)[0].innerHTML = data.tipPosesti;
+                        $("#opisNepremicnine2", nepremicninaDiv)[0].innerHTML = data.opis;
+
+                        $("#urediNepremicninoModal").modal('hide');
+                        $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
+                    } ,
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+        });
 </script>
 </body>
 </html>

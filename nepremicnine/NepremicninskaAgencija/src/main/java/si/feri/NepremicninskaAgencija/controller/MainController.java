@@ -251,7 +251,8 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/urediHiso" }, method = RequestMethod.POST)
-    public String urediHiso(RedirectAttributes red, Model model, HttpServletRequest request,
+    @ResponseBody
+    public Nepremicnina urediHiso(RedirectAttributes red, Model model, HttpServletRequest request,
                             @RequestParam(value="idNepremicnina")int idNepremicnina,
                             @RequestParam(value="naslov")String naslov,
                             @RequestParam(value="kraj")String kraj,
@@ -299,10 +300,19 @@ public class MainController {
             tk_naslov = vsiNaslovi.get(0);
         }
         nepremicninaDao.urediHiso( idNepremicnina,  tk_naslov,  kvadraturaBivalnegaProstora,  skupnaKvadratura,  letoIzgradnje,  cena,  vrstaHise,  letoPrenove,  garaza,  opis,  prodano);
-        return "redirect:/kontrolnaPlosca";
+        boolean prodanoBool = false;
+        if(prodano == "1"){
+            prodanoBool = true;
+        }
+        boolean garazaBool = false;
+        if(garaza == "1"){
+            garazaBool = true;
+        }
+        return new Nepremicnina(idNepremicnina, Double.parseDouble(cena), Double.parseDouble(kvadraturaBivalnegaProstora),Double.parseDouble(skupnaKvadratura),null,null, Integer.parseInt(letoIzgradnje), Integer.parseInt(letoPrenove), garazaBool, null, opis, vrstaHise, null, prodanoBool, null, null, null, null,naslov,kraj,hisnaSt,Integer.parseInt(postna_st));
     }
     @RequestMapping(value = {"/urediStanovanje" }, method = RequestMethod.POST)
-    public String urediStanovanje(RedirectAttributes red, Model model, HttpServletRequest request,
+    @ResponseBody
+    public Nepremicnina urediStanovanje(RedirectAttributes red, Model model, HttpServletRequest request,
                                   @RequestParam(value="idNepremicnina")int idNepremicnina,
                                   @RequestParam(value="naslov")String naslov,
                                   @RequestParam(value="kraj")String kraj,
@@ -356,10 +366,24 @@ public class MainController {
         }
         Double c=Double.parseDouble(cena);
         nepremicninaDao.urediStanovanje( idNepremicnina, tk_naslov,skupnaKvadratura,letoIzgradnje,steviloSob,  nadstropje,  cena,  letoPrenove,  garaza,  balkon,   opis,  prodano);
-        return "redirect:/kontrolnaPlosca";
+          boolean prodanoBool = false;
+        if(prodano == "1"){
+            prodanoBool = true;
+        }
+        boolean garazaBool = false;
+        if(garaza == "1"){
+            garazaBool = true;
+        }
+        boolean balkonBool=false;
+        if(balkon=="1"){
+            balkonBool=true;
+        }
+        return new Nepremicnina(idNepremicnina, Double.parseDouble(cena),null,Double.parseDouble(skupnaKvadratura),Integer.parseInt(steviloSob), Integer.parseInt(nadstropje), Integer.parseInt(letoIzgradnje), Integer.parseInt(letoPrenove), garazaBool, balkonBool, opis, null, null, prodanoBool, null, null, null, null,naslov,kraj,hisnaSt,Integer.parseInt(postna_st));
+
     }
     @RequestMapping(value = {"/urediPosest" }, method = RequestMethod.POST)
-    public String urediPosest(RedirectAttributes red, Model model, HttpServletRequest request,
+    @ResponseBody
+    public Nepremicnina urediPosest(RedirectAttributes red, Model model, HttpServletRequest request,
                               @RequestParam(value="idNepremicnina")int idNepremicnina,
                               @RequestParam(value="naslov")String naslov,
                               @RequestParam(value="kraj")String kraj,
@@ -397,7 +421,11 @@ public class MainController {
        }
        Double c=Double.parseDouble(cena);
         nepremicninaDao.urediPosest(idNepremicnina, tk_naslov, skupnaKvadratura, c,tipPosesti, opis, prodano);
-            return "redirect:/kontrolnaPlosca";
+        boolean prodanoBool = false;
+        if(prodano == "1"){
+            prodanoBool = true;
+        }
+        return new Nepremicnina(idNepremicnina, Double.parseDouble(cena),null,Double.parseDouble(skupnaKvadratura),null, null, null, null, null, null, opis, null, tipPosesti, prodanoBool, null, null, null, null,naslov,kraj,hisnaSt,Integer.parseInt(postna_st));
     }
 }
 
