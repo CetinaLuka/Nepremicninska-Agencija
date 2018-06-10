@@ -673,7 +673,7 @@
                                     <div class="primary-checkbox mr-10">
                                         <c:choose>
                                             <c:when test="${nepremicninaModal.garaza==true}">
-                                                <input type="checkbox" name="garaza_hisa" id="garaza_hisa" value="1" checked/>
+                                                <input type="checkbox" name="garaza" id="garaza_hisa" value="1" checked/>
                                             </c:when>
                                             <c:otherwise>
                                                 <input type="checkbox" name="garaza" id="garaza_hisa" value="0"/>

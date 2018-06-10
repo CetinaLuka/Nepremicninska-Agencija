@@ -172,7 +172,7 @@ public class Nepremicnina{
         return balkon;
     }
     public Boolean getBalkon() {
-        return garaza;
+        return balkon;
     }
 
     public void setBalkon(Boolean balkon) {
