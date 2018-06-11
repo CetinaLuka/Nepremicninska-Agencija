@@ -742,12 +742,13 @@
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>
 		<script>
-            var map;
+            var map, map1;
             var bounds;
             var marker;
             function initMap() {
+                var latlng = new google.maps.LatLng(46.1219704, 14.3290785);
                 map = new google.maps.Map(document.getElementById('zemljevidNepremicnin'), {
-                    center: {lat: 46.1219704, lng: 14.3290785},
+                    center: latlng,
                     zoom: 9
                 });
                 bounds = new google.maps.LatLngBounds();
@@ -786,17 +787,24 @@
                             position: results[0].geometry.location,
                             icon: ikone[vrsta[counter]]
                         });
-                        marker.addListener('click', function() {
+                        marker.addListener('click', function () {
                             infowindow.open(map, this);
                         });
                         var infowindow = new google.maps.InfoWindow({
                             content: contentString[counter],
                             maxWidth: 200
                         });
-
                         bounds.extend(marker.position);
-                        addMarkers(addressArray, geocoder, counter+1, ikone);
                     }
+                    else{
+                        if(status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT){
+                            console.log("Geocoder query overlimit... Retrying...");
+                        }
+                        counter--;
+                    }
+                    setTimeout(function(){
+                        addMarkers(addressArray, geocoder, counter+1, ikone);
+                    }, 200);
                 });
             }
 
