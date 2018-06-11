@@ -131,7 +131,7 @@ public class SortiranjController {
                 e.printStackTrace();
                 sortCena = 0;
             }
-            if(sortCena==0){
+            if(sortCena==0 || sortCena==-1){
                 Collections.sort(seznam, new PrimerjajCena());
                 session.setAttribute("sortCena",1);
             }
@@ -139,10 +139,14 @@ public class SortiranjController {
                 Collections.sort(seznam, new PrimerjajCena().reversed());
                 session.setAttribute("sortCena",-1);
             }
-            else{
+            /*else{
                 Collections.sort(seznam, new PrimerjajCena());
                 session.setAttribute("sortCena",1);
-            }
+            }*/
+            session.setAttribute("sortKvadratura",0);
+            session.setAttribute("sortDodano",0);
+            session.setAttribute("sortZgrajeno",0);
+
         }
         else if(vrsta.equals("kvadratura")){
             int sortKvadratura;
@@ -165,6 +169,9 @@ public class SortiranjController {
                 Collections.sort(seznam, new PrimerjajKvadratura());
                 session.setAttribute("sortKvadratura",1);
             }
+            session.setAttribute("sortCena",0);
+            session.setAttribute("sortDodano",0);
+            session.setAttribute("sortZgrajeno",0);
         }
         else if(vrsta.equals("dodano")){
             int sortDodano;
@@ -178,18 +185,18 @@ public class SortiranjController {
             if(sortDodano==0){
                 Collections.sort(seznam, new PrimerjajDatum());
                 session.setAttribute("sortDodano",1);
-                model.addAttribute("dodanoGor",1);
             }
             else if(sortDodano==1){
                 Collections.sort(seznam, new PrimerjajDatum().reversed());
                 session.setAttribute("sortDodano",-1);
-                model.addAttribute("dodanoGor",-1);
             }
             else{
                 Collections.sort(seznam, new PrimerjajDatum());
                 session.setAttribute("sortDodano",1);
-                model.addAttribute("dodanoGor",1);
             }
+            session.setAttribute("sortKvadratura",0);
+            session.setAttribute("sortCena",0);
+            session.setAttribute("sortZgrajeno",0);
         }
         else if(vrsta.equals("zgrajeno")){
             int sortZgrajeno;
@@ -212,8 +219,50 @@ public class SortiranjController {
                 Collections.sort(seznam, new PrimerjajZgrajeno());
                 session.setAttribute("sortZgrajeno",1);
             }
+            session.setAttribute("sortKvadratura",0);
+            session.setAttribute("sortDodano",0);
+            session.setAttribute("sortCena",0);
         }
         model.addAttribute("seznamIskanja",seznam);
+        return "iskanjeNepremicnin";
+    }
+    @RequestMapping(value = {"/posodobiFiltre" }, method = RequestMethod.GET)
+    public String posodobiFiltre(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(true);
+        try {
+            int cenaGor = (int) session.getAttribute("cenaGor");
+            int kvadraturaGor = (int) session.getAttribute("kvadraturaGor");
+            int dodanoGor = (int) session.getAttribute("dodanoGor");
+            int zgrajenoGor = (int) session.getAttribute("zgrajenoGor");
+            if (cenaGor == 1) {
+                model.addAttribute("sortCena", 1);
+                return "iskanjeNepremicnin";
+            } else if (cenaGor == -1) {
+                model.addAttribute("sortCena", -1);
+                return "iskanjeNepremicnin";
+            } else if (kvadraturaGor == 1) {
+                model.addAttribute("sortKvadratura", 1);
+                return "iskanjeNepremicnin";
+            } else if (kvadraturaGor == -1) {
+                model.addAttribute("sortKvadratura", -1);
+                return "iskanjeNepremicnin";
+            } else if (dodanoGor == 1) {
+                model.addAttribute("sortGor", 1);
+                return "iskanjeNepremicnin";
+            } else if (dodanoGor == -1) {
+                model.addAttribute("sortGor", -1);
+                return "iskanjeNepremicnin";
+            } else if (zgrajenoGor == 1) {
+                model.addAttribute("sortZgrajeno", 1);
+                return "iskanjeNepremicnin";
+            } else if (zgrajenoGor == -1) {
+                model.addAttribute("sortZgrajeno", -1);
+                return "iskanjeNepremicnin";
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         return "iskanjeNepremicnin";
     }
 }

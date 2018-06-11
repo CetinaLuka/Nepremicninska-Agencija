@@ -255,14 +255,14 @@
                             </div>
                         </div>
                         <div class="filter-vrstica text-center" id="filtri-wrapper">
-                            <div  id="filtri">
+                            <div id="filtri">
                                 Sortiraj po:
                                 <button class="genric-btn default" onclick="sortirajDodano()">
                                     <c:choose>
-                                        <c:when test="${dodanoGor==1}">
+                                        <c:when test="${sortDodano==1}">
                                             Dodano<img src="img/icons/arrow-up.svg" />
                                         </c:when>
-                                        <c:when test="${dodanoGor==-1}">
+                                        <c:when test="${sortDodano==-1}">
                                             Dodano<img src="img/icons/arrow-down.svg" />
                                         </c:when>
                                         <c:otherwise>
@@ -272,10 +272,10 @@
                                 </button>
                                 <button class="genric-btn default" onclick="sortirajZgrajeno()" style="width:150px !important;">
                                     <c:choose>
-                                        <c:when test="${zgrajenoGor==1}">
+                                        <c:when test="${sortZgrajeno==1}">
                                             Zgrajeno<img src="img/icons/arrow-up.svg" />
                                         </c:when>
-                                        <c:when test="${zgrajenoGor==-1}">
+                                        <c:when test="${sortZgrajeno==-1}">
                                             Zgrajeno<img src="img/icons/arrow-down.svg" />
                                         </c:when>
                                         <c:otherwise>
@@ -285,10 +285,10 @@
                                 </button>
                                 <button class="genric-btn default" onclick="sortirajCena()">
                                     <c:choose>
-                                        <c:when test="${cenaGor==1}">
+                                        <c:when test="${sortCena==1}">
                                             Ceni<img src="img/icons/arrow-up.svg" />
                                         </c:when>
-                                        <c:when test="${cenaGor==-1}">
+                                        <c:when test="${sortCena==-1}">
                                             Ceni<img src="img/icons/arrow-down.svg" />
                                         </c:when>
                                         <c:otherwise>
@@ -298,10 +298,10 @@
                                 </button>
                                 <button class="genric-btn default" onclick="sortirajKvadratura()">
                                     <c:choose>
-                                        <c:when test="${kvadraturaGor==1}">
+                                        <c:when test="${sortKvadratura==1}">
                                             Kvadraturi<img src="img/icons/arrow-up.svg" />
                                         </c:when>
-                                        <c:when test="${kvadraturaGor==-1}">
+                                        <c:when test="${sortKvadratura==-1}">
                                             Kvadraturi<img src="img/icons/arrow-down.svg" />
                                         </c:when>
                                         <c:otherwise>
@@ -582,16 +582,24 @@
         }
     }
     function sortirajCena(){
-        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=cena #iskanje');
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=cena #iskanje', function(){
+            $('#filtri-wrapper').load('posodobiFiltre #filtri');
+        });
     }
     function sortirajKvadratura(){
-        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=kvadratura #iskanje');
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=kvadratura #iskanje', function(){
+            $('#filtri-wrapper').load('posodobiFiltre #filtri');
+        });
     }
     function sortirajDodano(){
-        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=dodano #iskanje');
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=dodano #iskanje', function(){
+            $('#filtri-wrapper').load('posodobiFiltre #filtri');
+        });
     }
     function sortirajZgrajeno(){
-        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=zgrajeno #iskanje');
+        $('#iskanje-wrapper').load('sortiranjeIskanje?vrsta=zgrajeno #iskanje', function(){
+            $('#filtri-wrapper').load('posodobiFiltre #filtri');
+        });
     }
 </script>
 </body>
