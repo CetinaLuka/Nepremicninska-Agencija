@@ -504,7 +504,7 @@
 				</div>
 				<div class="col-xs-12 col-md-4">
 					<div class="mt-10">
-						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" orequired class="single-input" />
+						<input type="text" name="velikost_zemljisca" placeholder="Velikost zemljišča (m²)" required class="single-input" />
 					</div>
 				</div>
 			</div>

@@ -18,6 +18,7 @@
     <!-- Site Title -->
     <title>Nepremičnine</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -208,7 +209,12 @@
                     <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                         <input type="checkbox" class="primary-checkbox pull-left" id="registracijaPogojiUporabe" required/>
                         <label class=" pull-left odebeljenTextCrneBarve "for="registracijaPogojiUporabe">
-                            <strong> &nbsp;Strinjam se s <a href="#">pogoji uporabe!</a></strong>
+                            <strong> &nbsp;Strinjam se s <a href="#" data-toggle="popover" data-placement="top" title="Splošni pogoji uporabe" data-content="Zagotavljamo, da bo varovala zaupnost vseh osebnih podatkov, prav tako pa bo z vsemi tehničnimi sredstvi zagotavljala varstvo podatkov. V primerih, ko bi se pridobljeni podatki uporabili za namen, ki je drugačen od prvotnega namena za pridobitev oziroma shranjevanje teh podatkov, je potrebno predhodno pisno soglasje zainteresiranih strani. Z namenom zagotavljanja boljšega delovanja spletnega mesta se uporabljajo »piškotki«. »Piškotki« so delci informacij, ki omogočajo delovanje storitev in lahko olajšajo morebitno poznejšo uporabo. ">pogoji uporabe</a>!</strong>
+                            <script>
+                                $(document).ready(function(){
+                                    $('[data-toggle="popover"]').popover();
+                                });
+                            </script>
                         </label>
                     </div>
                 </div>

@@ -5,7 +5,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -93,11 +92,12 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message,
                     MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
                     StandardCharsets.UTF_8.name());
-            helper.addAttachment("logo.png", new ClassPathResource("/PDFDokumenti/logo.png"));
+            //helper.addAttachment("logo.png", new ClassPathResource("/PDFDokumenti/logo.png"));
             //InputStreamSource iss = ustvariNovPdf.slika();
             //helper.addAttachment("odebeljen.pdf", iss);
             //iss.getInputStream().close();
             Template t = freemarkerConfig.getTemplate("email-template.ftl");
+
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
             helper.setTo(mail.getTo());
             helper.setText(html, true);
@@ -108,11 +108,32 @@ public class EmailService {
             //FileSystemResource a =  new FileSystemResource("src//main//resources//PDFDokumenti//simple.pdf");
             //PdfGenerator ustvariNovPdf = new PdfGenerator(mail.getNepremicnina(),mail.getSlike());
             PdfGenerator ustvariNovPdf = new PdfGenerator(nepremicnina,slike);
-            helper.addAttachment("odebeljen.pdf", ustvariNovPdf.pdfNepremicnina());
+            helper.addAttachment("Nepremicnina.pdf", ustvariNovPdf.pdfNepremicnina());
             emailSender.send(message);
     }
 
 
+    public void sendSimpleMessage(Mail mail){
+        try {
+
+            MimeMessage message = emailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message,
+                    MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
+                    StandardCharsets.UTF_8.name());
+            Template t = freemarkerConfig.getTemplate("email-template-pozabilGeslo.ftl");
+            String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
+            helper.setTo(mail.getTo());
+            helper.setText(html, true);
+
+            helper.setSubject(mail.getSubject());
+          //  emailSender.send(message);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 
 }

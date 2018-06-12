@@ -6,11 +6,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import si.feri.NepremicninskaAgencija.models.*;
+import si.feri.NepremicninskaAgencija.models.Agent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -106,4 +105,6 @@ public class AgentDao {
         Agent a = (Agent)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Agent.class));
          return a;
     }
+
+
 }

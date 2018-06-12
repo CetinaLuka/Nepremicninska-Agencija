@@ -351,8 +351,13 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
+<<<<<<< HEAD
                                                 <h4><a target="_blank" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
                                                 <h4 id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}m²</h4>
+=======
+                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
+                                                <h4 ><span id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}</span>m²</h4>
+>>>>>>> 33ccea4539cbdcc1142439681ce5b5d4e9f18644
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start">
@@ -962,7 +967,7 @@
                        contentType: 'json',
                    success: function (data) {
                        var nepremicninaDiv = $("#" + data.idNepremicnina);
-                       $("#cenaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+                       $("#cenaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.cena.toFixed(1) + "€";
 
                        var spanProdana = $("#nepremicninaProdana1", nepremicninaDiv);
                        if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
@@ -973,10 +978,10 @@
                            $("#prodanoStars1", nepremicninaDiv).append(novSpan);
                        }
 
-                       $("#kvadraturaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.kvadraturaBivalnegaProstora;
+                       $("#kvadraturaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.kvadraturaBivalnegaProstora.toFixed(1);
                        $("#imeKrajaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.imeKraja;
                        $("#ulicaHisnaStevilkaNepremicnine1", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
-                       $("#skupnaKvadratura1", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                       $("#skupnaKvadratura1", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura.toFixed(1);
                        $("#vrstaHise", nepremicninaDiv)[0].innerHTML = data.vrstaHise;
                        data.garaza ? $("#garazaNepremicnina1", nepremicninaDiv)[0].innerHTML = "Da" : $("#garazaNepremicnina1", nepremicninaDiv)[0].innerHTML = "Ne";
                        $("#garazaNepremicnina1", nepremicninaDiv).removeClass();
@@ -1008,7 +1013,7 @@
                     contentType: 'json',
                     success: function (data) {
                         var nepremicninaDiv = $("#" + data.idNepremicnina);
-                        $("#cenaNepremicnine", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+                        $("#cenaNepremicnine", nepremicninaDiv)[0].innerHTML = data.cena.toFixed(1) + "€";
 
                         var spanProdana = $("#nepremicninaProdana", nepremicninaDiv);
                         if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
@@ -1019,7 +1024,7 @@
                             $("#prodanoStars", nepremicninaDiv).append(novSpan);
                         }
 
-                        $("#kvadraturaNepremicnine", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                        $("#kvadraturaNepremicnine", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura.toFixed(1);
                         $("#imeKrajaNepremicnine", nepremicninaDiv)[0].innerHTML = data.imeKraja;
                         $("#ulicaHisnaStevilkaNepremicnine", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
                         data.garaza ? $("#garazaNepremicnina", nepremicninaDiv)[0].innerHTML = "Da" : $("#garazaNepremicnina", nepremicninaDiv)[0].innerHTML = "Ne";
@@ -1056,7 +1061,7 @@
                     contentType: 'json',
                     success: function (data) {
                         var nepremicninaDiv = $("#" + data.idNepremicnina);
-                        $("#cenaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.cena + "€";
+                        $("#cenaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.cena.toFixed(1) + "€";
 
                         var spanProdana = $("#nepremicninaProdana2", nepremicninaDiv);
                         if(typeof(spanProdana) !== "undefined" && spanProdana !== null && spanProdana.length === 1){
@@ -1067,7 +1072,7 @@
                             $("#prodanoStars2", nepremicninaDiv).append(novSpan);
                         }
 
-                        $("#kvadraturaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                        $("#kvadraturaNepremicnine2", nepremicninaDiv)[0].innerHTML =data.skupnaKvadratura.toFixed(1);
                         $("#imeKrajaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.imeKraja;
                         $("#ulicaHisnaStevilkaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
                         $("#tipPosesti", nepremicninaDiv)[0].innerHTML = data.tipPosesti;

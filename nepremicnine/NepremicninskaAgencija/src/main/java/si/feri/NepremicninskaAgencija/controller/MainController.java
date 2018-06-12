@@ -4,21 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
-import si.feri.NepremicninskaAgencija.models.Slika;
 import si.feri.NepremicninskaAgencija.repositories.*;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -89,6 +84,7 @@ public class MainController {
     public String prikazNepremicnine(Model model,HttpServletRequest request, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
         model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
+        model.addAttribute("id", nepremicninaId);
         int tkNaslov=nepremicninaDao.vrniTKnaslov(nepremicninaId);
         model.addAttribute("nepremicnina_naslov",naslovDao.vrniNaslov(tkNaslov));
         int tkKraj=naslovDao.vrniTKkraj(tkNaslov);
@@ -116,6 +112,8 @@ public class MainController {
     public String dodajanjeNepremicnin(Model model, HttpServletRequest request) {
         model.addAttribute("message");
         HttpSession session = request.getSession(true);
+        if(session.getAttribute("trenutniUporabnik")==null)
+            return "redirect:/prijava";
         if(session.getAttribute("trenutniUporabnik") == null){
             model.addAttribute("jePrijavljen", false);
         }
@@ -158,12 +156,31 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/iskanjeStanovanje" }, method = RequestMethod.GET)
-    public String iskanjeStanovanje(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija,
-                                    @RequestParam(value="letnik_izgradnje")String letnik_izgradnje, @RequestParam(value="letnik_prenove")String letnik_prenove,
-                                    @RequestParam(value="stevilo_sob")String stevilo_sob, @RequestParam(value="garaza")String garaza,
+    public String iskanjeStanovanje(HttpServletRequest request, RedirectAttributes red, Model model,
+                                    @RequestParam(value="select_pokrajina")int regija,
+                                    @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,
+                                    @RequestParam(value="letnik_prenove")String letnik_prenove,
+                                    @RequestParam(value="stevilo_sob")String stevilo_sob,
+                                    @RequestParam(value="garaza")String garaza,
                                     @RequestParam(value="balkon")String balkon,
-                                    @RequestParam(value="range1")String range1, @RequestParam(value="range2")String range2) {
+                                    @RequestParam(value="range1")String range1,
+                                    @RequestParam(value="range2")String range2) {
         model.addAttribute("message");
+        if(letnik_izgradnje==null){
+            letnik_izgradnje="-1";
+        }
+        if(letnik_prenove==null){
+            letnik_prenove="-1";
+        }
+        if(stevilo_sob==null){
+            letnik_prenove="steviloSob";
+        }
+        if(garaza==null){
+            garaza="0";
+        }
+        if(balkon==null){
+            balkon="0";
+        }
         int zac=0;
         int konc=0;
         switch (regija){
@@ -194,6 +211,15 @@ public class MainController {
             @RequestParam(value="garaza")String garaza,@RequestParam(value="range3")String range3,
             @RequestParam(value="range4")String range4, @RequestParam(value="range5")String range5) {
         model.addAttribute("message");
+        if(letnik_izgradnje==null){
+            letnik_izgradnje="-1";
+        }
+        if(letnik_prenove==null){
+            letnik_prenove="-1";
+        }
+        if(garaza==null){
+            garaza="0";
+        }
         int zac=0;
         int konc=0;
         switch (regija){
