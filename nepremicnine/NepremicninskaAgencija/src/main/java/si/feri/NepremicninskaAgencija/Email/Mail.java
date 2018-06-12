@@ -15,6 +15,7 @@ public class Mail {
     private Map<String, Object> model;
     private Nepremicnina nepremicnina;
     private  List<Slika> slike;
+
     public Mail() {
 
     }

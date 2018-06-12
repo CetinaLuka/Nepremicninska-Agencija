@@ -4,21 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
-import si.feri.NepremicninskaAgencija.models.Slika;
 import si.feri.NepremicninskaAgencija.repositories.*;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -89,6 +84,7 @@ public class MainController {
     public String prikazNepremicnine(Model model,HttpServletRequest request, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
         model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
+        model.addAttribute("id", nepremicninaId);
         int tkNaslov=nepremicninaDao.vrniTKnaslov(nepremicninaId);
         model.addAttribute("nepremicnina_naslov",naslovDao.vrniNaslov(tkNaslov));
         int tkKraj=naslovDao.vrniTKkraj(tkNaslov);
