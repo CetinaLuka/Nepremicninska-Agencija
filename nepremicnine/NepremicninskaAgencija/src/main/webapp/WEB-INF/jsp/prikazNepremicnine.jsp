@@ -209,6 +209,35 @@
                                 </div>
                         </div>
                         </c:if>
+                        <hr>
+
+                        <form name="emailPoslji" action="/prikazNepremicnine/emailPoslji" method="POST">
+                                <div class="row ">
+                                    <div class="col-xs-12 col-md-12 col-lg-12 bold-black">
+                                        <p>Pošlji podatke nepremičnine na:</p>
+                                    </div>
+                                </div>
+
+                            <div class="row ">
+
+                                        <div class="col-xs-6 col-md-6 col-lg-6">
+                                        <input type="email" name="email"
+                                               placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
+                                               id="posljiNaEmail"
+                                               onblur="this.placeholder = 'npr: borisNovak@email.com'"
+                                               required class="single-input">
+                                        </div>
+                                    <div class="col-xs-6 col-md-6 col-lg-6">
+                                            <button type="submit" class="genric-btn primary circle ">Pošlji</button>
+                                    </div>
+                                        <input type="hidden" name="nepremicnina" value=${id}>
+
+
+                            </div>
+                        </form>
+
+
+
                     </div>
                 </div>
                     <div  class="col-xs-12 col-md-4 col-lg-4 ">

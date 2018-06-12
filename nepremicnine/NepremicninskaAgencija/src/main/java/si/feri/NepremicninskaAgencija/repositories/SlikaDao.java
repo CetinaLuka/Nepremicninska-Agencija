@@ -35,7 +35,7 @@ public class SlikaDao {
                                 throws SQLException {
                             //ps.setLong(1, 1L);
                             lobCreator.setBlobAsBinaryStream(ps, 1, blobIs, (int) blobIn.length());
-                            ps.setString(2, ""+ime);
+                            ps.setString(2, "nekaj");
                             ps.setString(3, ""+tk_nepremicnina);
                             ps.setString(4, ""+tk_agent);
                         }

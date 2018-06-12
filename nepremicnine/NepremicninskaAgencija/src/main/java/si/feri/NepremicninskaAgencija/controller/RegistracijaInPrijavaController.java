@@ -7,14 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import si.feri.NepremicninskaAgencija.repositories.*;
-import si.feri.NepremicninskaAgencija.models.Agent;
-import java.util.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import si.feri.NepremicninskaAgencija.repositories.AgentDao;
+import si.feri.NepremicninskaAgencija.repositories.NepremicninaDao;
+import si.feri.NepremicninskaAgencija.repositories.SlikaDao;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -97,10 +98,6 @@ public class RegistracijaInPrijavaController {
         session.removeAttribute("trenutniUporabnik");
         return "redirect:/index";
     }
-
-
-
-
 
 }
 

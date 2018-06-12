@@ -39,7 +39,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-10">
                     <div class="generic-banner-content text-center">
-                        <h2 class="text-white">Prijava</h2>
+                        <h2 class="text-white" id="textPrijava">Prijava</h2>
                     </div>
                 </div>
             </div>
@@ -61,10 +61,10 @@
                         </div>
 -->
 
-    <main class="container">
+    <main class="container" >
         <br/>
         <br/>
-        <form action="/kontrolnaPloscaPr" method="POST" class="">
+        <form id="mainer" action="/kontrolnaPloscaPr" method="POST" class="">
                 <div class="container ">
 
                         <div class="row  align-items-center justify-content-center ">
@@ -106,9 +106,10 @@
                                 <div class="row">
                                    <div class="col-6 text-left">
                                      <a href="">
-                                        <p>Pozabil sem geslo!</p>
+                                        <p id="pozabilSemGeslo">Pozabil sem geslo!</p>
                                      </a>
                                    </div>
+
                                         <div class="col-6 text-right">
                                          <a href="/registracija" >
                                              <p>Želim se registrirati!</p>
@@ -140,12 +141,77 @@
                         </div>
                 </div>
         </form>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+
+
+
+        <form action="/pozabljenoGeslo" method="post">
+            <div id="boris" style="display: none">
+                <div class="row  align-items-center justify-content-center">
+                    <label class="col-lg-5 col-md-7 col-sm-10 col-xs-12 text-left odebeljenTextCrneBarve "for="pozabljenoGeslo">
+                        <strong>Vnesite vaš email:</strong>
+                    </label>
+                </div>
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <div class="input-group">
+                            <input type="email" name="emailer"
+                                   placeholder="npr: borisNovak@email.com" onfocus="this.placeholder = ''"
+                                   id="pozabljenoGeslo"
+                                   onblur="this.placeholder = 'npr: borisNovak@email.com'"
+                                   required class="single-input">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <c:choose>
+                    <c:when test="${email==true}">
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <div class="row">
+                                    <div class="col-9 text-left" style="color: darkred;">
+                                            Naslov ne obstaja!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="row  align-items-center justify-content-center" >
+                            <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                                <div class="row">
+                                    <div class="col-9 text-left" style="color: darkred; display: none" id="divEmail">
+                                        <a href="/prijava">Geslo je poslano na Email!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+
+                <div class="row  align-items-center justify-content-center" >
+                    <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
+                        <br/>
+                        <button type="submit" class="genric-btn primary circle pull-right">
+                           Pošlji email
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
     </main>
+
     <!-- start footer Area-->
     <jsp:include page="includes/footer.jsp" />
     <!-- End footer Area -->
@@ -160,24 +226,22 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
-
-<!-- start footer Area -->
-<jsp:include page="includes/footer.jsp" />
-<!-- End footer Area -->
-</div>
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/ion.rangeSlider.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/main.js"></script>
-<script>
-
-</script>
+    <script>
+        var a =$("#pozabilSemGeslo");
+        var main=$("#mainer");
+        a.click(function ( event ) {
+           main.empty();
+           event.preventDefault();
+            document.getElementById("boris").style.display="block";
+            $("#textPrijava").text("Pozabljeno geslo");
+        });
+        <c:choose>
+         <c:when test="${email==true}">
+            main.empty();
+            document.getElementById("boris").style.display="block";
+             document.getElementById("divEmail").style.display="block";
+            </c:when>
+        </c:choose>
+    </script>
 </body>
 </html>

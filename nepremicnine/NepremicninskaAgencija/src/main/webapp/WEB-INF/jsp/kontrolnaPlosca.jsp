@@ -992,7 +992,7 @@
 
                        $("#urediNepremicninoModal").modal('hide');
                        $('#statistika-wrapper').load("posodabljanjeStatistike #statistika");
-                   } ,
+                   },
                     error: function (e) {
                        console.log(e);
                     }

@@ -4,21 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajCena;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajDatum;
-import si.feri.NepremicninskaAgencija.Komparatorji.PrimerjajKvadratura;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
-import si.feri.NepremicninskaAgencija.models.Slika;
 import si.feri.NepremicninskaAgencija.repositories.*;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -61,7 +56,7 @@ public class MainController {
         return "kontrolnaPlosca";
     }
     @RequestMapping(value = { "/iskanjeNepremicninPoRegiji" }, method = RequestMethod.GET)
-    public String iskanjeNepremicninPoRegiji(RedirectAttributes red, Model model,@RequestParam(value="regija")int regija) {
+    public String iskanjeNepremicninPoRegiji(HttpServletRequest request, RedirectAttributes red, Model model,@RequestParam(value="regija")int regija) {
         int zac=0;
         int konc=0;
         switch (regija){
@@ -73,9 +68,15 @@ public class MainController {
             case 6:zac=2363;konc=2394;break;
             case 7:zac=9000;konc=9265;break;
         }
+        HttpSession session = request.getSession(true);
         List<Nepremicnina> result=nepremicninaDao.iskanjePoRegiji(zac,konc);
         result=new ArrayList<Nepremicnina>(result);
+        session.setAttribute("rezultati",result);
         red.addFlashAttribute("seznamIskanja",result);
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "redirect:/iskanjeNepremicnin";
     }
 
@@ -83,6 +84,7 @@ public class MainController {
     public String prikazNepremicnine(Model model,HttpServletRequest request, @PathVariable("nepremicninaId") int nepremicninaId) {
         model.addAttribute("message");
         model.addAttribute("nepremicnina", nepremicninaDao.vrniNepremicnino(nepremicninaId));
+        model.addAttribute("id", nepremicninaId);
         int tkNaslov=nepremicninaDao.vrniTKnaslov(nepremicninaId);
         model.addAttribute("nepremicnina_naslov",naslovDao.vrniNaslov(tkNaslov));
         int tkKraj=naslovDao.vrniTKkraj(tkNaslov);
@@ -126,6 +128,10 @@ public class MainController {
         List<Nepremicnina> list=nepremicninaDao.vrniVse();
         red.addFlashAttribute("seznamIskanja",list);
         session.setAttribute("rezultati",list);
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "redirect:/iskanjeNepremicnin";
     }
 
@@ -140,6 +146,10 @@ public class MainController {
             model.addAttribute("jePrijavljen", true);
         }
         model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "iskanjeNepremicnin";
     }
 
@@ -167,11 +177,15 @@ public class MainController {
         red.addFlashAttribute("seznamIskanja",list);
         HttpSession session = request.getSession(true);
         session.setAttribute("rezultati",list);
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "redirect:/iskanjeNepremicnin";
     }
 
     @RequestMapping(value = {"/iskanjeHisa" }, method = RequestMethod.GET)
-    public String iskanjeHisa(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_hisa")String tip_hisa
+    public String iskanjeHisa(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_hisa")String tip_hisa
             , @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,@RequestParam(value="letnik_prenove")String letnik_prenove,
             @RequestParam(value="garaza")String garaza,@RequestParam(value="range3")String range3,
             @RequestParam(value="range4")String range4, @RequestParam(value="range5")String range5) {
@@ -192,11 +206,16 @@ public class MainController {
         String [] kvadraturaBivalnegaProstora=range5.split(";");
         List<Nepremicnina> list=nepremicninaDao.iskanjeHisa(zac,konc,tip_hisa,letnik_izgradnje,letnik_prenove,garaza,cena,skupnaKvadratura,kvadraturaBivalnegaProstora);
         red.addFlashAttribute("seznamIskanja",list);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "redirect:/iskanjeNepremicnin";
     }
 
     @RequestMapping(value = {"/iskanjePosest" }, method = RequestMethod.GET)
-    public String iskanjePosest(RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_posesti")String tip_posesti
+    public String iskanjePosest(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_posesti")String tip_posesti
             , @RequestParam(value="range6")String range6, @RequestParam(value="range7")String range7) {
         model.addAttribute("message");
         int zac=0;
@@ -214,6 +233,11 @@ public class MainController {
         String [] skupnaKvadratura=range7.split(";");
         List<Nepremicnina> list=nepremicninaDao.iskanjePosest(zac,konc,tip_posesti,cena,skupnaKvadratura);
         red.addFlashAttribute("seznamIskanja",list);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("sortZgrajeno",0);
+        session.setAttribute("sortKvadratura",0);
+        session.setAttribute("sortDodano",0);
+        session.setAttribute("sortCena",0);
         return "redirect:/iskanjeNepremicnin";
     }
 
