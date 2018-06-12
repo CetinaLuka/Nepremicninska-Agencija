@@ -352,7 +352,7 @@
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
                                                 <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
-                                                <h4 id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}m²</h4>
+                                                <h4 ><span id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}</span>m²</h4>
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start">
@@ -1067,7 +1067,7 @@
                             $("#prodanoStars2", nepremicninaDiv).append(novSpan);
                         }
 
-                        $("#kvadraturaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.skupnaKvadratura;
+                        $("#kvadraturaNepremicnine2", nepremicninaDiv)[0].innerHTML =data.skupnaKvadratura;
                         $("#imeKrajaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.imeKraja;
                         $("#ulicaHisnaStevilkaNepremicnine2", nepremicninaDiv)[0].innerHTML = data.ulica + " " + data.hisnaSt;
                         $("#tipPosesti", nepremicninaDiv)[0].innerHTML = data.tipPosesti;
