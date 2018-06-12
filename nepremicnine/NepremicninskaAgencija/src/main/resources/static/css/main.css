@@ -2491,6 +2491,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .single-property:hover img {
   transform: scale(1.09);
+  opacity: 0.8;
 }
 
 .images {
@@ -3104,7 +3105,7 @@ pokrivanje::selection{
 .profil-kartica button{
   width:100%;
   height: auto;
-  max-width: 285px;
+  max-width: 255px;
 }
 .bold-black{
   font-weight: bold;
@@ -3157,16 +3158,53 @@ pokrivanje::selection{
 #urediStanovanjeModal .modal-content{
   width: 100%;
 }
+.opis-kmetijsko{
+  height: 54px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  width: 100%;
+  /*-----------*/
+  display: block;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.6;
+}
 .posest .opis{
   height: 74px;
   overflow: hidden;
   margin-bottom: 13px;
+  /*--------------*/
+  display: block;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.6;
 }
 .hisa .opis{
   height: 54px;
   overflow: hidden;
   margin-bottom: 12px;
   width: 100%;
+  /*-----------*/
+  display: block;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.6;
+  /*
+  max-width: 358px;
+  height: 54px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;*/
 }
 .stanovanje .opis{
   height: 34px;
