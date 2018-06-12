@@ -106,17 +106,17 @@
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
                                                 <div class="mt-10">
-                                                    <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
+                                                    <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" class="single-input" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
                                                 <div class="mt-10">
-                                                    <input type="text" name="letnik_prenove" placeholder="Letnik prenove" required class="single-input" />
+                                                    <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
                                                 <div class="mt-10">
-                                                    <input type="text" name="stevilo_sob" placeholder="Število sob" required class="single-input" />
+                                                    <input type="text" name="stevilo_sob" placeholder="Število sob" class="single-input" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
@@ -176,12 +176,12 @@
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
                                                 <div class="mt-10">
-                                                    <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" required class="single-input" />
+                                                    <input type="text" name="letnik_izgradnje" placeholder="Letnik izgradnje" class="single-input" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6">
                                                 <div class="mt-10">
-                                                    <input type="text" name="letnik_prenove" placeholder="Letnik prenove" required class="single-input" />
+                                                    <input type="text" name="letnik_prenove" placeholder="Letnik prenove" class="single-input" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-6 col-xs-6">
