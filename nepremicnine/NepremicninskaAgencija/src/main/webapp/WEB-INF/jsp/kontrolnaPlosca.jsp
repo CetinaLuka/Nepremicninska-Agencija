@@ -351,13 +351,8 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-<<<<<<< HEAD
                                                 <h4><a target="_blank" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
-                                                <h4 id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}m²</h4>
-=======
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
                                                 <h4 ><span id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}</span>m²</h4>
->>>>>>> 33ccea4539cbdcc1142439681ce5b5d4e9f18644
                                             </div>
                                             <div class="naslov">
                                                 <div class="d-flex justify-content-start">
