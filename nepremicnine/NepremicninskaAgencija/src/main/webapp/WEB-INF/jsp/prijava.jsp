@@ -47,19 +47,7 @@
     </section>
     <br />
 
-<!-- Prijavni obrazec
 
-   <div class="row">
-                            <div class="input-group-col-6">
-
-                                <input type="text" name="naslov"
-                                       placeholder="Naslov" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Naslov'"
-                                       required class="single-input">
-
-                            </div>
-                        </div>
--->
 
     <main class="container" >
         <br/>
@@ -171,8 +159,8 @@
 
 
 
-                <c:choose>
-                    <c:when test="${email==true}">
+
+                    <c:if test="${emailNeObstaja==true}">
                         <div class="row  align-items-center justify-content-center" >
                             <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                                 <div class="row">
@@ -182,8 +170,8 @@
                                 </div>
                             </div>
                         </div>
-                    </c:when>
-                    <c:otherwise>
+                    </c:if>
+                    <c:if test="${emailObstaja==true}">
                         <div class="row  align-items-center justify-content-center" >
                             <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                                 <div class="row">
@@ -193,8 +181,8 @@
                                 </div>
                             </div>
                         </div>
-                    </c:otherwise>
-                </c:choose>
+                    </c:if>
+
 
 
                 <div class="row  align-items-center justify-content-center" >
@@ -235,13 +223,19 @@
             document.getElementById("boris").style.display="block";
             $("#textPrijava").text("Pozabljeno geslo");
         });
-        <c:choose>
-         <c:when test="${email==true}">
-            main.empty();
-            document.getElementById("boris").style.display="block";
-             document.getElementById("divEmail").style.display="block";
-            </c:when>
-        </c:choose>
+
+            <c:if test="${emailNeObstaja==true}">
+                 main.empty();
+                 document.getElementById("boris").style.display="block";
+                 document.getElementById("divEmail").style.display="block";
+                 $("#textPrijava").text("Pozabljeno geslo");
+            </c:if>
+            <c:if test="${emailObstaja==true}">
+                main.empty();
+                document.getElementById("boris").style.display="block";
+                document.getElementById("divEmail").style.display="block";
+                $("#textPrijava").text("Pozabljeno geslo");
+            </c:if>
     </script>
 </body>
 </html>

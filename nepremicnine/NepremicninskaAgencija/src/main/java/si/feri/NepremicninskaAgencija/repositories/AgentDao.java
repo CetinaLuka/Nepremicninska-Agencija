@@ -43,7 +43,7 @@ public class AgentDao {
 
     public int getId(String mail){
         String sql="SELECT idAgent FROM agent WHERE email= '"+mail+"'";
-        int id=Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
+        int id=(Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class)));
         return id;
     }
 
@@ -105,6 +105,12 @@ public class AgentDao {
         Agent a = (Agent)jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Agent.class));
          return a;
     }
-
+/*
+    public ArrayList<Agent> getIdInt(String mail){
+        String sql="SELECT * FROM agent";
+        ArrayList<Agent> A=jdbcTemplate.queryForList(sql,new Object[]{});
+        return a;
+    }
+*/
 
 }
