@@ -625,11 +625,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-lg-4 col-md-6 col-xs-6 isci">
                                 <!--Select za vnos vrste hiše - name:vrsta_hise-->
                                 <label class="mt-1">Vrsta hiše</label>
-                                <div class="default-select" id="vrsta_hise">
-                                    <select name="vrsta_hise" value="${nepremicninaModal.vrstaHise}">
+                                    <select name="vrsta_hise" class="app-select form-control" value="${nepremicninaModal.vrstaHise}">
                                         <option value="Samostojna"
                                                 <c:if test="${nepremicninaModal.vrstaHise.equals('Samostojna')}">
                                                     selected="selected"
@@ -646,7 +645,6 @@
                                                 </c:if>
                                         >Vrstna</option>
                                     </select>
-                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -773,10 +771,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-lg-4 col-md-6 col-xs-6 isci">
                                 <label class="mt-1">Vrsta posesti</label>
                                 <div class="default-select" id="vrsta_posesti">
-                                    <select name="vrsta_posesti">
+                                    <select name="vrsta_posesti" class="app-select form-control">
                                         <option value="Zazidljiva"
                                             <c:if test="${nepremicninaModal.tipPosesti.equals('Zazidljiva')}">
                                                 selected="selected"
