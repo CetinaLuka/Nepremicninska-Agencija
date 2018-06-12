@@ -115,7 +115,7 @@
         </div>
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-lg-8 ">
-                    <div class="statistika">
+                    <div class="statistika" style="padding:20px">
                        <c:choose>
                                 <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">
                                 <div class="row">
@@ -193,16 +193,16 @@
                                     </br>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
                                         <c:if test="${nepremicnina.tk_id_vrstaNepremicnine==1}">
-                                        <c:if test="${nepremicnina.balkon}" ><i class="fa fa-check" ></i></c:if>
+                                        <c:if test="${nepremicnina.balkon}" ><i class="fa fa-check" style="color: #28a745"></i></c:if>
                                         <c:if test="${!nepremicnina.balkon}" ><i class="fa fa-times"></i></c:if> BALKON
                                         </c:if>
                                     </div>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <c:if test="${nepremicnina.garaza}" ><i class="fa fa-check"></i></c:if>
+                                        <c:if test="${nepremicnina.garaza}" ><i class="fa fa-check" style="color: #28a745"></i></c:if>
                                         <c:if test="${!nepremicnina.garaza}" ><i class="fa fa-times"></i></c:if> GARAŽA
                                     </div>
                                     <div class="col-xs-12 col-md-4 col-lg-4">
-                                        <c:if test="${nepremicnina.letoPrenove!=0}" ><i class="fa fa-check"></i>
+                                        <c:if test="${nepremicnina.letoPrenove!=0}" ><i class="fa fa-check" style="color: #28a745"></i>
                                                 PRENOVLJENO - ${nepremicnina.letoPrenove}</c:if>
                                         <c:if test="${nepremicnina.letoPrenove==0}" ><i class="fa fa-times"></i> PRENOVLJENO</c:if>
                                     </div>
@@ -252,7 +252,7 @@
 
 
 
-<!-- start footer Area
+<!-- start footer Area-->
 <jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 </div>

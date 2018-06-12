@@ -189,7 +189,7 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
+                                                <h4><a target="_blank" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Stanovanje</a></h4>
                                                 <h4><span id="kvadraturaNepremicnine">${nepremicnina.skupnaKvadratura}</span>m²</h4>
                                             </div>
                                             <div class="naslov">
@@ -274,7 +274,7 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - <span id="vrstaHise">${nepremicnina.vrstaHise}</span></a></h4>
+                                                <h4><a target="_blank" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Hiša - <span id="vrstaHise">${nepremicnina.vrstaHise}</span></a></h4>
                                                 <h4><span id="kvadraturaNepremicnine1">${nepremicnina.kvadraturaBivalnegaProstora}</span>m²</h4>
                                             </div>
                                             <div class="naslov">
@@ -351,7 +351,7 @@
                                         </div>
                                         <div class="desc">
                                             <div class="top d-flex justify-content-between">
-                                                <h4><a href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
+                                                <h4><a target="_blank" href="prikazNepremicnine/${nepremicnina.idNepremicnina}">Posest - <span id="tipPosesti">${nepremicnina.tipPosesti}</span></a></h4>
                                                 <h4 id="kvadraturaNepremicnine2">${nepremicnina.skupnaKvadratura}m²</h4>
                                             </div>
                                             <div class="naslov">
