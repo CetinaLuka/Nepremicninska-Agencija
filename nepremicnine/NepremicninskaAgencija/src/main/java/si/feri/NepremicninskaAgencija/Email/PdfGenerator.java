@@ -10,9 +10,9 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 import si.feri.NepremicninskaAgencija.models.Slika;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,14 +27,24 @@ public class PdfGenerator {
     private Nepremicnina nepremicnina;
     private PDDocument doc;
     private PDFont font;
+
+
+    private int osXZaAlineje=60;
+    private int osYZaAlineje=710;
+
+
+    private int velikostTextaAlinejeEna=12;
+    private int velikostTextaAlinejeDva=12;
+
+    private List<Slika> slike;
+
+    PdfGenerator(){}
         PdfGenerator(Nepremicnina nep, List<Slika> slike) {
             try {
                 nep.brezSumnikov();
                 nepremicnina=nep;
+                this.slike=slike;
                 doc = new PDDocument();
-
-
-
 
 
             }catch (Exception e){
@@ -46,6 +56,8 @@ public class PdfGenerator {
         public PdfInputStream pdfNepremicnina(){
             try {
                 prvaStranGen();
+
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 doc.save(baos);
                 doc.close();
@@ -55,7 +67,6 @@ public class PdfGenerator {
             }
             return null;
         }
-
 
 
         private void prvaStranGen(){
@@ -77,8 +88,48 @@ public class PdfGenerator {
                 stream.showText(title);
                 stream.endText();
                 alineja(15,0,75,750,"Podatki nepremicnine: ","");
-                alineja(12,12,60,710,"Naslov: ","");
+
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Naslov:  ",(nepremicnina.getUlica()+" "+nepremicnina.getHisnaSt()));
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Kraj:  ",(nepremicnina.getImeKraja()+" "+nepremicnina.getPostnaSt()));
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Kvadratura v kvadratnih metrih:  ",""+nepremicnina.getSkupnaKvadratura());
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Stevilo sob:  ",""+nepremicnina.getSteviloSob());
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Letnik izgradnje:  ",""+nepremicnina.getLetoIzgradnje());
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Nadstropje:  ",""+nepremicnina.getNadstropje());
+
+                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
+                        "Cena:  ", String.valueOf(nepremicnina.getCena()));
+
+                alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                        "Vrsta hise:  ", nepremicnina.getVrstaHise());
+
+                alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                        "Vrsta posesti:  ", nepremicnina.getTipPosesti());
+
+/*                if(nepremicnina.getLetoPrenove()!=null || nepremicnina.getLetoPrenove()!=0) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Leto prenove:  ", String.valueOf(nepremicnina.getLetoPrenove()));
+                }*/
+
+                alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                        "Dodaten opis:  ", " ");
+
+                kreirajMultiPararagraph(prvaStran);
                 stream.close();
+
+
+
             }catch (IOException e){
                 e.printStackTrace();
             }
@@ -88,94 +139,85 @@ public class PdfGenerator {
 
         private void alineja(int fontSize,int fontSize2,int x , int y,String textBold,String textNormal){
             try {
-                stream.beginText();
-                font=PDType1Font.HELVETICA_BOLD;
-                stream.setFont(font,fontSize);
-                stream.newLineAtOffset(x, y);
-                stream.showText(textBold);
-                font=PDType1Font.HELVETICA;
-                stream.setFont(font,fontSize2);
-                stream.showText(textNormal);
-                stream.endText();
-
+                if(textNormal!=null) {
+                    stream.beginText();
+                    font = PDType1Font.HELVETICA_BOLD;
+                    stream.setFont(font, fontSize);
+                    stream.newLineAtOffset(x, y);
+                    stream.showText(textBold);
+                    font = PDType1Font.HELVETICA;
+                    stream.setFont(font, fontSize2);
+                    stream.showText(textNormal);
+                    stream.endText();
+                    osYZaAlineje -= 20;
+                }
             }catch (IOException e){
-                e.printStackTrace();
+               e.printStackTrace();
             }
         }
 
 
 
-        public PdfInputStream slika(){
-            try (final PDDocument doc = new PDDocument()){
+        public void slika(){
+            try {
 
                 PDPage page = new PDPage();
                 doc.addPage(page);
 
-                String image = PdfGenerator.class.getResource("/PDFDokumenti//logo.png").getFile();
-                PDImageXObject pdImage = PDImageXObject.createFromFile(image, doc);
+                //String image = PdfGenerator.class.getResource("/PDFDokumenti//logo.png").getFile();
+                //PDImageXObject pdImage = PDImageXObject.createFromFile(image, doc);
+                //
 
-                pdImage.setWidth(150);
-                pdImage.setHeight(150);
+               // byte[]ss=slike.get(0).getURLSlike().getBytes();
+                //PDImageXObject pdImage = PDImageXObject.createFromByteArray(doc,ss, String.valueOf(FileType.JPEG));
+                final byte[] image = slike.get(0).getURLSlike().getBytes(); // your code
+                ByteArrayInputStream bais = new ByteArrayInputStream(image);
+                BufferedImage bim = ImageIO.read(bais);
+                //PDImageXObject pdImage = LosslessFactory.createFromImage(doc, bim);
+                PDImageXObject pdImage = null;
+                try {
+                    InputStream inputStream = pdImage.createInputStream((List<String>) bais);
+                }
+                catch (Exception e){
+
+                }
+
+                bais.close();
+
+               // pdImage.setWidth(150);
+                //pdImage.setHeight(150);
 
                 PDPageContentStream contents = new PDPageContentStream(doc, page);
                 PDRectangle mediaBox = page.getMediaBox();
 
                 float startX = (mediaBox.getWidth() - pdImage.getWidth()) / 2;
                 float startY = (mediaBox.getHeight() - pdImage.getHeight()) / 2;
-                contents.drawImage(pdImage, 110, 0);
+                contents.drawImage(pdImage, 110, 20);
                 contents.close();
 
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-                doc.save(baos);
-                doc.close();
 
-                return new PdfInputStream(baos);
+
             } catch (IOException e){
                 System.err.println("Exception while trying to create pdf document - " + e);
             }
-            return null;
         }
 
 
 
-            public void kreiraj(){
+            public void kreirajMultiPararagraph(PDPage page){
                 try {
-                    PDDocument doc = new PDDocument();
-                    PDPage page = new PDPage();
-                    doc.addPage(page);
-                    PDPageContentStream contentStream = new PDPageContentStream(doc, page);
-
                     PDRectangle mediaBox = page.getMediaBox();
-                    float marginY = 80;
                     float marginX = 60;
                     float width = mediaBox.getWidth() - 2 * marginX;
-                    float startX = mediaBox.getLowerLeftX() + marginX;
-                    float startY = mediaBox.getUpperRightY() - marginY;
 
+                    String text = nepremicnina.getOpis();
 
+                    stream.beginText();
+                    addParagraph(stream, width, osXZaAlineje, osYZaAlineje, text, true);
+                    stream.endText();
 
-
-                    String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" +
-                            " ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco" +
-                            " laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " +
-                            " ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco" +
-                            " laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " +
-                            "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" +
-                            " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-                    contentStream.beginText();
-                    addParagraph(contentStream, width, startX, startY, text, true);
-                    addParagraph(contentStream, width, 0, -FONT_SIZE, text);
-                    addParagraph(contentStream, width, 0, -FONT_SIZE, text);
-                    addParagraph(contentStream, width, 0, -FONT_SIZE, text, false);
-                    contentStream.endText();
-
-                    contentStream.close();
-
-                    doc.save(new File("src/main/resources/PDFDokumenti/example.pdf"));
-                    doc.close();
                 } catch (IOException e){
                     System.err.println("Exception while trying to create pdf document - " + e);
                 }
