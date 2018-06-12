@@ -34,7 +34,7 @@ public class MailController {
     AgentDao agentDao;
 
 
-    @RequestMapping(value={"/prikazNepremicnine/emailPoslji"}, method=RequestMethod.GET)
+    @RequestMapping(value={"/prikazNepremicnine/emailPoslji"}, method=RequestMethod.POST)
     public String osebeStran(@RequestParam(value = "email")String email,
                              @RequestParam(value = "nepremicnina")String nep){
         int nepe =Integer.parseInt(nep);
