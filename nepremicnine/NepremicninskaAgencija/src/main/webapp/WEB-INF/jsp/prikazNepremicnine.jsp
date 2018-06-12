@@ -272,7 +272,7 @@
 $(document).ready(function (){
     $("#my-slider").sliderPro({
         width: 800,
-        height:400,
+        height:500,
         orientation: 'vertical',
         thumbnailsPosition: 'right',
         buttons: false,
