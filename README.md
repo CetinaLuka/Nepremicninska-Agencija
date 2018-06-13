@@ -1,6 +1,6 @@
-# O nas
+# O projektu
 
-Smo 4 študentje smeri ITK na FERI.
+Projekt je bil narejen za predmet PRAKTIKUM 1 pri smeri ITK UN na FERI. Razvili smo ga z znanjem, ki smo ga pridobili v 1. letniku, zato smo uporabili jezike in tehnologije ki so nam najbolj poznane. Razvoj je trajal pet tednov, pod vodstvom asistentke Lucije Brezočnik. Na začetku vsakega tedna smo določili cilje, ki smo jih morali tisti teden izpolniti.
 <p align="center"><img src="nepremicnine/NepremicninskaAgencija/src/main/resources/static/img/Logo/logo.png" alt="NepremicninskaAgencija" title="NepremicninskaAgencija" width="400px" height="300px"/></p>
 
 # Naloga
@@ -42,6 +42,7 @@ področju Maribora, ki ima vključeno garažo.
 # Razvoj funkcionalnosti
 
 ## Prvi teden
+Prvi teden smo naredili osnovno strukturo projekta, izbrali template in ga vključili v projekt. Dodali smo tudi registracijo in prijavo ter dodajanje nepremičnin in uredili grafično podobo template-a. Izdelali smo tudi podatkovno bazo in jo povezali s stranjo.
 <div align="center">
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.1.png" alt="prviTeden" title="Prvi Teden" margin=20px"/>
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.2.png" alt="prviTeden" title="Prvi Teden" margin=20px"/><br/>
@@ -50,6 +51,7 @@ področju Maribora, ki ima vključeno garažo.
 </div>
 
 ## Drugi teden
+Drugi teden smo dodali brisanje nepremičnin, dodajanje slik, kontrolno ploščo ter uredili naslovno stran. Dodalo smo tudiveliko funkcionalnosti  kot so posodobitev podatkov in slik, gumb za pomik na vrh strani in zemljevid.
 <div align="center">
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.1.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.2.png" alt="prviTeden" title="Drugi Teden" margin=20px"/><br/>
@@ -58,6 +60,7 @@ področju Maribora, ki ima vključeno garažo.
 </div>
 
 ## Tretji teden
+Tretji teden smo uspodobili iskanje nepremičnin in potrditev registracije ter brisanje nepremičnin in prikaz natančne lokacije.
 <div align="center">
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.1.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.2.png" alt="prviTeden" title="Tretji Teden" margin=20px"/><br/>
@@ -66,6 +69,7 @@ področju Maribora, ki ima vključeno garažo.
 </div>
 
 ## Četrti teden
+Četrti teden smo naredili testne podatke in usposobili urejanje nepremičnin z ajaxom. Naredili smo tudi prikaz slik nepremičnin in dodali funkcijo za pozabljeno geslo, pošiljanje nepremičnine na mail in sortiranje nepremičnin. 
 <div align="center">
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.1.png" alt="prviTeden" title="Četrti Teden" margin=20px"/>
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="prviTeden" title="Četrti Teden" margin=20px"/><br/>
