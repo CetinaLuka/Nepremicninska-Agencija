@@ -3,7 +3,8 @@
 Smo 4 študentje smeri ITK na FERI.
 <p align="center"><img src="nepremicnine/NepremicninskaAgencija/src/main/resources/static/img/Logo/logo.png" alt="NepremicninskaAgencija" title="NepremicninskaAgencija"/></p>
 
-#Naloga
+# Naloga
+
 
 
 # Razvoj funkcionalnosti
@@ -44,8 +45,6 @@ Tretji teden
 :---: |:---: |:---: |:---: |
 [EvaSmolak](https://github.com/EvaSmolak) |[CetinaLuka](https://github.com/CetinaLuka) |[KovacZan](https://github.com/KovacZan) |[ZeleDavid](https://github.com/ZeleDavid) |
 
-
-
-#Povezave do dodatne dokumentacije
+# Povezave do dodatne dokumentacije
 <a href="Nepremicninska-Agencija/baza.md">Podatkovna baza</a>
 <a href="Nepremicninska-Agencija/namestitev.md">Navodila za namestitev</a>
