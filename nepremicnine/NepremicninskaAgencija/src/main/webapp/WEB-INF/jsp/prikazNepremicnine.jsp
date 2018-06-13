@@ -112,22 +112,22 @@
             <div class=" col-xs-12 col-lg-12 bold-black">
                 <p style="font-size:x-large">${fn:toUpperCase(nepremicnina_kraj.imeKraja)}, ${nepremicnina_naslov.ulica} ${nepremicnina_naslov.hisnaSt}</p>
                 <p style="color: #f41068; font-size:xx-large">${nepremicnina.cena}€</p></br>
-        </div>
+            </div>
             <div class="row">
-                <div class="col-xs-12 col-md-8 col-lg-8 ">
+                <div class="col-xs-12 col-mlg-8 col-lg-8 ">
                     <div class="statistika" style="padding:20px">
                        <c:choose>
-                                <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">
+                            <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">
                                 <div class="row">
-                                    <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-bed" style="font-size: x-large"></i>    Število sob</div>
-                                        <div> ${nepremicnina.steviloSob}</div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12 col-lg-6">
-                                        <div class="bold-black"><i class="fa fa-building" style="font-size: x-large"></i>   Nadstropje</div>
-                                        <div> ${nepremicnina.nadstropje}</div>
-                                    </div>
+                                <div class="col-xs-12 col-md-12 col-lg-6">
+                                    <div class="bold-black"><i class="fa fa-bed" style="font-size: x-large"></i>    Število sob</div>
+                                    <div> ${nepremicnina.steviloSob}</div>
                                 </div>
+                                <div class="col-xs-12 col-md-12 col-lg-6">
+                                    <div class="bold-black"><i class="fa fa-building" style="font-size: x-large"></i>   Nadstropje</div>
+                                    <div> ${nepremicnina.nadstropje}</div>
+                                </div>
+                            </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-md-12 col-lg-6">
                                         <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>    Kvadratura (m2)</div>
@@ -138,29 +138,29 @@
                                         <div> ${nepremicnina.letoIzgradnje}</div>
                                     </div>
                                 </div>
-                           </c:when>
-                              <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">
+                            </c:when>
+                            <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">
                             <div class="row">
-                                       <div class="col-xs-12 col-md-12 col-lg-6">
-                                           <div class="bold-black"><i class="fa fa-home" style="font-size: x-large"></i>    Vrsta hiše</div>
-                                           <div> ${nepremicnina.vrstaHise}</div>
-                                       </div>
-                                       <div class="col-xs-12 col-md-12 col-lg-6">
-                                           <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>   Kvadratura hiše (m2)</div>
-                                           <div> ${nepremicnina.kvadraturaBivalnegaProstora}m2</div>
-                                       </div>
+                               <div class="col-xs-12 col-md-12 col-lg-6">
+                                <div class="bold-black"><i class="fa fa-home" style="font-size: x-large"></i>    Vrsta hiše</div>
+                                <div> ${nepremicnina.vrstaHise}</div>
+                            </div>
+                                <div class="col-xs-12 col-md-12 col-lg-6">
+                                    <div class="bold-black"><i class="fa fa-expand" style="font-size: x-large"></i>   Kvadratura hiše (m2)</div>
+                                    <div> ${nepremicnina.kvadraturaBivalnegaProstora}m2</div>
+                                </div>
+                            </div>
+                               <div class="row">
+                                   <div class="col-xs-12 col-md-12 col-lg-6">
+                                       <div class="bold-black"><i class="fa fa-tree" style="font-size: x-large"></i>    Kvadratura zemljišča(m2)</div>
+                                       <div> ${eapremicnina.skupnaKvadratura}m2</div>
                                    </div>
-                                   <div class="row">
-                                       <div class="col-xs-12 col-md-12 col-lg-6">
-                                           <div class="bold-black"><i class="fa fa-tree" style="font-size: x-large"></i>    Kvadratura zemljišča(m2)</div>
-                                           <div> ${eapremicnina.skupnaKvadratura}m2</div>
-                                       </div>
-                                       <div class="col-xs-12 col-md-12 col-lg-6">
-                                           <div class="bold-black"><i class="fa fa-wrench" style="font-size: x-large"></i>   Leto izgradnje</div>
-                                           <div> ${nepremicnina.letoIzgradnje}</div>
-                                       </div>
+                                   <div class="col-xs-12 col-md-12 col-lg-6">
+                                       <div class="bold-black"><i class="fa fa-wrench" style="font-size: x-large"></i>   Leto izgradnje</div>
+                                       <div> ${nepremicnina.letoIzgradnje}</div>
                                    </div>
-                         </c:when>
+                               </div>
+                            </c:when>
                            <c:when test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">
                              <div class="row">
                                    <div class="col-xs-12 col-md-12 col-lg-6">
@@ -210,7 +210,6 @@
                         </div>
                         </c:if>
                         <hr>
-
                         <form name="emailPoslji" action="/prikazNepremicnine/emailPoslji" method="POST">
                                 <div class="row ">
                                     <div class="col-xs-12 col-md-12 col-lg-12 bold-black">
@@ -240,51 +239,36 @@
 
                     </div>
                 </div>
-                    <div  class="col-xs-12 col-md-4 col-lg-4 ">
-                        <div  class="statistika">
-                            <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
-                            <div class="text-center" >
-                                <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px" />
+                <div  class="col-xs-12 col-lg-4 col-lg-4 ">
+                    <div  class="statistika">
+                        <div class="text-center bold-black">NEPREMIČNINSKI AGENT</div></br>
+                        <div class="text-center" >
+                            <img src="${profilnaSlika}" style=" max-height: 255px; max-width: 255px" />
                             <div class="text-center bold-black">${nepremicnina_agent.ime} ${fn:toUpperCase(nepremicnina_agent.priimek)}</div></br>
                             <div ><i class="fa fa-envelope"></i>  Email: ${nepremicnina_agent.email}</div>
                             <div > <c:if test="${!(nepremicnina_agent.telefonskaSt).equals('')}">
                                 <i class="fa fa-phone"></i>  Tel: ${nepremicnina_agent.telefonskaSt}</c:if>
-                              </div>
-                                <!-- Calendly badge widget begin -->
-                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-                                <script type="text/javascript">Calendly.initBadgeWidget({url: 'https://calendly.com/nepremicninska_agencija', text: 'Rezerviraj ogled', color: '#ffffff', branding: false});</script>
-                                <!-- Calendly badge widget end -->
-                        </div>
-                        </div>
-                        <div  class="statistika" style="height: 50%; max-height: 400px">
-                            <%-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 --%>
-                            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8&q=
-                             ${nepremicnina_naslov.ulica}+${nepremicnina_naslov.hisnaSt}+ ${nepremicnina_kraj.imeKraja}" allowfullscreen></iframe>
+                            </div>
+                            <!-- Calendly badge widget begin -->
+                            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                            <script type="text/javascript">Calendly.initBadgeWidget({url: 'https://calendly.com/nepremicninska_agencija', text: 'Rezerviraj ogled', color: '#ffffff', branding: false});</script>
+                            <!-- Calendly badge widget end -->
                         </div>
                     </div>
+                    <div  class="statistika" style="height: 50%; max-height: 400px">
+                        <%-- AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8 --%>
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJrW-1laCws0wiUaBUkFlj3mcfRbIOaB8&q=
+                         ${nepremicnina_naslov.ulica}+${nepremicnina_naslov.hisnaSt}+ ${nepremicnina_kraj.imeKraja}" allowfullscreen></iframe>
+                    </div>
+                </div>
 
-                 </div>
-
+            </div>
         </section>
-
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- start footer Area-->
-<jsp:include page="includes/footer.jsp" />
+<!--jsp:include page="includes/footer.jsp" /-->
 <!-- End footer Area -->
-</div>
 <script src="<c:url value="/js/vendor/jquery-2.2.4.min.js"/>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
