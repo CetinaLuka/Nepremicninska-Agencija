@@ -254,7 +254,7 @@ public class NepremicninaDao {
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
         if(zac==2000&&konc==3342){
-            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND (kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?)";
             ret = new ArrayList<Nepremicnina>();
             rows = jdbcTemplate.queryForList(sql, zac, konc);
         }
@@ -382,7 +382,7 @@ public class NepremicninaDao {
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
         if(zac==2000&&konc==3342){
-            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.tipPosesti=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.tipPosesti=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND (kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?)";
             ret = new ArrayList<Nepremicnina>();
             rows = jdbcTemplate.queryForList(sql, tip_posesti, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
         }
@@ -443,7 +443,7 @@ public class NepremicninaDao {
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
         if(zac==2000&&konc==3342){
-            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.vrstaHise=? AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.garaza=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND nepremicnina.kvadraturaBivalnegaProstora BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.vrstaHise=? AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.garaza=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND nepremicnina.kvadraturaBivalnegaProstora BETWEEN ? AND ? AND (kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?)";
             ret = new ArrayList<Nepremicnina>();
             rows = jdbcTemplate.queryForList(sql, tip_hisa, letnik_izgradnje, letnik_prenove, garaza_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], razpon_kvadratura[0], razpon_kvadratura[1], zac, konc);
         }
@@ -504,7 +504,7 @@ public class NepremicninaDao {
         List<Nepremicnina> ret;
         List<Map<String, Object>> rows;
         if(zac==2000&&konc==3342){
-            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.steviloSob=? AND nepremicnina.garaza=? AND nepremicnina.balkon=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?";
+            String sql = "SELECT * FROM NEPREMICNINA,NASLOV,KRAJ WHERE kraj.idKraj=naslov.Kraj_idKraj AND naslov.idNaslov=nepremicnina.tk_id_naslov AND nepremicnina.letoIzgradnje>? AND nepremicnina.letoPrenove>? AND nepremicnina.steviloSob=? AND nepremicnina.garaza=? AND nepremicnina.balkon=? AND nepremicnina.cena BETWEEN ? AND ? AND nepremicnina.skupnaKvadratura BETWEEN ? AND ? AND (kraj.postnaSt BETWEEN ? AND 2362 OR kraj.postnaSt BETWEEN 3000 AND ?)";
             ret = new ArrayList<Nepremicnina>();
             rows = jdbcTemplate.queryForList(sql, letnik_izgradnje, letnik_prenove, stSob_vnos, garaza_vnos, balkon_vnos, razpon_cena[0], razpon_cena[1], razpon_skupnaKvadratura[0], razpon_skupnaKvadratura[1], zac, konc);
         }
