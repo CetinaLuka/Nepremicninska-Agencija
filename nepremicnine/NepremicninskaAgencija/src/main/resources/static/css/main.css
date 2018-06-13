@@ -3184,9 +3184,9 @@ pokrivanje::selection{
   line-height: 1.6;
 }
 .hisa .opis{
-  height: 54px;
+  height: 53px;
   overflow: hidden;
-  margin-bottom: 12px;
+  margin-bottom: 13px;
   width: 100%;
   /*-----------*/
   display: block;
@@ -3195,16 +3195,6 @@ pokrivanje::selection{
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-height: 1.6;
-  /*
-  max-width: 358px;
-  height: 54px;
-  margin: 0 auto;
-  font-size: 15px;
-  line-height: 1.4;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;*/
 }
 .stanovanje .opis{
   height: 34px;
