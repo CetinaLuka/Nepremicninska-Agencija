@@ -157,12 +157,12 @@ public class MainController {
 
     @RequestMapping(value = {"/iskanjeStanovanje" }, method = RequestMethod.GET)
     public String iskanjeStanovanje(HttpServletRequest request, RedirectAttributes red, Model model,
-                                    @RequestParam(value="select_pokrajina")int regija,
-                                    @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,
-                                    @RequestParam(value="letnik_prenove")String letnik_prenove,
-                                    @RequestParam(value="stevilo_sob")String stevilo_sob,
-                                    @RequestParam(value="garaza")String garaza,
-                                    @RequestParam(value="balkon")String balkon,
+                                    @RequestParam(value="select_pokrajina",required = false)int regija,
+                                    @RequestParam(value="letnik_izgradnje",required = false)String letnik_izgradnje,
+                                    @RequestParam(value="letnik_prenove",required = false)String letnik_prenove,
+                                    @RequestParam(value="stevilo_sob",required = false)String stevilo_sob,
+                                    @RequestParam(value="garaza",required = false)String garaza,
+                                    @RequestParam(value="balkon",required = false)String balkon,
                                     @RequestParam(value="range1")String range1,
                                     @RequestParam(value="range2")String range2) {
         model.addAttribute("message");
@@ -173,7 +173,7 @@ public class MainController {
             letnik_prenove="-1";
         }
         if(stevilo_sob==null){
-            letnik_prenove="steviloSob";
+            stevilo_sob="steviloSob";
         }
         if(garaza==null){
             garaza="0";
@@ -206,10 +206,16 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/iskanjeHisa" }, method = RequestMethod.GET)
-    public String iskanjeHisa(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_hisa")String tip_hisa
-            , @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,@RequestParam(value="letnik_prenove")String letnik_prenove,
-            @RequestParam(value="garaza")String garaza,@RequestParam(value="range3")String range3,
-            @RequestParam(value="range4")String range4, @RequestParam(value="range5")String range5) {
+    public String iskanjeHisa(HttpServletRequest request, RedirectAttributes red,
+                              Model model,
+                              @RequestParam(value="select_pokrajina")int regija,
+                              @RequestParam(value="select_tip_hisa")String tip_hisa,
+                              @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,
+                              @RequestParam(value="letnik_prenove")String letnik_prenove,
+                              @RequestParam(value="garaza")String garaza,
+                              @RequestParam(value="range3")String range3,
+                              @RequestParam(value="range4")String range4,
+                              @RequestParam(value="range5")String range5) {
         model.addAttribute("message");
         if(letnik_izgradnje==null){
             letnik_izgradnje="-1";
@@ -245,8 +251,13 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/iskanjePosest" }, method = RequestMethod.GET)
-    public String iskanjePosest(HttpServletRequest request, RedirectAttributes red, Model model, @RequestParam(value="select_pokrajina")int regija, @RequestParam(value="select_tip_posesti")String tip_posesti
-            , @RequestParam(value="range6")String range6, @RequestParam(value="range7")String range7) {
+    public String iskanjePosest(HttpServletRequest request,
+                                RedirectAttributes red,
+                                Model model,
+                                @RequestParam(value="select_pokrajina")int regija,
+                                @RequestParam(value="select_tip_posesti")String tip_posesti,
+                                @RequestParam(value="range6")String range6,
+                                @RequestParam(value="range7")String range7) {
         model.addAttribute("message");
         int zac=0;
         int konc=0;

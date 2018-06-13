@@ -97,7 +97,6 @@ public class EmailService {
             //helper.addAttachment("odebeljen.pdf", iss);
             //iss.getInputStream().close();
             Template t = freemarkerConfig.getTemplate("email-template.ftl");
-
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
             helper.setTo(mail.getTo());
             helper.setText(html, true);
@@ -120,15 +119,13 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message,
                     MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
                     StandardCharsets.UTF_8.name());
+
             Template t = freemarkerConfig.getTemplate("email-template-pozabilGeslo.ftl");
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
             helper.setTo(mail.getTo());
             helper.setText(html, true);
-
             helper.setSubject(mail.getSubject());
-          //  emailSender.send(message);
-
-
+            emailSender.send(message);
         }catch (Exception e){
             e.printStackTrace();
         }

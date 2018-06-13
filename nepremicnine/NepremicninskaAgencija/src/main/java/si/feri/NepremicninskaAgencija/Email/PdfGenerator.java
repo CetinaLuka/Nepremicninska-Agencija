@@ -6,13 +6,17 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import si.feri.NepremicninskaAgencija.models.Nepremicnina;
 import si.feri.NepremicninskaAgencija.models.Slika;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +94,7 @@ public class PdfGenerator {
                 alineja(15,0,75,750,"Podatki nepremicnine: ","");
 
 
+
                 alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
                         "Naslov:  ",(nepremicnina.getUlica()+" "+nepremicnina.getHisnaSt()));
 
@@ -99,15 +104,18 @@ public class PdfGenerator {
                 alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
                         "Kvadratura v kvadratnih metrih:  ",""+nepremicnina.getSkupnaKvadratura());
 
-                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
-                        "Stevilo sob:  ",""+nepremicnina.getSteviloSob());
-
-                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
-                        "Letnik izgradnje:  ",""+nepremicnina.getLetoIzgradnje());
-
-                alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
-                        "Nadstropje:  ",""+nepremicnina.getNadstropje());
-
+                if(nepremicnina.getSteviloSob()!=null) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Stevilo sob:  ", "" + nepremicnina.getSteviloSob());
+                }
+                if (nepremicnina.getLetoIzgradnje()!=null) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Letnik izgradnje:  ", "" + nepremicnina.getLetoIzgradnje());
+                }
+                if(nepremicnina.getNadstropje()!=null) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Nadstropje:  ", "" + nepremicnina.getNadstropje());
+                }
                 alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
                         "Cena:  ", String.valueOf(nepremicnina.getCena()));
 
@@ -117,16 +125,32 @@ public class PdfGenerator {
                 alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
                         "Vrsta posesti:  ", nepremicnina.getTipPosesti());
 
-/*                if(nepremicnina.getLetoPrenove()!=null || nepremicnina.getLetoPrenove()!=0) {
+               if(nepremicnina.getLetoPrenove()!=null && (nepremicnina.getLetoPrenove()>0)) {
                     alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
                             "Leto prenove:  ", String.valueOf(nepremicnina.getLetoPrenove()));
-                }*/
+                }
 
+                if(nepremicnina.getGaraza()!=null) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Garaza:  ", (nepremicnina.getGaraza()) ? "DA" : "NE");
+                }
+                if(nepremicnina.getBalkon()!=null) {
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                            "Balkon:  ", (nepremicnina.getBalkon()) ? "DA" : "NE");
+                }
+
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+                LocalDate localDate = LocalDate.now();
                 alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
-                        "Dodaten opis:  ", " ");
+                        "Datum prejema pdf-ja:  ", String.valueOf(dtf.format(localDate)));
 
-                kreirajMultiPararagraph(prvaStran);
-                stream.close();
+                if(nepremicnina.getOpis()!="" && nepremicnina.getOpis()!=null && nepremicnina.getOpis()!= " "){
+                    alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
+                         "Dodaten opis:  ", "");
+                    kreirajMultiPararagraph(prvaStran);
+                    }
+                    stream.close();
 
 
 
@@ -170,29 +194,24 @@ public class PdfGenerator {
 
                // byte[]ss=slike.get(0).getURLSlike().getBytes();
                 //PDImageXObject pdImage = PDImageXObject.createFromByteArray(doc,ss, String.valueOf(FileType.JPEG));
-                final byte[] image = slike.get(0).getURLSlike().getBytes(); // your code
-                ByteArrayInputStream bais = new ByteArrayInputStream(image);
-                BufferedImage bim = ImageIO.read(bais);
-                //PDImageXObject pdImage = LosslessFactory.createFromImage(doc, bim);
-                PDImageXObject pdImage = null;
-                try {
-                    InputStream inputStream = pdImage.createInputStream((List<String>) bais);
-                }
-                catch (Exception e){
 
-                }
 
-                bais.close();
+               // PDImageXObject pdImage = new PDImageXObject(doc, new FileInputStream("Logo.jpg"));
 
                // pdImage.setWidth(150);
                 //pdImage.setHeight(150);
+
+                byte[]byt=slike.get(0).getURLSlike().getBytes();
+
+                BufferedImage pdImage = ImageIO.read(new ByteArrayInputStream(byt));
 
                 PDPageContentStream contents = new PDPageContentStream(doc, page);
                 PDRectangle mediaBox = page.getMediaBox();
 
                 float startX = (mediaBox.getWidth() - pdImage.getWidth()) / 2;
                 float startY = (mediaBox.getHeight() - pdImage.getHeight()) / 2;
-                contents.drawImage(pdImage, 110, 20);
+//                contents.drawImage(pdImage, 110, 20);
+
                 contents.close();
 
 

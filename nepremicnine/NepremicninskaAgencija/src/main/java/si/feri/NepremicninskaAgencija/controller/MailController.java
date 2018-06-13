@@ -17,6 +17,7 @@ import si.feri.NepremicninskaAgencija.repositories.SlikaDao;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Controller
 public class MailController {
@@ -39,8 +40,6 @@ public class MailController {
         int nepe =Integer.parseInt(nep);
         Nepremicnina nepremicnina = nepremicninaDao.vrniNepremicnino(nepe);
         List<Slika> slike = slikaDao.vrniSlike(nepe);
-
-
             try {
                 Mail mail = new Mail();
                 mail.setFrom("agencija.praktikum@gmail.com");
@@ -60,44 +59,39 @@ public class MailController {
     @RequestMapping(value={"/pozabljenoGeslo"}, method=RequestMethod.POST)
     public String pozabljenoGeslo(@RequestParam(value = "emailer")String email,
                                   Model model){
-        int id;
-        if (true){
-          //id=agentDao.getId(email);
-          //String ime = agentDao.getIme(id);
-           /* Random random = new Random();
+        if(agentDao.obstaja(email)){
+            model.addAttribute("emailObstaja",true);
+            int id;
+            id=agentDao.getId(email);
+            String ime = agentDao.getIme(id);
+            Random random = new Random();
             String geslo="";
             char ch;
 
-          for (int i =0;i<8;i++) {
-              ch=(char)(-48+random.nextInt(91));
-              geslo+=ch;
-          }
-          */
+            for (int i =0;i<8;i++) {
+                ch=((char)(random.nextInt(74)+48));
+                geslo+=ch;
+            }
             try {
                 Mail mail = new Mail();
                 mail.setFrom("agencija.praktikum@gmail.com");
-                mail.setTo("zankovi998@gmail.com");
+                mail.setTo(email);
                 mail.setSubject("PozabljenoGeslo");
-
+                System.out.println(email);
                 Map mod = new HashMap();
-                mod.put("ime","a");
-                mod.put("geslo","aas");
+                mod.put("ime",ime);
+                mod.put("geslo",geslo);
                 mail.setModel(mod);
-
-
                 emailService.sendSimpleMessage(mail);
-                agentDao.posodobiGeslo("SASADASDADSA",4);
+                agentDao.posodobiGeslo(geslo,id);
+
             }catch (Exception e){
                 e.printStackTrace();
             }
+        }else{
+            model.addAttribute("emailNeObstaja",true);
 
         }
-        else{
-            model.addAttribute("email",true);
-        }
-
-
-
         return "prijava";
     }
 }

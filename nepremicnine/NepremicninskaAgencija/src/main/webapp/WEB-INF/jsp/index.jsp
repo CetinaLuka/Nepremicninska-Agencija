@@ -71,7 +71,7 @@
 												 <div class="row">
 													 <div class="col-lg-4 col-md-6 col-xs-6" style="padding-top: 10px;">
 														 <select name="select_pokrajina" class="app-select form-control" required>
-															 <option data-display="Pokrajina">Pokrajina</option>
+															 <option data-display="Pokrajina" value="0">Pokrajina</option>
 															 <option value="1">Notranjska</option>
 															 <option value="2">Primorska</option>
 															 <option value="3">Štajerska</option>
