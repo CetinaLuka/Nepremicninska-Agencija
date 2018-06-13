@@ -771,7 +771,7 @@
 				niz2='<div id="content">'+
                     '<h5 id="firstHeading">'+ v +'</h5>'+
                     '<div id="bodyContent"> ${p.imeKraja},  ${p.cena}€ </div><hr/>'+
-                    '<div><a href="prikazNepremicnine/${p.idNepremicnina}">poglej</a></div></div>';
+                    '<div><a href="prikazNepremicnine/${p.idNepremicnina}" target="_blank">poglej</a></div></div>';
 				contentString.push(niz2);
             </c:forEach>
 

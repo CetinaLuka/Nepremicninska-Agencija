@@ -32,6 +32,7 @@ INSERT INTO `kraj` (`idKraj`,`imeKraja`,`postnaSt`) VALUES (20,'Velenje',3320);
 INSERT INTO `kraj` (`idKraj`,`imeKraja`,`postnaSt`) VALUES (21,'Celje',3000);
 
 
+
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (1,'Kasaze','109',1);
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (2,'Veliki Vrh','7',2);
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (3,'Zlateče','23',3);
@@ -54,6 +55,26 @@ INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (19,'Mi
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (20,'Arnijova','6',19);
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (21,'Velenjska cesta','6a',20);
 INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (22,'Kajetova ulica','66',21);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (23,'Kebetova ulica','1',9);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (24,'Mirni kot','6',8);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (25,'Dobrnič','9a',7);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (26,'Pred Savljami','16',6);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (27,'Kraška ulica','16a',5);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (28,'Gruenova ulica','12',3);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (29,'Brinje','12',2);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (30,'Gradnikova cesta','15',13);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (31,'Gorenjesavska cesta','13e',14);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (32,'Kajuhova ulica','50',15);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (33,'Potočnikova ulica','5',16);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (34,'Gregorčeva ulica','41',17);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (35,'Malgajeva ulica','17',20);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (36,'Senčna pot','81a',19);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (37,'Groharjeva ulica','17',21);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (38,'ž','1',22);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (39,'s','2',23);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (40,'Vegova ulica','19',10);
+INSERT INTO `naslov` (`idNaslov`,`ulica`,`hisnaSt`,`Kraj_idKraj`) VALUES (41,'Ribniška ulica','10',11);
+
 
 
 INSERT INTO `nepremicnina` (`idNepremicnina`,`cena`,`kvadraturaBivalnegaProstora`,`skupnaKvadratura`,`steviloSob`,`letoIzgradnje`,`nadstropje`,`letoPrenove`,`garaza`,`balkon`,`opis`,`vrstaHise`,`tipPosesti`,`prodano`,`datumObjave`,`tk_id_naslov`,`tk_id_vrstaNepremicnine`,`Agent_idAgent`) VALUES (1,68500,NULL,76,3,1976,4,0,0,1,'Stanovanje se prodaja opremljeno. Stanovanjski blok ima obnovljeno streho in balkone. Prav tako so lastniki v celotni obnovili kopalnico. Sama lega je odlična saj je stanovanje na južni strani in ima dva balkona, enega na vzhodni in drugega na zahodni strani. ',NULL,NULL,0,'2018-06-08',1,1,2);
