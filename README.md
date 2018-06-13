@@ -1,10 +1,41 @@
 # O nas
 
 Smo 4 študentje smeri ITK na FERI.
-<p align="center"><img src="nepremicnine/NepremicninskaAgencija/src/main/resources/static/img/Logo/logo.png" alt="NepremicninskaAgencija" title="NepremicninskaAgencija"/></p>
+<p align="center"><img src="nepremicnine/NepremicninskaAgencija/src/main/resources/static/img/Logo/logo.png" alt="NepremicninskaAgencija" title="NepremicninskaAgencija" width="400px" height="300px"/></p>
 
 # Naloga
+Nepremičninska agencija želi voditi pregled nad nepremičninami, ki jih zastopa. 
+Nepremičninski agent lahko v sistem vstavi novo nepremičnino. Nepremičnina je lahko stanovanje,
+hiša ali posest.
+Za vsako stanovanje je potrebno vnesti naslednje obvezne parametre:
+-kraj,
+-kvadraturo,
+-število sob v stanovanju,
+-letnik izgradnje,
+-nadstropje v bloku,
+-ali je stanovanje prenovljeno,
+-ali ima stanovanje garažo,
+-ali ima stanovanje balkon,
+-ceno,
+-naslov.
+ali ima
+Agent lahko doda tudi dodaten opis stanovanja, kjer so zbrani podatki glede ogrevanja, energijskega razreda, telekomunikacijskega
+omrežja ipd. Vsako stanovanje ima tudi galerijo slik, kjer so objavljene slike stanovanja, tlorisi ipd.
 
+Podobno kot pri stanovanju mora nepremičninski agent vnesti naslednje obvezne parametre za vsako
+hišo, ki jo skuša prodati: kraj, kvadratura, vrsta (samostojna, dvojček, vrstna), nadstropje, ali je
+vključena garaža, velikost zemljišča, cena in naslov. Tudi tukaj lahko doda dodaten opis hiše in galerijo
+slik.
+
+Če agent prodaja posest, mora vnesti naslednje obvezne parametre: tip posesti (zazidljiva, nezazidljiva,
+kmetijsko zemljišče), velikost zemljišča, ceno in naslov. Možen je še dodaten opis posesti in galerija
+slik.
+
+Ob prijavi ima nepremičninski agent na voljo svojo nadzorno ploščo (angl. dashboard), kjer ima zbrane
+osnovne podatke – število nepremičnin, ki jih trenutno zastopa, število prodanih nepremičnin ipd.
+Neregistriran uporabnik ima na naslovni strani možnost pregleda zadnjih petih dodanih nepremičnin.
+Brska lahko med dodanimi nepremičninami s pomočjo naprednih filtrov, npr. hočem stanovanje na
+področju Maribora, ki ima vključeno garažo.
 
 
 # Razvoj funkcionalnosti
