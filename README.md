@@ -43,33 +43,33 @@ področju Maribora, ki ima vključeno garažo.
 
 Prvi teden
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.1.png" alt="prviTeden" title="Prvi Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.2.png" alt="prviTeden" title="Prvi Teden"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.3.png" alt="prviTeden" title="Prvi Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.4.png" alt="prviTeden" title="Prvi Teden"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.1.png" alt="prviTeden" title="Prvi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.2.png" alt="prviTeden" title="Prvi Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.3.png" alt="prviTeden" title="Prvi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden1.4.png" alt="prviTeden" title="Prvi Teden" margin=20px"/>
 </div>
 
 Drugi teden
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.1.png" alt="prviTeden" title="Drugi Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.2.png" alt="prviTeden" title="Drugi Teden"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.3.png" alt="prviTeden" title="Drugi Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.4.png" alt="prviTeden" title="Drugi Teden"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.1.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.2.png" alt="prviTeden" title="Drugi Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.3.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.4.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
 </div>
 
 Tretji teden
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.1.png" alt="prviTeden" title="Tretji Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.2.png" alt="prviTeden" title="Tretji Teden"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.3.png" alt="prviTeden" title="Tretji Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.4.png" alt="prviTeden" title="Tretji Teden"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.1.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.2.png" alt="prviTeden" title="Tretji Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.3.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.4.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
 </div>
 
 Četrti teden
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.1.png" alt="prviTeden" title="Četrti Teden"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="prviTeden" title="Četrti Teden"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.3.png" alt="prviTeden" title="Četrti Teden"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.1.png" alt="prviTeden" title="Četrti Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="prviTeden" title="Četrti Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.3.png" alt="prviTeden" title="Četrti Teden" margin=20px"/>
 </div>
 
 ## Avtorji
@@ -78,5 +78,5 @@ Tretji teden
 [EvaSmolak](https://github.com/EvaSmolak) |[CetinaLuka](https://github.com/CetinaLuka) |[KovacZan](https://github.com/KovacZan) |[ZeleDavid](https://github.com/ZeleDavid) |
 
 # Povezave do dodatne dokumentacije
-<a href="Nepremicninska-Agencija/baza.md">Podatkovna baza</a>
-<a href="Nepremicninska-Agencija/namestitev.md">Navodila za namestitev</a>
+- <a href="Nepremicninska-Agencija/baza.md">Podatkovna baza</a>
+- <a href="Nepremicninska-Agencija/namestitev.md">Navodila za namestitev</a>
