@@ -82,5 +82,5 @@ Tretji teden smo uspodobili iskanje nepremičnin in potrditev registracije ter b
 [EvaSmolak](https://github.com/EvaSmolak) |[CetinaLuka](https://github.com/CetinaLuka) |[KovacZan](https://github.com/KovacZan) |[ZeleDavid](https://github.com/ZeleDavid) |
 
 # Povezave do dodatne dokumentacije
-- <a href="Nepremicninska-Agencija/baza.md">Podatkovna baza</a>
-- <a href="Nepremicninska-Agencija/namestitev.md">Navodila za namestitev</a>
+- <a href="baza.md">Podatkovna baza</a>
+- <a href="namestitev.md">Navodila za namestitev</a>
