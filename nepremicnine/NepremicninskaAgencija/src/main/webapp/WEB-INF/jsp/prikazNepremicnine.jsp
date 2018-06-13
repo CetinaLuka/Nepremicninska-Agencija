@@ -49,14 +49,7 @@
 <br />
 
 <main class="container">
-    <section>
-        <div class=" col-xs-12 col-lg-12 bold-black">
-            <p style="font-size:x-large; float: left">tip nepremičnine: &nbsp </p>
-            <p style="color: #f41068; font-size:x-large"> <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">stanovanje</c:if>
-                <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">hiša</c:if>
-                <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">posest</c:if></p>
-        </div>
-    </section>
+
 
     <!--div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
@@ -108,10 +101,15 @@
 
 
 
-        <section class="col-xs-12 col-lg-12 section-gap">
+        <section class="col-xs-12 col-lg-12 section-gap" style="padding-top: 40px !important;">
             <div class=" col-xs-12 col-lg-12 bold-black">
                 <p style="font-size:x-large">${fn:toUpperCase(nepremicnina_kraj.imeKraja)}, ${nepremicnina_naslov.ulica} ${nepremicnina_naslov.hisnaSt}</p>
-                <p style="color: #f41068; font-size:xx-large">${nepremicnina.cena}€</p></br>
+                <p style="color: #f41068; font-size:xx-large">${nepremicnina.cena}€</p>
+                <p style="font-size:x-large; float: left">Tip nepremičnine: &nbsp </p>
+                <p style="color: #f41068; font-size:x-large"> <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==1}">stanovanje</c:if>
+                    <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==2}">hiša</c:if>
+                    <c:if test = "${nepremicnina.tk_id_vrstaNepremicnine==3}">posest</c:if></p>
+                </br>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-mlg-8 col-lg-8 ">
