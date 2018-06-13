@@ -1,0 +1,1 @@
+#Navodila za namestitev
