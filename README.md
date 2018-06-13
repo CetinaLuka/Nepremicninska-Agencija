@@ -38,13 +38,11 @@ Tretji teden
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="prviTeden" title="Četrti Teden"/><br/>
   <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.3.png" alt="prviTeden" title="Četrti Teden"/>
 </div>
+
 ## Avtorji
-[<img alt="EvaSmolak" src="https://https://avatars0.githubusercontent.com/u/33725038?s=400&v=4" width="117">](https://github.com/EvaSmolak) |[<img alt="lukacetina" src="https://github.com/settings/profile" width="117">](https://github.com/CetinaLuka) |[<img alt="rhododendrom" src="https://avatars1.githubusercontent.com/u/3198785?v=4&s=117" width="117">](https://github.com/KovacZan) |[<img alt="davidzele" src="https://avatars1.githubusercontent.com/u/39158639?s=400&v=4" width="117">](https://github.com/ZeleDavid) |
-:---: |:---: |:---: |:---: |:---: |
-## Contributors
-[<img alt="EvaSmolak" src="https://https://avatars0.githubusercontent.com/u/33725038?s=400&v=4" width="117">](https://github.com/EvaSmolak) |[<img alt="firefly-cpp" src="https://avatars2.githubusercontent.com/u/1633361?v=4&s=117" width="117">](https://github.com/firefly-cpp) |[<img alt="lucijabrezocnik" src="https://avatars2.githubusercontent.com/u/36370699?v=4&s=117" width="117">](https://github.com/lucijabrezocnik) |[<img alt="mlaky88" src="https://avatars1.githubusercontent.com/u/23091578?v=4&s=117" width="117">](https://github.com/mlaky88) |[<img alt="rhododendrom" src="https://avatars1.githubusercontent.com/u/3198785?v=4&s=117" width="117">](https://github.com/rhododendrom) |
-:---: |:---: |:---: |:---: |:---: |
-[GregaVrbancic](https://github.com/GregaVrbancic) |[firefly-cpp](https://github.com/firefly-cpp) |[lucijabrezocnik](https://github.com/lucijabrezocnik) |[mlaky88](https://github.com/mlaky88) |[rhododendrom](https://github.com/rhododendrom)
+[<img alt="EvaSmolak" src="https://avatars0.githubusercontent.com/u/33725038?s=400&v=4" width="117">](https://github.com/EvaSmolak) |[<img alt="CetinaLuka" src="https://avatars3.githubusercontent.com/u/33715779?s=400&u=4752d8027850c8f376c54dd977df726c1d24c58a&v=4" width="117">](https://github.com/CetinaLuka) |[<img alt="KovacZan" src="https://avatars1.githubusercontent.com/u/39158639?s=400&v=4" width="117">](https://github.com/KovacZan) |[<img alt="ZeleDavid" src="https://avatars3.githubusercontent.com/u/33752926?s=400&v=4" width="117">](https://github.com/ZeleDavid) |
+:---: |:---: |:---: |:---: |
+[EvaSmolak](https://github.com/EvaSmolak) |[CetinaLuka](https://github.com/CetinaLuka) |[KovacZan](https://github.com/KovacZan) |[ZeleDavid](https://github.com/ZeleDavid) |
 
 
 
