@@ -1,6 +1,6 @@
 # O projektu
 
-Projekt je bil narejen za predmet PRAKTIKUM 1 pri smeri ITK UN na FERI. Razvili smo ga z znanjem, ki smo ga pridobili v 1. letniku, zato smo uporabili jezike in tehnologije ki so nam najbolj poznane. Razvoj je trajal pet tednov, pod vodstvom asistentke Lucije Brezočnik. Na začetku vsakega tedna smo določili cilje, ki smo jih morali tisti teden izpolniti.
+Projekt je bil narejen za predmet PRAKTIKUM 1 pri smeri ITK UN na FERI. Razvili smo ga z znanjem, ki smo ga pridobili v 1. letniku, zato smo uporabili jezike in tehnologije ki so nam najbolj poznane. Razvoj je trajal pet tednov, pod vodstvom asistentke Lucije Brezočnik.
 <p align="center"><img src="nepremicnine/NepremicninskaAgencija/src/main/resources/static/img/Logo/logo.png" alt="NepremicninskaAgencija" title="NepremicninskaAgencija" width="400px" height="300px"/></p>
 
 # Naloga
@@ -40,7 +40,8 @@ področju Maribora, ki ima vključeno garažo.
 
 
 # Razvoj funkcionalnosti
-
+ Na začetku vsakega tedna smo določili cilje, ki smo jih morali tisti teden izpolniti.
+ 
 ## Prvi teden
 Prvi teden smo naredili osnovno strukturo projekta, izbrali template in ga vključili v projekt. Dodali smo tudi registracijo in prijavo ter dodajanje nepremičnin in uredili grafično podobo template-a. Izdelali smo tudi podatkovno bazo in jo povezali s stranjo.
 <div align="center">
