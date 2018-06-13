@@ -157,7 +157,7 @@ public class MainController {
 
     @RequestMapping(value = {"/iskanjeStanovanje" }, method = RequestMethod.GET)
     public String iskanjeStanovanje(HttpServletRequest request, RedirectAttributes red, Model model,
-                                    @RequestParam(value="select_pokrajina",required = false)int regija,
+                                    @RequestParam(value="select_pokrajina")int regija,
                                     @RequestParam(value="letnik_izgradnje",required = false)String letnik_izgradnje,
                                     @RequestParam(value="letnik_prenove",required = false)String letnik_prenove,
                                     @RequestParam(value="stevilo_sob",required = false)String stevilo_sob,
@@ -210,9 +210,9 @@ public class MainController {
                               Model model,
                               @RequestParam(value="select_pokrajina")int regija,
                               @RequestParam(value="select_tip_hisa")String tip_hisa,
-                              @RequestParam(value="letnik_izgradnje")String letnik_izgradnje,
-                              @RequestParam(value="letnik_prenove")String letnik_prenove,
-                              @RequestParam(value="garaza")String garaza,
+                              @RequestParam(value="letnik_izgradnje",required = false)String letnik_izgradnje,
+                              @RequestParam(value="letnik_prenove",required = false)String letnik_prenove,
+                              @RequestParam(value="garaza",required = false)String garaza,
                               @RequestParam(value="range3")String range3,
                               @RequestParam(value="range4")String range4,
                               @RequestParam(value="range5")String range5) {

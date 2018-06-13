@@ -94,7 +94,6 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
-                                                    <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
                                                     <option value="2">Primorska</option>
                                                     <option value="3">Štajerska</option>
@@ -156,7 +155,6 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
-                                                    <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
                                                     <option value="2">Primorska</option>
                                                     <option value="3">Štajerska</option>
@@ -168,7 +166,6 @@
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_tip_hisa" class="app-select form-control" required>
-                                                    <option data-display="Tip hiše">Tip hiše</option>
                                                     <option value="Samostojna">Samostojna</option>
                                                     <option value="Dvojček">Dvojček</option>
                                                     <option value="Vrstna">Vrstna</option>
@@ -218,7 +215,6 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_pokrajina" class="app-select form-control" required>
-                                                    <option data-display="Pokrajina">Pokrajina</option>
                                                     <option value="1">Notranjska</option>
                                                     <option value="2">Primorska</option>
                                                     <option value="3">Štajerska</option>
@@ -230,7 +226,6 @@
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-xs-6 isci" style="padding-top: 10px;">
                                                 <select name="select_tip_posesti" class="app-select form-control" required>
-                                                    <option data-display="Tip posesti">Tip posesti</option>
                                                     <option value="Zazidljiva">Zazidljiva</option>
                                                     <option value="Nezazidljiva">Nezazidljiva</option>
                                                     <option value="Kmetijsko zemljišče">Kmetijsko zemljišče</option>
