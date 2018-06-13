@@ -8,17 +8,18 @@ Nepremičninska agencija želi voditi pregled nad nepremičninami, ki jih zastop
 Nepremičninski agent lahko v sistem vstavi novo nepremičnino. Nepremičnina je lahko stanovanje,
 hiša ali posest.
 Za vsako stanovanje je potrebno vnesti naslednje obvezne parametre:
--kraj,
--kvadraturo,
--število sob v stanovanju,
--letnik izgradnje,
--nadstropje v bloku,
--ali je stanovanje prenovljeno,
--ali ima stanovanje garažo,
--ali ima stanovanje balkon,
--ceno,
--naslov.
-ali ima
+
+- kraj,
+- kvadraturo,
+- število sob v stanovanju,
+- letnik izgradnje,
+- nadstropje v bloku,
+- ali je stanovanje prenovljeno,
+- ali ima stanovanje garažo,
+- ali ima stanovanje balkon,
+- ceno,
+- naslov.
+
 Agent lahko doda tudi dodaten opis stanovanja, kjer so zbrani podatki glede ogrevanja, energijskega razreda, telekomunikacijskega
 omrežja ipd. Vsako stanovanje ima tudi galerijo slik, kjer so objavljene slike stanovanja, tlorisi ipd.
 
