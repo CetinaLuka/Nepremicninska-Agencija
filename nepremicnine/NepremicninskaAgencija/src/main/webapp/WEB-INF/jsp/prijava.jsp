@@ -39,7 +39,14 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-10">
                     <div class="generic-banner-content text-center">
-                        <h2 class="text-white" id="textPrijava">Prijava</h2>
+                        <c:choose>
+                            <c:when test="${emailNeObstaja==true}">
+                               <h2 class="text-white" id="textPrijava">Pozabljeno geslo</h2>
+                            </c:when>
+                            <c:otherwise>
+                                <h2 class="text-white" id="textPrijava">Prijava</h2>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>
@@ -176,7 +183,7 @@
                             <div class="banner-content col-lg-5 col-md-7 col-sm-10 col-xs-12">
                                 <div class="row">
                                     <div class="col-9 text-left" style="color: darkred; display: none" id="divEmail">
-                                        <a href="/prijava">Geslo je poslano na Email!</a>
+                                        <a href="/prijava">Geslo je bilo poslano na Email!</a>
                                     </div>
                                 </div>
                             </div>
@@ -224,18 +231,19 @@
             $("#textPrijava").text("Pozabljeno geslo");
         });
 
-            <c:if test="${emailNeObstaja==true}">
-                 main.empty();
-                 document.getElementById("boris").style.display="block";
-                 document.getElementById("divEmail").style.display="block";
-                 $("#textPrijava").text("Pozabljeno geslo");
-            </c:if>
+
             <c:if test="${emailObstaja==true}">
                 main.empty();
                 document.getElementById("boris").style.display="block";
                 document.getElementById("divEmail").style.display="block";
                 $("#textPrijava").text("Pozabljeno geslo");
             </c:if>
+        <c:if test="${emailNeObstaja==true}">
+        main.empty();
+        document.getElementById("boris").style.display="block";
+        document.getElementById("divEmail").style.display="block";
+        $("#textPrijava").text("Pozabljeno geslo");
+        </c:if>
     </script>
 </body>
 </html>

@@ -258,8 +258,12 @@ public class Nepremicnina{
 
     public void brezSumnikov(){
        opis=preveri(opis);
-       vrstaHise=preveri(vrstaHise);
-       tipPosesti=preveri(tipPosesti);
+       if(vrstaHise!=null) {
+           vrstaHise = preveri(vrstaHise);
+       }
+       if(tipPosesti!=null) {
+           tipPosesti = preveri(tipPosesti);
+       }
        ulica=preveri(ulica);
        hisnaSt=preveri(hisnaSt);
        imeKraja=preveri(imeKraja);
@@ -270,17 +274,18 @@ public class Nepremicnina{
     private String preveri (String string){
         String[] sumniki  = {"č","ć","đ","š","ž","Č","Ć","Đ","Š","Ž"};
         String[] brezSumnikov = {"c","c","d","s","z","C","C","D","S","Z"};
-        if (string!=null) {
-            for (int i = 0; i < string.length(); i++) {
+        char [] st = string.toCharArray();
+        if (st!=null) {
+            for (int i = 0; i < st.length; i++) {
                 for (int j = 0; j < sumniki.length; j++) {
-                    if (sumniki[j].charAt(0) == string.charAt(i)) {
-                        string = brezSumnikov[j];
+                    if (sumniki[j].charAt(0) == st[i]) {
+                        st[i]=brezSumnikov[j].charAt(0);
                         break;
                     }
                 }
             }
         }
-        return string;
+        return String.valueOf(st);
     }
 
 
