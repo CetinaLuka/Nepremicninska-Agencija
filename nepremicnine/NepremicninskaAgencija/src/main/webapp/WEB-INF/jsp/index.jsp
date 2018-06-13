@@ -514,7 +514,12 @@
 											<div class="middle">
 												<div class="justify-content mb-2">
 													Opis:<br />
-													<p class="opis">
+													<p class="opis"
+															<c:if test="${nepremicnina.tipPosesti.equals('Kmetijsko zemljišče')}">
+																style=" height: 54px; -webkit-line-clamp: 2;"
+															</c:if>
+													   data-toggle="tooltip" data-placement="top" title="${nepremicnina.opis}"
+													>
 														<c:if test="${!nepremicnina.opis.equals('')}">${nepremicnina.opis}</c:if>
 														<c:if test="${nepremicnina.opis.equals('')}"> / </c:if>
 													</p>

@@ -224,6 +224,7 @@ public class SortiranjController {
             session.setAttribute("sortCena",0);
         }
         model.addAttribute("seznamIskanja",seznam);
+        model.addAttribute("seznamSlik",slikaDao.vrniSlikoNepremicnine());
         return "iskanjeNepremicnin";
     }
     @RequestMapping(value = {"/posodobiFiltre" }, method = RequestMethod.GET)
