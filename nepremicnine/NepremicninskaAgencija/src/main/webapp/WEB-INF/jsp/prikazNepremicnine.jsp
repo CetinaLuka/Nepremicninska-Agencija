@@ -7,7 +7,8 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="<c:url value='img/Logo/logo.png'/>">
+    <%--<link rel="shortcut icon" href="<c:url value='img/logo/logo.png'/>">--%>
+    <link rel="shortcut icon" href="img/logo/logo.png">
     <!-- Author Meta -->
     <meta name="author" content="CodePixar">
     <!-- Meta Description -->
@@ -34,7 +35,7 @@
 
 
 </head>
-<body>
+<body style="height: auto;">
 <!-- Start Navbar Area -->
 <jsp:include page="includes/navigacijskiMeni.jsp" />
 <!-- End Navbar Area -->
@@ -50,21 +51,6 @@
 
 <main class="container">
 
-
-    <!--div class="slider-pro" id="my-slider" style="margin-top: 30px">
-        <div class="sp-slides">
-            <c:forEach var = "i" begin = "1" end = "6">
-                <div class="sp-slide">
-                    <img class="sp-image" src="../img/regija${i}.jpg"/>
-                </div>
-            </c:forEach>
-        </div>
-        <div class="sp-thumbnails">
-            <c:forEach var = "j" begin = "1" end = "6">
-                <img class="sp-thumbnail" src="../img/regija${j}.jpg"/>
-            </c:forEach>
-        </div>
-    </div-->
     <c:if test="${!(empty nepremicnina_slika)}">
    <div class="slider-pro" id="my-slider" style="margin-top: 30px">
         <div class="sp-slides">
@@ -265,7 +251,7 @@
         </section>
 </main>
 <!-- start footer Area-->
-<!--jsp:include page="includes/footer.jsp" /-->
+<jsp:include page="includes/footer.jsp" />
 <!-- End footer Area -->
 <script src="<c:url value="/js/vendor/jquery-2.2.4.min.js"/>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
