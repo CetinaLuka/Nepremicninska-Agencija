@@ -54,27 +54,34 @@ Prvi teden smo naredili osnovno strukturo projekta, izbrali template in ga vklju
 ## Drugi teden
 Drugi teden smo dodali brisanje nepremičnin, dodajanje slik, kontrolno ploščo ter uredili naslovno stran. Dodalo smo tudiveliko funkcionalnosti  kot so posodobitev podatkov in slik, gumb za pomik na vrh strani in zemljevid.
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.1.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.2.png" alt="prviTeden" title="Drugi Teden" margin=20px"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.3.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.4.png" alt="prviTeden" title="Drugi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.1.png" alt="drugiTeden" title="Drugi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.2.png" alt="drugiTeden" title="Drugi Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.3.png" alt="drugiTeden" title="Drugi Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden2.4.png" alt="drugiTeden" title="Drugi Teden" margin=20px"/>
 </div>
 
 ## Tretji teden
 Tretji teden smo uspodobili iskanje nepremičnin in potrditev registracije ter brisanje nepremičnin in prikaz natančne lokacije.
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.1.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.2.png" alt="prviTeden" title="Tretji Teden" margin=20px"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.3.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.4.png" alt="prviTeden" title="Tretji Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.1.png" alt="tretjiTeden" title="Tretji Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.2.png" alt="tretjiTeden" title="Tretji Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.3.png" alt="tretjiTeden" title="Tretji Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden3.4.png" alt="tretjiTeden" title="Tretji Teden" margin=20px"/>
 </div>
 
 ## Četrti teden
 Četrti teden smo naredili testne podatke in usposobili urejanje nepremičnin z ajaxom. Naredili smo tudi prikaz slik nepremičnin in dodali funkcijo za pozabljeno geslo, pošiljanje nepremičnine na mail in sortiranje nepremičnin. 
 <div align="center">
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.1.png" alt="prviTeden" title="Četrti Teden" margin=20px"/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="prviTeden" title="Četrti Teden" margin=20px"/><br/>
-  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.3.png" alt="prviTeden" title="Četrti Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.1.png" alt="cetrtiTeden" title="Četrti Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.2.png" alt="cetrtiTeden" title="Četrti Teden" margin=20px"/><br/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden4.3.png" alt="cetrtiTeden" title="Četrti Teden" margin=20px"/>
+</div>
+
+## Peti teden
+Peti teden smo izpilili podrobnosti ter odpravili manjše napake najdene med naknadnim testiranjem. Popolno funkcionalnost sta dobila tudi iskanje in sortiranje nepremičnin. Dodana je bila funkcija pošiljanja podatkov o nepremičnini v obliki pdf na e-mail. 
+<div align="center">
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden5.1.png" alt="petiTeden" title="Peti Teden" margin=20px"/>
+  <img src="Printscreeni-Task/OPRAVLJENO-DELO/teden5.2.png" alt="petiTeden" title="Peti Teden" margin=20px"/>
 </div>
 
 ## Avtorji
