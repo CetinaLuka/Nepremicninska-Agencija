@@ -3172,9 +3172,9 @@ pokrivanje::selection{
   line-height: 1.6;
 }
 .posest .opis{
-  height: 74px;
+  height: 73px;
   overflow: hidden;
-  margin-bottom: 13px;
+  margin-bottom: 14px;
   /*--------------*/
   display: block;
   display: -webkit-box;
