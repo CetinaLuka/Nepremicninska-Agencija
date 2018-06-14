@@ -27,8 +27,28 @@
 	<artifactId>spring-boot-starter-jdbc</artifactId>
 </dependency>
 ```
+## Preostale back-end knjižnice
+#### Pri pošiljanju templatov na email smo si pomagali s <a href="https://freemarker.apache.org/index.html">Apache FreeMarker</a>
 ```
+<dependency>
+	<groupId>org.freemarker</groupId>
+	<artifactId>freemarker</artifactId>
+	<version>2.3.26-incubating</version>
+</dependency>
 ```
+#### Za ustvarjanje pdf-jev smo uporabili <a href="https://pdfbox.apache.org/">Apache PDFBox</a>
 ```
+<dependency>
+	<groupId>org.apache.pdfbox</groupId>
+	<artifactId>pdfbox</artifactId>
+	<version>2.0.8</version>
+	<scope>compile</scope>
+</dependency>
 ```
+### Za server je bil uporabljen Apache Tomcat 
+```
+<dependency>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
 ```
