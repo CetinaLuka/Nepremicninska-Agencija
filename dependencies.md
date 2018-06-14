@@ -52,3 +52,11 @@
 	<artifactId>tomcat-embed-jasper</artifactId>
 </dependency>
 ```
+## Frond-end knjižnjice, storitve in template
+##### Uporabljali smo:
+* Bootsrap
+* jQuery
+* <a href="https://cloud.google.com/maps-platform/">Google maps api</a>
+* Za koledar smo uporabili <a href="https://calendly.com/">calendly</a> storitev
+* <a href="http://bqworks.com/slider-pro/#example5">Galerija</a>
+* Template smo vzeli iz <a href="https://colorlib.com/wp/template/real-estate/">colorlib</a>
