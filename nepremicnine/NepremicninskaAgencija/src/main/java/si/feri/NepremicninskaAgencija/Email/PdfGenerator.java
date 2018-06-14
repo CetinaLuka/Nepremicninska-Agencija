@@ -92,6 +92,7 @@ public class PdfGenerator {
                 stream.showText(title);
                 stream.endText();
                 alineja(15,0,75,750,"Podatki nepremicnine: ","");
+                
 
 
 
@@ -117,7 +118,7 @@ public class PdfGenerator {
                             "Nadstropje:  ", "" + nepremicnina.getNadstropje());
                 }
                 alineja(velikostTextaAlinejeEna,velikostTextaAlinejeDva,osXZaAlineje,osYZaAlineje,
-                        "Cena:  ", String.valueOf(nepremicnina.getCena()));
+                        "Cena:  ", String.valueOf(nepremicnina.getCena()+"€"));
 
                 alineja(velikostTextaAlinejeEna, velikostTextaAlinejeDva, osXZaAlineje, osYZaAlineje,
                         "Vrsta hise:  ", nepremicnina.getVrstaHise());
@@ -179,6 +180,7 @@ public class PdfGenerator {
                e.printStackTrace();
             }
         }
+
 
 
 
