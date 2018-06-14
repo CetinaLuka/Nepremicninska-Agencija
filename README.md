@@ -85,3 +85,4 @@ Tretji teden smo uspodobili iskanje nepremičnin in potrditev registracije ter b
 # Povezave do dodatne dokumentacije
 - <a href="baza.md">Podatkovna baza</a>
 - <a href="namestitev.md">Navodila za namestitev</a>
+- <a href="dependencies.md">Uporabljene knjižnjice</a>
