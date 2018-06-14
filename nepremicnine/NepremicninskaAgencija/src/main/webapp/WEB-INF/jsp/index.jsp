@@ -245,7 +245,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<div class="modal-body" style="height: 400px;">
+						<div class="modal-body" style="height: 500px;">
 							<div id="zemljevidNepremicnin" style="height: 100%;"></div>
 						</div>
 					</div></div></div>
