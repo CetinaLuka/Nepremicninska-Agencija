@@ -54,7 +54,7 @@
 ```
 ## Frond-end knjižnjice, storitve in template
 ##### Uporabljali smo:
-* Bootsrap
+* Bootstrap
 * jQuery
 * <a href="https://cloud.google.com/maps-platform/">Google maps api</a>
 * Za koledar smo uporabili <a href="https://calendly.com/">calendly</a> storitev
