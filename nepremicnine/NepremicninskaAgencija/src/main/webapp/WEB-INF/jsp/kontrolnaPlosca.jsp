@@ -287,7 +287,7 @@
                                             </div>
                                             <div class="middle">
                                                 <div class="d-flex justify-content-start podatek">
-                                                    <p>Zemljišče: <span id="skupnaKvadratura1">${nepremicnina.skupnaKvadratura}</span>m²</p>
+                                                    <p>Zemljišče: <span id="skupnaKvadratura1">${nepremicnina.skupnaKvadratura}m²</span></p>
                                                     <p>Zgrajeno: <span id="letoIzgradnjeNepremicnine1">${nepremicnina.letoIzgradnje}</span></p>
                                                 </div>
                                                 <div class="d-flex justify-content-start podatek">
@@ -884,9 +884,6 @@
             document.getElementById("top-gumb").style.display = "none";
         }
     }
-    $('#prenovljeno').click(function(){
-        console.log("click prenovljeno");
-    });
     function urejanje(id, vrsta){
         var vrstaNepremicnine = "";
         if(vrsta==1){
@@ -907,7 +904,6 @@
                 document.getElementsByName("prenovljeno")[0].click();
             }
             if($('textarea[name="dodaten_opis"]').text()!=null && $('textarea[name="dodaten_opis"]').text().length>0) {
-                console.log($('textarea[name="dodaten_opis"]').text());
                 document.getElementsByName("dodaten_opis_check")[0].click();
             }
         }
