@@ -92,7 +92,7 @@ public class PdfGenerator {
                 stream.showText(title);
                 stream.endText();
                 alineja(15,0,75,750,"Podatki nepremicnine: ","");
-                
+
 
 
 

@@ -151,7 +151,7 @@
                                <div class="row">
                                    <div class="col-xs-12 col-md-12 col-lg-6">
                                        <div class="bold-black"><i class="fa fa-tree" style="font-size: x-large"></i>    Kvadratura zemljišča(m2)</div>
-                                       <div> ${eapremicnina.skupnaKvadratura}m2</div>
+                                       <div> ${nepremicnina.skupnaKvadratura}m2</div>
                                    </div>
                                    <div class="col-xs-12 col-md-12 col-lg-6">
                                        <div class="bold-black"><i class="fa fa-wrench" style="font-size: x-large"></i>   Leto izgradnje</div>
